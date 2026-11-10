@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luna Viva | Sistema de Inventario & Control de Stock</title>
+  <meta name="description"
+    content="Sistema de gestión de inventario para Luna Viva. Control de entradas y salidas con lector de código de barras, categorías, marcas y Kardex.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="public/img/Logo%20luna%20sin%20fondo.png">
+  <link rel="stylesheet" href="style.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- JsBarcode para generación de códigos de barra imprimibles -->
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+  <!-- Html5Qrcode para soporte de escaneo con cámara web / móvil -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+</head>
+
+<body>
+  <div class="app-layout">
+    <!-- BARRA LATERAL / SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand-header">
+        <div class="logo-container">
+          <img src="public/img/Logo%20luna%20sin%20fondo.png" alt="Luna Viva Logo" class="brand-logo"
+            onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+          <div id="logo-fallback" class="logo-fallback" style="display:none;">
+            <span class="moon-icon">🌙</span>
+          </div>
+        </div>
+        <div class="brand-titles">
+          <h1 class="brand-name">LUNA VIVA</h1>
+          <p class="brand-tagline">Belleza, Resplandor & Vitalidad</p>
+        </div>
+      </div>
+
+      <!-- Perfil de Sesión Activa & Cambio de Turno -->
+      <div class="user-session-card" id="user-session-card">
+        <div class="user-session-avatar" id="current-user-avatar">
+          <span id="current-user-initial">L</span>
+        </div>
+        <div class="user-session-details">
+          <div class="user-session-name" id="current-user-name">Laura</div>
+          <span class="user-role-badge badge-admin" id="current-user-role-badge">
+            <i data-lucide="shield-check" class="role-icon"></i> Administración
+          </span>
+        </div>
+        <button type="button" id="btn-logout" class="btn-session-switch" title="Cambiar usuario o cerrar turno">
+          <i data-lucide="log-out"></i>
+        </button>
+      </div>
+
+      <!-- Navegación Principal -->
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="tab-pos-accounts">
+          <i data-lucide="shopping-bag"></i>
+          <span>Cuentas & Salidas</span>
+          <span class="nav-badge" id="badge-open-accounts">1</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-scanner">
+          <i data-lucide="scan-barcode"></i>
+          <span>Pistola / Escáner</span>
+          <span class="nav-badge" id="badge-mode">Salida</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-catalog">
+          <i data-lucide="package"></i>
+          <span>Catálogo & Stock</span>
+          <span class="nav-badge-count" id="badge-total-products">0</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-kardex">
+          <i data-lucide="arrow-left-right"></i>
+          <span>Kardex / Movimientos</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-barcode-generator">
+          <i data-lucide="printer"></i>
+          <span>Imprimir Etiquetas</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-analytics">
+          <i data-lucide="bar-chart-3"></i>
+          <span>Métricas & Alertas</span>
+          <span class="nav-badge-alert" id="badge-alerts" style="display:none;">!</span>
+        </button>
+      </nav>
+
+      <!-- Estado del Escáner Físico -->
+      <div class="scanner-status-card">
+        <div class="scanner-indicator">
+          <div class="pulse-ring"></div>
+          <span class="pulse-dot"></span>
+          <span class="scanner-status-text">Lector USB / BT Listo</span>
+        </div>
+        <p class="scanner-hint">Apunta tu lector de código de barras a cualquier producto en cualquier momento.</p>
+      </div>
+
+      <!-- Footer de Sidebar -->
+      <div class="sidebar-footer">
+        <button id="btn-export-backup" class="btn-sidebar-action" title="Descargar copia de seguridad del inventario">
+          <i data-lucide="download"></i> Respaldo
+        </button>
+        <button id="btn-sound-toggle" class="btn-sidebar-action" title="Silenciar / Activar sonido de confirmación">
+          <i data-lucide="volume-2" id="sound-icon"></i> Sonido
+        </button>
+      </div>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL DE CONTENIDO -->
+    <main class="main-content">
+      <!-- HEADER SUPERIOR -->
+      <header class="top-header">
+        <div class="header-breadcrumb">
+          <span class="breadcrumb-root">Inventario Boutique Calarcá</span>
+          <i data-lucide="chevron-right" class="breadcrumb-sep"></i>
+          <span class="breadcrumb-current" id="header-section-title">Cuentas de Clientes & Sistema de Salidas</span>
+        </div>
+
+        <div class="header-actions">
+          <!-- Botón de apertura de escáner con cámara móvil/webcam -->
+          <button id="btn-toggle-camera" class="btn btn-outline" title="Usar cámara de celular o webcam como lector">
+            <i data-lucide="camera"></i> Escanear con Cámara
+          </button>
+
+          <!-- Botón para nuevo producto -->
+          <button id="btn-open-new-product" class="btn btn-primary">
+            <i data-lucide="plus-circle"></i> Nuevo Producto
+          </button>
+        </div>
+      </header>
+
+      <!-- CONTENEDOR DE PESTAÑAS -->
+      <div class="content-body">
+
+        <!-- PESTAÑA PRINCIPAL: CUENTAS DE CLIENTES & SISTEMA DE SALIDAS (POS) -->
+        <section id="tab-pos-accounts" class="tab-pane active">
+          <!-- Barra Superior de Cuentas: Pestañas de Clientes Abiertas & Switch de Historial -->
+          <div class="pos-top-header">
+            <div class="pos-accounts-manager">
+              <div class="pos-accounts-tabs" id="pos-accounts-tabs">
+                <!-- Se renderizan pestañas de cuentas: [👤 Cuenta 1 (3) $68.000 ×] [👤 Cuenta 2...] -->
+              </div>
+              <button id="btn-new-account" class="btn btn-outline-sm btn-new-tab"
+                title="Abrir una nueva cuenta para otra clienta">
+                <i data-lucide="plus"></i> <span>Nueva Cuenta</span>
+              </button>
+            </div>
+
+            <div class="pos-top-actions">
+              <div class="pos-view-switch">
+                <button type="button" class="btn-toggle active" id="btn-pos-view-active">
+                  <i data-lucide="shopping-bag"></i> <span>Cuenta en Curso</span>
+                </button>
+                <button type="button" class="btn-toggle" id="btn-pos-view-history">
+                  <i data-lucide="receipt"></i> <span>Historial del Día</span>
+                  <span class="badge-count-sm" id="badge-history-count">0</span>
+                </button>
+                <button type="button" class="btn-toggle" id="btn-pos-view-monthly">
+                  <i data-lucide="calendar"></i> <span>Historial del Mes</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTENIDO 1: ATENCIÓN EN CURSO (CUENTA ACTIVA) -->
+          <div id="pos-view-active-container" class="pos-main-container">
+            <!-- Columna Izquierda: Escaneo, Búsqueda y Lista de Productos en la Cuenta -->
+            <div class="pos-left-panel">
+              <!-- Barra de Escaneo / Búsqueda para la Cuenta Activa -->
+              <div class="pos-search-card">
+                <div class="pos-search-wrapper">
+                  <div class="pos-input-icon"><i data-lucide="barcode"></i></div>
+                  <input type="text" id="pos-barcode-search-input"
+                    placeholder="Pasa la pistola lectora o escribe nombre, marca o código de barras..."
+                    autocomplete="off">
+                  <button type="button" id="btn-pos-camera-scan" class="btn-search-camera" title="Escanear con cámara">
+                    <i data-lucide="camera"></i>
+                  </button>
+                  <button type="button" id="btn-pos-add-item-submit" class="btn btn-primary-sm">
+                    <i data-lucide="plus"></i> <span>Agregar</span>
+                  </button>
+                </div>
+
+                <!-- Dropdown de Autocompletado de Búsqueda Rápida -->
+                <div id="pos-autocomplete-dropdown" class="pos-autocomplete-dropdown" style="display: none;">
+                  <!-- Resultados filtrados en vivo -->
+                </div>
+              </div>
+
+              <!-- Banner de Identidad de la Cuenta Activa -->
+              <div class="pos-active-account-banner">
+                <div class="account-identity">
+                  <span class="account-avatar">👤</span>
+                  <div class="account-title-edit">
+                    <input type="text" id="pos-account-name-input" class="pos-account-title-input"
+                      value="Cliente Mostrador" placeholder="Nombre de la clienta...">
+                    <small id="pos-account-code-label">Cuenta #CTA-001</small>
+                  </div>
+                </div>
+                <div class="account-meta-quick">
+                  <span class="account-items-counter" id="pos-items-count-badge">0 productos</span>
+                  <span class="account-time" id="pos-account-time-badge">Iniciada hoy</span>
+                </div>
+              </div>
+
+              <!-- Tabla / Lista de Productos en la Cuenta -->
+              <div class="pos-cart-container">
+                <table class="pos-table" id="pos-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 42%;">Producto / Referencia</th>
+                      <th style="width: 17%;">Precio Unit.</th>
+                      <th style="width: 20%; text-align: center;">Cantidad</th>
+                      <th style="width: 16%; text-align: right;">Subtotal</th>
+                      <th style="width: 5%;"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="pos-table-body">
+                    <!-- Filas renderizadas dinámicamente -->
+                  </tbody>
+                </table>
+
+                <!-- Estado Vacío Elegante Luna Viva -->
+                <div id="pos-cart-empty-state" class="pos-empty-state" style="display: none;">
+                  <div class="empty-icon-glow">✨💄</div>
+                  <h3>Esta cuenta está vacía</h3>
+                  <p>Apunta con la pistola de código de barras a los productos de la clienta o usa el buscador de arriba
+                    para agregarlos.</p>
+
+                  <div class="pos-quick-suggestions">
+                    <span class="suggestions-label">Agregar productos frecuentes con 1 clic:</span>
+                    <div class="suggestions-chips" id="pos-quick-chips">
+                      <!-- Chips rápidos -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Datos de la Clienta, Descuento y Cobro -->
+            <div class="pos-right-panel">
+              <div class="pos-summary-card">
+                <h3 class="summary-card-title">
+                  <i data-lucide="sparkles"></i> <span>Datos & Resumen de Salida</span>
+                </h3>
+
+                <!-- Datos de la Clienta -->
+                <div class="customer-info-box">
+                  <div class="form-group-sm">
+                    <label for="pos-customer-phone"><i data-lucide="phone"></i> WhatsApp / Teléfono:</label>
+                    <input type="tel" id="pos-customer-phone" class="input-text-sm" placeholder="Ej: 310 123 4567">
+                  </div>
+
+                  <div class="form-group-sm">
+                    <label for="pos-channel-select"><i data-lucide="map-pin"></i> Canal / Destino de Salida:</label>
+                    <select id="pos-channel-select" class="input-select-sm">
+                      <option value="Punto Físico (Calarcá)">Punto Físico (Boutique Calarcá)</option>
+                      <option value="Venta WhatsApp / Envíos">Venta WhatsApp / Envíos</option>
+                      <option value="Domicilio Local">Domicilio Local Calarcá / Armenia</option>
+                      <option value="Probador / Tester">Probador / Muestra en Tienda</option>
+                      <option value="Merma o Defecto">Merma / Producto Averiado</option>
+                      <option value="Ajuste de Conteo">Ajuste de Salida / Conteo</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group-sm">
+                    <label for="pos-account-notes"><i data-lucide="message-square"></i> Nota u Observación
+                      (opcional):</label>
+                    <input type="text" id="pos-account-notes" class="input-text-sm"
+                      placeholder="Ej: Empacar para regalo, clienta frecuente...">
+                  </div>
+                </div>
+
+                <!-- Desglose Financiero -->
+                <div class="pos-financial-breakdown">
+                  <div class="breakdown-row">
+                    <span>Total Piezas / Unidades:</span>
+                    <strong id="pos-sum-units">0</strong>
+                  </div>
+
+                  <div class="breakdown-row">
+                    <span>Subtotal:</span>
+                    <strong id="pos-sum-subtotal">$0</strong>
+                  </div>
+
+                  <!-- Descuento Especial -->
+                  <div class="discount-control-box">
+                    <div class="discount-header">
+                      <span><i data-lucide="tag"></i> Descuento Especial:</span>
+                      <div class="discount-toggle-types">
+                        <button type="button" class="btn-disc-type active" id="btn-disc-cop" data-type="cop">$
+                          COP</button>
+                        <button type="button" class="btn-disc-type" id="btn-disc-pct" data-type="pct">%</button>
+                      </div>
+                    </div>
+                    <div class="discount-input-row">
+                      <input type="number" id="pos-discount-value" min="0" value="0" step="500" class="input-discount"
+                        placeholder="0">
+                      <span class="discount-amount-display" id="pos-discount-display">-$0</span>
+                    </div>
+                  </div>
+
+                  <div class="breakdown-divider"></div>
+
+                  <!-- Total Destacado Luna Viva -->
+                  <div class="pos-grand-total-box">
+                    <span class="total-label">TOTAL A PAGAR</span>
+                    <div class="total-amount" id="pos-sum-total">$0</div>
+                  </div>
+                </div>
+
+                <!-- Acciones Principales -->
+                <div class="pos-action-buttons">
+                  <button type="button" id="btn-pos-checkout" class="btn btn-primary btn-checkout-huge" disabled>
+                    <i data-lucide="check-circle-2"></i>
+                    <span>Cobrar / Registrar Salida</span>
+                  </button>
+
+                  <div class="pos-secondary-actions">
+                    <button type="button" id="btn-pos-hold" class="btn btn-outline-sm"
+                      title="Guardar cuenta en espera para atender a otra clienta">
+                      <i data-lucide="pause-circle"></i> En Espera
+                    </button>
+                    <button type="button" id="btn-pos-discard" class="btn btn-danger-sm"
+                      title="Descartar y cancelar esta cuenta">
+                      <i data-lucide="trash-2"></i> Cancelar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTENIDO 2: HISTORIAL DE SALIDAS DEL DÍA -->
+          <div id="pos-view-history-container" class="pos-history-container" style="display: none;">
+            <!-- Banner informativo de control diario -->
+            <div class="pos-history-date-banner">
+              <div class="date-banner-left">
+                <i data-lucide="clock"></i>
+                <div>
+                  <strong id="pos-history-current-date-label">Historial del Día: Hoy</strong>
+                  <span class="subtext">El registro abarca el día completo de 12:00 AM a 11:59 PM (hora local). Se
+                    reinicia a las 12:00 AM medianoche.</span>
+                </div>
+              </div>
+              <div class="date-banner-presets">
+                <button type="button" class="btn-date-preset active" id="btn-date-today" data-mode="today">
+                  <i data-lucide="sun"></i> <span>Hoy</span>
+                </button>
+                <button type="button" class="btn-date-preset" id="btn-date-yesterday" data-mode="yesterday">
+                  <i data-lucide="history"></i> <span>Ayer</span>
+                </button>
+                <button type="button" class="btn-date-preset" id="btn-date-all" data-mode="all">
+                  <i data-lucide="layers"></i> <span>Todas</span>
+                </button>
+                <div class="date-picker-inline">
+                  <label for="pos-history-date-picker"><i data-lucide="calendar"></i></label>
+                  <input type="date" id="pos-history-date-picker" title="Seleccionar un día específico">
+                </div>
+              </div>
+            </div>
+
+            <!-- KPIs del Día / Período Seleccionado -->
+            <div class="pos-history-kpis">
+              <div class="history-kpi-card">
+                <span class="kpi-label" id="pos-kpi-label-sales">Ventas / Salidas Hoy</span>
+                <span class="kpi-value text-rose" id="pos-kpi-today-sales">$0</span>
+              </div>
+              <div class="history-kpi-card">
+                <span class="kpi-label" id="pos-kpi-label-count">Cuentas Cerradas Hoy</span>
+                <span class="kpi-value text-success" id="pos-kpi-today-count">0</span>
+              </div>
+              <div class="history-kpi-card">
+                <span class="kpi-label">Ticket Promedio</span>
+                <span class="kpi-value" id="pos-kpi-average-ticket">$0</span>
+              </div>
+              <div class="history-kpi-card">
+                <span class="kpi-label">Unidades Despachadas</span>
+                <span class="kpi-value" id="pos-kpi-units-sold">0 unid.</span>
+              </div>
+            </div>
+
+            <!-- Filtros de Historial -->
+            <div class="pos-history-toolbar">
+              <div class="search-box">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="pos-history-search"
+                  placeholder="Buscar por cliente, N° de ticket o método de pago...">
+              </div>
+              <select id="pos-history-filter-method" class="filter-select">
+                <option value="ALL">Todos los Métodos de Pago</option>
+                <option value="Efectivo">Efectivo</option>
+                <option value="Nequi">Nequi</option>
+                <option value="Daviplata">Daviplata</option>
+                <option value="Tarjeta">Tarjeta / Datáfono</option>
+                <option value="Transferencia">Transferencia</option>
+                <option value="Crédito">Crédito / Por Cobrar</option>
+              </select>
+              <button type="button" id="btn-export-sales-csv" class="btn btn-secondary-sm">
+                <i data-lucide="download"></i> Exportar Ventas CSV
+              </button>
+            </div>
+
+            <!-- Tabla de Historial -->
+            <div class="table-responsive-container">
+              <table class="luna-table">
+                <thead>
+                  <tr>
+                    <th>N° Ticket</th>
+                    <th>Fecha & Hora</th>
+                    <th>Clienta</th>
+                    <th>WhatsApp</th>
+                    <th>Productos</th>
+                    <th>Total Pagado</th>
+                    <th>Método</th>
+                    <th>Atendido por</th>
+                    <th class="text-right">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="pos-history-table-body">
+                  <!-- Filas renderizadas dinámicamente -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- CONTENIDO 3: APARTADO DE HISTORIAL DEL MES -->
+          <div id="pos-view-monthly-container" class="pos-monthly-container" style="display: none;">
+            <!-- Header con Selector de Mes y Navegación -->
+            <div class="pos-monthly-header-card">
+              <div class="monthly-header-info">
+                <div class="monthly-icon-box">
+                  <i data-lucide="calendar-days"></i>
+                </div>
+                <div>
+                  <h2 class="monthly-title" id="pos-monthly-display-title">Historial de Salidas - Noviembre 2026</h2>
+                  <p class="monthly-subtitle">Resumen contable consolidado, KPIs del mes y registro completo de ventas
+                  </p>
+                </div>
+              </div>
+
+              <!-- Selector de Mes -->
+              <div class="monthly-controls">
+                <div class="month-stepper">
+                  <button type="button" class="btn btn-outline-sm btn-icon-round" id="btn-month-prev"
+                    title="Mes anterior">
+                    <i data-lucide="chevron-left"></i>
+                  </button>
+                  <input type="month" id="pos-month-input" class="input-month-selector">
+                  <button type="button" class="btn btn-outline-sm btn-icon-round" id="btn-month-next"
+                    title="Mes siguiente">
+                    <i data-lucide="chevron-right"></i>
+                  </button>
+                </div>
+                <button type="button" class="btn btn-outline-sm" id="btn-month-today-btn">
+                  <i data-lucide="calendar"></i> <span>Mes Actual</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- KPIs del Mes -->
+            <div class="pos-monthly-kpis">
+              <div class="history-kpi-card monthly-kpi-highlight">
+                <span class="kpi-label"><i data-lucide="dollar-sign"></i> Ventas Totales del Mes</span>
+                <span class="kpi-value text-rose" id="pos-kpi-month-sales">$0</span>
+                <span class="kpi-subtext" id="pos-kpi-month-sales-sub">Ingresos netos</span>
+              </div>
+              <div class="history-kpi-card">
+                <span class="kpi-label"><i data-lucide="receipt"></i> Cuentas / Tickets del Mes</span>
+                <span class="kpi-value text-success" id="pos-kpi-month-count">0</span>
+                <span class="kpi-subtext" id="pos-kpi-month-count-sub">Salidas registradas</span>
+              </div>
+              <div class="history-kpi-card">
+                <span class="kpi-label"><i data-lucide="trending-up"></i> Ticket Promedio</span>
+                <span class="kpi-value" id="pos-kpi-month-avg">$0</span>
+                <span class="kpi-subtext">Por venta cerrada</span>
+              </div>
+              <div class="history-kpi-card">
+                <span class="kpi-label"><i data-lucide="package"></i> Unidades Vendidas</span>
+                <span class="kpi-value" id="pos-kpi-month-units">0 unid.</span>
+                <span class="kpi-subtext">Productos despachados</span>
+              </div>
+            </div>
+
+            <!-- Desglose por Método de Pago en el Mes -->
+            <div class="pos-monthly-methods-card">
+              <div class="methods-card-header">
+                <h3><i data-lucide="wallet"></i> Desglose de Recaudo por Métodos de Pago</h3>
+                <span class="subtext">Distribución financiera en el mes seleccionado</span>
+              </div>
+              <div class="methods-grid" id="pos-monthly-methods-grid">
+                <!-- Se renderizan los métodos (Efectivo, Nequi, Daviplata, Tarjeta, etc.) -->
+              </div>
+            </div>
+
+            <!-- Resumen Día por Día del Mes -->
+            <div class="pos-monthly-days-card">
+              <div class="days-card-header">
+                <div class="days-title-group">
+                  <h3><i data-lucide="calendar"></i> Resumen de Salidas Día por Día</h3>
+                  <span class="subtext">Haz clic en "Ver Salidas" de cualquier día para auditar ese día en
+                    detalle</span>
+                </div>
+              </div>
+              <div class="table-responsive-container">
+                <table class="luna-table">
+                  <thead>
+                    <tr>
+                      <th>Fecha</th>
+                      <th>Día de la Semana</th>
+                      <th>Cuentas / Salidas</th>
+                      <th>Piezas Despachadas</th>
+                      <th>Total Facturado</th>
+                      <th>Método Principal</th>
+                      <th class="text-right">Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pos-monthly-days-tbody">
+                    <!-- Filas agrupadas día a día -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Listado Detallado de Ventas del Mes -->
+            <div class="pos-monthly-detail-card">
+              <div class="monthly-detail-header">
+                <div class="detail-title-group">
+                  <h3><i data-lucide="list"></i> Registro Detallado de Ventas del Mes</h3>
+                  <span class="badge" id="pos-monthly-detail-badge">0 ventas</span>
+                </div>
+                <div class="monthly-toolbar-actions">
+                  <div class="search-box">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="pos-monthly-search" placeholder="Buscar por cliente, N° ticket, teléfono...">
+                  </div>
+                  <select id="pos-monthly-filter-method" class="filter-select">
+                    <option value="ALL">Todos los Métodos</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Nequi">Nequi</option>
+                    <option value="Daviplata">Daviplata</option>
+                    <option value="Tarjeta">Tarjeta / Datáfono</option>
+                    <option value="Transferencia">Transferencia</option>
+                    <option value="Crédito">Crédito / Por Cobrar</option>
+                  </select>
+                  <select id="pos-monthly-filter-day" class="filter-select">
+                    <option value="ALL">Todos los Días del Mes</option>
+                  </select>
+                  <button type="button" id="btn-export-monthly-csv" class="btn btn-secondary-sm">
+                    <i data-lucide="download"></i> Exportar Mes CSV
+                  </button>
+                  <button type="button" id="btn-print-monthly-report" class="btn btn-secondary-sm">
+                    <i data-lucide="printer"></i> Imprimir Reporte Mensual
+                  </button>
+                </div>
+              </div>
+
+              <div class="table-responsive-container">
+                <table class="luna-table">
+                  <thead>
+                    <tr>
+                      <th>N° Ticket</th>
+                      <th>Fecha & Hora</th>
+                      <th>Clienta</th>
+                      <th>WhatsApp</th>
+                      <th>Productos</th>
+                      <th>Total Pagado</th>
+                      <th>Método</th>
+                      <th>Atendido por</th>
+                      <th class="text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pos-monthly-table-body">
+                    <!-- Filas renderizadas dinámicamente -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PESTAÑA 2: ESCÁNER / CONTROL RÁPIDO DE ENTRADA Y SALIDA -->
+        <section id="tab-scanner" class="tab-pane">
+          <!-- Selector de Modo de Operación -->
+          <div class="scanner-mode-bar">
+            <div class="mode-options">
+              <label class="mode-pill active" data-mode="salida">
+                <input type="radio" name="scan-mode" value="salida" checked>
+                <i data-lucide="arrow-up-right"></i>
+                <div class="mode-text">
+                  <strong>Modo Salida</strong>
+                  <small>Venta, Tester o Despacho (-1)</small>
+                </div>
+              </label>
+
+              <label class="mode-pill" data-mode="entrada">
+                <input type="radio" name="scan-mode" value="entrada">
+                <i data-lucide="arrow-down-left"></i>
+                <div class="mode-text">
+                  <strong>Modo Entrada</strong>
+                  <small>Llegada de Mercancía (+1)</small>
+                </div>
+              </label>
+
+              <label class="mode-pill" data-mode="consulta">
+                <input type="radio" name="scan-mode" value="consulta">
+                <i data-lucide="search"></i>
+                <div class="mode-text">
+                  <strong>Modo Consulta</strong>
+                  <small>Ver Precio y Stock (Sin cambios)</small>
+                </div>
+              </label>
+            </div>
+
+            <!-- Parámetros adicionales para el escaneo -->
+            <div class="scan-parameters">
+              <div class="param-group">
+                <label for="scan-qty">Cantidad por escaneo:</label>
+                <div class="qty-stepper">
+                  <button type="button" class="btn-step" id="btn-qty-minus">-</button>
+                  <input type="number" id="scan-qty" value="1" min="1" max="999">
+                  <button type="button" class="btn-step" id="btn-qty-plus">+</button>
+                </div>
+              </div>
+
+              <div class="param-group" id="group-reason">
+                <label for="scan-reason">Motivo / Canal:</label>
+                <select id="scan-reason" class="input-select">
+                  <option value="Venta Punto Físico">Venta Punto Físico (Calarcá)</option>
+                  <option value="Venta WhatsApp / Redes">Venta WhatsApp / Envíos</option>
+                  <option value="Recepción Proveedor">Recepción de Proveedor</option>
+                  <option value="Probador / Tester">Probador / Tester en Tienda</option>
+                  <option value="Merma o Defecto">Merma / Producto Dañado</option>
+                  <option value="Ajuste de Conteo">Ajuste de Conteo Físico</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cámara Scanner Container (Oculto por defecto) -->
+          <div id="camera-scanner-modal" class="camera-card" style="display: none;">
+            <div class="camera-header">
+              <div class="camera-title">
+                <i data-lucide="camera"></i> Escáner por Cámara de Dispositivo
+              </div>
+              <button id="btn-close-camera" class="btn-icon"><i data-lucide="x"></i></button>
+            </div>
+            <div id="interactive-reader" class="camera-viewport"></div>
+            <p class="camera-hint">Centra el código de barras o QR frente a la cámara.</p>
+          </div>
+
+          <!-- Caja de Entrada del Lector (Escucha automática permanente) -->
+          <div class="scanner-hero-box">
+            <div class="scanner-glow"></div>
+            <div class="scanner-input-wrapper">
+              <i data-lucide="barcode" class="input-barcode-icon"></i>
+              <input type="text" id="manual-barcode-input"
+                placeholder="Escanea con la pistola o escribe el código de barras y presiona Enter..." autofocus
+                autocomplete="off">
+              <button id="btn-manual-scan-submit" class="btn btn-primary">
+                <span>Registrar</span>
+                <i data-lucide="corner-down-left"></i>
+              </button>
+            </div>
+            <div class="scanner-footer-tips">
+              <span><i data-lucide="zap"></i> Compatible con pistolas USB/Bluetooth en modo emulación de teclado.</span>
+              <span id="scan-feedback" class="feedback-badge ready">Listo para escanear</span>
+            </div>
+          </div>
+
+          <!-- Panel de Resultados del Último Producto Escaneado -->
+          <div class="scanned-result-container">
+            <div class="scanned-card" id="scanned-card-empty">
+              <div class="empty-scan-state">
+                <div class="luna-moon-glow">✨</div>
+                <h3>Esperando escaneo de producto</h3>
+                <p>Al pasar el lector de código de barras, verás aquí el producto, su foto/marca, el stock actualizado y
+                  el movimiento en vivo.</p>
+              </div>
+            </div>
+
+            <!-- Tarjeta Activa del Producto (oculta hasta escanear) -->
+            <div class="scanned-card active-card" id="scanned-card-content" style="display: none;">
+              <div class="product-badge-mode" id="scanned-badge-mode">Salida Registrada</div>
+              <div class="scanned-grid">
+                <div class="scanned-image-box">
+                  <div class="product-avatar" id="scanned-avatar">💄</div>
+                  <div class="scanned-brand-tag" id="scanned-brand">Trendy</div>
+                </div>
+
+                <div class="scanned-details">
+                  <span class="scanned-category-pill" id="scanned-category">Maquillaje</span>
+                  <h2 class="scanned-name" id="scanned-name">Nombre del Producto</h2>
+                  <div class="scanned-barcode-text">
+                    <i data-lucide="barcode"></i> <span id="scanned-code">770123456789</span>
+                  </div>
+
+                  <div class="scanned-pricing-grid">
+                    <div class="price-box">
+                      <span class="price-label">Precio de Venta</span>
+                      <span class="price-val" id="scanned-price">$0</span>
+                    </div>
+                    <div class="price-box admin-only-field">
+                      <span class="price-label">Costo Referencial</span>
+                      <span class="price-cost" id="scanned-cost">$0</span>
+                    </div>
+                    <div class="price-box admin-only-field">
+                      <span class="price-label">Margen Bruto</span>
+                      <span class="price-margin" id="scanned-margin">0%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="scanned-stock-action">
+                  <div class="stock-status-display">
+                    <span class="stock-title">Stock Actual en Tienda</span>
+                    <div class="stock-huge-number" id="scanned-stock">0</div>
+                    <span class="stock-status-pill" id="scanned-stock-pill">En Stock</span>
+                  </div>
+
+                  <div class="action-buttons-quick">
+                    <button class="btn btn-outline-sm" id="btn-quick-decrease" title="Restar 1 unidad"><i
+                        data-lucide="minus"></i> -1 Salida</button>
+                    <button class="btn btn-outline-sm" id="btn-quick-increase" title="Sumar 1 unidad"><i
+                        data-lucide="plus"></i> +1 Entrada</button>
+                    <button class="btn btn-primary-sm" id="btn-quick-edit" title="Editar producto"><i
+                        data-lucide="edit-3"></i> Editar</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Registro del movimiento inmediato -->
+              <div class="scanned-audit-log" id="scanned-audit-log">
+                <i data-lucide="check-circle-2" class="audit-icon"></i>
+                <span id="scanned-audit-text">Operación procesada con éxito</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Historial de Últimos Escaneos de la Sesión -->
+          <div class="recent-scans-section">
+            <div class="section-header-compact">
+              <h3><i data-lucide="history"></i> Movimientos Recientes de la Sesión</h3>
+              <span class="subtext">Registros inmediatos de la jornada</span>
+            </div>
+            <div class="recent-scans-list" id="recent-scans-list">
+              <!-- Render dinámico de últimos escaneos -->
+            </div>
+          </div>
+        </section>
+
+        <!-- PESTAÑA 2: CATÁLOGO DE PRODUCTOS & STOCK -->
+        <section id="tab-catalog" class="tab-pane">
+          <!-- Filtros de Categoría, Marca y Búsqueda -->
+          <div class="catalog-toolbar">
+            <div class="search-box">
+              <i data-lucide="search" class="search-icon"></i>
+              <input type="text" id="catalog-search-input"
+                placeholder="Buscar por nombre, código de barras, marca o categoría...">
+              <button id="btn-clear-search" class="btn-clear" style="display:none;"><i data-lucide="x"></i></button>
+            </div>
+
+            <div class="filter-controls">
+              <!-- Filtro por Categoría -->
+              <div class="filter-dropdown-group">
+                <label for="filter-category"><i data-lucide="folder-heart"></i> Categoría:</label>
+                <select id="filter-category" class="filter-select">
+                  <option value="ALL">Todas las Categorías</option>
+                  <option value="Maquillaje">Maquillaje</option>
+                  <option value="Skincare">Skincare</option>
+                  <option value="Capilar">Capilar</option>
+                  <option value="Accesorios de Maquillaje">Accesorios de Maquillaje</option>
+                  <option value="Corporal">Corporal</option>
+                </select>
+              </div>
+
+              <!-- Filtro por Marca -->
+              <div class="filter-dropdown-group">
+                <label for="filter-brand"><i data-lucide="sparkles"></i> Marca:</label>
+                <select id="filter-brand" class="filter-select">
+                  <option value="ALL">Todas las Marcas</option>
+                  <!-- Marcas de Luna Viva generadas dinámicamente -->
+                </select>
+              </div>
+
+              <!-- Filtro por Estado de Stock -->
+              <div class="filter-dropdown-group">
+                <label for="filter-stock"><i data-lucide="alert-triangle"></i> Stock:</label>
+                <select id="filter-stock" class="filter-select">
+                  <option value="ALL">Todo el inventario</option>
+                  <option value="LOW">Bajo stock (≤ mínimo)</option>
+                  <option value="OUT">Agotados (0 unidades)</option>
+                  <option value="HEALTHY">Stock disponible (> mínimo)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Acciones Masivas -->
+            <div class="catalog-actions-bar">
+              <button id="btn-open-import-modal" class="btn btn-secondary-sm">
+                <i data-lucide="file-up"></i> Importar Excel/JSON
+              </button>
+              <button id="btn-export-csv" class="btn btn-secondary-sm">
+                <i data-lucide="file-down"></i> Exportar a Excel (CSV)
+              </button>
+              <button id="btn-print-stock-report" class="btn btn-secondary-sm">
+                <i data-lucide="printer"></i> Imprimir Reporte
+              </button>
+              <button id="btn-bulk-delete" class="btn btn-danger-sm" title="Eliminar productos seleccionados">
+                <i data-lucide="trash-2"></i> Eliminar Seleccionados
+              </button>
+            </div>
+          </div>
+
+          <!-- Contador de Resultados -->
+          <div class="catalog-status-bar">
+            <span>Mostrando <strong id="catalog-count-visible">0</strong> de <strong id="catalog-count-total">0</strong>
+              productos</span>
+            <div class="catalog-view-toggle">
+              <button class="btn-icon active" id="btn-view-table" title="Vista de Tabla"><i
+                  data-lucide="list"></i></button>
+              <button class="btn-icon" id="btn-view-grid" title="Vista de Cuadrícula"><i
+                  data-lucide="layout-grid"></i></button>
+            </div>
+          </div>
+
+          <!-- Tabla de Productos -->
+          <div class="table-responsive-container" id="catalog-table-view">
+            <table class="luna-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" id="select-all" title="Seleccionar todos" /></th>
+                  <th>Código de Barras</th>
+                  <th>Producto</th>
+                  <th>Categoría</th>
+                  <th>Marca</th>
+                  <th class="admin-only-col">P. Costo</th>
+                  <th>P. Venta</th>
+                  <th class="admin-only-col">Margen</th>
+                  <th>Stock Actual</th>
+                  <th>Estado</th>
+                  <th class="text-right">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="catalog-table-body">
+                <!-- Filas renderizadas por app.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Vista de Cuadrícula (Alternativa) -->
+          <div class="catalog-grid-view" id="catalog-grid-view" style="display: none;">
+            <!-- Tarjetas renderizadas por app.js -->
+          </div>
+        </section>
+
+        <!-- PESTAÑA 3: KARDEX / HISTORIAL DE MOVIMIENTOS -->
+        <section id="tab-kardex" class="tab-pane">
+          <div class="section-banner">
+            <div class="banner-text">
+              <h2>Kardex & Trazabilidad de Inventario</h2>
+              <p>Historial inmutable de cada entrada, salida, ajuste o venta realizada con el lector de código de
+                barras.</p>
+            </div>
+            <div class="banner-kpis">
+              <div class="mini-kpi">
+                <span class="mini-kpi-label">Entradas registradas</span>
+                <span class="mini-kpi-val text-success" id="kpi-total-entries">0</span>
+              </div>
+              <div class="mini-kpi">
+                <span class="mini-kpi-label">Salidas registradas</span>
+                <span class="mini-kpi-val text-rose" id="kpi-total-exits">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filtros de Kardex -->
+          <div class="kardex-filters">
+            <div class="filter-dropdown-group">
+              <label for="kardex-filter-type">Tipo:</label>
+              <select id="kardex-filter-type" class="filter-select">
+                <option value="ALL">Todos los Movimientos</option>
+                <option value="ENTRADA">Solo Entradas (+)</option>
+                <option value="SALIDA">Solo Salidas (-)</option>
+                <option value="AJUSTE">Ajustes de inventario</option>
+              </select>
+            </div>
+
+            <div class="filter-dropdown-group">
+              <label for="kardex-filter-user">Responsable:</label>
+              <select id="kardex-filter-user" class="filter-select">
+                <option value="ALL">Todas las personas</option>
+                <option value="Laura">Laura</option>
+                <option value="Amanda">Amanda</option>
+                <option value="Equipo Luna">Equipo Luna</option>
+              </select>
+            </div>
+
+            <div class="search-box kardex-search">
+              <i data-lucide="search" class="search-icon"></i>
+              <input type="text" id="kardex-search-input" placeholder="Filtrar por producto, código o motivo...">
+            </div>
+
+            <button id="btn-export-kardex" class="btn btn-secondary-sm">
+              <i data-lucide="download"></i> Exportar Kardex CSV
+            </button>
+          </div>
+
+          <!-- Tabla de Kardex -->
+          <div class="table-responsive-container">
+            <table class="luna-table">
+              <thead>
+                <tr>
+                  <th>Fecha & Hora</th>
+                  <th>Tipo</th>
+                  <th>Producto</th>
+                  <th>Cód. Barras</th>
+                  <th>Cant.</th>
+                  <th>Stock Ant.</th>
+                  <th>Stock Nuevo</th>
+                  <th>Responsable</th>
+                  <th>Motivo / Canal</th>
+                </tr>
+              </thead>
+              <tbody id="kardex-table-body">
+                <!-- Filas de Kardex -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- PESTAÑA 4: GENERADOR & IMPRESIÓN DE ETIQUETAS DE CÓDIGOS DE BARRA -->
+        <section id="tab-barcode-generator" class="tab-pane">
+          <div class="section-banner">
+            <div class="banner-text">
+              <h2>Impresión de Etiquetas con Código de Barras</h2>
+              <p>Genera rótulos adhesivos elegantes para productos que no traen código de fábrica, listos para imprimir
+                en impresora térmica o de oficina.</p>
+            </div>
+            <button id="btn-print-labels-action" class="btn btn-primary">
+              <i data-lucide="printer"></i> Imprimir Etiquetas Seleccionadas
+            </button>
+          </div>
+
+          <div class="label-builder-grid">
+            <div class="label-controls-card">
+              <h3>Configurar Rótulo</h3>
+              <div class="form-group">
+                <label for="label-product-select">Selecciona el Producto:</label>
+                <select id="label-product-select" class="input-select">
+                  <!-- Opciones cargadas dinámicamente -->
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="label-copies">Número de Etiquetas:</label>
+                  <input type="number" id="label-copies" value="6" min="1" max="100" class="input-text">
+                </div>
+                <div class="form-group">
+                  <label for="label-format">Formato de Hoja:</label>
+                  <select id="label-format" class="input-select">
+                    <option value="stickers-sheet">Hoja Adhesiva (30 por hoja)</option>
+                    <option value="thermal-50x30">Impresora Térmica (50mm x 30mm)</option>
+                    <option value="thermal-38x25">Impresora Térmica Pequeña (38mm x 25mm)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="label-show-price" checked>
+                  <span>Incluir Precio de Venta al Público</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="label-show-brand" checked>
+                  <span>Incluir Marca y Categoría</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="label-show-tagline" checked>
+                  <span>Incluir distintivo "Luna Viva"</span>
+                </label>
+              </div>
+
+              <button id="btn-add-to-print-batch" class="btn btn-secondary w-full">
+                <i data-lucide="plus"></i> Agregar al Lote de Impresión
+              </button>
+            </div>
+
+            <!-- Vista Previa de la Etiqueta -->
+            <div class="label-preview-card">
+              <h3>Vista Previa del Rótulo</h3>
+              <div class="label-preview-wrapper" id="single-label-preview">
+                <div class="luna-sticker">
+                  <div class="sticker-brand-header">
+                    <span class="sticker-brand-name">LUNA VIVA</span>
+                    <span class="sticker-brand-tag" id="preview-brand-tag">Trendy</span>
+                  </div>
+                  <div class="sticker-product-name" id="preview-product-name">Gel Hidratante Facial</div>
+                  <svg id="preview-barcode-svg"></svg>
+                  <div class="sticker-footer">
+                    <span class="sticker-cat" id="preview-category-text">Skincare</span>
+                    <span class="sticker-price" id="preview-price-text">$28.000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contenedor Imprimible Oculto hasta Lanzar Impresión -->
+          <div class="print-batch-container">
+            <div class="batch-header">
+              <h3>Lote Actual de Impresión (<span id="batch-count">0</span> etiquetas)</h3>
+              <button id="btn-clear-batch" class="btn-clear-text">Vaciar lote</button>
+            </div>
+            <div id="print-sheet-area" class="print-sheet">
+              <!-- Etiquetas listas para impresión física -->
+            </div>
+          </div>
+        </section>
+
+        <!-- PESTAÑA 5: MÉTRICAS & ANÁLISIS DE INVENTARIO -->
+        <section id="tab-analytics" class="tab-pane">
+          <!-- Tarjetas KPI Principales -->
+          <div class="kpis-grid">
+            <div class="kpi-card card-glow-rose admin-only-card">
+              <div class="kpi-header">
+                <span class="kpi-title">Valor a Costo Total</span>
+                <i data-lucide="wallet" class="kpi-icon"></i>
+              </div>
+              <div class="kpi-number" id="kpi-val-cost">$0</div>
+              <p class="kpi-caption">Capital invertido en mercancía física</p>
+            </div>
+
+            <div class="kpi-card card-glow-gold admin-only-card">
+              <div class="kpi-header">
+                <span class="kpi-title">Valor Proyectado Venta</span>
+                <i data-lucide="trending-up" class="kpi-icon"></i>
+              </div>
+              <div class="kpi-number" id="kpi-val-retail">$0</div>
+              <p class="kpi-caption">Venta estimada al 100% de rotación</p>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-title">Referencias Activas</span>
+                <i data-lucide="layers" class="kpi-icon"></i>
+              </div>
+              <div class="kpi-number" id="kpi-total-skus">0</div>
+              <p class="kpi-caption">De ~400 referencias del catálogo</p>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-title">Unidades Físicas</span>
+                <i data-lucide="boxes" class="kpi-icon"></i>
+              </div>
+              <div class="kpi-number" id="kpi-total-units">0</div>
+              <p class="kpi-caption">Total de unidades en estantería</p>
+            </div>
+          </div>
+
+          <!-- Alertas de Stock Crítico -->
+          <div class="analytics-panels-grid">
+            <!-- Panel de Alertas -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3><i data-lucide="alert-octagon" class="text-danger"></i> Alertas de Stock Urgente</h3>
+                <span class="badge-danger" id="panel-alert-count">0 críticas</span>
+              </div>
+              <div class="alert-items-list" id="alerts-list">
+                <!-- Render de alertas -->
+              </div>
+            </div>
+
+            <!-- Distribución por Categoría -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3><i data-lucide="pie-chart"></i> Inventario por Categoría</h3>
+                <span class="subtext">5 líneas principales</span>
+              </div>
+              <div class="category-breakdown-list" id="category-breakdown">
+                <!-- Render de categorías -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Top Marcas de Luna Viva -->
+          <div class="panel-card mt-6">
+            <div class="panel-header">
+              <h3><i data-lucide="award"></i> Presencia por Marcas del Portafolio</h3>
+              <span class="subtext">Bloomshell, Trendy, Raquel, Prosa, Bioaqua, Atenea, etc.</span>
+            </div>
+            <div class="brands-distribution-grid" id="brands-distribution">
+              <!-- Render de marcas -->
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL: CREAR / EDITAR PRODUCTO -->
+  <div id="modal-product" class="modal-overlay" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h2 id="modal-product-title">Nuevo Producto en Catálogo</h2>
+          <p class="modal-subtitle">Asocia el código de barras y los datos maestros del producto</p>
+        </div>
+        <button id="btn-close-modal-product" class="btn-icon"><i data-lucide="x"></i></button>
+      </div>
+
+      <form id="form-product" class="modal-form">
+        <input type="hidden" id="prod-id">
+
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <label for="prod-barcode">Código de Barras (EAN / Rótulo) *</label>
+            <div class="input-with-button">
+              <input type="text" id="prod-barcode" required placeholder="Ej: 770123456789 o escanea directo..."
+                class="input-text">
+              <button type="button" id="btn-autogen-barcode" class="btn btn-secondary-sm"
+                title="Generar código automático para productos sin código de fábrica">
+                <i data-lucide="wand-2"></i> Auto
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group flex-1">
+            <label for="prod-category">Categoría *</label>
+            <select id="prod-category" required class="input-select">
+              <option value="Maquillaje">Maquillaje</option>
+              <option value="Skincare">Skincare</option>
+              <option value="Capilar">Capilar</option>
+              <option value="Accesorios de Maquillaje">Accesorios de Maquillaje</option>
+              <option value="Corporal">Corporal</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <label for="prod-name">Nombre del Producto *</label>
+            <input type="text" id="prod-name" required placeholder="Ej: Tinta Labial Larga Duración Velvet"
+              class="input-text">
+          </div>
+
+          <div class="form-group flex-1">
+            <label for="prod-brand">Marca *</label>
+            <input type="text" id="prod-brand" list="brands-datalist" required placeholder="Ej: Bloomshell"
+              class="input-text">
+            <datalist id="brands-datalist">
+              <option value="Bloomshell">
+              <option value="Anik">
+              <option value="Prosa">
+              <option value="Majikal">
+              <option value="Bioaqua">
+              <option value="Click Hair">
+              <option value="Origen Botánico">
+              <option value="La Poción">
+              <option value="Purpure">
+              <option value="Trendy">
+              <option value="Raquel">
+              <option value="Girly">
+              <option value="Atenea">
+              <option value="Montoc">
+            </datalist>
+          </div>
+        </div>
+
+        <div class="form-row form-row-3">
+          <div class="form-group admin-only-field">
+            <label for="prod-cost">Precio Costo ($ COP) *</label>
+            <input type="number" id="prod-cost" min="0" step="any" placeholder="15000" class="input-text">
+          </div>
+
+          <div class="form-group">
+            <label for="prod-price">Precio Venta ($ COP) *</label>
+            <input type="number" id="prod-price" required min="0" step="any" placeholder="25000" class="input-text">
+          </div>
+
+          <div class="form-group admin-only-field">
+            <label>Margen Estimado</label>
+            <div class="margin-badge" id="modal-margin-preview">0%</div>
+          </div>
+        </div>
+
+        <div class="form-row form-row-3">
+          <div class="form-group">
+            <label for="prod-stock">Stock Inicial (Unidades) *</label>
+            <input type="number" id="prod-stock" required min="0" value="5" class="input-text">
+          </div>
+
+          <div class="form-group">
+            <label for="prod-min-stock">Stock Mínimo (Alerta) *</label>
+            <input type="number" id="prod-min-stock" required min="0" value="2" class="input-text">
+          </div>
+
+          <div class="form-group">
+            <label for="prod-location">Ubicación / Vitrina</label>
+            <input type="text" id="prod-location" placeholder="Ej: Vitrina 1 / Estante Rosa" class="input-text">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prod-notes">Notas / Descripción (opcional)</label>
+          <textarea id="prod-notes" rows="2" placeholder="Tono, especificaciones o detalles de asesoría..."
+            class="input-textarea"></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="btn-cancel-modal-product" class="btn btn-outline">Cancelar</button>
+          <button type="submit" class="btn btn-primary"><i data-lucide="check"></i> Guardar Producto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: IMPORTAR EXCEL / CSV -->
+  <div id="modal-import" class="modal-overlay" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h2>Carga Masiva de Productos (Excel / CSV)</h2>
+          <p class="modal-subtitle">Ideal para cargar las ~400 referencias de Luna Viva de una sola vez</p>
+        </div>
+        <button id="btn-close-modal-import" class="btn-icon"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="modal-body-import">
+        <div class="import-instructions">
+          <h4>Instrucciones:</h4>
+          <ol>
+            <li>El archivo debe ser formato <strong>CSV delimitado por comas (,) o punto y coma (;)</strong>.</li>
+            <li>Columnas requeridas:
+              <code>codigo_barras, nombre, categoria, marca, precio_costo, precio_venta, stock_actual, stock_minimo</code>.
+            </li>
+            <li>Si algún producto no tiene código de barras, déjalo vacío y el sistema le asignará uno automáticamente.
+            </li>
+          </ol>
+          <a href="#" id="btn-download-csv-template" class="template-link">
+            <i data-lucide="file-spreadsheet"></i> Descargar Plantilla CSV de Ejemplo para Luna Viva
+          </a>
+        </div>
+
+        <div class="drop-zone" id="csv-drop-zone">
+          <i data-lucide="upload-cloud" class="drop-icon"></i>
+          <p>Arrastra tu archivo CSV o Respaldo JSON aquí o <strong>haz clic para seleccionar</strong></p>
+          <span class="subtext">Soporta CSV de Excel o archivos de respaldo .JSON</span>
+          <input type="file" id="csv-file-input" accept=".csv, .txt, .json" style="display: none;">
+        </div>
+
+        <div id="import-preview-box" style="display: none;" class="import-preview-area">
+          <div class="preview-header">
+            <h4>Vista Previa del Archivo</h4>
+            <span id="preview-row-count" class="badge">0 productos detectados</span>
+          </div>
+          <div class="preview-table-container">
+            <table class="luna-table mini">
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Nombre</th>
+                  <th>Categoría</th>
+                  <th>Marca</th>
+                  <th>Costo</th>
+                  <th>Venta</th>
+                  <th>Stock</th>
+                </tr>
+              </thead>
+              <tbody id="import-preview-body">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" id="btn-cancel-modal-import" class="btn btn-outline">Cerrar</button>
+        <button type="button" id="btn-execute-import" class="btn btn-primary" disabled>
+          <i data-lucide="check-circle"></i> Confirmar e Importar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: COBRO Y CIERRE DE CUENTA (MÉTODOS DE PAGO) -->
+  <div id="modal-pos-checkout" class="modal-overlay" style="display: none;">
+    <div class="modal-dialog checkout-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h2>Finalizar Salida & Cobrar</h2>
+          <p class="modal-subtitle" id="checkout-account-subtitle">Cuenta de: Cliente Mostrador</p>
+        </div>
+        <button type="button" id="btn-close-modal-checkout" class="btn-icon"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="modal-body-checkout">
+        <!-- Tarjeta de Monto Total -->
+        <div class="checkout-amount-hero">
+          <span class="amount-hero-label">Total a Cobrar</span>
+          <div class="amount-hero-val" id="checkout-amount-total">$0</div>
+          <span class="amount-hero-meta" id="checkout-items-summary">0 piezas / productos</span>
+        </div>
+
+        <!-- Selección de Método de Pago -->
+        <div class="payment-methods-section">
+          <label class="section-label-sm">Selecciona el Método de Pago:</label>
+          <div class="payment-grid">
+            <label class="payment-card active" data-method="Efectivo">
+              <input type="radio" name="checkout-pay-method" value="Efectivo" checked>
+              <div class="pay-icon-box">💵</div>
+              <div class="pay-text">
+                <strong>Efectivo</strong>
+                <small>Billetes / Monedas</small>
+              </div>
+            </label>
+
+            <label class="payment-card" data-method="Nequi">
+              <input type="radio" name="checkout-pay-method" value="Nequi">
+              <div class="pay-icon-box">🟣</div>
+              <div class="pay-text">
+                <strong>Nequi</strong>
+                <small>Transferencia digital</small>
+              </div>
+            </label>
+
+            <label class="payment-card" data-method="Daviplata">
+              <input type="radio" name="checkout-pay-method" value="Daviplata">
+              <div class="pay-icon-box">🔴</div>
+              <div class="pay-text">
+                <strong>Daviplata</strong>
+                <small>Billetera digital</small>
+              </div>
+            </label>
+
+            <label class="payment-card" data-method="Tarjeta">
+              <input type="radio" name="checkout-pay-method" value="Tarjeta">
+              <div class="pay-icon-box">💳</div>
+              <div class="pay-text">
+                <strong>Tarjeta / Datáfono</strong>
+                <small>Débito o Crédito</small>
+              </div>
+            </label>
+
+            <label class="payment-card" data-method="Transferencia">
+              <input type="radio" name="checkout-pay-method" value="Transferencia">
+              <div class="pay-icon-box">🏦</div>
+              <div class="pay-text">
+                <strong>Bancolombia</strong>
+                <small>Transferencia QR/Cta</small>
+              </div>
+            </label>
+
+            <label class="payment-card" data-method="Crédito">
+              <input type="radio" name="checkout-pay-method" value="Crédito">
+              <div class="pay-icon-box">🤝</div>
+              <div class="pay-text">
+                <strong>Por Cobrar (Fiado)</strong>
+                <small>Pago diferido / cliente</small>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Panel de Efectivo: Cálculo Automático de Vueltas / Cambio -->
+        <div id="checkout-cash-panel" class="cash-calc-panel">
+          <div class="form-group-cash">
+            <label for="checkout-cash-received">Efectivo recibido de la clienta ($ COP):</label>
+            <div class="cash-input-wrapper">
+              <span class="currency-prefix">$</span>
+              <input type="number" id="checkout-cash-received" min="0" step="1000" placeholder="0"
+                class="input-cash-huge">
+            </div>
+          </div>
+
+          <!-- Billetes Rápidos -->
+          <div class="cash-quick-buttons">
+            <button type="button" class="btn-bill" data-amount="exact">Exacto</button>
+            <button type="button" class="btn-bill" data-amount="10000">$10.000</button>
+            <button type="button" class="btn-bill" data-amount="20000">$20.000</button>
+            <button type="button" class="btn-bill" data-amount="50000">$50.000</button>
+            <button type="button" class="btn-bill" data-amount="100000">$100.000</button>
+          </div>
+
+          <!-- Resultado del Cambio / Vueltas -->
+          <div class="cash-change-display" id="cash-change-box">
+            <span class="change-label">Cambio / Vueltas a Entregar:</span>
+            <div class="change-amount" id="checkout-change-amount">$0</div>
+          </div>
+        </div>
+
+        <!-- Campos de Referencia / Comprobante Digital (Nequi / Daviplata / Tarjeta) -->
+        <div id="checkout-reference-panel" class="reference-panel" style="display: none;">
+          <div class="form-group">
+            <label for="checkout-pay-reference">N° Comprobante / Aprobación (Opcional):</label>
+            <input type="text" id="checkout-pay-reference" class="input-text"
+              placeholder="Ej: M123456 o últimos 4 dígitos">
+          </div>
+        </div>
+
+        <!-- Parámetros finales -->
+        <div class="checkout-footer-meta">
+          <div class="meta-field">
+            <label for="checkout-user-select">Atendido por:</label>
+            <select id="checkout-user-select" class="input-select-sm">
+              <option value="Laura">Laura</option>
+              <option value="Amanda">Amanda</option>
+              <option value="Equipo Luna">Colaborador / Turno</option>
+            </select>
+          </div>
+
+          <div class="meta-field">
+            <label for="checkout-channel-confirm">Canal:</label>
+            <select id="checkout-channel-confirm" class="input-select-sm">
+              <option value="Punto Físico (Calarcá)">Punto Físico (Calarcá)</option>
+              <option value="Venta WhatsApp / Envíos">Venta WhatsApp</option>
+              <option value="Domicilio Local">Domicilio Local</option>
+              <option value="Probador / Tester">Probador en Tienda</option>
+              <option value="Merma o Defecto">Merma / Defecto</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer checkout-modal-footer">
+        <button type="button" id="btn-cancel-checkout" class="btn btn-outline">Volver a la Cuenta</button>
+        <button type="button" id="btn-confirm-checkout-action" class="btn btn-primary btn-confirm-pay">
+          <i data-lucide="check-circle-2"></i>
+          <span>Confirmar Salida y Generar Ticket</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: COMPROBANTE DE VENTA / TICKET LUNA VIVA (IMPRESIÓN & WHATSAPP) -->
+  <div id="modal-pos-ticket" class="modal-overlay" style="display: none;">
+    <div class="modal-dialog ticket-dialog">
+      <div class="modal-header ticket-header-no-print">
+        <div class="modal-title-group">
+          <h2>Salida Exitosa</h2>
+          <p class="modal-subtitle">Comprobante generado y stock actualizado</p>
+        </div>
+        <button type="button" id="btn-close-modal-ticket" class="btn-icon"><i data-lucide="x"></i></button>
+      </div>
+
+      <!-- TICKET BOUTIQUE IMPRIMIBLE -->
+      <div class="ticket-receipt-card" id="luna-receipt-printable">
+        <div class="receipt-header">
+          <div class="receipt-logo-title">🌙 LUNA VIVA</div>
+          <p class="receipt-subtitle">BOUTIQUE DE BELLEZA & CUIDADO</p>
+          <p class="receipt-location">Calarcá, Quindío · Colombia</p>
+          <p class="receipt-contact">WhatsApp: (+57) 321 883 94 25</p>
+          <div class="receipt-divider">================================</div>
+        </div>
+
+        <div class="receipt-meta">
+          <div><span>TICKET:</span> <strong id="rec-ticket-id">#LV-0001</strong></div>
+          <div><span>FECHA:</span> <span id="rec-date">21/10/2026 14:30</span></div>
+          <div><span>ATENDIDO POR:</span> <span id="rec-user">Laura</span></div>
+          <div><span>CLIENTA:</span> <strong id="rec-customer">Cliente Mostrador</strong></div>
+          <div id="rec-phone-row"><span>WHATSAPP:</span> <span id="rec-phone">No registrado</span></div>
+          <div><span>CANAL:</span> <span id="rec-channel">Punto Físico (Calarcá)</span></div>
+        </div>
+
+        <div class="receipt-divider">--------------------------------</div>
+
+        <div class="receipt-items-header">
+          <span style="flex: 2;">CANT. PRODUCTO</span>
+          <span style="flex: 1; text-align: right;">UNIT.</span>
+          <span style="flex: 1; text-align: right;">TOTAL</span>
+        </div>
+
+        <div class="receipt-items-list" id="rec-items-list">
+          <!-- Ítems del recibo -->
+        </div>
+
+        <div class="receipt-divider">--------------------------------</div>
+
+        <div class="receipt-totals-box">
+          <div class="rec-total-row">
+            <span>Subtotal:</span>
+            <span id="rec-subtotal">$0</span>
+          </div>
+          <div class="rec-total-row" id="rec-discount-row" style="display: none;">
+            <span>Descuento Especial:</span>
+            <span id="rec-discount" class="text-rose">-$0</span>
+          </div>
+          <div class="receipt-divider">================================</div>
+          <div class="rec-total-row grand-total">
+            <span>TOTAL PAGADO:</span>
+            <strong id="rec-grand-total">$0</strong>
+          </div>
+          <div class="receipt-divider">================================</div>
+          <div class="rec-total-row">
+            <span>Método de Pago:</span>
+            <strong id="rec-pay-method">Efectivo</strong>
+          </div>
+          <div class="rec-total-row" id="rec-cash-details-row">
+            <span>Recibido:</span>
+            <span id="rec-cash-received">$0</span>
+          </div>
+          <div class="rec-total-row" id="rec-change-details-row">
+            <span>Cambio / Vueltas:</span>
+            <span id="rec-cash-change">$0</span>
+          </div>
+        </div>
+
+        <div class="receipt-footer">
+          <div class="receipt-divider">================================</div>
+          <p class="receipt-love-quote">✨ ¡Gracias por hacer brillar tu belleza con Luna Viva! ✨</p>
+          <p class="receipt-terms">Conserva este comprobante para cambios dentro de los 8 días hábiles en productos
+            sellados.</p>
+          <p class="receipt-brand-tag">@lunaviva.co · Belleza, Resplandor & Vitalidad</p>
+        </div>
+      </div>
+
+      <!-- BOTONES DE ACCIÓN DEL TICKET -->
+      <div class="modal-footer ticket-actions-footer">
+        <button type="button" id="btn-print-ticket-receipt" class="btn btn-secondary">
+          <i data-lucide="printer"></i> Imprimir Comprobante
+        </button>
+        <button type="button" id="btn-send-whatsapp-receipt" class="btn btn-success-action">
+          <i data-lucide="message-circle"></i> Enviar por WhatsApp
+        </button>
+        <button type="button" id="btn-ticket-new-sale" class="btn btn-primary">
+          <i data-lucide="plus"></i> Nueva Cuenta
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE AUTENTICACIÓN / LOGIN POR ROLES -->
+  <div id="login-modal-overlay" class="login-modal-overlay" style="display: none;">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="login-logo-box">
+          <img src="public/img/Logo%20luna%20sin%20fondo.png" alt="Luna Viva Logo" class="login-logo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="logo-fallback" style="display:none;">🌙</div>
+        </div>
+        <h2 class="login-title">LUNA VIVA</h2>
+        <p class="login-subtitle">Control de Acceso & Turnos</p>
+      </div>
+
+      <!-- Selector de Perfil -->
+      <div class="login-profile-selector">
+        <button type="button" class="profile-card-btn active" id="btn-select-laura" data-username="Laura"
+          data-role="admin">
+          <div class="profile-icon-badge crown-gold">👑</div>
+          <div class="profile-details">
+            <span class="profile-name">Laura</span>
+            <span class="profile-role">Administración</span>
+          </div>
+          <div class="profile-check-indicator"><i data-lucide="check"></i></div>
+        </button>
+
+        <button type="button" class="profile-card-btn" id="btn-select-colab" data-username="Colaborador"
+          data-role="colaborador">
+          <div class="profile-icon-badge sparkle-rose">💄</div>
+          <div class="profile-details">
+            <span class="profile-name">Colaborador</span>
+            <span class="profile-role">Turno / Mostrador</span>
+          </div>
+          <div class="profile-check-indicator"><i data-lucide="check"></i></div>
+        </button>
+      </div>
+
+      <!-- Formulario de PIN -->
+      <form id="login-form" class="login-form">
+        <div class="login-input-group">
+          <label for="login-pin-input" class="login-label">
+            <span id="login-pin-label-text">Ingresa el PIN de Laura:</span>
+          </label>
+          <div class="pin-input-wrapper">
+            <i data-lucide="key-round" class="pin-icon"></i>
+            <input type="password" id="login-pin-input" class="login-pin-input" maxlength="8" placeholder="••••"
+              autocomplete="off" autofocus>
+            <button type="button" id="btn-toggle-pin-visibility" class="btn-toggle-eye" title="Mostrar/Ocultar PIN">
+              <i data-lucide="eye" id="eye-icon"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="login-error-banner" class="login-error-banner" style="display: none;">
+          <i data-lucide="alert-circle"></i> <span id="login-error-text">PIN incorrecto. Intenta de nuevo.</span>
+        </div>
+
+        <!-- Teclado Numérico Rápido para Mostrador -->
+        <div class="keypad-grid">
+          <button type="button" class="keypad-btn" data-key="1">1</button>
+          <button type="button" class="keypad-btn" data-key="2">2</button>
+          <button type="button" class="keypad-btn" data-key="3">3</button>
+          <button type="button" class="keypad-btn" data-key="4">4</button>
+          <button type="button" class="keypad-btn" data-key="5">5</button>
+          <button type="button" class="keypad-btn" data-key="6">6</button>
+          <button type="button" class="keypad-btn" data-key="7">7</button>
+          <button type="button" class="keypad-btn" data-key="8">8</button>
+          <button type="button" class="keypad-btn" data-key="9">9</button>
+          <button type="button" class="keypad-btn keypad-clear" id="btn-keypad-clear">C</button>
+          <button type="button" class="keypad-btn" data-key="0">0</button>
+          <button type="button" class="keypad-btn keypad-backspace" id="btn-keypad-back"><i
+              data-lucide="delete"></i></button>
+        </div>
+
+        <button type="submit" id="btn-submit-login" class="btn btn-login-submit">
+          <span>Iniciar Turno</span> <i data-lucide="arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="login-footer-hint">
+        <i data-lucide="shield-check"></i> <span>Luna Viva Boutique · Sistema Seguro Offline</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS CONTAINER -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- SCRIPT PRINCIPAL -->
+  <script src="app.js"></script>
+</body>
+
+</html>

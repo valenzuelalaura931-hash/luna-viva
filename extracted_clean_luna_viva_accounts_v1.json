@@ -1,0 +1,58 @@
+[
+  {
+    "id": "CTA-001",
+    "customerName": "Cliente Mostrador",
+    "phone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "notes": "",
+    "createdAt": "2026-11-06T00:21:09.090Z",
+    "discountType": "cop",
+    "discountValue": 0,
+    "items": [
+      {
+        "productId": "LV-1342",
+        "name": "Rubor en polvo tono 01",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "764451296220",
+        "price": 15000,
+        "cost": 7000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1456",
+        "name": "Beauty blender",
+        "brand": "Anik",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "7707559883292",
+        "price": 7000,
+        "cost": 3817,
+        "quantity": 1,
+        "stockAvailable": 48
+      },
+      {
+        "productId": "LV-1310",
+        "name": "Corrector liquido tono 05",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "736372668660",
+        "price": 18000,
+        "cost": 9500,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1084",
+        "name": "Splash Corporal birthday x 100 ml",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "610985562976",
+        "price": 19000,
+        "cost": 11000,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ]
+  }
+]

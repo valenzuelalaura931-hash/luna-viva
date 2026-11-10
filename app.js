@@ -1,0 +1,30006 @@
+/**
+ * LUNA VIVA - SISTEMA DE GESTIÓN DE INVENTARIO & CONTROL DE STOCK
+ * ADN de marca: Boutique de belleza, resplandor, elegancia y atención cercana
+ * Desarrollado con soporte para pistola de código de barras USB/BT, cámara, kardex y catálogo.
+ */
+
+// ============================================================================
+// 1. CATÁLOGO INICIAL SEMILLA (BASADO EN MARCAS Y CATEGORÍAS REALES DE LUNA VIVA)
+// ============================================================================
+const INITIAL_PRODUCTS = [
+  {
+    "id": "LV-1001",
+    "barcode": "634240468582",
+    "name": "Shampoo miel rosada",
+    "category": "Capilar",
+    "brand": "Lluvia de Estrellas",
+    "cost": 24500,
+    "price": 39000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "",
+    "notes": ""
+  },
+  {
+    "id": "LV-1002",
+    "barcode": "634240468599",
+    "name": "Acondicionador de miel",
+    "category": "Capilar",
+    "brand": "Lluvia de Estrellas",
+    "cost": 25000,
+    "price": 38000,
+    "stock": 5,
+    "minStock": 2,
+    "location": "",
+    "notes": ""
+  },
+  {
+    "id": "LV-1003",
+    "barcode": "634240480515",
+    "name": "Acondicionador de chocolate",
+    "category": "Capilar",
+    "brand": "Lluvia de Estrellas",
+    "cost": 25500,
+    "price": 39000,
+    "stock": 5,
+    "minStock": 2,
+    "location": "",
+    "notes": ""
+  },
+  {
+    "id": "LV-1004",
+    "barcode": "634240480508",
+    "name": "Shampoo chocolate rosado",
+    "category": "Capilar",
+    "brand": "Lluvia de Estrellas",
+    "cost": 26500,
+    "price": 39000,
+    "stock": 5,
+    "minStock": 2,
+    "location": "",
+    "notes": ""
+  },
+  {
+    "id": "LV-1005",
+    "barcode": "634240480492",
+    "name": "Mascarilla chocolate rosado",
+    "category": "Capilar",
+    "brand": "Lluvia de Estrellas",
+    "cost": 27360,
+    "price": 42900,
+    "stock": 1,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1006",
+    "barcode": "634240384974",
+    "name": "Mascarilla miel rosada",
+    "category": "Capilar",
+    "brand": "Lluvia de Estrellas",
+    "cost": 26885,
+    "price": 42900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1007",
+    "barcode": "0634240138126",
+    "name": "Perfume capilar candy",
+    "category": "Capilar",
+    "brand": "Lluvia de Estrellas",
+    "cost": 23845,
+    "price": 41000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1008",
+    "barcode": "634240138126",
+    "name": "Perfume capilar grande",
+    "category": "Capilar",
+    "brand": "Lluvia de Estrellas",
+    "cost": 23845,
+    "price": 41000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1009",
+    "barcode": "770472104000",
+    "name": "Tratamiento plex",
+    "category": "Capilar",
+    "brand": "Origen Botánico",
+    "cost": 25935,
+    "price": 34900,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1010",
+    "barcode": "7709374293881",
+    "name": "Tratamiento jalea real",
+    "category": "Capilar",
+    "brand": "Origen Botánico",
+    "cost": 27360,
+    "price": 37900,
+    "stock": 0,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1011",
+    "barcode": "7708946977105",
+    "name": "Shampoo jalea real",
+    "category": "Capilar",
+    "brand": "Origen Botánico",
+    "cost": 28120,
+    "price": 38000,
+    "stock": 1,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1012",
+    "barcode": "770700964000",
+    "name": "Shampoo de menta y aji",
+    "category": "Capilar",
+    "brand": "Origen Botánico",
+    "cost": 25935,
+    "price": 36000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1013",
+    "barcode": "770700724000",
+    "name": "Shampoo cebolla y argan",
+    "category": "Capilar",
+    "brand": "Origen Botánico",
+    "cost": 25935,
+    "price": 36000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1014",
+    "barcode": "770170084000",
+    "name": "Shampoo romero y eucalipto",
+    "category": "Capilar",
+    "brand": "Origen Botánico",
+    "cost": 25935,
+    "price": 35900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1015",
+    "barcode": "770710192400",
+    "name": "Mantequilla perfumada",
+    "category": "Corporal",
+    "brand": "Origen Botánico",
+    "cost": 19950,
+    "price": 30000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1016",
+    "barcode": "770729914000",
+    "name": "Mascarilla bomba botanica",
+    "category": "Capilar",
+    "brand": "Origen Botánico",
+    "cost": 27360,
+    "price": 38000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1017",
+    "barcode": "7700791501535",
+    "name": "Termoprotector mini",
+    "category": "Capilar",
+    "brand": "Origen Botánico",
+    "cost": 12540,
+    "price": 20000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1018",
+    "barcode": "770795771200",
+    "name": "Termoprotector azul",
+    "category": "Capilar",
+    "brand": "Origen Botánico",
+    "cost": 17005,
+    "price": 25000,
+    "stock": 3,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1019",
+    "barcode": "770790101200",
+    "name": "Termoprotector rosado",
+    "category": "Capilar",
+    "brand": "Origen Botánico",
+    "cost": 17005,
+    "price": 25000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1020",
+    "barcode": "7709997426468",
+    "name": "Shampoo de cebolla y jengibre",
+    "category": "Capilar",
+    "brand": "Olé",
+    "cost": 22800,
+    "price": 38900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1021",
+    "barcode": "7707936213926",
+    "name": "Shampoo coco, canela y miel",
+    "category": "Capilar",
+    "brand": "Olé",
+    "cost": 22800,
+    "price": 38900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1022",
+    "barcode": "7707936213070",
+    "name": "Acondicionador de algodon y coco",
+    "category": "Capilar",
+    "brand": "Olé",
+    "cost": 21660,
+    "price": 38900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1023",
+    "barcode": "7707936213148",
+    "name": "Shampoo de arroz, avena y linaza",
+    "category": "Capilar",
+    "brand": "Olé",
+    "cost": 22800,
+    "price": 38900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1024",
+    "barcode": "7709071982132",
+    "name": "Acondicionador de arroz",
+    "category": "Capilar",
+    "brand": "Olé",
+    "cost": 22800,
+    "price": 38900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1025",
+    "barcode": "7709071982170",
+    "name": "Acondicionador de arroz mini",
+    "category": "Capilar",
+    "brand": "Olé",
+    "cost": 8550,
+    "price": 12000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1026",
+    "barcode": "7707936213087",
+    "name": "Tratamiento de arroz",
+    "category": "Capilar",
+    "brand": "Olé",
+    "cost": 23370,
+    "price": 39900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1027",
+    "barcode": "677144930236",
+    "name": "Shampoo de aji",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 29350,
+    "price": 45900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1028",
+    "barcode": "793969805648",
+    "name": "Acondicionador de aji",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 28690,
+    "price": 45000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1029",
+    "barcode": "7709076081885",
+    "name": "Shampoo de miel",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 29308,
+    "price": 45900,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1030",
+    "barcode": "793969805570",
+    "name": "Acondicionador de miel",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 28690,
+    "price": 45000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1031",
+    "barcode": "799192109164",
+    "name": "Mascarilla de miel",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 33155,
+    "price": 52000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1032",
+    "barcode": "7709268279632",
+    "name": "Termoprotector bifasico leche y miel",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 31920,
+    "price": 50000,
+    "stock": 8,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1033",
+    "barcode": "781718679428",
+    "name": "Miel para el cabello",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 38900,
+    "price": 60000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1034",
+    "barcode": "793969805600",
+    "name": "Mini miel capilar",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 19095,
+    "price": 31000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1035",
+    "barcode": "793969805563",
+    "name": "Perfume capilar miel",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 38285,
+    "price": 60000,
+    "stock": 2,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1036",
+    "barcode": "677144930205",
+    "name": "Perfume capilar de miel y masmelo",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 38285,
+    "price": 60000,
+    "stock": 0,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1037",
+    "barcode": "7709268279656",
+    "name": "Perfume capilar mocca shake",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 25659,
+    "price": 40000,
+    "stock": 0,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1038",
+    "barcode": "7709268279625",
+    "name": "Perfume capilar vainilla glaze",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 25650,
+    "price": 40000,
+    "stock": 5,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1039",
+    "barcode": "7709268279694",
+    "name": "Perfume capilar golden toffe",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 25650,
+    "price": 40000,
+    "stock": 3,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1040",
+    "barcode": "770770202507",
+    "name": "Keratina mediana",
+    "category": "Capilar",
+    "brand": "Origen Botánico",
+    "cost": 43130,
+    "price": 63000,
+    "stock": 1,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1041",
+    "barcode": "7709828395680",
+    "name": "Tonico capilar de aji",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 22990,
+    "price": 38000,
+    "stock": 1,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1042",
+    "barcode": "7709360339302",
+    "name": "Shampoo de leche y proteinas",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 33820,
+    "price": 53000,
+    "stock": 3,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1043",
+    "barcode": "7709360339395",
+    "name": "Acondicionador de leche y proteinas",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 33820,
+    "price": 53000,
+    "stock": 3,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1044",
+    "barcode": "7709949388202",
+    "name": "Mascarilla de leche y proteinas",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 38285,
+    "price": 59900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1045",
+    "barcode": "7708162555231",
+    "name": "Shampoo limpieza profunda",
+    "category": "Capilar",
+    "brand": "La Poción",
+    "cost": 31730,
+    "price": 38900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1046",
+    "barcode": "7708162555712",
+    "name": "Shampoo kids anti-nudos",
+    "category": "Capilar",
+    "brand": "La Poción",
+    "cost": 30115,
+    "price": 38000,
+    "stock": 1,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1047",
+    "barcode": "7708162555200",
+    "name": "Shampoo control grasa",
+    "category": "Capilar",
+    "brand": "La Poción",
+    "cost": 30305,
+    "price": 40000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1048",
+    "barcode": "7708162555934",
+    "name": "Shampoo control caida",
+    "category": "Capilar",
+    "brand": "La Poción",
+    "cost": 36955,
+    "price": 49900,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1049",
+    "barcode": "7708162555163",
+    "name": "Shampoo control caspa",
+    "category": "Capilar",
+    "brand": "La Poción",
+    "cost": 36575,
+    "price": 44900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1050",
+    "barcode": "7708162555033",
+    "name": "Acondicionador kids antinudos",
+    "category": "Capilar",
+    "brand": "La Poción",
+    "cost": 30115,
+    "price": 38000,
+    "stock": 1,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1051",
+    "barcode": "7708075180865",
+    "name": "Perfume mini irresistible",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 7505,
+    "price": 12900,
+    "stock": 2,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1052",
+    "barcode": "7707995679213",
+    "name": "Perfume mini majestuosa",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 7505,
+    "price": 12900,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1053",
+    "barcode": "7709225678423",
+    "name": "Perfume mini martina",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 7505,
+    "price": 12900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1054",
+    "barcode": "7708075180452",
+    "name": "Perfume mini bali",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 7505,
+    "price": 12900,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1055",
+    "barcode": "7708075180872",
+    "name": "Perfume mini sublime",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 7505,
+    "price": 12900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1056",
+    "barcode": "7708075180568",
+    "name": "Perfume grande majestuosa",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 20520,
+    "price": 34000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1057",
+    "barcode": "7708075180537",
+    "name": "Perfume grande bali",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 20520,
+    "price": 34000,
+    "stock": 3,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1058",
+    "barcode": "770427842930",
+    "name": "Bloom porta cosmeticos",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 10000,
+    "price": 20000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1059",
+    "barcode": "7709507915567",
+    "name": "Splash dorado pequeño",
+    "category": "Corporal",
+    "brand": "Glow Shine",
+    "cost": 15250,
+    "price": 26000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1060",
+    "barcode": "7709507915529",
+    "name": "Mantequilla corporal mini dorada",
+    "category": "Corporal",
+    "brand": "Glow Shine",
+    "cost": 15250,
+    "price": 26000,
+    "stock": 6,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1061",
+    "barcode": "770895840830",
+    "name": "Splash grande rosado",
+    "category": "Corporal",
+    "brand": "Glow Shine",
+    "cost": 20760,
+    "price": 29500,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1062",
+    "barcode": "7709163330971",
+    "name": "Mantequilla rosada grande",
+    "category": "Corporal",
+    "brand": "Glow Shine",
+    "cost": 20760,
+    "price": 30000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1063",
+    "barcode": "6924372697825",
+    "name": "Paleta de sombras",
+    "category": "Maquillaje",
+    "brand": "Alissha",
+    "cost": 26600,
+    "price": 49000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1064",
+    "barcode": "6933494881258",
+    "name": "Paleta ferias y fiestas",
+    "category": "Maquillaje",
+    "brand": "Engol",
+    "cost": 18050,
+    "price": 45000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1065",
+    "barcode": "793969805495",
+    "name": "Perfume mini dulce",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 10418,
+    "price": 17900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1066",
+    "barcode": "793969805525",
+    "name": "Perfume mini citrico",
+    "category": "Capilar",
+    "brand": "Click Hair",
+    "cost": 10418,
+    "price": 17900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1067",
+    "barcode": "7709545457784",
+    "name": "Mascarilla capilar ancestral",
+    "category": "Capilar",
+    "brand": "La Poción",
+    "cost": 32490,
+    "price": 42000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1068",
+    "barcode": "7709225678416",
+    "name": "Acondicionador linea profesional",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 49875,
+    "price": 72999,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1069",
+    "barcode": "7709225678492",
+    "name": "Shampoo linea profesional",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 47880,
+    "price": 70000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1070",
+    "barcode": "7708075180209",
+    "name": "Serum revitalizante de puntas",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 29166,
+    "price": 36900,
+    "stock": 3,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1071",
+    "barcode": "7707416072500",
+    "name": "Bronceador con aceite de zanahoria",
+    "category": "Corporal",
+    "brand": "Origen Botánico",
+    "cost": 26700,
+    "price": 39000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1072",
+    "barcode": "793969699988",
+    "name": "Gel hidratante Aloe Vera",
+    "category": "Skincare",
+    "brand": "Purpure",
+    "cost": 15200,
+    "price": 29000,
+    "stock": 2,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1073",
+    "barcode": "736372988836",
+    "name": "Agua micelar Pepino y Manzanilla",
+    "category": "Skincare",
+    "brand": "Purpure",
+    "cost": 14000,
+    "price": 23900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1074",
+    "barcode": "7709649401867",
+    "name": "Desmaquillante bifasico Bob Esponja",
+    "category": "Skincare",
+    "brand": "Trendy",
+    "cost": 18000,
+    "price": 30000,
+    "stock": 0,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1075",
+    "barcode": "7700849375545",
+    "name": "Espuma Desmaquillante lavable",
+    "category": "Skincare",
+    "brand": "Trendy",
+    "cost": 10000,
+    "price": 17000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1076",
+    "barcode": "788115817026",
+    "name": "Tonico facial de rosas + colageno",
+    "category": "Skincare",
+    "brand": "Purpure",
+    "cost": 10200,
+    "price": 18900,
+    "stock": 1,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1077",
+    "barcode": "788115817040",
+    "name": "Espuma De Rosas Facil",
+    "category": "Skincare",
+    "brand": "Purpure",
+    "cost": 15000,
+    "price": 26000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1078",
+    "barcode": "788115817057",
+    "name": "Espuma Facial de Hamamelis",
+    "category": "Skincare",
+    "brand": "Purpure",
+    "cost": 15000,
+    "price": 26000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1079",
+    "barcode": "7708080149352",
+    "name": "Agua Micelar + pomos de Algodon",
+    "category": "Skincare",
+    "brand": "Elaya",
+    "cost": 12700,
+    "price": 25000,
+    "stock": 1,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1080",
+    "barcode": "7708080149017",
+    "name": "Desmaquillador Bifasico",
+    "category": "Skincare",
+    "brand": "Elaya",
+    "cost": 9975,
+    "price": 18900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1081",
+    "barcode": "3600542081160",
+    "name": "Agua Micelar Todo en Uno X 100 ml",
+    "category": "Skincare",
+    "brand": "Garnier",
+    "cost": 10200,
+    "price": 15300,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1082",
+    "barcode": "7708931071412",
+    "name": "Body Splash Sweet Candy",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 10000,
+    "price": 18000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1083",
+    "barcode": "677144702192",
+    "name": "Splash Corporal Piña Colada x 100 ml",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1084",
+    "barcode": "610985562976",
+    "name": "Splash Corporal birthday x 100 ml",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1085",
+    "barcode": "677144890097",
+    "name": "Splash Corporal de maracuya x 100 ml",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1086",
+    "barcode": "677144702208",
+    "name": "Splash corporal Bubble Gum x 100 ml",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1087",
+    "barcode": "677144702185",
+    "name": "Splash Corporal Caramel Crush X 100 ml",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1088",
+    "barcode": "677144890301",
+    "name": "Splash Corporal Watermelon x 100 ml",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1089",
+    "barcode": "677144890318",
+    "name": "Splash Corporal Strawberry X 100 ml",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1090",
+    "barcode": "764451296190",
+    "name": "Splash x250ml Vainilla Dreams",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 28000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1091",
+    "barcode": "736372335623",
+    "name": "Splash x250ml Candy bum",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 28000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1092",
+    "barcode": "7708228097323",
+    "name": "Splash x250ml Birthday cake",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 28000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1093",
+    "barcode": "736372335852",
+    "name": "Splash x250ml Sexy champagne",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 28000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1094",
+    "barcode": "677144890233",
+    "name": "Splash nuevo x200ml birthday cake",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1095",
+    "barcode": "793969700042",
+    "name": "Splash nuevo x200ml Bubble gum",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1096",
+    "barcode": "677144266359",
+    "name": "Splash nuevo x200ml Watermelon",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1097",
+    "barcode": "677144889848",
+    "name": "Splash nuevo x200ml Maracuyazo",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 3,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1098",
+    "barcode": "677144266274",
+    "name": "Splash nuevo x200ml Piña colada",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 3,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1099",
+    "barcode": "677144266472",
+    "name": "Splash nuevo x200ml Girl boss",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1100",
+    "barcode": "677144266496",
+    "name": "Exfoliante Piña colada",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 16500,
+    "price": 28000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1101",
+    "barcode": "677144890561",
+    "name": "Mantequilla nueva x250ml Blueberry",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17500,
+    "price": 29000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1102",
+    "barcode": "610985562532",
+    "name": "Mantequilla nueva x250ml Mango crush",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17500,
+    "price": 30000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1103",
+    "barcode": "677144890608",
+    "name": "Mantequilla nueva x250ml Sweet cherry",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17500,
+    "price": 30000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1104",
+    "barcode": "677144890219",
+    "name": "Mantequilla birthday  cake x250ml",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 16500,
+    "price": 28000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1105",
+    "barcode": "793969699995",
+    "name": "Mantequilla x220ml honey glow",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 16500,
+    "price": 28000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1106",
+    "barcode": "77144266458",
+    "name": "Matequilla x250ml Girl boss",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 16500,
+    "price": 28000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1107",
+    "barcode": "788115831305",
+    "name": "Mantequilla x220ml candy bum",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 16500,
+    "price": 28000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1108",
+    "barcode": "7708970723464",
+    "name": "Mantequilla x220ml Sweet lychee",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 16500,
+    "price": 28000,
+    "stock": 3,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1109",
+    "barcode": "736372335784",
+    "name": "Mantequilla x220ml Watermelon",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 16500,
+    "price": 28000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1110",
+    "barcode": "677144266298",
+    "name": "Mantequilla x250ml piña colada",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 16500,
+    "price": 28000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1111",
+    "barcode": "610985562518",
+    "name": "Splash nuevo x215ml Mango crush",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1112",
+    "barcode": "677144890585",
+    "name": "Splash nuevo x215ml Sweet cherry",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1113",
+    "barcode": "677144890431",
+    "name": "Crema corporal piña colada 200ml",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 16000,
+    "price": 29000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1114",
+    "barcode": "677144890424",
+    "name": "Crema corporal candy bum x200ml",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 16000,
+    "price": 29000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1115",
+    "barcode": "677144889749",
+    "name": "Kit corporal x4 Rose lychee",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 34000,
+    "price": 55000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1116",
+    "barcode": "677144889817",
+    "name": "Kit corporal x3 chocolate vibes",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 28000,
+    "price": 44000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1117",
+    "barcode": "677144889794",
+    "name": "Kit corporal x3 sweet cherry",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 28000,
+    "price": 44000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1118",
+    "barcode": "677144889800",
+    "name": "Kit corporal x3 maracuyazo",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 28000,
+    "price": 44000,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1119",
+    "barcode": "677144266519",
+    "name": "Kit corporal x3 Candy bum",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 28000,
+    "price": 44000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1120",
+    "barcode": "677144890264",
+    "name": "Kit corporal x3 bear cookies",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 28000,
+    "price": 44000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1121",
+    "barcode": "677144890509",
+    "name": "Kit corporal x3 secret crush",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 28000,
+    "price": 44000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1122",
+    "barcode": "610985562617",
+    "name": "Kit corporal x3 grande strawberry cake",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 37000,
+    "price": 60000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1123",
+    "barcode": "8809801696342",
+    "name": "Bloom serum balance",
+    "category": "Skincare",
+    "brand": "Bloomshell",
+    "cost": 30685,
+    "price": 56000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1124",
+    "barcode": "8809801696335",
+    "name": "Bloom repair cream",
+    "category": "Skincare",
+    "brand": "Bloomshell",
+    "cost": 32000,
+    "price": 59000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1125",
+    "barcode": "8809801696359",
+    "name": "Bloom essential cream",
+    "category": "Skincare",
+    "brand": "Bloomshell",
+    "cost": 33820,
+    "price": 59000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1126",
+    "barcode": "8809801696373",
+    "name": "Bloom cleanser lumi gel",
+    "category": "Skincare",
+    "brand": "Bloomshell",
+    "cost": 23750,
+    "price": 40000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1127",
+    "barcode": "7721001010043",
+    "name": "Agua de rosas",
+    "category": "Skincare",
+    "brand": "Sagui",
+    "cost": 7750,
+    "price": 16000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1128",
+    "barcode": "7709411597897",
+    "name": "Contorno de ojos",
+    "category": "Skincare",
+    "brand": "Dream On",
+    "cost": 16815,
+    "price": 29000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1129",
+    "barcode": "770357763644",
+    "name": "Tonico facial de rosas",
+    "category": "Skincare",
+    "brand": "Bonara",
+    "cost": 13395,
+    "price": 24000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1130",
+    "barcode": "788115817217",
+    "name": "Tonico de rosas x120ml",
+    "category": "Skincare",
+    "brand": "Purpure",
+    "cost": 8500,
+    "price": 15000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1131",
+    "barcode": "7707894732149",
+    "name": "Agua micelar con acido hialuronico",
+    "category": "Skincare",
+    "brand": "Nube Rosa",
+    "cost": 7125,
+    "price": 15000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1132",
+    "barcode": "7707894735539",
+    "name": "Desmaquillante bifasico",
+    "category": "Skincare",
+    "brand": "Nube Rosa",
+    "cost": 7125,
+    "price": 15000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1133",
+    "barcode": "6924372684252",
+    "name": "Primer bloom poros invisibles",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 10165,
+    "price": 21000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1134",
+    "barcode": "7709217875380",
+    "name": "Primer de rosas",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 5000,
+    "price": 15000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1135",
+    "barcode": "793969699933",
+    "name": "Primer pore filter",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 13000,
+    "price": 21900,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1136",
+    "barcode": "6952465728606",
+    "name": "Primer efecto glow",
+    "category": "Maquillaje",
+    "brand": "Sagui",
+    "cost": 9880,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1137",
+    "barcode": "7707375605177",
+    "name": "Primer matificante",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 13585,
+    "price": 23900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1138",
+    "barcode": "7709311675480",
+    "name": "Primer pop",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 5000,
+    "price": 15000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1139",
+    "barcode": "6924372681886",
+    "name": "Primer neutralizante bloom cream purple",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13300,
+    "price": 25000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1140",
+    "barcode": "6924372689509",
+    "name": "Primer y fijador Bloom jelly fusion",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 17385,
+    "price": 29900,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1141",
+    "barcode": "677144890349",
+    "name": "Kit primer y fijador skin filter",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 19000,
+    "price": 32900,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1142",
+    "barcode": "658325384260",
+    "name": "Fijador dixy fix x80ml",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 25650,
+    "price": 44500,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1143",
+    "barcode": "736372978363",
+    "name": "Fijador dixy fix x30ml",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 16530,
+    "price": 29000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1144",
+    "barcode": "7708080149826",
+    "name": "Fijador de maquillaje",
+    "category": "Maquillaje",
+    "brand": "Elaya",
+    "cost": 15295,
+    "price": 30000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1145",
+    "barcode": "7707375604187",
+    "name": "Fijador de maquillaje",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 9500,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1146",
+    "barcode": "7709092350927",
+    "name": "Fijador de gelatina toy story",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 18000,
+    "price": 30000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1147",
+    "barcode": "770180253930",
+    "name": "Fijador extreme fix x120ml",
+    "category": "Maquillaje",
+    "brand": "Naba",
+    "cost": 29400,
+    "price": 49900,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1148",
+    "barcode": "770338928307",
+    "name": "Fijador extreme fix x60ml",
+    "category": "Maquillaje",
+    "brand": "Naba",
+    "cost": 18140,
+    "price": 32000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1149",
+    "barcode": "6903072472321",
+    "name": "Fijador bifasico mist fix",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 14915,
+    "price": 28000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1150",
+    "barcode": "7120250620001",
+    "name": "Fijador en aerosol pequeño",
+    "category": "Maquillaje",
+    "brand": "Sagui",
+    "cost": 19190,
+    "price": 33000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1151",
+    "barcode": "7708228097033",
+    "name": "Splash mini x105ml birthday cake",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1152",
+    "barcode": "7708970723471",
+    "name": "Splash mini x105ml Sweet lychee",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1153",
+    "barcode": "7707894737878",
+    "name": "Splash mini x105ml pistacho",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1154",
+    "barcode": "7708228097057",
+    "name": "Splash mini x105 ml girl boss",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1155",
+    "barcode": "7708228097798",
+    "name": "Splash mini x105ml candy bum",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1156",
+    "barcode": "7709525924633",
+    "name": "Splash mini x105ml Coconut",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 11000,
+    "price": 19000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1157",
+    "barcode": "677144702376",
+    "name": "Mantequilla mini x50g maracuyazo",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 12500,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1158",
+    "barcode": "677144702406",
+    "name": "Mantequilla mini x50g pistacho",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 12500,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1159",
+    "barcode": "7708228097743",
+    "name": "Mantequilla mini x50g girl boss",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 12500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1160",
+    "barcode": "7709525924626",
+    "name": "Mantequilla mini x50ml Vainilla chill",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 12500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1161",
+    "barcode": "7708970723426",
+    "name": "Mantequilla mini x50g Sweet Lychee",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 12500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1162",
+    "barcode": "7708228097316",
+    "name": "Mantequilla mini x50g Birthday cake",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 12500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1163",
+    "barcode": "677144266595",
+    "name": "Mascarilla mini nueva x50g piña colada",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 8000,
+    "price": 13500,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1164",
+    "barcode": "677144266588",
+    "name": "Mantequilla mini nueva x50g Bubble gum",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 8000,
+    "price": 13500,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1165",
+    "barcode": "677144702222",
+    "name": "Mantequilla mini nueva x50g Candy bum",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 8000,
+    "price": 13500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1166",
+    "barcode": "7709059679306",
+    "name": "Shampoo anti-caspa",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 30210,
+    "price": 39900,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1167",
+    "barcode": "7707995679435",
+    "name": "Shampoo de emergencia capilar",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 30210,
+    "price": 39900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1168",
+    "barcode": "7708075180483",
+    "name": "Tratamiento a base de frutas",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 31615,
+    "price": 39900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1169",
+    "barcode": "7709225678461",
+    "name": "Tratamiento emergencia capilar",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 30210,
+    "price": 39900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1170",
+    "barcode": "7708075180612",
+    "name": "Acondicionador milagro herbal",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 30210,
+    "price": 39900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1171",
+    "barcode": "770113020314",
+    "name": "Gel hidratante de arroz",
+    "category": "Skincare",
+    "brand": "Coco pink",
+    "cost": 16150,
+    "price": 29900,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1172",
+    "barcode": "7708453335610",
+    "name": "Gel hidratante con aloe vera",
+    "category": "Skincare",
+    "brand": "Girly",
+    "cost": 21090,
+    "price": 34000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1173",
+    "barcode": "6942349715839",
+    "name": "Contorno de ojos de centella",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 3000,
+    "price": 12000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1174",
+    "barcode": "6973098895466",
+    "name": "Colageno de ojeras caja",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 6300,
+    "price": 16000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1175",
+    "barcode": "6901783700603",
+    "name": "Serum de centella asiatica",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 3000,
+    "price": 16000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1176",
+    "barcode": "6942349712050",
+    "name": "Crema hidratante de centella asiatica",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 5500,
+    "price": 16000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1177",
+    "barcode": "6920250000114",
+    "name": "Tonico de centella asiatica",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 7000,
+    "price": 16000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1178",
+    "barcode": "6901783700351",
+    "name": "Crema hidratante de vitamina c",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 5300,
+    "price": 16000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1179",
+    "barcode": "6942349700347",
+    "name": "Tonico de vitamina c",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 4500,
+    "price": 16000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1180",
+    "barcode": "6942349700200",
+    "name": "Limpiador facial de vitamina c",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 4850,
+    "price": 14000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1181",
+    "barcode": "6976068951803",
+    "name": "Espuma con cepillo de arroz",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 8000,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1182",
+    "barcode": "6942349741029",
+    "name": "Tonico de arroz",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 5000,
+    "price": 16000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1183",
+    "barcode": "6942349737398",
+    "name": "Contorno de ojos de arroz",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 2500,
+    "price": 12000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1184",
+    "barcode": "6901783700672",
+    "name": "Serum de arroz pequeño",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 4500,
+    "price": 16000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1185",
+    "barcode": "6942349708015",
+    "name": "Espuma con cepillo de rosas",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 6100,
+    "price": 17000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1186",
+    "barcode": "6942349715440",
+    "name": "Serum de rosas y acido hialuronico",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 6000,
+    "price": 16000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1187",
+    "barcode": "6976504680038",
+    "name": "Contorno de ojos de rosas y acido hialuronico",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 2500,
+    "price": 12000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1188",
+    "barcode": "6942349715433",
+    "name": "Limpiador facial de rosas y acido hialuronico",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 4800,
+    "price": 14000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1189",
+    "barcode": "6942349715457",
+    "name": "Tonico de rosas y acido hialuronico",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 4500,
+    "price": 16000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1190",
+    "barcode": "7709066683419",
+    "name": "Splash corporal paisita dulce",
+    "category": "Corporal",
+    "brand": "Coco pink",
+    "cost": 16150,
+    "price": 29000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1191",
+    "barcode": "6976068957614",
+    "name": "Crema de arandanos",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 7297,
+    "price": 16900,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1192",
+    "barcode": "6924372682982",
+    "name": "Brillo corporal shine on tono 01",
+    "category": "Corporal",
+    "brand": "Alissha",
+    "cost": 8650,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1193",
+    "barcode": "6924372683019",
+    "name": "Brillo corporal shine on tono 04",
+    "category": "Corporal",
+    "brand": "Alissha",
+    "cost": 8650,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1194",
+    "barcode": "6924372682999",
+    "name": "Brillo corporal shine on tono 02",
+    "category": "Corporal",
+    "brand": "Alissha",
+    "cost": 8650,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1195",
+    "barcode": "736372988881",
+    "name": "Brillo corporal shimmer burst",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 9500,
+    "price": 18000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1196",
+    "barcode": "6942349789984",
+    "name": "Kit facial mini de centella",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 12500,
+    "price": 26000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1197",
+    "barcode": "6942581709580",
+    "name": "Kit facial mini de rosas y acido hialuronico",
+    "category": "Corporal",
+    "brand": "Bioaqua",
+    "cost": 12500,
+    "price": 26000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1198",
+    "barcode": "6942349750793",
+    "name": "Kit facial mini de arroz",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 12500,
+    "price": 26000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1199",
+    "barcode": "6942581709610",
+    "name": "Kit facial mini de vitamina c",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 12500,
+    "price": 26000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1200",
+    "barcode": "7709225678430",
+    "name": "Mascarilla capilar de cebolla",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 31160,
+    "price": 39900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1201",
+    "barcode": "7708075180759",
+    "name": "Desenredante termoprotector rosado",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 24795,
+    "price": 34000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1202",
+    "barcode": "7708075180339",
+    "name": "Desenredante termoprotector morado",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 28500,
+    "price": 36000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1203",
+    "barcode": "610985562648",
+    "name": "Kit maquillaje bear obsession",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 27000,
+    "price": 46000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1204",
+    "barcode": "7707559887597",
+    "name": "Cosmetiquera lilo",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Anik",
+    "cost": 13500,
+    "price": 24000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1205",
+    "barcode": "7861075670023",
+    "name": "cosmetiquera de tela",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Purpure",
+    "cost": 14000,
+    "price": 26000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1206",
+    "barcode": "7701136558443",
+    "name": "Pestañas de tira",
+    "category": "Maquillaje",
+    "brand": "Sara marin",
+    "cost": 5605,
+    "price": 10000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1207",
+    "barcode": "6968902212157",
+    "name": "Pestañas de tira",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 3000,
+    "price": 8500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1208",
+    "barcode": "25949320682",
+    "name": "Pestañas punto a punto 10d",
+    "category": "Maquillaje",
+    "brand": "Sackvis",
+    "cost": 2150,
+    "price": 8500,
+    "stock": 10,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1209",
+    "barcode": "275949320677",
+    "name": "Pestañas punto a punto 20d",
+    "category": "Maquillaje",
+    "brand": "Sackvis",
+    "cost": 2150,
+    "price": 8500,
+    "stock": 6,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1210",
+    "barcode": "226322916332",
+    "name": "Libro de 360 pestañas punto a punto 10d",
+    "category": "Maquillaje",
+    "brand": "cmayome",
+    "cost": 15000,
+    "price": 25000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1211",
+    "barcode": "770168839890",
+    "name": "Pegante negro de pestañas",
+    "category": "Maquillaje",
+    "brand": "Salon pro",
+    "cost": 3000,
+    "price": 8500,
+    "stock": 5,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1212",
+    "barcode": "7709094542191",
+    "name": "Polvo compacto banana",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 7000,
+    "price": 16000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1213",
+    "barcode": "6924372686799",
+    "name": "Polvo base tono 3 amelia",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 18000,
+    "price": 34000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1214",
+    "barcode": "764451296626",
+    "name": "Polvo base tono 2 y 1 Elena y mariana (mismo codigo)",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 18000,
+    "price": 34000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1215",
+    "barcode": "7709095760488",
+    "name": "Polvo compacto jack",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 13000,
+    "price": 24000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1216",
+    "barcode": "770358036422",
+    "name": "Polvo base",
+    "category": "Maquillaje",
+    "brand": "Piel canela",
+    "cost": 24900,
+    "price": 34900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1217",
+    "barcode": "6974482524467",
+    "name": "Polvo base tono 01",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 16900,
+    "price": 33000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1218",
+    "barcode": "6974482524474",
+    "name": "Polvo base tono 02",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 16900,
+    "price": 33000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1219",
+    "barcode": "6974482524481",
+    "name": "Polvo base tono 03",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 16900,
+    "price": 33000,
+    "stock": 7,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1220",
+    "barcode": "677144890332",
+    "name": "Perfume capilar en llavero candy bum",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 15000,
+    "price": 26000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1221",
+    "barcode": "6901783700382",
+    "name": "Serum de pestañas",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 3800,
+    "price": 15000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1222",
+    "barcode": "7708991454187",
+    "name": "Lapiz de ojos negro",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 8000,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1223",
+    "barcode": "6920228540055",
+    "name": "Bloom black eye liner pencil",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 4200,
+    "price": 10000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1224",
+    "barcode": "6972630571035",
+    "name": "Bloom beige eye liner pencil",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 4200,
+    "price": 10000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1225",
+    "barcode": "736372988782",
+    "name": "Polvo suelto translucido",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 14800,
+    "price": 25000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1226",
+    "barcode": "6974482522760",
+    "name": "Polvo 2 en 1 purple grande",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 23300,
+    "price": 39000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1227",
+    "barcode": "7709784572590",
+    "name": "Polvo suelto banana",
+    "category": "Maquillaje",
+    "brand": "Ame",
+    "cost": 19000,
+    "price": 34000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1228",
+    "barcode": "7709958250224",
+    "name": "Polvo suelto translucido",
+    "category": "Maquillaje",
+    "brand": "Ame",
+    "cost": 19000,
+    "price": 34000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1229",
+    "barcode": "658325384475",
+    "name": "Polvo suelto soft powder x30g",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 40755,
+    "price": 70000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1230",
+    "barcode": "734191428687",
+    "name": "Polvo suelto traslucido x9g",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 22000,
+    "price": 37000,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1231",
+    "barcode": "736372668516",
+    "name": "Polvo suelto rosado x9g",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 22000,
+    "price": 37000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1232",
+    "barcode": "6974482524351",
+    "name": "Polvo 2 en 1 traslucido mini",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 19500,
+    "price": 34000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1233",
+    "barcode": "7707559880031",
+    "name": "Polvo suelto traslucido",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 21701,
+    "price": 37000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1234",
+    "barcode": "7709997969774",
+    "name": "Polvo suelto rosado",
+    "category": "Maquillaje",
+    "brand": "Ame",
+    "cost": 14300,
+    "price": 25000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1235",
+    "barcode": "7707375602985",
+    "name": "Lapiz de cejas tono arequipe",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 5500,
+    "price": 12000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1236",
+    "barcode": "6924372697405",
+    "name": "Polvo suelto traslucido",
+    "category": "Maquillaje",
+    "brand": "Alissha",
+    "cost": 12540,
+    "price": 23000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1237",
+    "barcode": "6974482524665",
+    "name": "Polvo 4 tonos mini",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 18500,
+    "price": 30000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1238",
+    "barcode": "6974482527260",
+    "name": "Polvo suelto x2 tono 03",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 22900,
+    "price": 42000,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1239",
+    "barcode": "6974482527253",
+    "name": "Polvo suelto x2 tono 02",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 22900,
+    "price": 42000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1240",
+    "barcode": "7703378749528",
+    "name": "Polvo suelto traslucido",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 14700,
+    "price": 24000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1241",
+    "barcode": "7703378503007",
+    "name": "Polvo suelto banana",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 15900,
+    "price": 26000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1242",
+    "barcode": "7708970965444",
+    "name": "Polvo suelto traslucido",
+    "category": "Maquillaje",
+    "brand": "Elaya",
+    "cost": 11500,
+    "price": 20000,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1243",
+    "barcode": "6974482524610",
+    "name": "Polvo 4 tonos grande",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 24900,
+    "price": 40000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1244",
+    "barcode": "7707375600530",
+    "name": "Polvo suelto traslucido",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 8700,
+    "price": 18000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1245",
+    "barcode": "764451296435",
+    "name": "Papelitos antigrasa",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 3900,
+    "price": 8500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1246",
+    "barcode": "6903072478750",
+    "name": "Papelitos antigrasa bloom paper rose",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 3900,
+    "price": 8500,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1247",
+    "barcode": "7708991454101",
+    "name": "Base mousse tono 04",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 15000,
+    "price": 25000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1248",
+    "barcode": "7707375605283",
+    "name": "Pegante de pestañas transparente",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 10500,
+    "price": 19000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1249",
+    "barcode": "6903072493272",
+    "name": "Papelitos antigrasa con polvo tono 01",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13300,
+    "price": 24000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1250",
+    "barcode": "6974482503370",
+    "name": "Base en barra",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 16200,
+    "price": 28000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1251",
+    "barcode": "6974482522784",
+    "name": "Base cushion tono 03",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 35000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1252",
+    "barcode": "7707559884091",
+    "name": "Base 2 en 1 tono 01",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 28300,
+    "price": 44000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1253",
+    "barcode": "7707559886453",
+    "name": "Base 2 en 1 tono 02",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 28200,
+    "price": 44000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1254",
+    "barcode": "7707559882387",
+    "name": "Base 2 en 1 tono 03",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 28200,
+    "price": 44000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1255",
+    "barcode": "7707559889867",
+    "name": "Base 2 en 1 tono 04",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 28200,
+    "price": 44000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1256",
+    "barcode": "7709146984498",
+    "name": "Base matte",
+    "category": "Maquillaje",
+    "brand": "Dolce bella",
+    "cost": 13400,
+    "price": 28000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1257",
+    "barcode": "6924372681107",
+    "name": "Base semi - matte tono 2",
+    "category": "Maquillaje",
+    "brand": "Alissha",
+    "cost": 12800,
+    "price": 26000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1258",
+    "barcode": "6924372681114",
+    "name": "Base semi - matte tono 03",
+    "category": "Maquillaje",
+    "brand": "Alissha",
+    "cost": 12800,
+    "price": 26000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1259",
+    "barcode": "736372667212",
+    "name": "Base x30ml tono 01 light",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 28000,
+    "price": 48000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1260",
+    "barcode": "736372667229",
+    "name": "Base x30ml tono 02 porcelain",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 28000,
+    "price": 48000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1261",
+    "barcode": "736372666888",
+    "name": "Base x30ml tono 03 cream",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 28000,
+    "price": 48000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1262",
+    "barcode": "736372979186",
+    "name": "Tinta facial glow filter tono 1.5",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 35200,
+    "price": 60000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1263",
+    "barcode": "736372979193",
+    "name": "Tinta facial glow filter tono 2.0",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 35200,
+    "price": 60000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1264",
+    "barcode": "736372668547",
+    "name": "Base mate tono 02",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 14950,
+    "price": 28000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1265",
+    "barcode": "736372668554",
+    "name": "Base mate tono 03",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 14850,
+    "price": 28000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1266",
+    "barcode": "736372668561",
+    "name": "Base mate tono 04",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 14850,
+    "price": 28000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1267",
+    "barcode": "736372668578",
+    "name": "Base mate tono 05",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 14850,
+    "price": 28000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1268",
+    "barcode": "6974482524696",
+    "name": "Base semi mate tono 02",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 38000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1269",
+    "barcode": "7709283272359",
+    "name": "Kit rubor",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 9000,
+    "price": 16000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1270",
+    "barcode": "9540241575819",
+    "name": "Rubor e iluminador en barra",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 12500,
+    "price": 20000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1271",
+    "barcode": "7709573146896",
+    "name": "Rubor liquido happy",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 4000,
+    "price": 12000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1272",
+    "barcode": "736372978585",
+    "name": "Serum blush tono luce",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 18600,
+    "price": 34000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1273",
+    "barcode": "7709619004975",
+    "name": "Rubor liquido star tono 4",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 10000,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1274",
+    "barcode": "7707559882646",
+    "name": "Rubor liquido tono 1 lily",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 17500,
+    "price": 29000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1275",
+    "barcode": "7707559889287",
+    "name": "Rubor liquido tono 02 ellie",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 17500,
+    "price": 29000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1276",
+    "barcode": "7707559888143",
+    "name": "Rubor liquido tono 03 zoe",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 17500,
+    "price": 29000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1277",
+    "barcode": "7707559882974",
+    "name": "Rubor liquido tono 05 pink crush",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 17500,
+    "price": 29000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1278",
+    "barcode": "7707559884176",
+    "name": "Rubor liquido tono 06 martini",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 17500,
+    "price": 29000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1279",
+    "barcode": "6974482522753",
+    "name": "Rubor liquido bloom floral tono 01",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13000,
+    "price": 25000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1280",
+    "barcode": "6974482527031",
+    "name": "Rubor liquido bloom floral tono 02",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13000,
+    "price": 25001,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1281",
+    "barcode": "7707559884008",
+    "name": "flushy blushy tono 01 pink lemonade",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1282",
+    "barcode": "7707559881236",
+    "name": "Flushy blushy tono 02 tan line",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 7,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1283",
+    "barcode": "7707559884206",
+    "name": "Flushy blushy tono 03 toasty",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1284",
+    "barcode": "7707559883810",
+    "name": "Flushy blushy tono 04 that girl",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1285",
+    "barcode": "7707559888044",
+    "name": "Flushy blushy tono 05 berry me",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1286",
+    "barcode": "7707559882608",
+    "name": "Frezee babes",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12500,
+    "price": 22000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1287",
+    "barcode": "052336341456",
+    "name": "Got2b",
+    "category": "Maquillaje",
+    "brand": "got2b",
+    "cost": 19000,
+    "price": 31000,
+    "stock": 10,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1288",
+    "barcode": "6973327787371",
+    "name": "Bloom lamination",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 8200,
+    "price": 18000,
+    "stock": 50,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1289",
+    "barcode": "6932159607745",
+    "name": "gel de cejas",
+    "category": "Maquillaje",
+    "brand": "Melu",
+    "cost": 11800,
+    "price": 21000,
+    "stock": 13,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1290",
+    "barcode": "7708133635382",
+    "name": "Pestañina self love",
+    "category": "Maquillaje",
+    "brand": "Dolce bella",
+    "cost": 9100,
+    "price": 18000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1291",
+    "barcode": "7707559886408",
+    "name": "Pestañina brow paradise",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 13300,
+    "price": 24000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1292",
+    "barcode": "7707559889874",
+    "name": "Pestañina Eternal lash",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 13300,
+    "price": 24000,
+    "stock": 11,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1293",
+    "barcode": "7707559885418",
+    "name": "Pestañina flash lash",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 13300,
+    "price": 24000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1294",
+    "barcode": "7709094542115",
+    "name": "Pestañina super look",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 7000,
+    "price": 15000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1295",
+    "barcode": "7501734430789",
+    "name": "Pestañina profesional",
+    "category": "Maquillaje",
+    "brand": "Prosa",
+    "cost": 10800,
+    "price": 20000,
+    "stock": 9,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1296",
+    "barcode": "7501734430116",
+    "name": "Pestañina profesional silicon cafe",
+    "category": "Maquillaje",
+    "brand": "Prosa",
+    "cost": 10800,
+    "price": 20000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1297",
+    "barcode": "7501734430147",
+    "name": "Pestañina maxi volumen silicon",
+    "category": "Maquillaje",
+    "brand": "Prosa",
+    "cost": 10800,
+    "price": 20000,
+    "stock": 13,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1298",
+    "barcode": "7501734430352",
+    "name": "Pestañina microfibra",
+    "category": "Maquillaje",
+    "brand": "Prosa",
+    "cost": 10800,
+    "price": 20000,
+    "stock": 12,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1299",
+    "barcode": "7501734430338",
+    "name": "Pestañina maxi volumen",
+    "category": "Maquillaje",
+    "brand": "Prosa",
+    "cost": 10800,
+    "price": 20000,
+    "stock": 7,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1300",
+    "barcode": "7501734430567",
+    "name": "Pestañina maxi volumen borgoña",
+    "category": "Maquillaje",
+    "brand": "Prosa",
+    "cost": 10800,
+    "price": 20000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1301",
+    "barcode": "7501734430130",
+    "name": "Pestañina profesional silicon",
+    "category": "Maquillaje",
+    "brand": "Prosa",
+    "cost": 10800,
+    "price": 20000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1302",
+    "barcode": "6924372682838",
+    "name": "Contorno en barra",
+    "category": "Maquillaje",
+    "brand": "Alissha",
+    "cost": 9310,
+    "price": 18000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1303",
+    "barcode": "7709540026602",
+    "name": "Contorno chocolate en barra",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 9000,
+    "price": 17000,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1304",
+    "barcode": "6974482524566",
+    "name": "Contorno en barra tono 02 bloom define",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 16340,
+    "price": 30000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1305",
+    "barcode": "7709567836970",
+    "name": "Corrector liquido tono 04",
+    "category": "Maquillaje",
+    "brand": "Elaya",
+    "cost": 9700,
+    "price": 18000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1306",
+    "barcode": "7707375608772",
+    "name": "Corrector 1st tono 04 nude",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 25700,
+    "price": 45000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1307",
+    "barcode": "7707559883605",
+    "name": "Corrector liquido tono 01 bone",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 13500,
+    "price": 23500,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1308",
+    "barcode": "736372668646",
+    "name": "Corrector liquido tono 03",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 9500,
+    "price": 18000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1309",
+    "barcode": "736372668653",
+    "name": "Corrector liquido tono 04",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 9500,
+    "price": 18000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1310",
+    "barcode": "736372668660",
+    "name": "Corrector liquido tono 05",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 9500,
+    "price": 18000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1311",
+    "barcode": "7708951146794",
+    "name": "Corrector liquido",
+    "category": "Maquillaje",
+    "brand": "Dolce bella",
+    "cost": 10200,
+    "price": 18000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1312",
+    "barcode": "6974482516516",
+    "name": "Corrector mini tono 01",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 7900,
+    "price": 14000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1313",
+    "barcode": "6974482525457",
+    "name": "Corrector mediano tono 00",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13500,
+    "price": 23500,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1314",
+    "barcode": "6974482525389",
+    "name": "Corrector XL tono 02",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 21000,
+    "price": 37000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1315",
+    "barcode": "770814264638",
+    "name": "Corrector pequeño tono 00",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 23400,
+    "price": 35000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1316",
+    "barcode": "770703520378",
+    "name": "Corrector pequeño tono 01",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 23370,
+    "price": 35000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1317",
+    "barcode": "770388117416",
+    "name": "Corrector pequeño tono 02",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 23400,
+    "price": 35000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1318",
+    "barcode": "770359657356",
+    "name": "Corrector pequeño tono 03",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 23400,
+    "price": 35000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1319",
+    "barcode": "770879283532",
+    "name": "Corrector pequeño tono 04",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 23400,
+    "price": 35000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1320",
+    "barcode": "770545181398",
+    "name": "Corrector XL tono 00",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 28800,
+    "price": 48000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1321",
+    "barcode": "770189636171",
+    "name": "Corrector XL tono 01",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 28800,
+    "price": 48000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1322",
+    "barcode": "770314408091",
+    "name": "Corrector XL tono 02",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 28800,
+    "price": 48000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1323",
+    "barcode": "770102949475",
+    "name": "Corrector XL tono 03",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 28800,
+    "price": 48000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1324",
+    "barcode": "770545771432",
+    "name": "Corrector XL tono 04",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 28800,
+    "price": 48000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1325",
+    "barcode": "7709300870544",
+    "name": "Iluminador sublime cuadrado tono Petal",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 23000,
+    "price": 40000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1326",
+    "barcode": "7709783386471",
+    "name": "Iluminador sublime cuadrado tono Gleam",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 23000,
+    "price": 40000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1327",
+    "barcode": "7709300870582",
+    "name": "Iluminador sublime cuadrado tono Ivory",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 23000,
+    "price": 40000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1328",
+    "barcode": "7709783386440",
+    "name": "Contorno en polvo tono Clay",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 23000,
+    "price": 40000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1329",
+    "barcode": "7709783386402",
+    "name": "Contorno en polvo tono shade",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 23000,
+    "price": 40000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1330",
+    "barcode": "781159097805",
+    "name": "Contorno en polvo",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 25300,
+    "price": 42000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1331",
+    "barcode": "736372666994",
+    "name": "Iluminador sublime dorado tono afterglow",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 21000,
+    "price": 39000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1332",
+    "barcode": "6924372697764",
+    "name": "Iluminador tono 01",
+    "category": "Maquillaje",
+    "brand": "Alissha",
+    "cost": 8100,
+    "price": 16000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1333",
+    "barcode": "736372979278",
+    "name": "Iluminador tono golden",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 24000,
+    "price": 42000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1334",
+    "barcode": "6974482522722",
+    "name": "Iluminador cosmic",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20000,
+    "price": 35000,
+    "stock": 9,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1335",
+    "barcode": "736372667007",
+    "name": "Sombra cremosa tono boreal",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 11000,
+    "price": 22000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1336",
+    "barcode": "7707375602022",
+    "name": "Iluminador tono 02",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 8360,
+    "price": 16000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1337",
+    "barcode": "7707375607287",
+    "name": "Iluminador tono 04",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 8400,
+    "price": 16000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1338",
+    "barcode": "7707375602930",
+    "name": "Iluminador tono 05",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 8400,
+    "price": 16000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1339",
+    "barcode": "7703378834811",
+    "name": "Iluminador tono 01 sunset royal",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 12160,
+    "price": 21000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1340",
+    "barcode": "7703378328341",
+    "name": "Iluminador tono 02 sunset sparks",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 12160,
+    "price": 21000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1341",
+    "barcode": "7709840331246",
+    "name": "Paleta bakery",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 9000,
+    "price": 16000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1342",
+    "barcode": "764451296220",
+    "name": "Rubor en polvo tono 01",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 15000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1343",
+    "barcode": "7709272349932",
+    "name": "Lip & cheek",
+    "category": "Maquillaje",
+    "brand": "Beauty glazed",
+    "cost": 7000,
+    "price": 15000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1344",
+    "barcode": "736372979841",
+    "name": "Paleta de sombras tono iris",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 21500,
+    "price": 39000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1345",
+    "barcode": "7709074901604",
+    "name": "Paleta de sombras terra",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 12000,
+    "price": 22000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1346",
+    "barcode": "659525242466",
+    "name": "Rubor en crema tono so pretty",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 22000,
+    "price": 38000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1347",
+    "barcode": "7709305661482",
+    "name": "Trio de rubor primavera",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 7000,
+    "price": 15000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1348",
+    "barcode": "7709217875304",
+    "name": "Mia blush tono 01",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 19000,
+    "price": 30000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1349",
+    "barcode": "7709217875342",
+    "name": "Mia blush tono 02",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 19000,
+    "price": 30000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1350",
+    "barcode": "7703378709232",
+    "name": "Rubor en barra tono 01",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 10800,
+    "price": 20000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1351",
+    "barcode": "6974482525235",
+    "name": "Velvet crush x3 tono 07",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 23000,
+    "price": 39000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1352",
+    "barcode": "7709399307389",
+    "name": "Rubor en crema tono princess",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 27300,
+    "price": 40000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1353",
+    "barcode": "7709399307365",
+    "name": "Rubor en crema tono coral",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 27300,
+    "price": 40000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1354",
+    "barcode": "736372667700",
+    "name": "Duo rubor allure tono pink crush",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 26200,
+    "price": 45000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1355",
+    "barcode": "736372667717",
+    "name": "Duo rubor allure tono night cherry",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 26200,
+    "price": 45000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1356",
+    "barcode": "736372667724",
+    "name": "Duo rubor allure tono orange weekend",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 26200,
+    "price": 45000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1357",
+    "barcode": "6974482527093",
+    "name": "Velvet crush x3 tono 03",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 23000,
+    "price": 39000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1358",
+    "barcode": "7707559883339",
+    "name": "Rubor bonita tono 01 taylor",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12000,
+    "price": 20000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1359",
+    "barcode": "7707559886118",
+    "name": "Rubor bonita tono 03 selena",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12000,
+    "price": 20000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1360",
+    "barcode": "7707559888327",
+    "name": "Rubor bonita tono 04 katy",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12000,
+    "price": 20000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1361",
+    "barcode": "7707559884428",
+    "name": "Rubor bonita tono 05 kitty",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12000,
+    "price": 20000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1362",
+    "barcode": "7703378039483",
+    "name": "Rubor velvet glam tono 03 iconic",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 18000,
+    "price": 30000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1363",
+    "barcode": "6925627318229",
+    "name": "Vibrant duo",
+    "category": "Maquillaje",
+    "brand": "Enchanté",
+    "cost": 19600,
+    "price": 35001,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1364",
+    "barcode": "770452039326",
+    "name": "Rubor luminoso anik 01",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 15000,
+    "price": 24000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1365",
+    "barcode": "7707375600592",
+    "name": "Rubor dorado sublime tono radiant",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 15000,
+    "price": 28000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1366",
+    "barcode": "7709783386464",
+    "name": "Rubor cuadrado sublime tono sundown",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 24000,
+    "price": 41000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1367",
+    "barcode": "7709783386488",
+    "name": "Rubor cuadrado sublime tono radiant",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 24000,
+    "price": 41000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1368",
+    "barcode": "6974482516530",
+    "name": "Corrector mini tono 03",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 7900,
+    "price": 14000,
+    "stock": 7,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1369",
+    "barcode": "6974482525495",
+    "name": "Corrector mediano tono 04",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13500,
+    "price": 23500,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1370",
+    "barcode": "6974482525518",
+    "name": "Corrector mediano tono 05",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13500,
+    "price": 23500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1371",
+    "barcode": "6974482525501",
+    "name": "Corrector mediano tono 4,5",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13500,
+    "price": 23500,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1372",
+    "barcode": "6974482523156",
+    "name": "Corrector mediano tono 09",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13500,
+    "price": 23500,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1373",
+    "barcode": "6974482525365",
+    "name": "Corrector XL tono 00",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 21500,
+    "price": 37000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1374",
+    "barcode": "6974482525372",
+    "name": "Corrector XL tono 01",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 21500,
+    "price": 37000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1375",
+    "barcode": "6974482525396",
+    "name": "Corrector XL tono 03",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 21500,
+    "price": 37000,
+    "stock": 12,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1376",
+    "barcode": "6974482525402",
+    "name": "Corrector XL tono 04",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 21500,
+    "price": 37000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1377",
+    "barcode": "6974482522999",
+    "name": "Corrector XL tono 06",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 21500,
+    "price": 37000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1378",
+    "barcode": "6974482524702",
+    "name": "Base semi mate tono 2,5",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 38000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1379",
+    "barcode": "6974482524719",
+    "name": "Base semi mate tono 03",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 38000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1380",
+    "barcode": "6974482524726",
+    "name": "Base semi mate tono 04",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 38000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1381",
+    "barcode": "6974482524733",
+    "name": "Base semi mate tono 4,2",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 38000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1382",
+    "barcode": "6974482524740",
+    "name": "Base semi mate tono 4,5",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 38000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1383",
+    "barcode": "6974482524757",
+    "name": "Base semi mate tono 4,8",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 38000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1384",
+    "barcode": "6974482524764",
+    "name": "Base semi mate tono 05",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 38000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1385",
+    "barcode": "6974482524771",
+    "name": "Base semi mate tono 06",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 38000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1386",
+    "barcode": "6972630571516",
+    "name": "Llavero bloom mocha espejo",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 15900,
+    "price": 28500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1387",
+    "barcode": "6972630571509",
+    "name": "Llavero bloom me espejo",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 15900,
+    "price": 28500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1388",
+    "barcode": "736372668639",
+    "name": "Corrector liquido tono 02",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 9500,
+    "price": 18000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1389",
+    "barcode": "7709268279601",
+    "name": "Perfume capilar tropical crush",
+    "category": "Maquillaje",
+    "brand": "Click Hair",
+    "cost": 25650,
+    "price": 40000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1390",
+    "barcode": "736372977403",
+    "name": "Polvo suelto soft powder x10g",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 20900,
+    "price": 37000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1391",
+    "barcode": "7709225678409",
+    "name": "acondicionador de cebolla",
+    "category": "Maquillaje",
+    "brand": "Milagros",
+    "cost": 29450,
+    "price": 39900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1392",
+    "barcode": "7709225678478",
+    "name": "Shampoo de cebolla",
+    "category": "Maquillaje",
+    "brand": "Milagros",
+    "cost": 31920,
+    "price": 42000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1393",
+    "barcode": "7708075180704",
+    "name": "Shampoo milagro herbal",
+    "category": "Maquillaje",
+    "brand": "Milagros",
+    "cost": 30400,
+    "price": 39900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1394",
+    "barcode": "7501734411405",
+    "name": "Aceite 4 en 1",
+    "category": "Maquillaje",
+    "brand": "Prosa",
+    "cost": 12000,
+    "price": 22000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1395",
+    "barcode": "736372667991",
+    "name": "Base x50ml tono 02 porcelain",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 36100,
+    "price": 65000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1396",
+    "barcode": "781159031977",
+    "name": "Base x50ml tono 03 Cream",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 36100,
+    "price": 65000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1397",
+    "barcode": "781159031953",
+    "name": "Base x50ml tono 04 vainilla",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 36100,
+    "price": 65000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1398",
+    "barcode": "770770301200",
+    "name": "Keratina x120ml pequeña",
+    "category": "Maquillaje",
+    "brand": "Origen Botánico",
+    "cost": 25175,
+    "price": 37000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1399",
+    "barcode": "6975239993147",
+    "name": "Colageno de ojeras por unidad",
+    "category": "Maquillaje",
+    "brand": "Bioaqua",
+    "cost": 570,
+    "price": 2500,
+    "stock": 12,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1400",
+    "barcode": "6975239993390",
+    "name": "Colageno de labios por unidad",
+    "category": "Maquillaje",
+    "brand": "Bioaqua",
+    "cost": 570,
+    "price": 2500,
+    "stock": 12,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1401",
+    "barcode": "6942349745966",
+    "name": "Kit de arroz en caja",
+    "category": "Maquillaje",
+    "brand": "Bioaqua",
+    "cost": 30400,
+    "price": 75000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1402",
+    "barcode": "6942349742620",
+    "name": "Kit de rosas y acido hialuronico en caja",
+    "category": "Maquillaje",
+    "brand": "Bioaqua",
+    "cost": 30400,
+    "price": 75000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1403",
+    "barcode": "770642945331",
+    "name": "Tinta scarlet tono 1",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 6000,
+    "price": 15000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1404",
+    "barcode": "770666989213",
+    "name": "Tinta girl boss tono 1",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 5000,
+    "price": 10000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1405",
+    "barcode": "770318438505",
+    "name": "Lip oil tinted gigante",
+    "category": "Maquillaje",
+    "brand": "Sagui",
+    "cost": 8750,
+    "price": 15000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1406",
+    "barcode": "6903072492398",
+    "name": "Tinta bloom bombon",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 10000,
+    "price": 18000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1407",
+    "barcode": "6974482526485",
+    "name": "Tinta bloom latte Kiss",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 12000,
+    "price": 21000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1408",
+    "barcode": "677144890158",
+    "name": "Tinta cafe bear Kiss",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 8500,
+    "price": 17500,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1409",
+    "barcode": "677144890448",
+    "name": "Tinta cafe cocoa kiss",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 17000,
+    "stock": 8,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1410",
+    "barcode": "7709418824019",
+    "name": "Labial doble tono 03",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 10000,
+    "price": 18000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1411",
+    "barcode": "7709418824057",
+    "name": "Labial doble tono 02",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 10000,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1412",
+    "barcode": "7709711564407",
+    "name": "Tinta cafe toy story tono 04",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 13000,
+    "price": 22000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1413",
+    "barcode": "736372667281",
+    "name": "Lip oil tono soft red",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 17800,
+    "price": 32000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1414",
+    "barcode": "7707375608079",
+    "name": "Lip oil tinted Tono spicy",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 17800,
+    "price": 32000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1415",
+    "barcode": "7709462764668",
+    "name": "Lip oil tono cherry bliss",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 17800,
+    "price": 32000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1416",
+    "barcode": "7709676888051",
+    "name": "Lip oil tono candy glaze",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 17800,
+    "price": 32000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1417",
+    "barcode": "770817250787",
+    "name": "shiny lip oil",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 14750,
+    "price": 26000,
+    "stock": 7,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1418",
+    "barcode": "7709311675497",
+    "name": "Brillo aura tono 01",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 10000,
+    "price": 20000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1419",
+    "barcode": "7709631138788",
+    "name": "Brillo aura tono 03",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 10000,
+    "price": 20000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1420",
+    "barcode": "7709779380148",
+    "name": "Brillo aura mocca tono 01",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 10000,
+    "price": 20000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1421",
+    "barcode": "7709911354419",
+    "name": "Brillo aura mocca tono 02",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 10000,
+    "price": 20000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1422",
+    "barcode": "7709911354495",
+    "name": "Brillo aura mocca tono 03",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 10000,
+    "price": 20000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1423",
+    "barcode": "7709447448521",
+    "name": "Labial doble eclipse",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 9000,
+    "price": 16000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1424",
+    "barcode": "7709631138757",
+    "name": "Click gloss lip plump",
+    "category": "Maquillaje",
+    "brand": "Beauty glazed",
+    "cost": 8500,
+    "price": 16000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1425",
+    "barcode": "677144890400",
+    "name": "Lip serum tiramisú",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 12000,
+    "price": 20000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1426",
+    "barcode": "6972630571493",
+    "name": "Lip oil XL mimosa",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13300,
+    "price": 26000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1427",
+    "barcode": "677144889954",
+    "name": "Purpure kiss mate",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 16000,
+    "stock": 8,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1428",
+    "barcode": "677144889992",
+    "name": "Purpure pop star con destellos",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 8000,
+    "price": 18000,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1429",
+    "barcode": "770220449485",
+    "name": "Lip gloss juicy lips",
+    "category": "Maquillaje",
+    "brand": "Montoc",
+    "cost": 17400,
+    "price": 32000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1430",
+    "barcode": "6925627318137",
+    "name": "Lip gloss vibrant",
+    "category": "Maquillaje",
+    "brand": "Enchanté",
+    "cost": 15390,
+    "price": 28000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1431",
+    "barcode": "764451296213",
+    "name": "Lip gloss candy love",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 8000,
+    "price": 16000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1432",
+    "barcode": "7708949165998",
+    "name": "Lip gloss cherry color",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 2500,
+    "price": 8000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1433",
+    "barcode": "7709610110408",
+    "name": "Lip gloss color shine",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 2500,
+    "price": 8000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1434",
+    "barcode": "7708453335368",
+    "name": "Lip balm tono wine",
+    "category": "Maquillaje",
+    "brand": "Girly",
+    "cost": 23300,
+    "price": 36000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1435",
+    "barcode": "6973327786145",
+    "name": "Bloom hydra tint",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 10000,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1436",
+    "barcode": "793969056996",
+    "name": "Butter balm tono 04",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 12000,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1437",
+    "barcode": "7709593683067",
+    "name": "Voluminizador smoothie lips",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 7000,
+    "price": 12000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1438",
+    "barcode": "7709829058560",
+    "name": "Voluminizador boutique",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 5000,
+    "price": 11000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1439",
+    "barcode": "770911826823",
+    "name": "Lip balm magico honey",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 2500,
+    "price": 8000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1440",
+    "barcode": "6975649922836",
+    "name": "Lip gloss con destellos",
+    "category": "Maquillaje",
+    "brand": "Sagui",
+    "cost": 6200,
+    "price": 12000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1441",
+    "barcode": "7707375605672",
+    "name": "Click lipstick tono pizzazz",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 14630,
+    "price": 28000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1442",
+    "barcode": "7707375606945",
+    "name": "Click lipstick tono amber",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 14700,
+    "price": 28000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1443",
+    "barcode": "7707375604620",
+    "name": "Click lipstick tono bittersweet",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 14700,
+    "price": 28000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1444",
+    "barcode": "677144890240",
+    "name": "Lip gloss pop",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 10000,
+    "price": 18000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1445",
+    "barcode": "7707559884893",
+    "name": "Lip gloss tono 02 kim",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12000,
+    "price": 21000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1446",
+    "barcode": "7707559887108",
+    "name": "Lip gloss tono 01 diva",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12000,
+    "price": 21000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1447",
+    "barcode": "6924372689646",
+    "name": "Lip gloss bloom rolon",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 10200,
+    "price": 18000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1448",
+    "barcode": "6924372689516",
+    "name": "Lip balm bloom gelee",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 9300,
+    "price": 18000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1449",
+    "barcode": "7703378895607",
+    "name": "Labial mate tono 01 eternal rome",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 12400,
+    "price": 21000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1450",
+    "barcode": "7703378476462",
+    "name": "Labial soft mate tono 04 miami vibes",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 12400,
+    "price": 21000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1451",
+    "barcode": "7707559888747",
+    "name": "Lip balm tono 02 glam cake",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 10450,
+    "price": 20000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1452",
+    "barcode": "7707559888846",
+    "name": "Lip balm tono 03 candy cloud",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 10450,
+    "price": 20000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1453",
+    "barcode": "7707559884305",
+    "name": "Lip balm tono 04 marshmallow",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 10450,
+    "price": 20000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1454",
+    "barcode": "7709223258283",
+    "name": "Iluminador liquido brilla",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 6000,
+    "price": 13000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1455",
+    "barcode": "610985566516",
+    "name": "Crush kit lip gloss+delineador+iluminador",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 28000,
+    "price": 47000,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1456",
+    "barcode": "7707559883292",
+    "name": "Beauty blender",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Anik",
+    "cost": 3817,
+    "price": 7000,
+    "stock": 47,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1457",
+    "barcode": "6926594000292",
+    "name": "Beauty blender XL",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 6000,
+    "price": 12000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1458",
+    "barcode": "6972630570649",
+    "name": "Kit de gloss mini infaltables",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13900,
+    "price": 26000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1459",
+    "barcode": "7709911354488",
+    "name": "Voluminizador furia",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 9000,
+    "price": 16000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1460",
+    "barcode": "6942344603179",
+    "name": "Click gloss corazon",
+    "category": "Maquillaje",
+    "brand": "Gege bear",
+    "cost": 3000,
+    "price": 10000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1461",
+    "barcode": "736372667106",
+    "name": "Delineador de labios tono pale pink",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 7400,
+    "price": 14000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1462",
+    "barcode": "736372667144",
+    "name": "Delineador de labios tono clear wine",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 7400,
+    "price": 14000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1463",
+    "barcode": "7707559889317",
+    "name": "Delineador de labios tono 04 girl latte",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 8000,
+    "price": 14000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1464",
+    "barcode": "7707559886644",
+    "name": "delineador de labios tono 03 toasted love",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 8000,
+    "price": 14000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1465",
+    "barcode": "7709592197152",
+    "name": "Gel lip liner tono velvet coffee",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 10000,
+    "price": 19000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1466",
+    "barcode": "7709592197176",
+    "name": "Gel lip liner tono dusky muse",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 10000,
+    "price": 19000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1467",
+    "barcode": "7709592197145",
+    "name": "Gel lip liner tono nude whisper",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 10000,
+    "price": 19000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1468",
+    "barcode": "7709886564790",
+    "name": "Gel lip liner spice moccha",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 10000,
+    "price": 19000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1469",
+    "barcode": "6920583871092",
+    "name": "Borla triangular",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Beauty tool",
+    "cost": 1425,
+    "price": 4000,
+    "stock": 12,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1470",
+    "barcode": "6915615614525",
+    "name": "Borla de corazon",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Lemon beauty",
+    "cost": 2000,
+    "price": 4000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1471",
+    "barcode": "736372979636",
+    "name": "Borla de corazon",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Montoc",
+    "cost": 2400,
+    "price": 5000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1472",
+    "barcode": "6972656451069",
+    "name": "Borla triangular doble",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Beauty tool",
+    "cost": 2375,
+    "price": 6000,
+    "stock": 11,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1473",
+    "barcode": "6998789989415",
+    "name": "Beauty blender x5",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Ruby face",
+    "cost": 1800,
+    "price": 5000,
+    "stock": 12,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1474",
+    "barcode": "6972547656184",
+    "name": "Beauty blender pequeña con cortes",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Ruby face",
+    "cost": 2400,
+    "price": 5000,
+    "stock": 10,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1475",
+    "barcode": "6972547669009",
+    "name": "Borla triangular x3 mini",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Ruby face",
+    "cost": 1100,
+    "price": 5000,
+    "stock": 11,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1476",
+    "barcode": "6988268481073",
+    "name": "Borla triangular",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 2300,
+    "price": 5000,
+    "stock": 12,
+    "minStock": 3,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1477",
+    "barcode": "770989794989",
+    "name": "Kit de cejas doble tono 03 dark",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 13600,
+    "price": 25000,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1478",
+    "barcode": "6972630571097",
+    "name": "Lip gloss magico bloom meow",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 8400,
+    "price": 18000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1479",
+    "barcode": "6972630570588",
+    "name": "Bloom lip party tono 06",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 7000,
+    "price": 15999,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1480",
+    "barcode": "7709311675459",
+    "name": "Polvo de hadas",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 7000,
+    "price": 15000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1481",
+    "barcode": "770632942432",
+    "name": "lip care economico",
+    "category": "Maquillaje",
+    "brand": "Guzel",
+    "cost": 5500,
+    "price": 10000,
+    "stock": 7,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1482",
+    "barcode": "6930249912823",
+    "name": "Lip oil",
+    "category": "Maquillaje",
+    "brand": "Engol",
+    "cost": 3900,
+    "price": 10000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1483",
+    "barcode": "793969056682",
+    "name": "Voluminizador ultra plump lip",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 8000,
+    "price": 14000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1484",
+    "barcode": "6903072493289",
+    "name": "Papelitos antigrasa con polvo tono 2",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13300,
+    "price": 24000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1485",
+    "barcode": "6976289194935",
+    "name": "Kit de labios fucsia",
+    "category": "Maquillaje",
+    "brand": "Kevin y coco",
+    "cost": 5000,
+    "price": 12000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1486",
+    "barcode": "7707559886507",
+    "name": "Mini iconik",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Anik",
+    "cost": 13000,
+    "price": 23000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1487",
+    "barcode": "677144890363",
+    "name": "Baby brush multiusos",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 11999,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1488",
+    "barcode": "7709178308750",
+    "name": "Brocha de corrector mini",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Trendy",
+    "cost": 5000,
+    "price": 11000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1489",
+    "barcode": "736372978547",
+    "name": "Brocha minimi para rubor",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Montoc",
+    "cost": 13200,
+    "price": 22000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1490",
+    "barcode": "7709283272304",
+    "name": "Kit frutti gloss",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 4000,
+    "price": 10000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1491",
+    "barcode": "6961120205383",
+    "name": "Brocha de cejas",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Sagui",
+    "cost": 3800,
+    "price": 10000,
+    "stock": 8,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1492",
+    "barcode": "7709181860931",
+    "name": "Brocha para base p103",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Trendy",
+    "cost": 12000,
+    "price": 21000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1493",
+    "barcode": "7709283272328",
+    "name": "Kit de labios malibu",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 5000,
+    "price": 12000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1494",
+    "barcode": "7708901409054",
+    "name": "Kit de brochas de ojos mini",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Atenea",
+    "cost": 12550,
+    "price": 24000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1495",
+    "barcode": "7708901409023",
+    "name": "Brocha mini para polvo",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Atenea",
+    "cost": 15000,
+    "price": 24000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1496",
+    "barcode": "7708901409061",
+    "name": "Brocha mini para rubor",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Atenea",
+    "cost": 12550,
+    "price": 24000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1497",
+    "barcode": "7707375601650",
+    "name": "Brocha doble para base y corrector DB04",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Atenea",
+    "cost": 16700,
+    "price": 32000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1498",
+    "barcode": "7707375603616",
+    "name": "Brocha doble para polvo y rubor DB01",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 17800,
+    "price": 34000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1499",
+    "barcode": "7709728397883",
+    "name": "Brocha multiproposito BD03",
+    "category": "Maquillaje",
+    "brand": "OG",
+    "cost": 10450,
+    "price": 21001,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1500",
+    "barcode": "7709728397814",
+    "name": "Brocha doble para polvo y rubor BD01",
+    "category": "Maquillaje",
+    "brand": "OG",
+    "cost": 18525,
+    "price": 34000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1501",
+    "barcode": "7709053760369",
+    "name": "Brillo bloom to shine",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 2500,
+    "price": 8000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1502",
+    "barcode": "6989711290266",
+    "name": "Pañitos bloom remover",
+    "category": "Skincare",
+    "brand": "Bloomshell",
+    "cost": 6900,
+    "price": 14900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1503",
+    "barcode": "7709399982579",
+    "name": "Lip gloss niñas dolly chic",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 5000,
+    "price": 10000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1504",
+    "barcode": "7709543948048",
+    "name": "Sticker festivalero",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 5000,
+    "price": 9000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1505",
+    "barcode": "793969699742",
+    "name": "Pañitos makeup remover",
+    "category": "Skincare",
+    "brand": "Purpure",
+    "cost": 3000,
+    "price": 8000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1506",
+    "barcode": "20250702006",
+    "name": "Parches de estrellas",
+    "category": "Skincare",
+    "brand": "Acne patch",
+    "cost": 3300,
+    "price": 8000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1507",
+    "barcode": "6976068955689",
+    "name": "Mascarilla de acido hialuronico",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 1200,
+    "price": 2500,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1508",
+    "barcode": "6942349702099",
+    "name": "Mascarilla de vitamina C",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 1200,
+    "price": 2500,
+    "stock": 10,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1509",
+    "barcode": "6942349712401",
+    "name": "Mascarilla de arandanos",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 1200,
+    "price": 2500,
+    "stock": 8,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1510",
+    "barcode": "6976504687549",
+    "name": "Mascarilla de Durazno",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 1200,
+    "price": 2500,
+    "stock": 12,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1511",
+    "barcode": "6942349714719",
+    "name": "Mascarilla de aloe vera",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 1200,
+    "price": 1500,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1512",
+    "barcode": "6942017806708",
+    "name": "Mascarilla 3 pasos para puntos negros",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 1900,
+    "price": 5000,
+    "stock": 10,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1513",
+    "barcode": "770752019466",
+    "name": "repuesto base cushion",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 9200,
+    "price": 16000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1514",
+    "barcode": "286773848347",
+    "name": "Lima para uñas",
+    "category": "Maquillaje",
+    "brand": "Lima",
+    "cost": 373,
+    "price": 2000,
+    "stock": 22,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1515",
+    "barcode": "20332750027",
+    "name": "Pinzas depilatorias",
+    "category": "Maquillaje",
+    "brand": "Pinzas",
+    "cost": 870,
+    "price": 2000,
+    "stock": 6,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1516",
+    "barcode": "7707559883261",
+    "name": "Encrespador negro",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Anik",
+    "cost": 8349,
+    "price": 15000,
+    "stock": 8,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1517",
+    "barcode": "6972547654371",
+    "name": "Encrespador metalico",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Ruby face",
+    "cost": 3800,
+    "price": 10000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1518",
+    "barcode": "6972547654524",
+    "name": "Encrespador de puntos",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Ruby face",
+    "cost": 4751,
+    "price": 11000,
+    "stock": 8,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1519",
+    "barcode": "7703378413795",
+    "name": "Rubor velvet glam tono 02 irresistible",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 17480,
+    "price": 30000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1520",
+    "barcode": "7707375603630",
+    "name": "Rubor dorado sublime tono smooth pink",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 14725,
+    "price": 28000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1521",
+    "barcode": "7709399982500",
+    "name": "Lip gloss forever",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 2500,
+    "price": 8000,
+    "stock": 21,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1522",
+    "barcode": "7707375607317",
+    "name": "Iluminador tono 01",
+    "category": "Maquillaje",
+    "brand": "Lula",
+    "cost": 8400,
+    "price": 16000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1523",
+    "barcode": "7709567836949",
+    "name": "Corrector tono 02",
+    "category": "Maquillaje",
+    "brand": "Elaya",
+    "cost": 9700,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1524",
+    "barcode": "6974482525563",
+    "name": "Translucent mate mini malla tono 01 white",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 16200,
+    "price": 32000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1525",
+    "barcode": "6974482525587",
+    "name": "Translucent mate mini malla tono 03 natural",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 16200,
+    "price": 32000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1526",
+    "barcode": "7707375608451",
+    "name": "Corrector 1st tono 02 neutralizer",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 25700,
+    "price": 45000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1527",
+    "barcode": "7707375604132",
+    "name": "Corrector 1st scene tono 03 Vanilla",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 25700,
+    "price": 45000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1528",
+    "barcode": "7707375600110",
+    "name": "Corrector 1st scene tono 05 beige",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 25700,
+    "price": 45000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1529",
+    "barcode": "7707375608390",
+    "name": "Corrector 1st scene tono 06 cinnamon",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 25700,
+    "price": 45000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1530",
+    "barcode": "781159407963",
+    "name": "Polvo suelto 1st scene x30g",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 39710,
+    "price": 72000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1531",
+    "barcode": "7707559884589",
+    "name": "Corrector bonita tono 00-1",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12700,
+    "price": 23500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1532",
+    "barcode": "7707559888891",
+    "name": "Corrector bonita tono 00-2",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12700,
+    "price": 23500,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1533",
+    "barcode": "7707559883247",
+    "name": "Corrector bonita tono 02 radiant",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12700,
+    "price": 23500,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1534",
+    "barcode": "7707559885869",
+    "name": "Corrector bonita tono 02-1",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12700,
+    "price": 23500,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1535",
+    "barcode": "7707559882493",
+    "name": "Corrector bonita tono 03 honey",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12700,
+    "price": 23500,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1536",
+    "barcode": "7707559885807",
+    "name": "Corrector bonita tono 04 ginger",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 12700,
+    "price": 23500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1537",
+    "barcode": "7709217875335",
+    "name": "Paleta de rostro puppy colection",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 10000,
+    "price": 18000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1538",
+    "barcode": "781159032240",
+    "name": "Rubor dorado sublime tono rosy coral",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 14700,
+    "price": 28000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1539",
+    "barcode": "7709783386426",
+    "name": "Rubor cuadrado tono sunset",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 23000,
+    "price": 39900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1540",
+    "barcode": "781159407932",
+    "name": "Iluminador sublime dorado tono magnifisen",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 21000,
+    "price": 39000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1541",
+    "barcode": "7707559884787",
+    "name": "rubor bonita tono 02 dua",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 11210,
+    "price": 20000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1542",
+    "barcode": "770873326599",
+    "name": "kit de cejas doble tono 02 medium",
+    "category": "Maquillaje",
+    "brand": "Anik",
+    "cost": 11700,
+    "price": 22000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1543",
+    "barcode": "6942349715402",
+    "name": "Mascarilla en velo de rosas y acido hialuronico",
+    "category": "Maquillaje",
+    "brand": "Bioaqua",
+    "cost": 1200,
+    "price": 2500,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1544",
+    "barcode": "293456844252",
+    "name": "Libro de 640 pestañas punto a punto 30d, 40d y 50d",
+    "category": "Maquillaje",
+    "brand": "Pestañas",
+    "cost": 15000,
+    "price": 35000,
+    "stock": 4,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1545",
+    "barcode": "23456844182",
+    "name": "Libro de 640 pestañas punto a punto",
+    "category": "Maquillaje",
+    "brand": "Pestañas",
+    "cost": 15000,
+    "price": 35000,
+    "stock": 1,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1546",
+    "barcode": "6976504680205",
+    "name": "Mascarilla en velo de arroz",
+    "category": "Maquillaje",
+    "brand": "Bioaqua",
+    "cost": 1200,
+    "price": 2500,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1547",
+    "barcode": "6957574850552",
+    "name": "Bloom fix mini",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 16900,
+    "price": 29900,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1548",
+    "barcode": "6957574850569",
+    "name": "Bloom fix",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 22900,
+    "price": 44000,
+    "stock": 7,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1549",
+    "barcode": "770990476399",
+    "name": "Polvo suelto 4 tonos",
+    "category": "Maquillaje",
+    "brand": "Majikal",
+    "cost": 23000,
+    "price": 48000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  }
+];
+
+const INITIAL_KARDEX = [
+  {
+    "id": "K-588617",
+    "timestamp": "2026-11-06T00:39:48.617Z",
+    "type": "SALIDA",
+    "productId": "LV-1084",
+    "productName": "Splash Corporal birthday x 100 ml",
+    "barcode": "610985562976",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-588608",
+    "timestamp": "2026-11-06T00:39:48.608Z",
+    "type": "SALIDA",
+    "productId": "LV-1310",
+    "productName": "Corrector liquido tono 05",
+    "barcode": "736372668660",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-588600",
+    "timestamp": "2026-11-06T00:39:48.600Z",
+    "type": "SALIDA",
+    "productId": "LV-1456",
+    "productName": "Beauty blender",
+    "barcode": "7707559883292",
+    "quantity": 1,
+    "prevStock": 48,
+    "newStock": 47,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-588594",
+    "timestamp": "2026-11-06T00:39:48.594Z",
+    "type": "SALIDA",
+    "productId": "LV-1342",
+    "productName": "Rubor en polvo tono 01",
+    "barcode": "764451296220",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-469049",
+    "timestamp": "2026-11-06T00:21:09.049Z",
+    "type": "SALIDA",
+    "productId": "LV-1056",
+    "productName": "Perfume grande majestuosa",
+    "barcode": "7708075180568",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-945944",
+    "timestamp": "2026-11-06T00:12:25.944Z",
+    "type": "SALIDA",
+    "productId": "LV-1117",
+    "productName": "Kit corporal x3 sweet cherry",
+    "barcode": "677144889794",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-679257",
+    "timestamp": "2026-11-06T00:07:59.257Z",
+    "type": "SALIDA",
+    "productId": "LV-1544",
+    "productName": "Libro de 640 pestañas punto a punto 30d, 40d y 50d",
+    "barcode": "293456844252",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-679249",
+    "timestamp": "2026-11-06T00:07:59.249Z",
+    "type": "SALIDA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-679241",
+    "timestamp": "2026-11-06T00:07:59.241Z",
+    "type": "SALIDA",
+    "productId": "LV-1254",
+    "productName": "Base 2 en 1 tono 03",
+    "barcode": "7707559882387",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-513029",
+    "timestamp": "2026-11-05T23:48:33.029Z",
+    "type": "SALIDA",
+    "productId": "LV-1419",
+    "productName": "Brillo aura tono 03",
+    "barcode": "7709631138788",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-513023",
+    "timestamp": "2026-11-05T23:48:33.023Z",
+    "type": "SALIDA",
+    "productId": "LV-1308",
+    "productName": "Corrector liquido tono 03",
+    "barcode": "736372668646",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-513015",
+    "timestamp": "2026-11-05T23:48:33.015Z",
+    "type": "SALIDA",
+    "productId": "LV-1288",
+    "productName": "Bloom lamination",
+    "barcode": "6973327787371",
+    "quantity": 1,
+    "prevStock": 51,
+    "newStock": 50,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-513007",
+    "timestamp": "2026-11-05T23:48:33.007Z",
+    "type": "SALIDA",
+    "productId": "LV-1264",
+    "productName": "Base mate tono 02",
+    "barcode": "736372668547",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-086970",
+    "timestamp": "2026-11-05T23:08:06.970Z",
+    "type": "SALIDA",
+    "productId": "LV-1095",
+    "productName": "Splash nuevo x200ml Bubble gum",
+    "barcode": "793969700042",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-058037",
+    "timestamp": "2026-11-05T23:07:38.037Z",
+    "type": "SALIDA",
+    "productId": "LV-1375",
+    "productName": "Corrector XL tono 03",
+    "barcode": "6974482525396",
+    "quantity": 1,
+    "prevStock": 13,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-058025",
+    "timestamp": "2026-11-05T23:07:38.025Z",
+    "type": "SALIDA",
+    "productId": "LV-1418",
+    "productName": "Brillo aura tono 01",
+    "barcode": "7709311675497",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-058019",
+    "timestamp": "2026-11-05T23:07:38.019Z",
+    "type": "SALIDA",
+    "productId": "LV-1301",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-960380",
+    "timestamp": "2026-11-05T23:06:00.380Z",
+    "type": "SALIDA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-943325",
+    "timestamp": "2026-11-05T23:05:43.325Z",
+    "type": "SALIDA",
+    "productId": "LV-1474",
+    "productName": "Beauty blender pequeña con cortes",
+    "barcode": "6972547656184",
+    "quantity": 1,
+    "prevStock": 11,
+    "newStock": 10,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-708102",
+    "timestamp": "2026-11-05T23:01:48.102Z",
+    "type": "SALIDA",
+    "productId": "LV-1341",
+    "productName": "Paleta bakery",
+    "barcode": "7709840331246",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Merma o Defecto",
+    "notes": ""
+  },
+  {
+    "id": "K-556387",
+    "timestamp": "2026-11-05T22:59:16.387Z",
+    "type": "SALIDA",
+    "productId": "LV-1298",
+    "productName": "Pestañina microfibra",
+    "barcode": "7501734430352",
+    "quantity": 1,
+    "prevStock": 13,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556380",
+    "timestamp": "2026-11-05T22:59:16.380Z",
+    "type": "SALIDA",
+    "productId": "LV-1243",
+    "productName": "Polvo 4 tonos grande",
+    "barcode": "6974482524610",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556375",
+    "timestamp": "2026-11-05T22:59:16.375Z",
+    "type": "SALIDA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto soft powder x10g",
+    "barcode": "736372977403",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556369",
+    "timestamp": "2026-11-05T22:59:16.369Z",
+    "type": "SALIDA",
+    "productId": "LV-1418",
+    "productName": "Brillo aura tono 01",
+    "barcode": "7709311675497",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556363",
+    "timestamp": "2026-11-05T22:59:16.363Z",
+    "type": "SALIDA",
+    "productId": "LV-1462",
+    "productName": "Delineador de labios tono clear wine",
+    "barcode": "736372667144",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556358",
+    "timestamp": "2026-11-05T22:59:16.358Z",
+    "type": "SALIDA",
+    "productId": "LV-1288",
+    "productName": "Bloom lamination",
+    "barcode": "6973327787371",
+    "quantity": 1,
+    "prevStock": 52,
+    "newStock": 51,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556350",
+    "timestamp": "2026-11-05T22:59:16.350Z",
+    "type": "SALIDA",
+    "productId": "LV-1034",
+    "productName": "Mini miel capilar",
+    "barcode": "793969805600",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556343",
+    "timestamp": "2026-11-05T22:59:16.343Z",
+    "type": "SALIDA",
+    "productId": "LV-1527",
+    "productName": "Corrector 1st scene tono 03 Vanilla",
+    "barcode": "7707375604132",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556337",
+    "timestamp": "2026-11-05T22:59:16.337Z",
+    "type": "SALIDA",
+    "productId": "LV-1284",
+    "productName": "Flushy blushy tono 04 that girl",
+    "barcode": "7707559883810",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556330",
+    "timestamp": "2026-11-05T22:59:16.330Z",
+    "type": "SALIDA",
+    "productId": "LV-1035",
+    "productName": "Perfume capilar miel",
+    "barcode": "793969805563",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556325",
+    "timestamp": "2026-11-05T22:59:16.325Z",
+    "type": "SALIDA",
+    "productId": "LV-1498",
+    "productName": "Brocha doble para polvo y rubor DB01",
+    "barcode": "7707375603616",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556319",
+    "timestamp": "2026-11-05T22:59:16.319Z",
+    "type": "SALIDA",
+    "productId": "LV-1333",
+    "productName": "Iluminador tono golden",
+    "barcode": "736372979278",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556312",
+    "timestamp": "2026-11-05T22:59:16.312Z",
+    "type": "SALIDA",
+    "productId": "LV-1357",
+    "productName": "Velvet crush x3 tono 03",
+    "barcode": "6974482527093",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556306",
+    "timestamp": "2026-11-05T22:59:16.306Z",
+    "type": "SALIDA",
+    "productId": "LV-1406",
+    "productName": "Tinta bloom bombon",
+    "barcode": "6903072492398",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-556300",
+    "timestamp": "2026-11-05T22:59:16.300Z",
+    "type": "SALIDA",
+    "productId": "LV-1382",
+    "productName": "Base semi mate tono 4,5",
+    "barcode": "6974482524740",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-332157",
+    "timestamp": "2026-11-05T22:05:32.158Z",
+    "type": "SALIDA",
+    "productId": "LV-1244",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7707375600530",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-021911",
+    "timestamp": "2026-11-05T21:43:41.911Z",
+    "type": "SALIDA",
+    "productId": "LV-1298",
+    "productName": "Pestañina microfibra",
+    "barcode": "7501734430352",
+    "quantity": 1,
+    "prevStock": 14,
+    "newStock": 13,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-021904",
+    "timestamp": "2026-11-05T21:43:41.904Z",
+    "type": "SALIDA",
+    "productId": "LV-1369",
+    "productName": "Corrector mediano tono 04",
+    "barcode": "6974482525495",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-470441",
+    "timestamp": "2026-11-05T21:34:30.441Z",
+    "type": "SALIDA",
+    "productId": "LV-1369",
+    "productName": "Corrector mediano tono 04",
+    "barcode": "6974482525495",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-219898",
+    "timestamp": "2026-11-05T21:30:19.898Z",
+    "type": "ENTRADA",
+    "productId": "LV-1244",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7707375600530",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-065739",
+    "timestamp": "2026-11-05T21:27:45.739Z",
+    "type": "SALIDA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto soft powder x10g",
+    "barcode": "736372977403",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-930576",
+    "timestamp": "2026-11-05T20:35:30.576Z",
+    "type": "SALIDA",
+    "productId": "LV-1307",
+    "productName": "Corrector liquido tono 01 bone",
+    "barcode": "7707559883605",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-470905",
+    "timestamp": "2026-11-05T20:11:10.905Z",
+    "type": "SALIDA",
+    "productId": "LV-1288",
+    "productName": "Bloom lamination",
+    "barcode": "6973327787371",
+    "quantity": 1,
+    "prevStock": 53,
+    "newStock": 52,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-470897",
+    "timestamp": "2026-11-05T20:11:10.897Z",
+    "type": "SALIDA",
+    "productId": "LV-1297",
+    "productName": "Pestañina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 14,
+    "newStock": 13,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-677261",
+    "timestamp": "2026-11-05T19:57:57.261Z",
+    "type": "SALIDA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-677253",
+    "timestamp": "2026-11-05T19:57:57.253Z",
+    "type": "SALIDA",
+    "productId": "LV-1440",
+    "productName": "Lip gloss con destellos",
+    "barcode": "6975649922836",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-783538",
+    "timestamp": "2026-11-05T18:03:03.538Z",
+    "type": "SALIDA",
+    "productId": "LV-1549",
+    "productName": "Polvo suelto 4 tonos",
+    "barcode": "770990476399",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-783531",
+    "timestamp": "2026-11-05T18:03:03.531Z",
+    "type": "SALIDA",
+    "productId": "LV-1375",
+    "productName": "Corrector XL tono 03",
+    "barcode": "6974482525396",
+    "quantity": 1,
+    "prevStock": 14,
+    "newStock": 13,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-750704",
+    "timestamp": "2026-11-05T18:02:30.705Z",
+    "type": "ENTRADA",
+    "productId": "LV-1549",
+    "productName": "Polvo suelto 4 tonos",
+    "barcode": "770990476399",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-130205",
+    "timestamp": "2026-11-05T17:35:30.205Z",
+    "type": "SALIDA",
+    "productId": "LV-1240",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7703378749528",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-316392",
+    "timestamp": "2026-11-04T23:35:16.392Z",
+    "type": "SALIDA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Merma o Defecto",
+    "notes": ""
+  },
+  {
+    "id": "K-704254",
+    "timestamp": "2026-11-04T23:25:04.254Z",
+    "type": "SALIDA",
+    "productId": "LV-1072",
+    "productName": "Gel hidratante Aloe Vera",
+    "barcode": "793969699988",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-079726",
+    "timestamp": "2026-11-04T22:41:19.726Z",
+    "type": "ENTRADA",
+    "productId": "LV-1548",
+    "productName": "Bloom fix",
+    "barcode": "6957574850569",
+    "quantity": 7,
+    "prevStock": 0,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-053970",
+    "timestamp": "2026-11-04T22:40:53.970Z",
+    "type": "ENTRADA",
+    "productId": "LV-1547",
+    "productName": "Bloom fix mini",
+    "barcode": "6957574850552",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-870443",
+    "timestamp": "2026-11-04T22:37:50.443Z",
+    "type": "ENTRADA",
+    "productId": "LV-1507",
+    "productName": "Mascarilla de acido hialuronico",
+    "barcode": "6976068955689",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-867462",
+    "timestamp": "2026-11-04T22:37:47.462Z",
+    "type": "ENTRADA",
+    "productId": "LV-1507",
+    "productName": "Mascarilla de acido hialuronico",
+    "barcode": "6976068955689",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-847782",
+    "timestamp": "2026-11-04T22:37:27.782Z",
+    "type": "ENTRADA",
+    "productId": "LV-1546",
+    "productName": "Mascarilla en velo de arroz",
+    "barcode": "6976504680205",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-732534",
+    "timestamp": "2026-11-04T22:35:32.534Z",
+    "type": "ENTRADA",
+    "productId": "LV-1545",
+    "productName": "Libro de 640 pestañas punto a punto",
+    "barcode": "23456844182",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-628708",
+    "timestamp": "2026-11-04T22:33:48.708Z",
+    "type": "ENTRADA",
+    "productId": "LV-1544",
+    "productName": "Libro de pestañas punto a punto 30d, 40d y 50d",
+    "barcode": "293456844252",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-512222",
+    "timestamp": "2026-11-04T22:31:52.222Z",
+    "type": "SALIDA",
+    "productId": "LV-1209",
+    "productName": "Pestañas punto a punto 20d",
+    "barcode": "275949320677",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-462508",
+    "timestamp": "2026-11-04T22:31:02.508Z",
+    "type": "SALIDA",
+    "productId": "LV-1209",
+    "productName": "Pestañas punto a punto 20d",
+    "barcode": "275949320677",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-462499",
+    "timestamp": "2026-11-04T22:31:02.499Z",
+    "type": "SALIDA",
+    "productId": "LV-1224",
+    "productName": "Bloom beige eye liner pencil",
+    "barcode": "6972630571035",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-170991",
+    "timestamp": "2026-11-04T22:26:10.991Z",
+    "type": "ENTRADA",
+    "productId": "LV-1509",
+    "productName": "Mascarilla de arandanos",
+    "barcode": "6942349712401",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-118568",
+    "timestamp": "2026-11-04T22:25:18.568Z",
+    "type": "ENTRADA",
+    "productId": "LV-1510",
+    "productName": "Mascarilla de Durazno",
+    "barcode": "6976504687549",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-089680",
+    "timestamp": "2026-11-04T22:24:49.680Z",
+    "type": "ENTRADA",
+    "productId": "LV-1543",
+    "productName": "Mascarilla en velo de rosas y acido hialuronico",
+    "barcode": "6942349715402",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-028528",
+    "timestamp": "2026-11-04T22:23:48.528Z",
+    "type": "ENTRADA",
+    "productId": "LV-1512",
+    "productName": "Mascarilla 3 pasos para puntos negros",
+    "barcode": "6942017806708",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-998376",
+    "timestamp": "2026-11-04T22:23:18.376Z",
+    "type": "ENTRADA",
+    "productId": "LV-1511",
+    "productName": "Mascarilla de aloe vera",
+    "barcode": "6942349714719",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-995852",
+    "timestamp": "2026-11-04T22:23:15.852Z",
+    "type": "ENTRADA",
+    "productId": "LV-1511",
+    "productName": "Mascarilla de aloe vera",
+    "barcode": "6942349714719",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-966328",
+    "timestamp": "2026-11-04T22:22:46.328Z",
+    "type": "ENTRADA",
+    "productId": "LV-1508",
+    "productName": "Mascarilla de vitamina C",
+    "barcode": "6942349702099",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-785625",
+    "timestamp": "2026-11-04T22:19:45.625Z",
+    "type": "ENTRADA",
+    "productId": "LV-1282",
+    "productName": "Flushy blushy tono 02 tan line",
+    "barcode": "7707559881236",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-774947",
+    "timestamp": "2026-11-04T22:19:34.947Z",
+    "type": "ENTRADA",
+    "productId": "LV-1283",
+    "productName": "Flushy blushy tono 03 toasty",
+    "barcode": "7707559884206",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-770168",
+    "timestamp": "2026-11-04T22:19:30.168Z",
+    "type": "ENTRADA",
+    "productId": "LV-1282",
+    "productName": "Flushy blushy tono 02 tan line",
+    "barcode": "7707559881236",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-764114",
+    "timestamp": "2026-11-04T22:19:24.114Z",
+    "type": "ENTRADA",
+    "productId": "LV-1281",
+    "productName": "flushy blushy tono 01 pink lemonade",
+    "barcode": "7707559884008",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-737954",
+    "timestamp": "2026-11-04T22:18:57.954Z",
+    "type": "ENTRADA",
+    "productId": "LV-1254",
+    "productName": "Base 2 en 1 tono 03",
+    "barcode": "7707559882387",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-735078",
+    "timestamp": "2026-11-04T22:18:55.078Z",
+    "type": "ENTRADA",
+    "productId": "LV-1254",
+    "productName": "Base 2 en 1 tono 03",
+    "barcode": "7707559882387",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-726898",
+    "timestamp": "2026-11-04T22:18:46.898Z",
+    "type": "ENTRADA",
+    "productId": "LV-1253",
+    "productName": "Base 2 en 1 tono 02",
+    "barcode": "7707559886453",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-724299",
+    "timestamp": "2026-11-04T22:18:44.299Z",
+    "type": "ENTRADA",
+    "productId": "LV-1253",
+    "productName": "Base 2 en 1 tono 02",
+    "barcode": "7707559886453",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-719256",
+    "timestamp": "2026-11-04T22:18:39.256Z",
+    "type": "ENTRADA",
+    "productId": "LV-1252",
+    "productName": "Base 2 en 1 tono 01",
+    "barcode": "7707559884091",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-716135",
+    "timestamp": "2026-11-04T22:18:36.135Z",
+    "type": "ENTRADA",
+    "productId": "LV-1252",
+    "productName": "Base 2 en 1 tono 01",
+    "barcode": "7707559884091",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-686270",
+    "timestamp": "2026-11-04T22:18:06.270Z",
+    "type": "ENTRADA",
+    "productId": "LV-1542",
+    "productName": "kit de cejas doble tono 02 medium",
+    "barcode": "770873326599",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-426982",
+    "timestamp": "2026-11-04T22:13:46.982Z",
+    "type": "ENTRADA",
+    "productId": "LV-1430",
+    "productName": "Lip gloss vibrant",
+    "barcode": "6925627318137",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-420480",
+    "timestamp": "2026-11-04T22:13:40.480Z",
+    "type": "ENTRADA",
+    "productId": "LV-1361",
+    "productName": "Rubor bonita tono 05 kitty",
+    "barcode": "7707559884428",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-416936",
+    "timestamp": "2026-11-04T22:13:36.936Z",
+    "type": "ENTRADA",
+    "productId": "LV-1361",
+    "productName": "Rubor bonita tono 05 kitty",
+    "barcode": "7707559884428",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-410322",
+    "timestamp": "2026-11-04T22:13:30.322Z",
+    "type": "ENTRADA",
+    "productId": "LV-1360",
+    "productName": "Rubor bonita tono 04 katy",
+    "barcode": "7707559888327",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-405328",
+    "timestamp": "2026-11-04T22:13:25.328Z",
+    "type": "ENTRADA",
+    "productId": "LV-1360",
+    "productName": "Rubor bonita tono 04 katy",
+    "barcode": "7707559888327",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-287876",
+    "timestamp": "2026-11-04T22:11:27.876Z",
+    "type": "ENTRADA",
+    "productId": "LV-1541",
+    "productName": "rubor bonita tono 02 dua",
+    "barcode": "7707559884787",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-217407",
+    "timestamp": "2026-11-04T22:10:17.407Z",
+    "type": "ENTRADA",
+    "productId": "LV-1363",
+    "productName": "Vibrant duo",
+    "barcode": "6925627318229",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-212150",
+    "timestamp": "2026-11-04T22:10:12.150Z",
+    "type": "ENTRADA",
+    "productId": "LV-1356",
+    "productName": "Duo rubor allure tono orange weekend",
+    "barcode": "736372667724",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-201980",
+    "timestamp": "2026-11-04T22:10:01.980Z",
+    "type": "ENTRADA",
+    "productId": "LV-1325",
+    "productName": "Iluminador sublime cuadrado tono Petal",
+    "barcode": "7709300870544",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-199698",
+    "timestamp": "2026-11-04T22:09:59.698Z",
+    "type": "ENTRADA",
+    "productId": "LV-1325",
+    "productName": "Iluminador sublime cuadrado tono Petal",
+    "barcode": "7709300870544",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-192383",
+    "timestamp": "2026-11-04T22:09:52.383Z",
+    "type": "ENTRADA",
+    "productId": "LV-1327",
+    "productName": "Iluminador sublime cuadrado tono Ivory",
+    "barcode": "7709300870582",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-189694",
+    "timestamp": "2026-11-04T22:09:49.694Z",
+    "type": "ENTRADA",
+    "productId": "LV-1327",
+    "productName": "Iluminador sublime cuadrado tono Ivory",
+    "barcode": "7709300870582",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-185660",
+    "timestamp": "2026-11-04T22:09:45.660Z",
+    "type": "ENTRADA",
+    "productId": "LV-1327",
+    "productName": "Iluminador sublime cuadrado tono Ivory",
+    "barcode": "7709300870582",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-100820",
+    "timestamp": "2026-11-04T22:08:20.820Z",
+    "type": "ENTRADA",
+    "productId": "LV-1540",
+    "productName": "Iluminador sublime dorado tono magnifisen",
+    "barcode": "781159407932",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-881172",
+    "timestamp": "2026-11-04T22:04:41.172Z",
+    "type": "ENTRADA",
+    "productId": "LV-1539",
+    "productName": "Rubor cuadrado tono sunset",
+    "barcode": "7709783386426",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-814542",
+    "timestamp": "2026-11-04T22:03:34.542Z",
+    "type": "ENTRADA",
+    "productId": "LV-1366",
+    "productName": "Rubor cuadrado sublime tono sundown",
+    "barcode": "7709783386464",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-809346",
+    "timestamp": "2026-11-04T22:03:29.346Z",
+    "type": "ENTRADA",
+    "productId": "LV-1366",
+    "productName": "Rubor cuadrado sublime tono sundown",
+    "barcode": "7709783386464",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-782022",
+    "timestamp": "2026-11-04T22:03:02.022Z",
+    "type": "ENTRADA",
+    "productId": "LV-1538",
+    "productName": "Rubor dorado sublime tono rosy coral",
+    "barcode": "781159032240",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-705821",
+    "timestamp": "2026-11-04T22:01:45.821Z",
+    "type": "SALIDA",
+    "productId": "LV-1520",
+    "productName": "Rubor dorado sublime tono smooth pink",
+    "barcode": "7707375603630",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Punto Físico",
+    "notes": ""
+  },
+  {
+    "id": "K-701472",
+    "timestamp": "2026-11-04T22:01:41.472Z",
+    "type": "ENTRADA",
+    "productId": "LV-1520",
+    "productName": "Rubor dorado sublime tono smooth pink",
+    "barcode": "7707375603630",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-700562",
+    "timestamp": "2026-11-04T22:01:40.562Z",
+    "type": "ENTRADA",
+    "productId": "LV-1520",
+    "productName": "Rubor dorado sublime tono smooth pink",
+    "barcode": "7707375603630",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-127072",
+    "timestamp": "2026-11-04T21:52:07.072Z",
+    "type": "ENTRADA",
+    "productId": "LV-1236",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "6924372697405",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-059956",
+    "timestamp": "2026-11-04T21:50:59.956Z",
+    "type": "ENTRADA",
+    "productId": "LV-1214",
+    "productName": "Polvo base tono 2 Elena",
+    "barcode": "764451296626",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-040298",
+    "timestamp": "2026-11-04T21:50:40.298Z",
+    "type": "ENTRADA",
+    "productId": "LV-1214",
+    "productName": "Polvo base tono 2 Elena",
+    "barcode": "764451296626",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-019324",
+    "timestamp": "2026-11-04T21:50:19.324Z",
+    "type": "ENTRADA",
+    "productId": "LV-1486",
+    "productName": "Mini iconik",
+    "barcode": "7707559886507",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-019081",
+    "timestamp": "2026-11-04T21:50:19.081Z",
+    "type": "ENTRADA",
+    "productId": "LV-1486",
+    "productName": "Mini iconik",
+    "barcode": "7707559886507",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-002765",
+    "timestamp": "2026-11-04T21:50:02.765Z",
+    "type": "ENTRADA",
+    "productId": "LV-1293",
+    "productName": "Pestañina flash lash",
+    "barcode": "7707559885418",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-002525",
+    "timestamp": "2026-11-04T21:50:02.525Z",
+    "type": "ENTRADA",
+    "productId": "LV-1293",
+    "productName": "Pestañina flash lash",
+    "barcode": "7707559885418",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-929795",
+    "timestamp": "2026-11-04T21:48:49.795Z",
+    "type": "ENTRADA",
+    "productId": "LV-1353",
+    "productName": "Rubor en crema tono coral",
+    "barcode": "7709399307365",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-872909",
+    "timestamp": "2026-11-04T21:47:52.909Z",
+    "type": "ENTRADA",
+    "productId": "LV-1498",
+    "productName": "Brocha doble para polvo y rubor DB01",
+    "barcode": "7707375603616",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-842896",
+    "timestamp": "2026-11-04T21:47:22.896Z",
+    "type": "ENTRADA",
+    "productId": "LV-1362",
+    "productName": "Rubor velvet glam tono 03 iconic",
+    "barcode": "7703378039483",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-842660",
+    "timestamp": "2026-11-04T21:47:22.660Z",
+    "type": "ENTRADA",
+    "productId": "LV-1362",
+    "productName": "Rubor velvet glam tono 03 iconic",
+    "barcode": "7703378039483",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-792201",
+    "timestamp": "2026-11-04T21:46:32.201Z",
+    "type": "ENTRADA",
+    "productId": "LV-1537",
+    "productName": "Paleta de rostro puppy colection",
+    "barcode": "7709217875335",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-574254",
+    "timestamp": "2026-11-04T21:42:54.254Z",
+    "type": "SALIDA",
+    "productId": "LV-1361",
+    "productName": "Rubor en polvo tono 05 kitty",
+    "barcode": "7707559884428",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-574242",
+    "timestamp": "2026-11-04T21:42:54.242Z",
+    "type": "SALIDA",
+    "productId": "LV-1338",
+    "productName": "Iluminador tono 05",
+    "barcode": "7707375602930",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-574230",
+    "timestamp": "2026-11-04T21:42:54.230Z",
+    "type": "SALIDA",
+    "productId": "LV-1302",
+    "productName": "Contorno en barra",
+    "barcode": "6924372682838",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-577143",
+    "timestamp": "2026-11-04T21:26:17.143Z",
+    "type": "ENTRADA",
+    "productId": "LV-1536",
+    "productName": "Corrector bonita tono 04 ginger",
+    "barcode": "7707559885807",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-568565",
+    "timestamp": "2026-11-04T21:26:08.565Z",
+    "type": "ENTRADA",
+    "productId": "LV-1534",
+    "productName": "Corrector bonita tono 02-1",
+    "barcode": "7707559885869",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-567187",
+    "timestamp": "2026-11-04T21:26:07.187Z",
+    "type": "ENTRADA",
+    "productId": "LV-1534",
+    "productName": "Corrector bonita tono 02-1",
+    "barcode": "7707559885869",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-531915",
+    "timestamp": "2026-11-04T21:25:31.915Z",
+    "type": "ENTRADA",
+    "productId": "LV-1532",
+    "productName": "Corrector bonita tono 00-2",
+    "barcode": "7707559888891",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-530588",
+    "timestamp": "2026-11-04T21:25:30.588Z",
+    "type": "ENTRADA",
+    "productId": "LV-1532",
+    "productName": "Corrector bonita tono 00-2",
+    "barcode": "7707559888891",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-529117",
+    "timestamp": "2026-11-04T21:25:29.117Z",
+    "type": "ENTRADA",
+    "productId": "LV-1532",
+    "productName": "Corrector bonita tono 00-2",
+    "barcode": "7707559888891",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-506484",
+    "timestamp": "2026-11-04T21:25:06.484Z",
+    "type": "ENTRADA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-504917",
+    "timestamp": "2026-11-04T21:25:04.917Z",
+    "type": "ENTRADA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-503571",
+    "timestamp": "2026-11-04T21:25:03.571Z",
+    "type": "ENTRADA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-502136",
+    "timestamp": "2026-11-04T21:25:02.136Z",
+    "type": "ENTRADA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-500746",
+    "timestamp": "2026-11-04T21:25:00.746Z",
+    "type": "ENTRADA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-452884",
+    "timestamp": "2026-11-04T21:24:12.884Z",
+    "type": "ENTRADA",
+    "productId": "LV-1536",
+    "productName": "Corrector bonita tono 04 ginger",
+    "barcode": "7707559885807",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-400129",
+    "timestamp": "2026-11-04T21:23:20.129Z",
+    "type": "ENTRADA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-367799",
+    "timestamp": "2026-11-04T21:22:47.799Z",
+    "type": "ENTRADA",
+    "productId": "LV-1534",
+    "productName": "Corrector bonita tono 02-1",
+    "barcode": "7707559885869",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-304627",
+    "timestamp": "2026-11-04T21:21:44.627Z",
+    "type": "ENTRADA",
+    "productId": "LV-1533",
+    "productName": "Corrector bonita tono 02",
+    "barcode": "7707559883247",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-275511",
+    "timestamp": "2026-11-04T21:21:15.511Z",
+    "type": "ENTRADA",
+    "productId": "LV-1307",
+    "productName": "Corrector liquido tono 01 bone",
+    "barcode": "7707559883605",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-269911",
+    "timestamp": "2026-11-04T21:21:09.911Z",
+    "type": "ENTRADA",
+    "productId": "LV-1532",
+    "productName": "Corrector bonita tono 00-2",
+    "barcode": "7707559888891",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-235921",
+    "timestamp": "2026-11-04T21:20:35.921Z",
+    "type": "ENTRADA",
+    "productId": "LV-1531",
+    "productName": "Corrector bonita tono 00-1",
+    "barcode": "7707559884589",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-954632",
+    "timestamp": "2026-11-04T21:15:54.632Z",
+    "type": "ENTRADA",
+    "productId": "LV-1317",
+    "productName": "Corrector pequeño tono 02",
+    "barcode": "770388117416",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-953536",
+    "timestamp": "2026-11-04T21:15:53.536Z",
+    "type": "ENTRADA",
+    "productId": "LV-1318",
+    "productName": "Corrector pequeño tono 03",
+    "barcode": "770359657356",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-952938",
+    "timestamp": "2026-11-04T21:15:52.938Z",
+    "type": "ENTRADA",
+    "productId": "LV-1318",
+    "productName": "Corrector pequeño tono 03",
+    "barcode": "770359657356",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-950481",
+    "timestamp": "2026-11-04T21:15:50.481Z",
+    "type": "ENTRADA",
+    "productId": "LV-1316",
+    "productName": "Corrector pequeño tono 01",
+    "barcode": "770703520378",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-949768",
+    "timestamp": "2026-11-04T21:15:49.768Z",
+    "type": "ENTRADA",
+    "productId": "LV-1316",
+    "productName": "Corrector pequeño tono 01",
+    "barcode": "770703520378",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-949067",
+    "timestamp": "2026-11-04T21:15:49.067Z",
+    "type": "ENTRADA",
+    "productId": "LV-1316",
+    "productName": "Corrector pequeño tono 01",
+    "barcode": "770703520378",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-802382",
+    "timestamp": "2026-11-04T21:13:22.382Z",
+    "type": "ENTRADA",
+    "productId": "LV-1304",
+    "productName": "Contorno en barra tono 02 bloom define",
+    "barcode": "6974482524566",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-777820",
+    "timestamp": "2026-11-04T21:12:57.820Z",
+    "type": "ENTRADA",
+    "productId": "LV-1238",
+    "productName": "Polvo suelto x2 tono 03",
+    "barcode": "6974482527260",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-777458",
+    "timestamp": "2026-11-04T21:12:57.458Z",
+    "type": "ENTRADA",
+    "productId": "LV-1238",
+    "productName": "Polvo suelto x2 tono 03",
+    "barcode": "6974482527260",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-777031",
+    "timestamp": "2026-11-04T21:12:57.031Z",
+    "type": "ENTRADA",
+    "productId": "LV-1238",
+    "productName": "Polvo suelto x2 tono 03",
+    "barcode": "6974482527260",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-776591",
+    "timestamp": "2026-11-04T21:12:56.591Z",
+    "type": "ENTRADA",
+    "productId": "LV-1238",
+    "productName": "Polvo suelto x2 tono 03",
+    "barcode": "6974482527260",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-776214",
+    "timestamp": "2026-11-04T21:12:56.214Z",
+    "type": "ENTRADA",
+    "productId": "LV-1238",
+    "productName": "Polvo suelto x2 tono 03",
+    "barcode": "6974482527260",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-746883",
+    "timestamp": "2026-11-04T21:12:26.883Z",
+    "type": "ENTRADA",
+    "productId": "LV-1239",
+    "productName": "Polvo suelto x2 tono 02",
+    "barcode": "6974482527253",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-711871",
+    "timestamp": "2026-11-04T21:11:51.871Z",
+    "type": "ENTRADA",
+    "productId": "LV-1217",
+    "productName": "Polvo base tono 01",
+    "barcode": "6974482524467",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-711224",
+    "timestamp": "2026-11-04T21:11:51.224Z",
+    "type": "ENTRADA",
+    "productId": "LV-1217",
+    "productName": "Polvo base tono 01",
+    "barcode": "6974482524467",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-710805",
+    "timestamp": "2026-11-04T21:11:50.805Z",
+    "type": "ENTRADA",
+    "productId": "LV-1217",
+    "productName": "Polvo base tono 01",
+    "barcode": "6974482524467",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-679684",
+    "timestamp": "2026-11-04T21:11:19.684Z",
+    "type": "ENTRADA",
+    "productId": "LV-1219",
+    "productName": "Polvo base tono 03",
+    "barcode": "6974482524481",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-679186",
+    "timestamp": "2026-11-04T21:11:19.186Z",
+    "type": "ENTRADA",
+    "productId": "LV-1219",
+    "productName": "Polvo base tono 03",
+    "barcode": "6974482524481",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-678720",
+    "timestamp": "2026-11-04T21:11:18.720Z",
+    "type": "ENTRADA",
+    "productId": "LV-1219",
+    "productName": "Polvo base tono 03",
+    "barcode": "6974482524481",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-674612",
+    "timestamp": "2026-11-04T21:11:14.612Z",
+    "type": "ENTRADA",
+    "productId": "LV-1219",
+    "productName": "Polvo base tono 03",
+    "barcode": "6974482524481",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-674223",
+    "timestamp": "2026-11-04T21:11:14.223Z",
+    "type": "ENTRADA",
+    "productId": "LV-1219",
+    "productName": "Polvo base tono 03",
+    "barcode": "6974482524481",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-673865",
+    "timestamp": "2026-11-04T21:11:13.865Z",
+    "type": "ENTRADA",
+    "productId": "LV-1219",
+    "productName": "Polvo base tono 03",
+    "barcode": "6974482524481",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-616712",
+    "timestamp": "2026-11-04T21:10:16.712Z",
+    "type": "ENTRADA",
+    "productId": "LV-1446",
+    "productName": "Lip gloss tono 01 diva",
+    "barcode": "7707559887108",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-612114",
+    "timestamp": "2026-11-04T21:10:12.114Z",
+    "type": "ENTRADA",
+    "productId": "LV-1445",
+    "productName": "Lip gloss tono 02 kim",
+    "barcode": "7707559884893",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-611792",
+    "timestamp": "2026-11-04T21:10:11.793Z",
+    "type": "ENTRADA",
+    "productId": "LV-1445",
+    "productName": "Lip gloss tono 02 kim",
+    "barcode": "7707559884893",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-547678",
+    "timestamp": "2026-11-04T21:09:07.678Z",
+    "type": "ENTRADA",
+    "productId": "LV-1530",
+    "productName": "Polvo suelto 1st scene x30g",
+    "barcode": "781159407963",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-328192",
+    "timestamp": "2026-11-04T21:05:28.192Z",
+    "type": "ENTRADA",
+    "productId": "LV-1529",
+    "productName": "Corrector 1st scene tono 06 cinnamon",
+    "barcode": "7707375608390",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-275581",
+    "timestamp": "2026-11-04T21:04:35.581Z",
+    "type": "ENTRADA",
+    "productId": "LV-1528",
+    "productName": "Corrector 1st scene tono 05 beige",
+    "barcode": "7707375600110",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-230248",
+    "timestamp": "2026-11-04T21:03:50.248Z",
+    "type": "ENTRADA",
+    "productId": "LV-1306",
+    "productName": "Corrector liquido tono 04 nude",
+    "barcode": "7707375608772",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-197492",
+    "timestamp": "2026-11-04T21:03:17.492Z",
+    "type": "ENTRADA",
+    "productId": "LV-1527",
+    "productName": "Corrector 1st scene tono 03 Vanilla",
+    "barcode": "7707375604132",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-153112",
+    "timestamp": "2026-11-04T21:02:33.112Z",
+    "type": "ENTRADA",
+    "productId": "LV-1526",
+    "productName": "Corrector liquido tono 02 neutralizer",
+    "barcode": "7707375608451",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-037544",
+    "timestamp": "2026-11-04T21:00:37.544Z",
+    "type": "ENTRADA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto x10g",
+    "barcode": "736372977403",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-037315",
+    "timestamp": "2026-11-04T21:00:37.315Z",
+    "type": "ENTRADA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto x10g",
+    "barcode": "736372977403",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-012837",
+    "timestamp": "2026-11-04T21:00:12.837Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-011391",
+    "timestamp": "2026-11-04T21:00:11.391Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-009938",
+    "timestamp": "2026-11-04T21:00:09.938Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-002983",
+    "timestamp": "2026-11-04T21:00:02.983Z",
+    "type": "SALIDA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-968558",
+    "timestamp": "2026-11-04T20:59:28.558Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-898516",
+    "timestamp": "2026-11-04T20:58:18.516Z",
+    "type": "ENTRADA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-705459",
+    "timestamp": "2026-11-04T20:55:05.459Z",
+    "type": "SALIDA",
+    "productId": "LV-1115",
+    "productName": "Kit corporal x4 Rose lychee",
+    "barcode": "6677144889749",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-705449",
+    "timestamp": "2026-11-04T20:55:05.449Z",
+    "type": "SALIDA",
+    "productId": "LV-1150",
+    "productName": "Fijador en aerosol pequeño",
+    "barcode": "7120250620001",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-295042",
+    "timestamp": "2026-11-04T20:48:15.042Z",
+    "type": "ENTRADA",
+    "productId": "LV-1237",
+    "productName": "Polvo 4 tonos mini",
+    "barcode": "6974482524665",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-294637",
+    "timestamp": "2026-11-04T20:48:14.637Z",
+    "type": "ENTRADA",
+    "productId": "LV-1237",
+    "productName": "Polvo 4 tonos mini",
+    "barcode": "6974482524665",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-294392",
+    "timestamp": "2026-11-04T20:48:14.392Z",
+    "type": "ENTRADA",
+    "productId": "LV-1237",
+    "productName": "Polvo 4 tonos mini",
+    "barcode": "6974482524665",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-294176",
+    "timestamp": "2026-11-04T20:48:14.176Z",
+    "type": "ENTRADA",
+    "productId": "LV-1237",
+    "productName": "Polvo 4 tonos mini",
+    "barcode": "6974482524665",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-280477",
+    "timestamp": "2026-11-04T20:48:00.477Z",
+    "type": "ENTRADA",
+    "productId": "LV-1243",
+    "productName": "Polvo 4 tonos grande",
+    "barcode": "6974482524610",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-280228",
+    "timestamp": "2026-11-04T20:48:00.228Z",
+    "type": "ENTRADA",
+    "productId": "LV-1243",
+    "productName": "Polvo 4 tonos grande",
+    "barcode": "6974482524610",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-279990",
+    "timestamp": "2026-11-04T20:47:59.990Z",
+    "type": "ENTRADA",
+    "productId": "LV-1243",
+    "productName": "Polvo 4 tonos grande",
+    "barcode": "6974482524610",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-253747",
+    "timestamp": "2026-11-04T20:47:33.747Z",
+    "type": "ENTRADA",
+    "productId": "LV-1230",
+    "productName": "Polvo suelto traslucido x9g",
+    "barcode": "734191428687",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-234196",
+    "timestamp": "2026-11-04T20:47:14.196Z",
+    "type": "ENTRADA",
+    "productId": "LV-1230",
+    "productName": "Polvo suelto traslucido x9g",
+    "barcode": "734191428687",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-233542",
+    "timestamp": "2026-11-04T20:47:13.542Z",
+    "type": "ENTRADA",
+    "productId": "LV-1230",
+    "productName": "Polvo suelto traslucido x9g",
+    "barcode": "734191428687",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-232868",
+    "timestamp": "2026-11-04T20:47:12.868Z",
+    "type": "ENTRADA",
+    "productId": "LV-1230",
+    "productName": "Polvo suelto traslucido x9g",
+    "barcode": "734191428687",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-232246",
+    "timestamp": "2026-11-04T20:47:12.246Z",
+    "type": "ENTRADA",
+    "productId": "LV-1230",
+    "productName": "Polvo suelto traslucido x9g",
+    "barcode": "734191428687",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-231515",
+    "timestamp": "2026-11-04T20:47:11.515Z",
+    "type": "ENTRADA",
+    "productId": "LV-1230",
+    "productName": "Polvo suelto traslucido x9g",
+    "barcode": "734191428687",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-217232",
+    "timestamp": "2026-11-04T20:46:57.232Z",
+    "type": "ENTRADA",
+    "productId": "LV-1376",
+    "productName": "Corrector XL tono 04",
+    "barcode": "6974482525402",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-199336",
+    "timestamp": "2026-11-04T20:46:39.336Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-198828",
+    "timestamp": "2026-11-04T20:46:38.828Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-198332",
+    "timestamp": "2026-11-04T20:46:38.332Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-176212",
+    "timestamp": "2026-11-04T20:46:16.212Z",
+    "type": "ENTRADA",
+    "productId": "LV-1375",
+    "productName": "Corrector XL tono 03",
+    "barcode": "6974482525396",
+    "quantity": 1,
+    "prevStock": 13,
+    "newStock": 14,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-175594",
+    "timestamp": "2026-11-04T20:46:15.594Z",
+    "type": "ENTRADA",
+    "productId": "LV-1375",
+    "productName": "Corrector XL tono 03",
+    "barcode": "6974482525396",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 13,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-174945",
+    "timestamp": "2026-11-04T20:46:14.945Z",
+    "type": "ENTRADA",
+    "productId": "LV-1375",
+    "productName": "Corrector XL tono 03",
+    "barcode": "6974482525396",
+    "quantity": 1,
+    "prevStock": 11,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-174362",
+    "timestamp": "2026-11-04T20:46:14.362Z",
+    "type": "ENTRADA",
+    "productId": "LV-1375",
+    "productName": "Corrector XL tono 03",
+    "barcode": "6974482525396",
+    "quantity": 1,
+    "prevStock": 10,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-173804",
+    "timestamp": "2026-11-04T20:46:13.804Z",
+    "type": "ENTRADA",
+    "productId": "LV-1375",
+    "productName": "Corrector XL tono 03",
+    "barcode": "6974482525396",
+    "quantity": 1,
+    "prevStock": 9,
+    "newStock": 10,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-173315",
+    "timestamp": "2026-11-04T20:46:13.315Z",
+    "type": "ENTRADA",
+    "productId": "LV-1375",
+    "productName": "Corrector XL tono 03",
+    "barcode": "6974482525396",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-141358",
+    "timestamp": "2026-11-04T20:45:41.358Z",
+    "type": "ENTRADA",
+    "productId": "LV-1212",
+    "productName": "Polvo compacto banana",
+    "barcode": "7709094542191",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-141121",
+    "timestamp": "2026-11-04T20:45:41.121Z",
+    "type": "ENTRADA",
+    "productId": "LV-1212",
+    "productName": "Polvo compacto banana",
+    "barcode": "7709094542191",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-140897",
+    "timestamp": "2026-11-04T20:45:40.897Z",
+    "type": "ENTRADA",
+    "productId": "LV-1212",
+    "productName": "Polvo compacto banana",
+    "barcode": "7709094542191",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-140682",
+    "timestamp": "2026-11-04T20:45:40.682Z",
+    "type": "ENTRADA",
+    "productId": "LV-1212",
+    "productName": "Polvo compacto banana",
+    "barcode": "7709094542191",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-107875",
+    "timestamp": "2026-11-04T20:45:07.875Z",
+    "type": "ENTRADA",
+    "productId": "LV-1523",
+    "productName": "Corrector tono 02",
+    "barcode": "7709567836949",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-065502",
+    "timestamp": "2026-11-04T20:44:25.502Z",
+    "type": "ENTRADA",
+    "productId": "LV-1305",
+    "productName": "Corrector liquido tono 04",
+    "barcode": "7709567836970",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-050972",
+    "timestamp": "2026-11-04T20:44:10.972Z",
+    "type": "ENTRADA",
+    "productId": "LV-1345",
+    "productName": "Paleta de sombras terra",
+    "barcode": "7709074901604",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-050762",
+    "timestamp": "2026-11-04T20:44:10.762Z",
+    "type": "ENTRADA",
+    "productId": "LV-1345",
+    "productName": "Paleta de sombras terra",
+    "barcode": "7709074901604",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-041828",
+    "timestamp": "2026-11-04T20:44:01.828Z",
+    "type": "ENTRADA",
+    "productId": "LV-1332",
+    "productName": "Iluminador tono 01",
+    "barcode": "6924372697764",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-023726",
+    "timestamp": "2026-11-04T20:43:43.726Z",
+    "type": "ENTRADA",
+    "productId": "LV-1311",
+    "productName": "Corrector liquido",
+    "barcode": "7708951146794",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-021506",
+    "timestamp": "2026-11-04T20:43:41.506Z",
+    "type": "ENTRADA",
+    "productId": "LV-1311",
+    "productName": "Corrector liquido",
+    "barcode": "7708951146794",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-005978",
+    "timestamp": "2026-11-04T20:43:25.978Z",
+    "type": "ENTRADA",
+    "productId": "LV-1320",
+    "productName": "Corrector XL tono 00",
+    "barcode": "770545181398",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-001693",
+    "timestamp": "2026-11-04T20:43:21.693Z",
+    "type": "ENTRADA",
+    "productId": "LV-1324",
+    "productName": "Corrector XL tono 04",
+    "barcode": "770545771432",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-996384",
+    "timestamp": "2026-11-04T20:43:16.384Z",
+    "type": "ENTRADA",
+    "productId": "LV-1322",
+    "productName": "Corrector XL tono 02",
+    "barcode": "770314408091",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-993198",
+    "timestamp": "2026-11-04T20:43:13.198Z",
+    "type": "ENTRADA",
+    "productId": "LV-1323",
+    "productName": "Corrector XL tono 03",
+    "barcode": "770102949475",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-992518",
+    "timestamp": "2026-11-04T20:43:12.518Z",
+    "type": "ENTRADA",
+    "productId": "LV-1323",
+    "productName": "Corrector XL tono 03",
+    "barcode": "770102949475",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-992018",
+    "timestamp": "2026-11-04T20:43:12.018Z",
+    "type": "ENTRADA",
+    "productId": "LV-1323",
+    "productName": "Corrector XL tono 03",
+    "barcode": "770102949475",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-991652",
+    "timestamp": "2026-11-04T20:43:11.653Z",
+    "type": "ENTRADA",
+    "productId": "LV-1323",
+    "productName": "Corrector XL tono 03",
+    "barcode": "770102949475",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-965407",
+    "timestamp": "2026-11-04T20:42:45.407Z",
+    "type": "ENTRADA",
+    "productId": "LV-1269",
+    "productName": "Kit rubor",
+    "barcode": "7709283272359",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-965211",
+    "timestamp": "2026-11-04T20:42:45.211Z",
+    "type": "ENTRADA",
+    "productId": "LV-1269",
+    "productName": "Kit rubor",
+    "barcode": "7709283272359",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-964966",
+    "timestamp": "2026-11-04T20:42:44.966Z",
+    "type": "ENTRADA",
+    "productId": "LV-1269",
+    "productName": "Kit rubor",
+    "barcode": "7709283272359",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-917469",
+    "timestamp": "2026-11-04T20:41:57.469Z",
+    "type": "ENTRADA",
+    "productId": "LV-1522",
+    "productName": "Iluminador tono 01",
+    "barcode": "7707375607317",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-849684",
+    "timestamp": "2026-11-04T20:40:49.684Z",
+    "type": "ENTRADA",
+    "productId": "LV-1519",
+    "productName": "Rubor velvet glam tono 02 irresistible",
+    "barcode": "7703378413795",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-849454",
+    "timestamp": "2026-11-04T20:40:49.454Z",
+    "type": "ENTRADA",
+    "productId": "LV-1519",
+    "productName": "Rubor velvet glam tono 02 irresistible",
+    "barcode": "7703378413795",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-831318",
+    "timestamp": "2026-11-04T20:40:31.318Z",
+    "type": "ENTRADA",
+    "productId": "LV-1355",
+    "productName": "Duo rubor allure tono night cherry",
+    "barcode": "736372667717",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-815068",
+    "timestamp": "2026-11-04T20:40:15.068Z",
+    "type": "ENTRADA",
+    "productId": "LV-1229",
+    "productName": "Polvo suelto x30g",
+    "barcode": "658325384475",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-814834",
+    "timestamp": "2026-11-04T20:40:14.834Z",
+    "type": "ENTRADA",
+    "productId": "LV-1229",
+    "productName": "Polvo suelto x30g",
+    "barcode": "658325384475",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-802686",
+    "timestamp": "2026-11-04T20:40:02.686Z",
+    "type": "ENTRADA",
+    "productId": "LV-1349",
+    "productName": "Mia blush tono 02",
+    "barcode": "7709217875342",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-802453",
+    "timestamp": "2026-11-04T20:40:02.453Z",
+    "type": "ENTRADA",
+    "productId": "LV-1349",
+    "productName": "Mia blush tono 02",
+    "barcode": "7709217875342",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-789778",
+    "timestamp": "2026-11-04T20:39:49.778Z",
+    "type": "ENTRADA",
+    "productId": "LV-1347",
+    "productName": "Trio de rubor primavera",
+    "barcode": "7709305661482",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-789539",
+    "timestamp": "2026-11-04T20:39:49.539Z",
+    "type": "ENTRADA",
+    "productId": "LV-1347",
+    "productName": "Trio de rubor primavera",
+    "barcode": "7709305661482",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-789340",
+    "timestamp": "2026-11-04T20:39:49.340Z",
+    "type": "ENTRADA",
+    "productId": "LV-1347",
+    "productName": "Trio de rubor primavera",
+    "barcode": "7709305661482",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-775648",
+    "timestamp": "2026-11-04T20:39:35.648Z",
+    "type": "ENTRADA",
+    "productId": "LV-1419",
+    "productName": "Brillo aura tono 03",
+    "barcode": "7709631138788",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-775446",
+    "timestamp": "2026-11-04T20:39:35.446Z",
+    "type": "ENTRADA",
+    "productId": "LV-1419",
+    "productName": "Brillo aura tono 03",
+    "barcode": "7709631138788",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-774105",
+    "timestamp": "2026-11-04T20:39:34.105Z",
+    "type": "ENTRADA",
+    "productId": "LV-1418",
+    "productName": "Brillo aura tono 01",
+    "barcode": "7709311675497",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-771460",
+    "timestamp": "2026-11-04T20:39:31.460Z",
+    "type": "ENTRADA",
+    "productId": "LV-1418",
+    "productName": "Brillo aura tono 01",
+    "barcode": "7709311675497",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-771193",
+    "timestamp": "2026-11-04T20:39:31.193Z",
+    "type": "ENTRADA",
+    "productId": "LV-1418",
+    "productName": "Brillo aura tono 01",
+    "barcode": "7709311675497",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-713277",
+    "timestamp": "2026-11-04T20:38:33.277Z",
+    "type": "ENTRADA",
+    "productId": "LV-1521",
+    "productName": "Lip gloss forever",
+    "barcode": "7709399982500",
+    "quantity": 21,
+    "prevStock": 0,
+    "newStock": 21,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-729795",
+    "timestamp": "2026-11-04T20:05:29.795Z",
+    "type": "SALIDA",
+    "productId": "LV-1197",
+    "productName": "Kit facial mini de rosas y acido hialuronico",
+    "barcode": "6942581709580",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-643821",
+    "timestamp": "2026-11-04T19:47:23.821Z",
+    "type": "SALIDA",
+    "productId": "LV-1289",
+    "productName": "gel de cejas",
+    "barcode": "6932159607745",
+    "quantity": 1,
+    "prevStock": 14,
+    "newStock": 13,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-504945",
+    "timestamp": "2026-11-04T19:28:24.945Z",
+    "type": "ENTRADA",
+    "productId": "LV-1520",
+    "productName": "Rubor dorado tono smooth pink",
+    "barcode": "7707375603630",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-334217",
+    "timestamp": "2026-11-04T19:25:34.217Z",
+    "type": "ENTRADA",
+    "productId": "LV-1519",
+    "productName": "Rubor velvet glam tono 02 irresistible",
+    "barcode": "7703378413795",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-035965",
+    "timestamp": "2026-11-04T19:20:35.965Z",
+    "type": "ENTRADA",
+    "productId": "LV-1518",
+    "productName": "Encrespador de puntos",
+    "barcode": "6972547654524",
+    "quantity": 8,
+    "prevStock": 0,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-962800",
+    "timestamp": "2026-11-04T19:19:22.800Z",
+    "type": "ENTRADA",
+    "productId": "LV-1517",
+    "productName": "Encrespador metalico",
+    "barcode": "6972547654371",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-839758",
+    "timestamp": "2026-11-04T19:17:19.758Z",
+    "type": "ENTRADA",
+    "productId": "LV-1516",
+    "productName": "Encrespador negro",
+    "barcode": "7707559883261",
+    "quantity": 8,
+    "prevStock": 0,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-184678",
+    "timestamp": "2026-11-04T19:06:24.678Z",
+    "type": "ENTRADA",
+    "productId": "LV-1515",
+    "productName": "Pinzas depilatorias",
+    "barcode": "20332750027",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-118030",
+    "timestamp": "2026-11-04T19:05:18.030Z",
+    "type": "ENTRADA",
+    "productId": "LV-1514",
+    "productName": "Lima para uñas",
+    "barcode": "286773848347",
+    "quantity": 22,
+    "prevStock": 0,
+    "newStock": 22,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-797635",
+    "timestamp": "2026-11-04T18:59:57.635Z",
+    "type": "SALIDA",
+    "productId": "LV-1370",
+    "productName": "Corrector mediano tono 05",
+    "barcode": "6974482525518",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-797630",
+    "timestamp": "2026-11-04T18:59:57.630Z",
+    "type": "SALIDA",
+    "productId": "LV-1301",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-797624",
+    "timestamp": "2026-11-04T18:59:57.624Z",
+    "type": "SALIDA",
+    "productId": "LV-1297",
+    "productName": "Pestañina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 15,
+    "newStock": 14,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-494267",
+    "timestamp": "2026-11-04T18:54:54.267Z",
+    "type": "SALIDA",
+    "productId": "LV-1297",
+    "productName": "Pestañina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 16,
+    "newStock": 15,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-494261",
+    "timestamp": "2026-11-04T18:54:54.261Z",
+    "type": "SALIDA",
+    "productId": "LV-1398",
+    "productName": "Keratina x120ml pequeña",
+    "barcode": "770770301200",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-005637",
+    "timestamp": "2026-11-04T18:46:45.637Z",
+    "type": "ENTRADA",
+    "productId": "LV-1513",
+    "productName": "repuesto base cushion",
+    "barcode": "770752019466",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-802951",
+    "timestamp": "2026-11-04T18:43:22.951Z",
+    "type": "ENTRADA",
+    "productId": "LV-1512",
+    "productName": "Mascarilla 3 pasos para puntos negros",
+    "barcode": "6942017806708",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-579136",
+    "timestamp": "2026-11-04T18:39:39.136Z",
+    "type": "ENTRADA",
+    "productId": "LV-1511",
+    "productName": "Mascarilla de aloe vera",
+    "barcode": "6942349714719",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-547399",
+    "timestamp": "2026-11-04T18:39:07.399Z",
+    "type": "ENTRADA",
+    "productId": "LV-1510",
+    "productName": "Mascarilla de Durazno",
+    "barcode": "6976504687549",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-510279",
+    "timestamp": "2026-11-04T18:38:30.279Z",
+    "type": "ENTRADA",
+    "productId": "LV-1509",
+    "productName": "Mascarilla de arandanos",
+    "barcode": "6942349712401",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-472318",
+    "timestamp": "2026-11-04T18:37:52.318Z",
+    "type": "ENTRADA",
+    "productId": "LV-1508",
+    "productName": "Mascarilla de vitamina C",
+    "barcode": "6942349702099",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-434694",
+    "timestamp": "2026-11-04T18:37:14.694Z",
+    "type": "ENTRADA",
+    "productId": "LV-1507",
+    "productName": "Mascarilla de acido hialuronico",
+    "barcode": "6976068955689",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-202350",
+    "timestamp": "2026-11-04T18:33:22.350Z",
+    "type": "ENTRADA",
+    "productId": "LV-1506",
+    "productName": "Parches de estrellas",
+    "barcode": "20250702006",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-003457",
+    "timestamp": "2026-11-04T18:30:03.457Z",
+    "type": "ENTRADA",
+    "productId": "LV-1505",
+    "productName": "Pañitos makeup remover",
+    "barcode": "793969699742",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-898779",
+    "timestamp": "2026-11-04T18:28:18.779Z",
+    "type": "ENTRADA",
+    "productId": "LV-1504",
+    "productName": "Sticker festivalero",
+    "barcode": "7709543948048",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-851345",
+    "timestamp": "2026-11-04T18:27:31.345Z",
+    "type": "ENTRADA",
+    "productId": "LV-1503",
+    "productName": "Lip gloss niñas dolly chic",
+    "barcode": "7709399982579",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-776734",
+    "timestamp": "2026-11-04T18:26:16.734Z",
+    "type": "ENTRADA",
+    "productId": "LV-1502",
+    "productName": "Pañitos bloom remover",
+    "barcode": "6989711290266",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-565095",
+    "timestamp": "2026-11-04T18:22:45.095Z",
+    "type": "ENTRADA",
+    "productId": "LV-1501",
+    "productName": "Brillo bloom to shine",
+    "barcode": "7709053760369",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-362533",
+    "timestamp": "2026-11-04T18:19:22.533Z",
+    "type": "SALIDA",
+    "productId": "LV-1357",
+    "productName": "Velvet crush x3 tono 03",
+    "barcode": "6974482527093",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-362519",
+    "timestamp": "2026-11-04T18:19:22.519Z",
+    "type": "SALIDA",
+    "productId": "LV-1489",
+    "productName": "Brocha minimi para rubor",
+    "barcode": "736372978547",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-588508",
+    "timestamp": "2026-11-03T23:13:08.508Z",
+    "type": "SALIDA",
+    "productId": "LV-1117",
+    "productName": "Kit corporal x3 sweet cherry",
+    "barcode": "677144889794",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-905310",
+    "timestamp": "2026-11-03T23:01:45.310Z",
+    "type": "SALIDA",
+    "productId": "LV-1297",
+    "productName": "Pestañina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 17,
+    "newStock": 16,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-905304",
+    "timestamp": "2026-11-03T23:01:45.304Z",
+    "type": "SALIDA",
+    "productId": "LV-1376",
+    "productName": "Corrector XL tono 04",
+    "barcode": "6974482525402",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-905298",
+    "timestamp": "2026-11-03T23:01:45.298Z",
+    "type": "SALIDA",
+    "productId": "LV-1146",
+    "productName": "Fijador de gelatina toy story",
+    "barcode": "7709092350927",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-167991",
+    "timestamp": "2026-11-03T22:16:07.991Z",
+    "type": "SALIDA",
+    "productId": "LV-1108",
+    "productName": "Mantequilla x220ml Sweet lychee",
+    "barcode": "7708970723464",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-167982",
+    "timestamp": "2026-11-03T22:16:07.982Z",
+    "type": "SALIDA",
+    "productId": "LV-1052",
+    "productName": "Perfume mini majestuosa",
+    "barcode": "7707995679213",
+    "quantity": 2,
+    "prevStock": 2,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-749082",
+    "timestamp": "2026-11-03T22:09:09.082Z",
+    "type": "SALIDA",
+    "productId": "LV-1387",
+    "productName": "Llavero bloom me espejo",
+    "barcode": "6972630571509",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-749075",
+    "timestamp": "2026-11-03T22:09:09.075Z",
+    "type": "SALIDA",
+    "productId": "LV-1297",
+    "productName": "Pestañina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 18,
+    "newStock": 17,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-749067",
+    "timestamp": "2026-11-03T22:09:09.067Z",
+    "type": "SALIDA",
+    "productId": "LV-1076",
+    "productName": "Tonico facial de rosas + colageno",
+    "barcode": "788115817026",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-749061",
+    "timestamp": "2026-11-03T22:09:09.061Z",
+    "type": "SALIDA",
+    "productId": "LV-1142",
+    "productName": "Fijador dixy fix x80ml",
+    "barcode": "658325384260",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-749055",
+    "timestamp": "2026-11-03T22:09:09.055Z",
+    "type": "SALIDA",
+    "productId": "LV-1447",
+    "productName": "Lip gloss bloom rolon",
+    "barcode": "6924372689646",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-749047",
+    "timestamp": "2026-11-03T22:09:09.047Z",
+    "type": "SALIDA",
+    "productId": "LV-1172",
+    "productName": "Gel hidratante con aloe vera",
+    "barcode": "7708453335610",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-749037",
+    "timestamp": "2026-11-03T22:09:09.037Z",
+    "type": "SALIDA",
+    "productId": "LV-1336",
+    "productName": "Iluminador tono 02",
+    "barcode": "7707375602022",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-601010",
+    "timestamp": "2026-11-03T18:30:01.010Z",
+    "type": "SALIDA",
+    "productId": "LV-1316",
+    "productName": "Corrector pequeño tono 01",
+    "barcode": "770703520378",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-601000",
+    "timestamp": "2026-11-03T18:30:01.000Z",
+    "type": "SALIDA",
+    "productId": "LV-1366",
+    "productName": "Rubor cuadrado sublime tono sundown",
+    "barcode": "7709783386464",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-600990",
+    "timestamp": "2026-11-03T18:30:00.990Z",
+    "type": "SALIDA",
+    "productId": "LV-1064",
+    "productName": "Paleta ferias y fiestas",
+    "barcode": "6933494881258",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-523579",
+    "timestamp": "2026-11-03T17:05:23.579Z",
+    "type": "SALIDA",
+    "productId": "LV-1477",
+    "productName": "Kit de cejas doble tono 03",
+    "barcode": "770989794989",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-523573",
+    "timestamp": "2026-11-03T17:05:23.573Z",
+    "type": "SALIDA",
+    "productId": "LV-1384",
+    "productName": "Base semi mate tono 05",
+    "barcode": "6974482524764",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-523563",
+    "timestamp": "2026-11-03T17:05:23.563Z",
+    "type": "SALIDA",
+    "productId": "LV-1311",
+    "productName": "Corrector liquido",
+    "barcode": "7708951146794",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-523557",
+    "timestamp": "2026-11-03T17:05:23.557Z",
+    "type": "SALIDA",
+    "productId": "LV-1242",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7708970965444",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-247663",
+    "timestamp": "2026-11-03T17:00:47.663Z",
+    "type": "SALIDA",
+    "productId": "LV-1011",
+    "productName": "Shampoo jalea real",
+    "barcode": "7708946977105",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-593799",
+    "timestamp": "2026-11-03T00:26:33.799Z",
+    "type": "ENTRADA",
+    "productId": "LV-1288",
+    "productName": "Bloom lamination",
+    "barcode": "6973327787371",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-558882",
+    "timestamp": "2026-11-03T00:25:58.882Z",
+    "type": "ENTRADA",
+    "productId": "LV-1286",
+    "productName": "Frezee babes",
+    "barcode": "7707559882608",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-557137",
+    "timestamp": "2026-11-03T00:25:57.137Z",
+    "type": "ENTRADA",
+    "productId": "LV-1286",
+    "productName": "Frezee babes",
+    "barcode": "7707559882608",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-382371",
+    "timestamp": "2026-11-03T00:23:02.371Z",
+    "type": "ENTRADA",
+    "productId": "LV-1500",
+    "productName": "Brocha doble para polvo y rubor BD01",
+    "barcode": "7709728397814",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-323824",
+    "timestamp": "2026-11-03T00:22:03.824Z",
+    "type": "ENTRADA",
+    "productId": "LV-1499",
+    "productName": "Brocha multiproposito BD03",
+    "barcode": "7709728397883",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-105970",
+    "timestamp": "2026-11-03T00:18:25.970Z",
+    "type": "ENTRADA",
+    "productId": "LV-1498",
+    "productName": "Brocha doble para polvo y rubor DB01",
+    "barcode": "7707375603616",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-028506",
+    "timestamp": "2026-11-03T00:17:08.506Z",
+    "type": "ENTRADA",
+    "productId": "LV-1497",
+    "productName": "Brocha doble para base y corrector DB04",
+    "barcode": "7707375601650",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-390027",
+    "timestamp": "2026-11-03T00:06:30.027Z",
+    "type": "ENTRADA",
+    "productId": "LV-1496",
+    "productName": "Brocha mini para rubor",
+    "barcode": "7708901409061",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-226408",
+    "timestamp": "2026-11-03T00:03:46.408Z",
+    "type": "ENTRADA",
+    "productId": "LV-1495",
+    "productName": "Brocha mini para polvo",
+    "barcode": "7708901409023",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-139078",
+    "timestamp": "2026-11-03T00:02:19.078Z",
+    "type": "ENTRADA",
+    "productId": "LV-1494",
+    "productName": "Kit de brochas de ojos mini",
+    "barcode": "7708901409054",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-863850",
+    "timestamp": "2026-11-02T23:57:43.850Z",
+    "type": "ENTRADA",
+    "productId": "LV-1493",
+    "productName": "Kit de labios malibu",
+    "barcode": "7709283272328",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-769002",
+    "timestamp": "2026-11-02T23:56:09.002Z",
+    "type": "ENTRADA",
+    "productId": "LV-1492",
+    "productName": "Brohca para base p103",
+    "barcode": "7709181860931",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-579570",
+    "timestamp": "2026-11-02T23:52:59.570Z",
+    "type": "ENTRADA",
+    "productId": "LV-1491",
+    "productName": "Brocha de cejas",
+    "barcode": "6961120205383",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-535133",
+    "timestamp": "2026-11-02T23:52:15.133Z",
+    "type": "ENTRADA",
+    "productId": "LV-1490",
+    "productName": "Kit frutti gloss",
+    "barcode": "7709283272304",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-431379",
+    "timestamp": "2026-11-02T23:50:31.379Z",
+    "type": "ENTRADA",
+    "productId": "LV-1489",
+    "productName": "Brocha minimi para rubor",
+    "barcode": "736372978547",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-791963",
+    "timestamp": "2026-11-02T23:39:51.963Z",
+    "type": "SALIDA",
+    "productId": "LV-1286",
+    "productName": "Frezee babes",
+    "barcode": "7707559882608",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-775255",
+    "timestamp": "2026-11-02T23:39:35.255Z",
+    "type": "ENTRADA",
+    "productId": "LV-1488",
+    "productName": "Brocha de corrector mini",
+    "barcode": "7709178308750",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-739089",
+    "timestamp": "2026-11-02T23:38:59.089Z",
+    "type": "ENTRADA",
+    "productId": "LV-1487",
+    "productName": "Baby brush multiusos",
+    "barcode": "677144890363",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-578632",
+    "timestamp": "2026-11-02T23:36:18.632Z",
+    "type": "ENTRADA",
+    "productId": "LV-1486",
+    "productName": "Mini iconik",
+    "barcode": "7707559886507",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-515231",
+    "timestamp": "2026-11-02T23:35:15.231Z",
+    "type": "ENTRADA",
+    "productId": "LV-1485",
+    "productName": "Kit de labios fucsia",
+    "barcode": "6976289194935",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-232618",
+    "timestamp": "2026-11-02T23:30:32.618Z",
+    "type": "ENTRADA",
+    "productId": "LV-1484",
+    "productName": "Papelitos antigrasa con polvo tono 2",
+    "barcode": "6903072493289",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-158306",
+    "timestamp": "2026-11-02T23:29:18.306Z",
+    "type": "SALIDA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-158299",
+    "timestamp": "2026-11-02T23:29:18.299Z",
+    "type": "SALIDA",
+    "productId": "LV-1301",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-094539",
+    "timestamp": "2026-11-02T23:28:14.539Z",
+    "type": "ENTRADA",
+    "productId": "LV-1249",
+    "productName": "Papelitos antigrasa con polvo tono 01",
+    "barcode": "6903072493272",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-968917",
+    "timestamp": "2026-11-02T23:26:08.917Z",
+    "type": "ENTRADA",
+    "productId": "LV-1483",
+    "productName": "Voluminizador ultra plump lip",
+    "barcode": "793969056682",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-918468",
+    "timestamp": "2026-11-02T23:25:18.468Z",
+    "type": "ENTRADA",
+    "productId": "LV-1482",
+    "productName": "Lip oil",
+    "barcode": "6930249912823",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-855937",
+    "timestamp": "2026-11-02T23:24:15.937Z",
+    "type": "ENTRADA",
+    "productId": "LV-1481",
+    "productName": "lip care economico",
+    "barcode": "770632942432",
+    "quantity": 7,
+    "prevStock": 0,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-689688",
+    "timestamp": "2026-11-02T23:04:49.688Z",
+    "type": "ENTRADA",
+    "productId": "LV-1480",
+    "productName": "Polvo de hadas",
+    "barcode": "7709311675459",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-617381",
+    "timestamp": "2026-11-02T23:03:37.381Z",
+    "type": "ENTRADA",
+    "productId": "LV-1479",
+    "productName": "Bloom lip party tono 06",
+    "barcode": "6972630570588",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-521863",
+    "timestamp": "2026-11-02T23:02:01.863Z",
+    "type": "ENTRADA",
+    "productId": "LV-1478",
+    "productName": "Lip gloss magico bloom meow",
+    "barcode": "6972630571097",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-166732",
+    "timestamp": "2026-11-02T22:56:06.732Z",
+    "type": "ENTRADA",
+    "productId": "LV-1477",
+    "productName": "Kit de cejas doble tono 03",
+    "barcode": "770989794989",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-076130",
+    "timestamp": "2026-11-02T22:54:36.130Z",
+    "type": "ENTRADA",
+    "productId": "LV-1211",
+    "productName": "Pegante negro de pestañas",
+    "barcode": "770168839890",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-075907",
+    "timestamp": "2026-11-02T22:54:35.907Z",
+    "type": "ENTRADA",
+    "productId": "LV-1211",
+    "productName": "Pegante negro de pestañas",
+    "barcode": "770168839890",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-581335",
+    "timestamp": "2026-11-02T22:46:21.335Z",
+    "type": "SALIDA",
+    "productId": "LV-1264",
+    "productName": "Base mate tono 02",
+    "barcode": "736372668547",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-581328",
+    "timestamp": "2026-11-02T22:46:21.328Z",
+    "type": "SALIDA",
+    "productId": "LV-1244",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7707375600530",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-576239",
+    "timestamp": "2026-11-02T22:46:16.239Z",
+    "type": "ENTRADA",
+    "productId": "LV-1244",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7707375600530",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-646274",
+    "timestamp": "2026-11-02T22:30:46.274Z",
+    "type": "ENTRADA",
+    "productId": "LV-1476",
+    "productName": "Borla triangular",
+    "barcode": "6988268481073",
+    "quantity": 12,
+    "prevStock": 0,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-508043",
+    "timestamp": "2026-11-02T22:28:28.043Z",
+    "type": "ENTRADA",
+    "productId": "LV-1475",
+    "productName": "Borla triangular x3 mini",
+    "barcode": "6972547669009",
+    "quantity": 11,
+    "prevStock": 0,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-346099",
+    "timestamp": "2026-11-02T22:25:46.099Z",
+    "type": "ENTRADA",
+    "productId": "LV-1474",
+    "productName": "Beauty blender pequeña con cortes",
+    "barcode": "6972547656184",
+    "quantity": 11,
+    "prevStock": 0,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-237748",
+    "timestamp": "2026-11-02T22:23:57.748Z",
+    "type": "ENTRADA",
+    "productId": "LV-1473",
+    "productName": "Beauty blender x5",
+    "barcode": "6998789989415",
+    "quantity": 12,
+    "prevStock": 0,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-108591",
+    "timestamp": "2026-11-02T22:21:48.591Z",
+    "type": "ENTRADA",
+    "productId": "LV-1472",
+    "productName": "Borla triangular doble",
+    "barcode": "6972656451069",
+    "quantity": 11,
+    "prevStock": 0,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-964331",
+    "timestamp": "2026-11-02T22:19:24.331Z",
+    "type": "ENTRADA",
+    "productId": "LV-1471",
+    "productName": "Borla de corazon",
+    "barcode": "736372979636",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-910683",
+    "timestamp": "2026-11-02T22:18:30.683Z",
+    "type": "ENTRADA",
+    "productId": "LV-1470",
+    "productName": "Borla de corazon",
+    "barcode": "6915615614525",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-784304",
+    "timestamp": "2026-11-02T22:16:24.304Z",
+    "type": "ENTRADA",
+    "productId": "LV-1469",
+    "productName": "Borla triangular",
+    "barcode": "6920583871092",
+    "quantity": 12,
+    "prevStock": 0,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-301323",
+    "timestamp": "2026-11-02T22:08:21.323Z",
+    "type": "SALIDA",
+    "productId": "LV-1233",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7707559880031",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-635414",
+    "timestamp": "2026-11-02T21:57:15.414Z",
+    "type": "ENTRADA",
+    "productId": "LV-1468",
+    "productName": "Gel lip liner spice moccha",
+    "barcode": "7709886564790",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-554704",
+    "timestamp": "2026-11-02T21:55:54.704Z",
+    "type": "ENTRADA",
+    "productId": "LV-1467",
+    "productName": "Gel lip liner tono nude whisper",
+    "barcode": "7709592197145",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-505571",
+    "timestamp": "2026-11-02T21:55:05.571Z",
+    "type": "ENTRADA",
+    "productId": "LV-1466",
+    "productName": "Gel lip liner tono dusky muse",
+    "barcode": "7709592197176",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-445029",
+    "timestamp": "2026-11-02T21:54:05.029Z",
+    "type": "ENTRADA",
+    "productId": "LV-1465",
+    "productName": "Gel lip liner tono velvet coffee",
+    "barcode": "7709592197152",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-359019",
+    "timestamp": "2026-11-02T21:52:39.019Z",
+    "type": "SALIDA",
+    "productId": "LV-1230",
+    "productName": "Polvo suelto traslucido x9g",
+    "barcode": "734191428687",
+    "quantity": 2,
+    "prevStock": 2,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-222629",
+    "timestamp": "2026-11-02T21:50:22.629Z",
+    "type": "ENTRADA",
+    "productId": "LV-1464",
+    "productName": "delineador de labios tono 03 toasted love",
+    "barcode": "7707559886644",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-150698",
+    "timestamp": "2026-11-02T21:49:10.698Z",
+    "type": "ENTRADA",
+    "productId": "LV-1463",
+    "productName": "Delineador de labios tono 04 girl latte",
+    "barcode": "7707559889317",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-072071",
+    "timestamp": "2026-11-02T21:47:52.071Z",
+    "type": "ENTRADA",
+    "productId": "LV-1462",
+    "productName": "Delineador de labios tono clear wine",
+    "barcode": "736372667144",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-005183",
+    "timestamp": "2026-11-02T21:46:45.183Z",
+    "type": "ENTRADA",
+    "productId": "LV-1461",
+    "productName": "Delineadpor de labios tono pale pink",
+    "barcode": "736372667106",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-924035",
+    "timestamp": "2026-11-02T21:45:24.035Z",
+    "type": "ENTRADA",
+    "productId": "LV-1460",
+    "productName": "Click gloss corazon",
+    "barcode": "6942344603179",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-783809",
+    "timestamp": "2026-11-02T21:43:03.809Z",
+    "type": "ENTRADA",
+    "productId": "LV-1444",
+    "productName": "Lip gloss pop",
+    "barcode": "677144890240",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-781745",
+    "timestamp": "2026-11-02T21:43:01.745Z",
+    "type": "ENTRADA",
+    "productId": "LV-1444",
+    "productName": "Lip gloss pop",
+    "barcode": "677144890240",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-779743",
+    "timestamp": "2026-11-02T21:42:59.743Z",
+    "type": "ENTRADA",
+    "productId": "LV-1444",
+    "productName": "Lip gloss pop",
+    "barcode": "677144890240",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-765545",
+    "timestamp": "2026-11-02T21:42:45.545Z",
+    "type": "ENTRADA",
+    "productId": "LV-1445",
+    "productName": "Lip gloss tono 02 kim",
+    "barcode": "7707559884893",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-759403",
+    "timestamp": "2026-11-02T21:42:39.403Z",
+    "type": "ENTRADA",
+    "productId": "LV-1446",
+    "productName": "Lip gloss tono 01 diva",
+    "barcode": "7707559887108",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-744874",
+    "timestamp": "2026-11-02T21:42:24.874Z",
+    "type": "ENTRADA",
+    "productId": "LV-1459",
+    "productName": "Voluminizador furia",
+    "barcode": "7709911354488",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-674320",
+    "timestamp": "2026-11-02T21:24:34.320Z",
+    "type": "ENTRADA",
+    "productId": "LV-1458",
+    "productName": "Kit de gloss mini infaltables",
+    "barcode": "6972630570649",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-734762",
+    "timestamp": "2026-11-02T21:08:54.762Z",
+    "type": "ENTRADA",
+    "productId": "LV-1455",
+    "productName": "Crush kit lip gloss+delineador+iluminador",
+    "barcode": "610985566516",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-733835",
+    "timestamp": "2026-11-02T21:08:53.835Z",
+    "type": "ENTRADA",
+    "productId": "LV-1455",
+    "productName": "Crush kit lip gloss+delineador+iluminador",
+    "barcode": "610985566516",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-148962",
+    "timestamp": "2026-11-02T20:59:08.962Z",
+    "type": "SALIDA",
+    "productId": "LV-1292",
+    "productName": "Pestañina Eternal lash",
+    "barcode": "7707559889874",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-937774",
+    "timestamp": "2026-11-02T20:55:37.774Z",
+    "type": "ENTRADA",
+    "productId": "LV-1457",
+    "productName": "Beauty blender XL",
+    "barcode": "6926594000292",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-749878",
+    "timestamp": "2026-11-02T20:52:29.878Z",
+    "type": "SALIDA",
+    "productId": "LV-1076",
+    "productName": "Tonico facial de rosas + colageno",
+    "barcode": "788115817026",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-507892",
+    "timestamp": "2026-11-02T20:48:27.892Z",
+    "type": "ENTRADA",
+    "productId": "LV-1456",
+    "productName": "Beauty blender",
+    "barcode": "7707559883292",
+    "quantity": 48,
+    "prevStock": 0,
+    "newStock": 48,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-324697",
+    "timestamp": "2026-11-02T20:45:24.697Z",
+    "type": "ENTRADA",
+    "productId": "LV-1407",
+    "productName": "Tinta bloom latte Kiss",
+    "barcode": "6974482526485",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-323908",
+    "timestamp": "2026-11-02T20:45:23.908Z",
+    "type": "ENTRADA",
+    "productId": "LV-1407",
+    "productName": "Tinta bloom latte Kiss",
+    "barcode": "6974482526485",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-294127",
+    "timestamp": "2026-11-02T20:44:54.127Z",
+    "type": "SALIDA",
+    "productId": "LV-1444",
+    "productName": "Lip gloss pop",
+    "barcode": "677144890240",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-294121",
+    "timestamp": "2026-11-02T20:44:54.121Z",
+    "type": "SALIDA",
+    "productId": "LV-1143",
+    "productName": "Fijador dixy fix x30ml",
+    "barcode": "736372978363",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-294115",
+    "timestamp": "2026-11-02T20:44:54.115Z",
+    "type": "SALIDA",
+    "productId": "LV-1125",
+    "productName": "Bloom essential cream",
+    "barcode": "8809801696359",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-294106",
+    "timestamp": "2026-11-02T20:44:54.106Z",
+    "type": "SALIDA",
+    "productId": "LV-1344",
+    "productName": "Paleta de sombras tono iris",
+    "barcode": "736372979841",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-294101",
+    "timestamp": "2026-11-02T20:44:54.101Z",
+    "type": "SALIDA",
+    "productId": "LV-1448",
+    "productName": "Lip balm bloom gelee",
+    "barcode": "6924372689516",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-294090",
+    "timestamp": "2026-11-02T20:44:54.090Z",
+    "type": "SALIDA",
+    "productId": "LV-1368",
+    "productName": "Corrector mini tono 03",
+    "barcode": "6974482516530",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-294083",
+    "timestamp": "2026-11-02T20:44:54.083Z",
+    "type": "SALIDA",
+    "productId": "LV-1385",
+    "productName": "Base semi mate tono 06",
+    "barcode": "6974482524771",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-294071",
+    "timestamp": "2026-11-02T20:44:54.071Z",
+    "type": "SALIDA",
+    "productId": "LV-1037",
+    "productName": "Perfume capilar mocca shake",
+    "barcode": "7709268279656",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-549982",
+    "timestamp": "2026-11-02T19:59:09.982Z",
+    "type": "ENTRADA",
+    "productId": "LV-1455",
+    "productName": "Crush kit lip gloss+delineador+iluminador",
+    "barcode": "610985566516",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-770427",
+    "timestamp": "2026-11-02T19:46:10.427Z",
+    "type": "ENTRADA",
+    "productId": "LV-1386",
+    "productName": "Llavero bloom mocha espejo",
+    "barcode": "6972630571516",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-766481",
+    "timestamp": "2026-11-02T19:46:06.481Z",
+    "type": "ENTRADA",
+    "productId": "LV-1387",
+    "productName": "Llavero bloom me espejo",
+    "barcode": "6972630571509",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-682541",
+    "timestamp": "2026-11-02T19:44:42.541Z",
+    "type": "ENTRADA",
+    "productId": "LV-1454",
+    "productName": "Iluminador liquido brilla",
+    "barcode": "7709223258283",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-585609",
+    "timestamp": "2026-11-02T19:43:05.609Z",
+    "type": "ENTRADA",
+    "productId": "LV-1453",
+    "productName": "Lip balm tono 04 marshmallow",
+    "barcode": "7707559884305",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-546711",
+    "timestamp": "2026-11-02T19:42:26.711Z",
+    "type": "ENTRADA",
+    "productId": "LV-1452",
+    "productName": "Lip balm tono 03 candy cloud",
+    "barcode": "7707559888846",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-490656",
+    "timestamp": "2026-11-02T19:41:30.656Z",
+    "type": "SALIDA",
+    "productId": "LV-1145",
+    "productName": "Fijador de maquillaje",
+    "barcode": "7707375604187",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-490653",
+    "timestamp": "2026-11-02T19:41:30.653Z",
+    "type": "SALIDA",
+    "productId": "LV-1430",
+    "productName": "Lip gloss enchante",
+    "barcode": "6925627318137",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-490648",
+    "timestamp": "2026-11-02T19:41:30.648Z",
+    "type": "SALIDA",
+    "productId": "LV-1301",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-490644",
+    "timestamp": "2026-11-02T19:41:30.644Z",
+    "type": "SALIDA",
+    "productId": "LV-1371",
+    "productName": "Corrector mediano tono 4,5",
+    "barcode": "6974482525501",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-490638",
+    "timestamp": "2026-11-02T19:41:30.638Z",
+    "type": "SALIDA",
+    "productId": "LV-1240",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7703378749528",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-584579",
+    "timestamp": "2026-11-02T19:26:24.579Z",
+    "type": "ENTRADA",
+    "productId": "LV-1451",
+    "productName": "Lip balm tono 02 glam cake",
+    "barcode": "7707559888747",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-297492",
+    "timestamp": "2026-11-02T19:21:37.492Z",
+    "type": "ENTRADA",
+    "productId": "LV-1450",
+    "productName": "Labial soft mate tono 04 miami vibes",
+    "barcode": "7703378476462",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-235319",
+    "timestamp": "2026-11-02T19:20:35.319Z",
+    "type": "ENTRADA",
+    "productId": "LV-1449",
+    "productName": "Labial mate tono 01 eternal rome",
+    "barcode": "7703378895607",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-081549",
+    "timestamp": "2026-11-02T19:18:01.549Z",
+    "type": "ENTRADA",
+    "productId": "LV-1448",
+    "productName": "Lip balm bloom gelee",
+    "barcode": "6924372689516",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-117284",
+    "timestamp": "2026-11-02T19:01:57.284Z",
+    "type": "ENTRADA",
+    "productId": "LV-1447",
+    "productName": "Lip gloss bloom rolon",
+    "barcode": "6924372689646",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-009014",
+    "timestamp": "2026-11-02T19:00:09.014Z",
+    "type": "ENTRADA",
+    "productId": "LV-1446",
+    "productName": "Lip gloss tono 01 diva",
+    "barcode": "7707559887108",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-961426",
+    "timestamp": "2026-11-02T18:59:21.426Z",
+    "type": "ENTRADA",
+    "productId": "LV-1445",
+    "productName": "Lip gloss tono 02 kim",
+    "barcode": "7707559884893",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-890412",
+    "timestamp": "2026-11-02T18:58:10.412Z",
+    "type": "ENTRADA",
+    "productId": "LV-1444",
+    "productName": "Lip gloss pop",
+    "barcode": "677144890240",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-743892",
+    "timestamp": "2026-11-02T18:55:43.892Z",
+    "type": "ENTRADA",
+    "productId": "LV-1443",
+    "productName": "Click lipstick tono bittersweet",
+    "barcode": "7707375604620",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-681520",
+    "timestamp": "2026-11-02T18:54:41.520Z",
+    "type": "ENTRADA",
+    "productId": "LV-1442",
+    "productName": "Click lipstick tono amber",
+    "barcode": "7707375606945",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-621191",
+    "timestamp": "2026-11-02T18:53:41.191Z",
+    "type": "ENTRADA",
+    "productId": "LV-1441",
+    "productName": "Click lipstick tono pizzazz",
+    "barcode": "7707375605672",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-548981",
+    "timestamp": "2026-11-02T18:52:28.981Z",
+    "type": "ENTRADA",
+    "productId": "LV-1440",
+    "productName": "Lip gloss con destellos",
+    "barcode": "6975649922836",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-361258",
+    "timestamp": "2026-11-02T18:49:21.258Z",
+    "type": "ENTRADA",
+    "productId": "LV-1439",
+    "productName": "Lip balm magico honey",
+    "barcode": "770911826823",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-204800",
+    "timestamp": "2026-11-02T18:46:44.800Z",
+    "type": "ENTRADA",
+    "productId": "LV-1438",
+    "productName": "Voluminizador boutique",
+    "barcode": "7709829058560",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-152924",
+    "timestamp": "2026-11-02T18:45:52.924Z",
+    "type": "ENTRADA",
+    "productId": "LV-1437",
+    "productName": "Voluminizador smoothie lips",
+    "barcode": "7709593683067",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-903724",
+    "timestamp": "2026-11-02T18:41:43.724Z",
+    "type": "SALIDA",
+    "productId": "LV-1011",
+    "productName": "Shampoo jalea real",
+    "barcode": "7708946977105",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-890680",
+    "timestamp": "2026-11-02T18:41:30.680Z",
+    "type": "SALIDA",
+    "productId": "LV-1428",
+    "productName": "Purpure pop star con destellos",
+    "barcode": "677144889992",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-890673",
+    "timestamp": "2026-11-02T18:41:30.673Z",
+    "type": "SALIDA",
+    "productId": "LV-1298",
+    "productName": "Pestañina microfibra",
+    "barcode": "7501734430352",
+    "quantity": 1,
+    "prevStock": 15,
+    "newStock": 14,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-890664",
+    "timestamp": "2026-11-02T18:41:30.664Z",
+    "type": "SALIDA",
+    "productId": "LV-1301",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-890658",
+    "timestamp": "2026-11-02T18:41:30.658Z",
+    "type": "SALIDA",
+    "productId": "LV-1149",
+    "productName": "Fijador bifasico mist fix",
+    "barcode": "6903072472321",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-815004",
+    "timestamp": "2026-11-02T18:40:15.004Z",
+    "type": "SALIDA",
+    "productId": "LV-1384",
+    "productName": "Base semi mate tono 05",
+    "barcode": "6974482524764",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-768784",
+    "timestamp": "2026-11-02T18:39:28.784Z",
+    "type": "SALIDA",
+    "productId": "LV-1212",
+    "productName": "Polvo compacto banana",
+    "barcode": "7709094542191",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-743659",
+    "timestamp": "2026-11-02T18:39:03.659Z",
+    "type": "SALIDA",
+    "productId": "LV-1051",
+    "productName": "Perfume mini irresistible",
+    "barcode": "7708075180865",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-743652",
+    "timestamp": "2026-11-02T18:39:03.652Z",
+    "type": "SALIDA",
+    "productId": "LV-1304",
+    "productName": "Contorno en barra tono 02 bloom define",
+    "barcode": "6974482524566",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-743637",
+    "timestamp": "2026-11-02T18:39:03.637Z",
+    "type": "SALIDA",
+    "productId": "LV-1385",
+    "productName": "Base semi mate tono 06",
+    "barcode": "6974482524771",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-454504",
+    "timestamp": "2026-11-02T00:47:34.504Z",
+    "type": "SALIDA",
+    "productId": "LV-1428",
+    "productName": "Purpure pop star con destellos",
+    "barcode": "677144889992",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-454498",
+    "timestamp": "2026-11-02T00:47:34.498Z",
+    "type": "SALIDA",
+    "productId": "LV-1311",
+    "productName": "Corrector liquido",
+    "barcode": "7708951146794",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-454490",
+    "timestamp": "2026-11-02T00:47:34.490Z",
+    "type": "SALIDA",
+    "productId": "LV-1290",
+    "productName": "Pestañina self love",
+    "barcode": "7708133635382",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-454482",
+    "timestamp": "2026-11-02T00:47:34.482Z",
+    "type": "SALIDA",
+    "productId": "LV-1122",
+    "productName": "Kit corporal x3 grande strawberry cake",
+    "barcode": "610985562617",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-235787",
+    "timestamp": "2026-11-02T00:43:55.787Z",
+    "type": "ENTRADA",
+    "productId": "LV-1436",
+    "productName": "Butter balm tono 04",
+    "barcode": "793969056996",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-200567",
+    "timestamp": "2026-11-02T00:43:20.567Z",
+    "type": "ENTRADA",
+    "productId": "LV-1435",
+    "productName": "Bloom hydra tint",
+    "barcode": "6973327786145",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-164778",
+    "timestamp": "2026-11-02T00:42:44.778Z",
+    "type": "ENTRADA",
+    "productId": "LV-1434",
+    "productName": "Lip balm tono wine",
+    "barcode": "7708453335368",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-790981",
+    "timestamp": "2026-11-02T00:36:30.981Z",
+    "type": "ENTRADA",
+    "productId": "LV-1433",
+    "productName": "Lip gloss color shine",
+    "barcode": "7709610110408",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-593349",
+    "timestamp": "2026-11-02T00:33:13.349Z",
+    "type": "ENTRADA",
+    "productId": "LV-1432",
+    "productName": "Lip gloss cherry color",
+    "barcode": "7708949165998",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-043059",
+    "timestamp": "2026-11-02T00:24:03.059Z",
+    "type": "ENTRADA",
+    "productId": "LV-1430",
+    "productName": "Lip gloss enchante",
+    "barcode": "6925627318137",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-041514",
+    "timestamp": "2026-11-02T00:24:01.514Z",
+    "type": "ENTRADA",
+    "productId": "LV-1430",
+    "productName": "Lip gloss enchante",
+    "barcode": "6925627318137",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-920575",
+    "timestamp": "2026-11-02T00:22:00.575Z",
+    "type": "ENTRADA",
+    "productId": "LV-1431",
+    "productName": "Lip gloss candy love",
+    "barcode": "764451296213",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-837880",
+    "timestamp": "2026-11-02T00:20:37.880Z",
+    "type": "ENTRADA",
+    "productId": "LV-1430",
+    "productName": "Lip gloss enchante",
+    "barcode": "770220262542",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-543184",
+    "timestamp": "2026-11-02T00:15:43.184Z",
+    "type": "ENTRADA",
+    "productId": "LV-1429",
+    "productName": "Lip gloss juicy lips",
+    "barcode": "770220449485",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-084550",
+    "timestamp": "2026-11-02T00:08:04.550Z",
+    "type": "ENTRADA",
+    "productId": "LV-1006",
+    "productName": "Mascarilla miel rosada",
+    "barcode": "634240384974",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-082701",
+    "timestamp": "2026-11-02T00:08:02.701Z",
+    "type": "ENTRADA",
+    "productId": "LV-1006",
+    "productName": "Mascarilla miel rosada",
+    "barcode": "634240384974",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-661144",
+    "timestamp": "2026-11-02T00:01:01.144Z",
+    "type": "ENTRADA",
+    "productId": "LV-1428",
+    "productName": "Purpure pop star con destellos",
+    "barcode": "677144889992",
+    "quantity": 8,
+    "prevStock": 0,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-525272",
+    "timestamp": "2026-11-01T23:58:45.272Z",
+    "type": "ENTRADA",
+    "productId": "LV-1427",
+    "productName": "Purpure kiss mate",
+    "barcode": "677144889954",
+    "quantity": 8,
+    "prevStock": 0,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-415834",
+    "timestamp": "2026-11-01T23:56:55.834Z",
+    "type": "SALIDA",
+    "productId": "LV-1166",
+    "productName": "Shampoo anti-caspa",
+    "barcode": "7709059679306",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-415825",
+    "timestamp": "2026-11-01T23:56:55.825Z",
+    "type": "SALIDA",
+    "productId": "LV-1394",
+    "productName": "Aceite 4 en 1",
+    "barcode": "7501734411405",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-415820",
+    "timestamp": "2026-11-01T23:56:55.820Z",
+    "type": "SALIDA",
+    "productId": "LV-1187",
+    "productName": "Contorno de ojos de rosas y acido hialuronico",
+    "barcode": "6976504680038",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-415810",
+    "timestamp": "2026-11-01T23:56:55.810Z",
+    "type": "SALIDA",
+    "productId": "LV-1150",
+    "productName": "Fijador en aerosol pequeño",
+    "barcode": "7120250620001",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-870826",
+    "timestamp": "2026-11-01T22:57:50.826Z",
+    "type": "ENTRADA",
+    "productId": "LV-1426",
+    "productName": "Lip oil XL mimosa",
+    "barcode": "6972630571493",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-672806",
+    "timestamp": "2026-11-01T22:54:32.806Z",
+    "type": "ENTRADA",
+    "productId": "LV-1425",
+    "productName": "Lip serum tiramisú",
+    "barcode": "677144890400",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-566972",
+    "timestamp": "2026-11-01T22:52:46.972Z",
+    "type": "ENTRADA",
+    "productId": "LV-1424",
+    "productName": "Click gloss lip plump",
+    "barcode": "7709631138757",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-380032",
+    "timestamp": "2026-11-01T22:49:40.032Z",
+    "type": "ENTRADA",
+    "productId": "LV-1423",
+    "productName": "Labial doble eclipse tono 01",
+    "barcode": "7709447448521",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-210097",
+    "timestamp": "2026-11-01T22:46:50.097Z",
+    "type": "ENTRADA",
+    "productId": "LV-1422",
+    "productName": "Brillo aura mocca tono 03",
+    "barcode": "7709911354495",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-156717",
+    "timestamp": "2026-11-01T22:45:56.717Z",
+    "type": "ENTRADA",
+    "productId": "LV-1421",
+    "productName": "Brillo aura mocca tono 02",
+    "barcode": "7709911354419",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-085600",
+    "timestamp": "2026-11-01T22:44:45.600Z",
+    "type": "ENTRADA",
+    "productId": "LV-1420",
+    "productName": "Brillo aura mocca tono 01",
+    "barcode": "7709779380148",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-025699",
+    "timestamp": "2026-11-01T22:43:45.699Z",
+    "type": "ENTRADA",
+    "productId": "LV-1419",
+    "productName": "Brillo aura tono 03",
+    "barcode": "7709631138788",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-975910",
+    "timestamp": "2026-11-01T22:42:55.910Z",
+    "type": "ENTRADA",
+    "productId": "LV-1418",
+    "productName": "Brillo aura tono 01",
+    "barcode": "7709311675497",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-439072",
+    "timestamp": "2026-11-01T22:17:19.072Z",
+    "type": "ENTRADA",
+    "productId": "LV-1417",
+    "productName": "shiny lip oil",
+    "barcode": "770817250787",
+    "quantity": 7,
+    "prevStock": 0,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-291927",
+    "timestamp": "2026-11-01T22:14:51.927Z",
+    "type": "ENTRADA",
+    "productId": "LV-1416",
+    "productName": "Lip oil tono candy glaze",
+    "barcode": "7709676888051",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-249768",
+    "timestamp": "2026-11-01T22:14:09.769Z",
+    "type": "ENTRADA",
+    "productId": "LV-1415",
+    "productName": "Lip oil tono cherry bliss",
+    "barcode": "7709462764668",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-210738",
+    "timestamp": "2026-11-01T22:13:30.738Z",
+    "type": "ENTRADA",
+    "productId": "LV-1414",
+    "productName": "Lip oil tinted Tono spicy",
+    "barcode": "7707375608079",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-172910",
+    "timestamp": "2026-11-01T22:12:52.910Z",
+    "type": "ENTRADA",
+    "productId": "LV-1413",
+    "productName": "Lip oil tono soft red",
+    "barcode": "736372667281",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-056910",
+    "timestamp": "2026-11-01T22:10:56.910Z",
+    "type": "ENTRADA",
+    "productId": "LV-1412",
+    "productName": "Tinta cafe toy story tono 04",
+    "barcode": "7709711564407",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-000151",
+    "timestamp": "2026-11-01T22:10:00.151Z",
+    "type": "ENTRADA",
+    "productId": "LV-1411",
+    "productName": "Labial doble tono 02",
+    "barcode": "7709418824057",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-965662",
+    "timestamp": "2026-11-01T22:09:25.662Z",
+    "type": "ENTRADA",
+    "productId": "LV-1410",
+    "productName": "Labial doble tono 03",
+    "barcode": "7709418824019",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-728624",
+    "timestamp": "2026-11-01T22:05:28.624Z",
+    "type": "ENTRADA",
+    "productId": "LV-1409",
+    "productName": "Tinta cafe cocoa kiss",
+    "barcode": "677144890448",
+    "quantity": 8,
+    "prevStock": 0,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-668278",
+    "timestamp": "2026-11-01T22:04:28.278Z",
+    "type": "ENTRADA",
+    "productId": "LV-1408",
+    "productName": "Tinta cafe bear Kiss",
+    "barcode": "677144890158",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-439942",
+    "timestamp": "2026-11-01T22:00:39.942Z",
+    "type": "ENTRADA",
+    "productId": "LV-1407",
+    "productName": "Tinta bloom latte Kiss",
+    "barcode": "6974482526485",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-386483",
+    "timestamp": "2026-11-01T21:59:46.483Z",
+    "type": "ENTRADA",
+    "productId": "LV-1406",
+    "productName": "Tinta bloom bombon",
+    "barcode": "6903072492398",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-330707",
+    "timestamp": "2026-11-01T21:58:50.707Z",
+    "type": "ENTRADA",
+    "productId": "LV-1405",
+    "productName": "Lip oil tinted gigante",
+    "barcode": "770318438505",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-228138",
+    "timestamp": "2026-11-01T21:57:08.138Z",
+    "type": "ENTRADA",
+    "productId": "LV-1404",
+    "productName": "Tinta girl boss tono 1",
+    "barcode": "770666989213",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-183084",
+    "timestamp": "2026-11-01T21:56:23.084Z",
+    "type": "ENTRADA",
+    "productId": "LV-1403",
+    "productName": "Tinta scarlet tono 1",
+    "barcode": "770642945331",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-529547",
+    "timestamp": "2026-11-01T21:45:29.547Z",
+    "type": "SALIDA",
+    "productId": "LV-1201",
+    "productName": "Desenredante termoprotector rosado",
+    "barcode": "7708075180759",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-499545",
+    "timestamp": "2026-11-01T21:44:59.545Z",
+    "type": "SALIDA",
+    "productId": "LV-1299",
+    "productName": "Pestañina maxi volumen",
+    "barcode": "7501734430338",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-499537",
+    "timestamp": "2026-11-01T21:44:59.537Z",
+    "type": "SALIDA",
+    "productId": "LV-1120",
+    "productName": "Kit corporal x3 bear cookies",
+    "barcode": "677144890264",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-499531",
+    "timestamp": "2026-11-01T21:44:59.531Z",
+    "type": "SALIDA",
+    "productId": "LV-1100",
+    "productName": "Exfoliante Piña colada",
+    "barcode": "677144266496",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-114843",
+    "timestamp": "2026-11-01T21:38:34.843Z",
+    "type": "SALIDA",
+    "productId": "LV-1002",
+    "productName": "Acondicionador de miel",
+    "barcode": "634240468599",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-114807",
+    "timestamp": "2026-11-01T21:38:34.807Z",
+    "type": "SALIDA",
+    "productId": "LV-1001",
+    "productName": "Shampoo miel rosada",
+    "barcode": "634240468582",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-072562",
+    "timestamp": "2026-11-01T21:37:52.562Z",
+    "type": "SALIDA",
+    "productId": "LV-1392",
+    "productName": "Shampoo de cebolla",
+    "barcode": "7709225678478",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-551332",
+    "timestamp": "2026-11-01T02:02:31.332Z",
+    "type": "ENTRADA",
+    "productId": "LV-1402",
+    "productName": "Kit de rosas y acido hialuronico en caja",
+    "barcode": "6942349742620",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-479171",
+    "timestamp": "2026-11-01T02:01:19.171Z",
+    "type": "ENTRADA",
+    "productId": "LV-1401",
+    "productName": "Kit de arroz en caja",
+    "barcode": "6942349745966",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-398715",
+    "timestamp": "2026-11-01T01:59:58.715Z",
+    "type": "ENTRADA",
+    "productId": "LV-1400",
+    "productName": "Colageno de labios por unidad",
+    "barcode": "6975239993390",
+    "quantity": 12,
+    "prevStock": 0,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-357641",
+    "timestamp": "2026-11-01T01:59:17.641Z",
+    "type": "ENTRADA",
+    "productId": "LV-1399",
+    "productName": "Colageno de ojeras por unidad",
+    "barcode": "6975239993147",
+    "quantity": 12,
+    "prevStock": 0,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-158958",
+    "timestamp": "2026-11-01T01:55:58.958Z",
+    "type": "ENTRADA",
+    "productId": "LV-1398",
+    "productName": "Keratina x120ml pequeña",
+    "barcode": "770770301200",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-076187",
+    "timestamp": "2026-11-01T01:54:36.187Z",
+    "type": "ENTRADA",
+    "productId": "LV-1049",
+    "productName": "Shampoo control caspa",
+    "barcode": "7708162555163",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-991660",
+    "timestamp": "2026-11-01T01:53:11.660Z",
+    "type": "ENTRADA",
+    "productId": "LV-1397",
+    "productName": "Base x50ml tono 04 vainilla",
+    "barcode": "781159031953",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-951219",
+    "timestamp": "2026-11-01T01:52:31.219Z",
+    "type": "ENTRADA",
+    "productId": "LV-1396",
+    "productName": "Base x50ml tono 03 Cream",
+    "barcode": "781159031977",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-920442",
+    "timestamp": "2026-11-01T01:52:00.442Z",
+    "type": "ENTRADA",
+    "productId": "LV-1395",
+    "productName": "Base x50ml tono 02 porcelain",
+    "barcode": "736372667991",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-748725",
+    "timestamp": "2026-11-01T01:49:08.725Z",
+    "type": "ENTRADA",
+    "productId": "LV-1042",
+    "productName": "Shampoo de leche y proteinas",
+    "barcode": "7709360339302",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-748399",
+    "timestamp": "2026-11-01T01:49:08.399Z",
+    "type": "ENTRADA",
+    "productId": "LV-1042",
+    "productName": "Shampoo de leche y proteinas",
+    "barcode": "7709360339302",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-744579",
+    "timestamp": "2026-11-01T01:49:04.579Z",
+    "type": "ENTRADA",
+    "productId": "LV-1043",
+    "productName": "Acondicionador de leche y proteinas",
+    "barcode": "7709360339395",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-744243",
+    "timestamp": "2026-11-01T01:49:04.243Z",
+    "type": "ENTRADA",
+    "productId": "LV-1043",
+    "productName": "Acondicionador de leche y proteinas",
+    "barcode": "7709360339395",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-739122",
+    "timestamp": "2026-11-01T01:48:59.122Z",
+    "type": "ENTRADA",
+    "productId": "LV-1044",
+    "productName": "Mascarilla de leche y proteinas",
+    "barcode": "7709949388202",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-738967",
+    "timestamp": "2026-11-01T01:48:58.967Z",
+    "type": "ENTRADA",
+    "productId": "LV-1044",
+    "productName": "Mascarilla de leche y proteinas",
+    "barcode": "7709949388202",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-676673",
+    "timestamp": "2026-11-01T01:47:56.673Z",
+    "type": "ENTRADA",
+    "productId": "LV-1394",
+    "productName": "Aceite 4 en 1",
+    "barcode": "7501734411405",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-606342",
+    "timestamp": "2026-11-01T01:46:46.342Z",
+    "type": "ENTRADA",
+    "productId": "LV-1301",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-602046",
+    "timestamp": "2026-11-01T01:46:42.046Z",
+    "type": "ENTRADA",
+    "productId": "LV-1301",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-601867",
+    "timestamp": "2026-11-01T01:46:41.867Z",
+    "type": "ENTRADA",
+    "productId": "LV-1301",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-466051",
+    "timestamp": "2026-11-01T01:44:26.051Z",
+    "type": "ENTRADA",
+    "productId": "LV-1127",
+    "productName": "Agua de rosas",
+    "barcode": "7721001010043",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-465872",
+    "timestamp": "2026-11-01T01:44:25.872Z",
+    "type": "ENTRADA",
+    "productId": "LV-1127",
+    "productName": "Agua de rosas",
+    "barcode": "7721001010043",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-455627",
+    "timestamp": "2026-11-01T01:44:15.627Z",
+    "type": "ENTRADA",
+    "productId": "LV-1393",
+    "productName": "Shampoo milagro herbal",
+    "barcode": "7708075180704",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-369911",
+    "timestamp": "2026-11-01T01:42:49.911Z",
+    "type": "ENTRADA",
+    "productId": "LV-1392",
+    "productName": "Shampoo de cebolla",
+    "barcode": "7709225678478",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-326655",
+    "timestamp": "2026-11-01T01:42:06.655Z",
+    "type": "ENTRADA",
+    "productId": "LV-1391",
+    "productName": "acondicionador de cebolla",
+    "barcode": "7709225678409",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-154687",
+    "timestamp": "2026-11-01T01:39:14.687Z",
+    "type": "ENTRADA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto x10g",
+    "barcode": "736372977403",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-110096",
+    "timestamp": "2026-11-01T01:38:30.096Z",
+    "type": "ENTRADA",
+    "productId": "LV-1060",
+    "productName": "Mantequilla corporal mini dorada",
+    "barcode": "7709507915529",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-109152",
+    "timestamp": "2026-11-01T01:38:29.152Z",
+    "type": "ENTRADA",
+    "productId": "LV-1059",
+    "productName": "Splash dorado pequeño",
+    "barcode": "7709507915567",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-058079",
+    "timestamp": "2026-11-01T01:37:38.079Z",
+    "type": "ENTRADA",
+    "productId": "LV-1039",
+    "productName": "Perfume capilar golden toffe",
+    "barcode": "7709268279694",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-057870",
+    "timestamp": "2026-11-01T01:37:37.870Z",
+    "type": "ENTRADA",
+    "productId": "LV-1039",
+    "productName": "Perfume capilar golden toffe",
+    "barcode": "7709268279694",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-033286",
+    "timestamp": "2026-11-01T01:37:13.286Z",
+    "type": "ENTRADA",
+    "productId": "LV-1140",
+    "productName": "Primer y fijador Bloom jelly fusion",
+    "barcode": "6924372689509",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-030324",
+    "timestamp": "2026-11-01T01:37:10.324Z",
+    "type": "ENTRADA",
+    "productId": "LV-1140",
+    "productName": "Primer y fijador Bloom jelly fusion",
+    "barcode": "6924372689509",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-030110",
+    "timestamp": "2026-11-01T01:37:10.110Z",
+    "type": "ENTRADA",
+    "productId": "LV-1140",
+    "productName": "Primer y fijador Bloom jelly fusion",
+    "barcode": "6924372689509",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-029869",
+    "timestamp": "2026-11-01T01:37:09.869Z",
+    "type": "ENTRADA",
+    "productId": "LV-1140",
+    "productName": "Primer y fijador Bloom jelly fusion",
+    "barcode": "6924372689509",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-198951",
+    "timestamp": "2026-11-01T00:33:18.951Z",
+    "type": "SALIDA",
+    "productId": "LV-1389",
+    "productName": "Perfume capilar tropical crush",
+    "barcode": "7709268279601",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-198946",
+    "timestamp": "2026-11-01T00:33:18.946Z",
+    "type": "SALIDA",
+    "productId": "LV-1037",
+    "productName": "Perfume capilar mocca shake",
+    "barcode": "7709268279656",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-180598",
+    "timestamp": "2026-11-01T00:33:00.598Z",
+    "type": "ENTRADA",
+    "productId": "LV-1389",
+    "productName": "Perfume capilar tropical crush",
+    "barcode": "7709268279601",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-885101",
+    "timestamp": "2026-11-01T00:28:05.101Z",
+    "type": "SALIDA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-885091",
+    "timestamp": "2026-11-01T00:28:05.091Z",
+    "type": "SALIDA",
+    "productId": "LV-1039",
+    "productName": "Perfume capilar golden toffe",
+    "barcode": "7709268279694",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-839920",
+    "timestamp": "2026-10-31T22:30:39.920Z",
+    "type": "SALIDA",
+    "productId": "LV-1015",
+    "productName": "Mantequilla perfumada",
+    "barcode": "770710192400",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-023463",
+    "timestamp": "2026-10-31T21:43:43.463Z",
+    "type": "SALIDA",
+    "productId": "LV-1282",
+    "productName": "Flushy blushy tono 02 tan line",
+    "barcode": "7707559881236",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-023459",
+    "timestamp": "2026-10-31T21:43:43.459Z",
+    "type": "SALIDA",
+    "productId": "LV-1010",
+    "productName": "Tratamiento jalea real",
+    "barcode": "7709374293881",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-023455",
+    "timestamp": "2026-10-31T21:43:43.455Z",
+    "type": "SALIDA",
+    "productId": "LV-1011",
+    "productName": "Shampoo jalea real",
+    "barcode": "7708946977105",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-023450",
+    "timestamp": "2026-10-31T21:43:43.450Z",
+    "type": "SALIDA",
+    "productId": "LV-1201",
+    "productName": "Desenredante termoprotector rosado",
+    "barcode": "7708075180759",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-387385",
+    "timestamp": "2026-10-31T21:16:27.385Z",
+    "type": "SALIDA",
+    "productId": "LV-1319",
+    "productName": "Corrector pequeño tono 04",
+    "barcode": "770879283532",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-387380",
+    "timestamp": "2026-10-31T21:16:27.380Z",
+    "type": "SALIDA",
+    "productId": "LV-1176",
+    "productName": "Crema hidratante de centella asiatica",
+    "barcode": "6942349712050",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-763722",
+    "timestamp": "2026-10-31T21:06:03.722Z",
+    "type": "ENTRADA",
+    "productId": "LV-1267",
+    "productName": "Base mate tono 05",
+    "barcode": "736372668578",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-759022",
+    "timestamp": "2026-10-31T21:05:59.022Z",
+    "type": "ENTRADA",
+    "productId": "LV-1266",
+    "productName": "Base mate tono 04",
+    "barcode": "736372668561",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-758202",
+    "timestamp": "2026-10-31T21:05:58.202Z",
+    "type": "ENTRADA",
+    "productId": "LV-1266",
+    "productName": "Base mate tono 04",
+    "barcode": "736372668561",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-744020",
+    "timestamp": "2026-10-31T21:05:44.020Z",
+    "type": "ENTRADA",
+    "productId": "LV-1265",
+    "productName": "Base mate tono 03",
+    "barcode": "736372668554",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-741984",
+    "timestamp": "2026-10-31T21:05:41.984Z",
+    "type": "ENTRADA",
+    "productId": "LV-1265",
+    "productName": "Base mate tono 03",
+    "barcode": "736372668554",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-740892",
+    "timestamp": "2026-10-31T21:05:40.892Z",
+    "type": "ENTRADA",
+    "productId": "LV-1265",
+    "productName": "Base mate tono 03",
+    "barcode": "736372668554",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-728280",
+    "timestamp": "2026-10-31T21:05:28.280Z",
+    "type": "ENTRADA",
+    "productId": "LV-1264",
+    "productName": "Base mate tono 02",
+    "barcode": "736372668547",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-727166",
+    "timestamp": "2026-10-31T21:05:27.166Z",
+    "type": "ENTRADA",
+    "productId": "LV-1264",
+    "productName": "Base mate tono 02",
+    "barcode": "736372668547",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-725954",
+    "timestamp": "2026-10-31T21:05:25.954Z",
+    "type": "ENTRADA",
+    "productId": "LV-1264",
+    "productName": "Base mate tono 02",
+    "barcode": "736372668547",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-724590",
+    "timestamp": "2026-10-31T21:05:24.590Z",
+    "type": "ENTRADA",
+    "productId": "LV-1264",
+    "productName": "Base mate tono 02",
+    "barcode": "736372668547",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-665655",
+    "timestamp": "2026-10-31T21:04:25.655Z",
+    "type": "ENTRADA",
+    "productId": "LV-1309",
+    "productName": "Corrector liquido tono 04",
+    "barcode": "736372668653",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-665402",
+    "timestamp": "2026-10-31T21:04:25.402Z",
+    "type": "ENTRADA",
+    "productId": "LV-1309",
+    "productName": "Corrector liquido tono 04",
+    "barcode": "736372668653",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-665228",
+    "timestamp": "2026-10-31T21:04:25.228Z",
+    "type": "ENTRADA",
+    "productId": "LV-1309",
+    "productName": "Corrector liquido tono 04",
+    "barcode": "736372668653",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-595269",
+    "timestamp": "2026-10-31T21:03:15.269Z",
+    "type": "ENTRADA",
+    "productId": "LV-1308",
+    "productName": "Corrector liquido tono 03",
+    "barcode": "736372668646",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-593010",
+    "timestamp": "2026-10-31T21:03:13.010Z",
+    "type": "ENTRADA",
+    "productId": "LV-1308",
+    "productName": "Corrector liquido tono 03",
+    "barcode": "736372668646",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-589407",
+    "timestamp": "2026-10-31T21:03:09.407Z",
+    "type": "ENTRADA",
+    "productId": "LV-1308",
+    "productName": "Corrector liquido tono 03",
+    "barcode": "736372668646",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-581258",
+    "timestamp": "2026-10-31T21:03:01.258Z",
+    "type": "ENTRADA",
+    "productId": "LV-1308",
+    "productName": "Corrector liquido tono 03",
+    "barcode": "736372668646",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-563114",
+    "timestamp": "2026-10-31T21:02:43.114Z",
+    "type": "ENTRADA",
+    "productId": "LV-1388",
+    "productName": "Corrector liquido tono 02",
+    "barcode": "736372668639",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-425035",
+    "timestamp": "2026-10-31T21:00:25.035Z",
+    "type": "ENTRADA",
+    "productId": "LV-1279",
+    "productName": "Rubor liquido bloom floral tono 01",
+    "barcode": "6974482522753",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-367433",
+    "timestamp": "2026-10-31T20:59:27.433Z",
+    "type": "ENTRADA",
+    "productId": "LV-1280",
+    "productName": "Rubor liquido bloom floral tono 02",
+    "barcode": "6974482527031",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-287365",
+    "timestamp": "2026-10-31T20:58:07.365Z",
+    "type": "ENTRADA",
+    "productId": "LV-1334",
+    "productName": "Iluminador cosmic",
+    "barcode": "6974482522722",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-287150",
+    "timestamp": "2026-10-31T20:58:07.150Z",
+    "type": "ENTRADA",
+    "productId": "LV-1334",
+    "productName": "Iluminador cosmic",
+    "barcode": "6974482522722",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-276944",
+    "timestamp": "2026-10-31T20:57:56.944Z",
+    "type": "ENTRADA",
+    "productId": "LV-1334",
+    "productName": "Iluminador cosmic",
+    "barcode": "6974482522722",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-275106",
+    "timestamp": "2026-10-31T20:57:55.106Z",
+    "type": "ENTRADA",
+    "productId": "LV-1334",
+    "productName": "Iluminador cosmic",
+    "barcode": "6974482522722",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-274508",
+    "timestamp": "2026-10-31T20:57:54.508Z",
+    "type": "ENTRADA",
+    "productId": "LV-1334",
+    "productName": "Iluminador cosmic",
+    "barcode": "6974482522722",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-273790",
+    "timestamp": "2026-10-31T20:57:53.790Z",
+    "type": "ENTRADA",
+    "productId": "LV-1334",
+    "productName": "Iluminador cosmic",
+    "barcode": "6974482522722",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-272970",
+    "timestamp": "2026-10-31T20:57:52.970Z",
+    "type": "ENTRADA",
+    "productId": "LV-1334",
+    "productName": "Iluminador cosmic",
+    "barcode": "6974482522722",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-272455",
+    "timestamp": "2026-10-31T20:57:52.455Z",
+    "type": "ENTRADA",
+    "productId": "LV-1334",
+    "productName": "Iluminador cosmic",
+    "barcode": "6974482522722",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-184910",
+    "timestamp": "2026-10-31T20:56:24.910Z",
+    "type": "ENTRADA",
+    "productId": "LV-1387",
+    "productName": "Llavero bloom me espejo",
+    "barcode": "6972630571509",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-141747",
+    "timestamp": "2026-10-31T20:55:41.747Z",
+    "type": "ENTRADA",
+    "productId": "LV-1386",
+    "productName": "Llavero bloom mocha espejo",
+    "barcode": "6972630571516",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-042746",
+    "timestamp": "2026-10-31T20:54:02.746Z",
+    "type": "ENTRADA",
+    "productId": "LV-1357",
+    "productName": "Velvet crush x3 tono 03",
+    "barcode": "6974482527093",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-039932",
+    "timestamp": "2026-10-31T20:53:59.932Z",
+    "type": "ENTRADA",
+    "productId": "LV-1357",
+    "productName": "Velvet crush x3 tono 03",
+    "barcode": "6974482527093",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-039334",
+    "timestamp": "2026-10-31T20:53:59.334Z",
+    "type": "ENTRADA",
+    "productId": "LV-1357",
+    "productName": "Velvet crush x3 tono 03",
+    "barcode": "6974482527093",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-038644",
+    "timestamp": "2026-10-31T20:53:58.644Z",
+    "type": "ENTRADA",
+    "productId": "LV-1357",
+    "productName": "Velvet crush x3 tono 03",
+    "barcode": "6974482527093",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-940107",
+    "timestamp": "2026-10-31T20:52:20.107Z",
+    "type": "ENTRADA",
+    "productId": "LV-1318",
+    "productName": "Corrector pequeño tono 03",
+    "barcode": "770359657356",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-939852",
+    "timestamp": "2026-10-31T20:52:19.852Z",
+    "type": "ENTRADA",
+    "productId": "LV-1318",
+    "productName": "Corrector pequeño tono 03",
+    "barcode": "770359657356",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-933544",
+    "timestamp": "2026-10-31T20:52:13.544Z",
+    "type": "ENTRADA",
+    "productId": "LV-1316",
+    "productName": "Corrector pequeño tono 01",
+    "barcode": "770703520378",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-930776",
+    "timestamp": "2026-10-31T20:52:10.776Z",
+    "type": "ENTRADA",
+    "productId": "LV-1315",
+    "productName": "Corrector pequeño tono 00",
+    "barcode": "770814264638",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-907444",
+    "timestamp": "2026-10-31T20:51:47.444Z",
+    "type": "ENTRADA",
+    "productId": "LV-1323",
+    "productName": "Corrector XL tono 03",
+    "barcode": "770102949475",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-903091",
+    "timestamp": "2026-10-31T20:51:43.091Z",
+    "type": "ENTRADA",
+    "productId": "LV-1322",
+    "productName": "Corrector XL tono 02",
+    "barcode": "770314408091",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-902884",
+    "timestamp": "2026-10-31T20:51:42.884Z",
+    "type": "ENTRADA",
+    "productId": "LV-1322",
+    "productName": "Corrector XL tono 02",
+    "barcode": "770314408091",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-895279",
+    "timestamp": "2026-10-31T20:51:35.279Z",
+    "type": "ENTRADA",
+    "productId": "LV-1321",
+    "productName": "Corrector XL tono 01",
+    "barcode": "770189636171",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-894960",
+    "timestamp": "2026-10-31T20:51:34.960Z",
+    "type": "ENTRADA",
+    "productId": "LV-1321",
+    "productName": "Corrector XL tono 01",
+    "barcode": "770189636171",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-890556",
+    "timestamp": "2026-10-31T20:51:30.556Z",
+    "type": "ENTRADA",
+    "productId": "LV-1320",
+    "productName": "Corrector XL tono 00",
+    "barcode": "770545181398",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-890229",
+    "timestamp": "2026-10-31T20:51:30.229Z",
+    "type": "ENTRADA",
+    "productId": "LV-1320",
+    "productName": "Corrector XL tono 00",
+    "barcode": "770545181398",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-747952",
+    "timestamp": "2026-10-31T20:49:07.952Z",
+    "type": "ENTRADA",
+    "productId": "LV-1385",
+    "productName": "Base semi mate tono 06",
+    "barcode": "6974482524771",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-713104",
+    "timestamp": "2026-10-31T20:48:33.104Z",
+    "type": "ENTRADA",
+    "productId": "LV-1384",
+    "productName": "Base semi mate tono 05",
+    "barcode": "6974482524764",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-684861",
+    "timestamp": "2026-10-31T20:48:04.861Z",
+    "type": "ENTRADA",
+    "productId": "LV-1383",
+    "productName": "Base semi mate tono 4,8",
+    "barcode": "6974482524757",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-658414",
+    "timestamp": "2026-10-31T20:47:38.414Z",
+    "type": "ENTRADA",
+    "productId": "LV-1382",
+    "productName": "Base semi mate tono 4,5",
+    "barcode": "6974482524740",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-630214",
+    "timestamp": "2026-10-31T20:47:10.214Z",
+    "type": "ENTRADA",
+    "productId": "LV-1381",
+    "productName": "Base semi mate tono 4,2",
+    "barcode": "6974482524733",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-571217",
+    "timestamp": "2026-10-31T20:46:11.217Z",
+    "type": "ENTRADA",
+    "productId": "LV-1380",
+    "productName": "Base semi mate tono 04",
+    "barcode": "6974482524726",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-544320",
+    "timestamp": "2026-10-31T20:45:44.320Z",
+    "type": "ENTRADA",
+    "productId": "LV-1379",
+    "productName": "Base semi mate tono 03",
+    "barcode": "6974482524719",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-449980",
+    "timestamp": "2026-10-31T20:44:09.980Z",
+    "type": "ENTRADA",
+    "productId": "LV-1378",
+    "productName": "Base semi mate tono 2,5",
+    "barcode": "6974482524702",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-393968",
+    "timestamp": "2026-10-31T20:43:13.968Z",
+    "type": "ENTRADA",
+    "productId": "LV-1268",
+    "productName": "Base semi mate tono 02",
+    "barcode": "6974482524696",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-391986",
+    "timestamp": "2026-10-31T20:43:11.986Z",
+    "type": "ENTRADA",
+    "productId": "LV-1268",
+    "productName": "Base semi mate tono 02",
+    "barcode": "6974482524696",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-182706",
+    "timestamp": "2026-10-31T20:39:42.706Z",
+    "type": "ENTRADA",
+    "productId": "LV-1377",
+    "productName": "Corrector XL tono 06",
+    "barcode": "6974482522999",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-150807",
+    "timestamp": "2026-10-31T20:39:10.807Z",
+    "type": "ENTRADA",
+    "productId": "LV-1376",
+    "productName": "Corrector XL tono 04",
+    "barcode": "6974482525402",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-106691",
+    "timestamp": "2026-10-31T20:38:26.691Z",
+    "type": "ENTRADA",
+    "productId": "LV-1375",
+    "productName": "Corrector XL tono 03",
+    "barcode": "6974482525396",
+    "quantity": 8,
+    "prevStock": 0,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-066676",
+    "timestamp": "2026-10-31T20:37:46.676Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-006344",
+    "timestamp": "2026-10-31T20:36:46.344Z",
+    "type": "ENTRADA",
+    "productId": "LV-1374",
+    "productName": "Corrector XL tono 01",
+    "barcode": "6974482525372",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-005312",
+    "timestamp": "2026-10-31T20:36:45.312Z",
+    "type": "ENTRADA",
+    "productId": "LV-1374",
+    "productName": "Corrector XL tono 01",
+    "barcode": "6974482525372",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-976568",
+    "timestamp": "2026-10-31T20:36:16.569Z",
+    "type": "SALIDA",
+    "productId": "LV-1369",
+    "productName": "Corrector mediano tono 04",
+    "barcode": "6974482525495",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-945750",
+    "timestamp": "2026-10-31T20:35:45.750Z",
+    "type": "ENTRADA",
+    "productId": "LV-1374",
+    "productName": "Corrector XL tono 01",
+    "barcode": "6974482525372",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-875528",
+    "timestamp": "2026-10-31T20:34:35.528Z",
+    "type": "ENTRADA",
+    "productId": "LV-1373",
+    "productName": "Corrector XL tono 00",
+    "barcode": "6974482525365",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-832001",
+    "timestamp": "2026-10-31T20:33:52.001Z",
+    "type": "ENTRADA",
+    "productId": "LV-1372",
+    "productName": "Corrector mediano tono 09",
+    "barcode": "6974482523156",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-769027",
+    "timestamp": "2026-10-31T20:32:49.027Z",
+    "type": "ENTRADA",
+    "productId": "LV-1372",
+    "productName": "Corrector mediano tono 09",
+    "barcode": "6974482523156",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-714059",
+    "timestamp": "2026-10-31T20:31:54.059Z",
+    "type": "ENTRADA",
+    "productId": "LV-1371",
+    "productName": "Corrector mediano tono 4,5",
+    "barcode": "6974482525501",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-678213",
+    "timestamp": "2026-10-31T20:31:18.213Z",
+    "type": "ENTRADA",
+    "productId": "LV-1370",
+    "productName": "Corrector mediano tono 05",
+    "barcode": "6974482525518",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-648376",
+    "timestamp": "2026-10-31T20:30:48.376Z",
+    "type": "ENTRADA",
+    "productId": "LV-1369",
+    "productName": "Corrector mediano tono 04",
+    "barcode": "6974482525495",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-546486",
+    "timestamp": "2026-10-31T20:29:06.486Z",
+    "type": "ENTRADA",
+    "productId": "LV-1368",
+    "productName": "Corrector mini tono 03",
+    "barcode": "6974482516530",
+    "quantity": 8,
+    "prevStock": 0,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-053990",
+    "timestamp": "2026-10-31T20:20:53.990Z",
+    "type": "ENTRADA",
+    "productId": "LV-1367",
+    "productName": "Rubor cuadrado sublime tono radiant",
+    "barcode": "7709783386488",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-002558",
+    "timestamp": "2026-10-31T20:20:02.558Z",
+    "type": "ENTRADA",
+    "productId": "LV-1366",
+    "productName": "Rubor cuadrado sublime tono sundown",
+    "barcode": "7709783386464",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-939134",
+    "timestamp": "2026-10-31T20:18:59.134Z",
+    "type": "ENTRADA",
+    "productId": "LV-1365",
+    "productName": "Rubor dorado tono radiant",
+    "barcode": "7707375600592",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-835999",
+    "timestamp": "2026-10-31T20:17:15.999Z",
+    "type": "ENTRADA",
+    "productId": "LV-1342",
+    "productName": "Rubor en polvo tono 01",
+    "barcode": "764451296220",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-818447",
+    "timestamp": "2026-10-31T20:16:58.447Z",
+    "type": "ENTRADA",
+    "productId": "LV-1364",
+    "productName": "Rubor luminoso anik 01",
+    "barcode": "770452039326",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-493812",
+    "timestamp": "2026-10-31T20:11:33.812Z",
+    "type": "ENTRADA",
+    "productId": "LV-1363",
+    "productName": "Vibrant duo",
+    "barcode": "6925627318229",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-492708",
+    "timestamp": "2026-10-31T20:11:32.708Z",
+    "type": "ENTRADA",
+    "productId": "LV-1363",
+    "productName": "Vibrant duo",
+    "barcode": "6925627318229",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-467402",
+    "timestamp": "2026-10-31T20:11:07.402Z",
+    "type": "ENTRADA",
+    "productId": "LV-1363",
+    "productName": "Vibrant duo tono 02 peach",
+    "barcode": "6925627318229",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-402024",
+    "timestamp": "2026-10-31T20:10:02.024Z",
+    "type": "ENTRADA",
+    "productId": "LV-1362",
+    "productName": "Rubor en polvo tono 03 iconic",
+    "barcode": "7703378039483",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-300785",
+    "timestamp": "2026-10-31T20:08:20.785Z",
+    "type": "ENTRADA",
+    "productId": "LV-1361",
+    "productName": "Rubor en polvo tono 05 kitty",
+    "barcode": "7707559884428",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-265144",
+    "timestamp": "2026-10-31T20:07:45.144Z",
+    "type": "ENTRADA",
+    "productId": "LV-1360",
+    "productName": "Rubor en polvo tono 04 katy",
+    "barcode": "7707559888327",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-222983",
+    "timestamp": "2026-10-31T20:07:02.983Z",
+    "type": "ENTRADA",
+    "productId": "LV-1359",
+    "productName": "Rubor en polvo tono 03 selena",
+    "barcode": "7707559886118",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-169002",
+    "timestamp": "2026-10-31T20:06:09.002Z",
+    "type": "ENTRADA",
+    "productId": "LV-1358",
+    "productName": "Rubor en polvo tono 01 taylor",
+    "barcode": "7707559883339",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-616568",
+    "timestamp": "2026-10-31T19:56:56.568Z",
+    "type": "SALIDA",
+    "productId": "LV-1063",
+    "productName": "Paleta de sombras",
+    "barcode": "6924372697825",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-826983",
+    "timestamp": "2026-10-31T19:43:46.983Z",
+    "type": "SALIDA",
+    "productId": "LV-1017",
+    "productName": "Termoprotector mini",
+    "barcode": "7700791501535",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-248835",
+    "timestamp": "2026-10-31T19:34:08.835Z",
+    "type": "ENTRADA",
+    "productId": "LV-1357",
+    "productName": "Velvet crush x3 tono 03",
+    "barcode": "6974482527093",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-031101",
+    "timestamp": "2026-10-31T19:30:31.101Z",
+    "type": "ENTRADA",
+    "productId": "LV-1356",
+    "productName": "Duo rubor allure tono orange weekend",
+    "barcode": "736372667724",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-995289",
+    "timestamp": "2026-10-31T19:29:55.289Z",
+    "type": "ENTRADA",
+    "productId": "LV-1355",
+    "productName": "Duo rubor allure tono pink crush",
+    "barcode": "736372667717",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-970072",
+    "timestamp": "2026-10-31T19:29:30.072Z",
+    "type": "ENTRADA",
+    "productId": "LV-1354",
+    "productName": "Duo rubor allure tono pink crush",
+    "barcode": "736372667700",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-918304",
+    "timestamp": "2026-10-31T19:28:38.304Z",
+    "type": "ENTRADA",
+    "productId": "LV-1353",
+    "productName": "Rubor en crema tono coral",
+    "barcode": "7709399307365",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-872971",
+    "timestamp": "2026-10-31T19:27:52.971Z",
+    "type": "ENTRADA",
+    "productId": "LV-1352",
+    "productName": "Rubor en crema tono princess",
+    "barcode": "7709399307389",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-789323",
+    "timestamp": "2026-10-31T19:26:29.323Z",
+    "type": "ENTRADA",
+    "productId": "LV-1351",
+    "productName": "Velvet crush x3 tono 07",
+    "barcode": "6974482525235",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-729387",
+    "timestamp": "2026-10-31T19:25:29.387Z",
+    "type": "ENTRADA",
+    "productId": "LV-1350",
+    "productName": "Rubor en barra tono 01",
+    "barcode": "7703378709232",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-664598",
+    "timestamp": "2026-10-31T19:24:24.598Z",
+    "type": "SALIDA",
+    "productId": "LV-1232",
+    "productName": "Polvo 2 en 1 traslucido mini",
+    "barcode": "6974482524351",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-399791",
+    "timestamp": "2026-10-31T19:19:59.791Z",
+    "type": "SALIDA",
+    "productId": "LV-1223",
+    "productName": "Bloom black eye liner pencil",
+    "barcode": "6920228540055",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-655483",
+    "timestamp": "2026-10-31T19:07:35.483Z",
+    "type": "ENTRADA",
+    "productId": "LV-1349",
+    "productName": "Mia blush tono 02",
+    "barcode": "7709217875342",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-617704",
+    "timestamp": "2026-10-31T19:06:57.704Z",
+    "type": "ENTRADA",
+    "productId": "LV-1348",
+    "productName": "Mia blush tono 01",
+    "barcode": "7709217875304",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-562958",
+    "timestamp": "2026-10-31T19:06:02.958Z",
+    "type": "ENTRADA",
+    "productId": "LV-1347",
+    "productName": "Trio de rubor primavera",
+    "barcode": "7709305661482",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-514796",
+    "timestamp": "2026-10-31T19:05:14.796Z",
+    "type": "ENTRADA",
+    "productId": "LV-1346",
+    "productName": "Rubor en crema tono so pretty",
+    "barcode": "659525242466",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-334698",
+    "timestamp": "2026-10-31T19:02:14.698Z",
+    "type": "ENTRADA",
+    "productId": "LV-1345",
+    "productName": "Paleta de sombras terra",
+    "barcode": "7709074901604",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-251563",
+    "timestamp": "2026-10-31T19:00:51.563Z",
+    "type": "ENTRADA",
+    "productId": "LV-1344",
+    "productName": "Paleta de sombras tono iris",
+    "barcode": "736372979841",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-121339",
+    "timestamp": "2026-10-31T18:58:41.339Z",
+    "type": "SALIDA",
+    "productId": "LV-1248",
+    "productName": "Pegante de pestañas transparente",
+    "barcode": "7707375605283",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-090118",
+    "timestamp": "2026-10-31T18:58:10.118Z",
+    "type": "ENTRADA",
+    "productId": "LV-1343",
+    "productName": "Lip & cheek",
+    "barcode": "7709272349932",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-953319",
+    "timestamp": "2026-10-31T18:55:53.319Z",
+    "type": "ENTRADA",
+    "productId": "LV-1342",
+    "productName": "Rubor en polvo tono 01",
+    "barcode": "764451296220",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-895041",
+    "timestamp": "2026-10-31T18:54:55.041Z",
+    "type": "ENTRADA",
+    "productId": "LV-1341",
+    "productName": "Paleta bakery",
+    "barcode": "7709840331246",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-644230",
+    "timestamp": "2026-10-31T18:50:44.230Z",
+    "type": "ENTRADA",
+    "productId": "LV-1340",
+    "productName": "Iluminador tono 02 sunset sparks",
+    "barcode": "7703378328341",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-599075",
+    "timestamp": "2026-10-31T18:49:59.075Z",
+    "type": "ENTRADA",
+    "productId": "LV-1339",
+    "productName": "Iluminador tono 01 sunset royal",
+    "barcode": "7703378834811",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-447707",
+    "timestamp": "2026-10-31T18:47:27.707Z",
+    "type": "ENTRADA",
+    "productId": "LV-1338",
+    "productName": "Iluminador tono 05",
+    "barcode": "7707375602930",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-415288",
+    "timestamp": "2026-10-31T18:46:55.288Z",
+    "type": "ENTRADA",
+    "productId": "LV-1337",
+    "productName": "Iluminador tono 04",
+    "barcode": "7707375607287",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-371355",
+    "timestamp": "2026-10-31T18:46:11.355Z",
+    "type": "ENTRADA",
+    "productId": "LV-1336",
+    "productName": "Iluminador tono 02",
+    "barcode": "7707375602022",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-125727",
+    "timestamp": "2026-10-31T18:42:05.727Z",
+    "type": "ENTRADA",
+    "productId": "LV-1335",
+    "productName": "Sombra cremosa tono boreal",
+    "barcode": "736372667007",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-832411",
+    "timestamp": "2026-10-31T18:37:12.411Z",
+    "type": "ENTRADA",
+    "productId": "LV-1334",
+    "productName": "Iluminador cosmic",
+    "barcode": "6974482522722",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-764788",
+    "timestamp": "2026-10-31T18:36:04.788Z",
+    "type": "ENTRADA",
+    "productId": "LV-1333",
+    "productName": "Iluminador tono golden",
+    "barcode": "736372979278",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-661681",
+    "timestamp": "2026-10-31T18:34:21.681Z",
+    "type": "ENTRADA",
+    "productId": "LV-1332",
+    "productName": "Iluminador tono 01",
+    "barcode": "6924372697764",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-611177",
+    "timestamp": "2026-10-31T18:33:31.177Z",
+    "type": "ENTRADA",
+    "productId": "LV-1331",
+    "productName": "Iluminador sublime tono afterglow",
+    "barcode": "736372666994",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-425854",
+    "timestamp": "2026-10-31T18:30:25.854Z",
+    "type": "ENTRADA",
+    "productId": "LV-1330",
+    "productName": "Contorno en polvo",
+    "barcode": "781159097805",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-363300",
+    "timestamp": "2026-10-31T18:29:23.300Z",
+    "type": "ENTRADA",
+    "productId": "LV-1329",
+    "productName": "Contorno en polvo tono shade",
+    "barcode": "7709783386402",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-323573",
+    "timestamp": "2026-10-31T18:28:43.573Z",
+    "type": "ENTRADA",
+    "productId": "LV-1328",
+    "productName": "Contorno en polvo tono Clay",
+    "barcode": "7709783386440",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-213973",
+    "timestamp": "2026-10-31T18:26:53.973Z",
+    "type": "ENTRADA",
+    "productId": "LV-1327",
+    "productName": "Iluminador sublime cuadrado tono Ivory",
+    "barcode": "7709300870582",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-183479",
+    "timestamp": "2026-10-31T18:26:23.479Z",
+    "type": "ENTRADA",
+    "productId": "LV-1326",
+    "productName": "Iluminador sublime cuadrado tono Gleam",
+    "barcode": "7709783386471",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-137839",
+    "timestamp": "2026-10-31T18:25:37.839Z",
+    "type": "ENTRADA",
+    "productId": "LV-1325",
+    "productName": "Iluminador sublime cuadrado tono Petal",
+    "barcode": "7709300870544",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-989319",
+    "timestamp": "2026-10-31T18:23:09.319Z",
+    "type": "ENTRADA",
+    "productId": "LV-1324",
+    "productName": "Corrector XL tono 04",
+    "barcode": "770545771432",
+    "quantity": 0,
+    "prevStock": 0,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-970409",
+    "timestamp": "2026-10-31T18:22:50.409Z",
+    "type": "ENTRADA",
+    "productId": "LV-1323",
+    "productName": "Corrector XL tono 03",
+    "barcode": "770102949475",
+    "quantity": 0,
+    "prevStock": 0,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-924235",
+    "timestamp": "2026-10-31T18:22:04.235Z",
+    "type": "ENTRADA",
+    "productId": "LV-1322",
+    "productName": "Corrector XL tono 02",
+    "barcode": "770314408091",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-896503",
+    "timestamp": "2026-10-31T18:21:36.503Z",
+    "type": "SALIDA",
+    "productId": "LV-1321",
+    "productName": "Corrector XL tono 01",
+    "barcode": "770189636171",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-887612",
+    "timestamp": "2026-10-31T18:21:27.612Z",
+    "type": "ENTRADA",
+    "productId": "LV-1321",
+    "productName": "Corrector XL tono 01",
+    "barcode": "770189636171",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-865250",
+    "timestamp": "2026-10-31T18:21:05.250Z",
+    "type": "ENTRADA",
+    "productId": "LV-1320",
+    "productName": "Corrector XL tono 00",
+    "barcode": "770545181398",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-547309",
+    "timestamp": "2026-10-31T18:15:47.309Z",
+    "type": "ENTRADA",
+    "productId": "LV-1319",
+    "productName": "Corrector pequeño tono 04",
+    "barcode": "770879283532",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-527614",
+    "timestamp": "2026-10-31T18:15:27.614Z",
+    "type": "ENTRADA",
+    "productId": "LV-1318",
+    "productName": "Corrector pequeño tono 03",
+    "barcode": "770359657356",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-489787",
+    "timestamp": "2026-10-31T18:14:49.787Z",
+    "type": "ENTRADA",
+    "productId": "LV-1317",
+    "productName": "Corrector pequeño tono 01",
+    "barcode": "770388117416",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-469200",
+    "timestamp": "2026-10-31T18:14:29.200Z",
+    "type": "ENTRADA",
+    "productId": "LV-1316",
+    "productName": "Corrector pequeño tono 01",
+    "barcode": "770703520378",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-427945",
+    "timestamp": "2026-10-31T18:13:47.945Z",
+    "type": "ENTRADA",
+    "productId": "LV-1315",
+    "productName": "Corrector pequeño tono 00",
+    "barcode": "770814264638",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-993481",
+    "timestamp": "2026-10-31T18:06:33.481Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-959298",
+    "timestamp": "2026-10-31T18:05:59.298Z",
+    "type": "ENTRADA",
+    "productId": "LV-1313",
+    "productName": "Corrector mediano tono 00",
+    "barcode": "6974482525457",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-885268",
+    "timestamp": "2026-10-31T18:04:45.268Z",
+    "type": "ENTRADA",
+    "productId": "LV-1312",
+    "productName": "Corrector mini tono 01",
+    "barcode": "6974482516516",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-747819",
+    "timestamp": "2026-10-31T18:02:27.819Z",
+    "type": "ENTRADA",
+    "productId": "LV-1311",
+    "productName": "Corrector liquido tono honey",
+    "barcode": "7708951146794",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-544434",
+    "timestamp": "2026-10-31T17:59:04.434Z",
+    "type": "ENTRADA",
+    "productId": "LV-1310",
+    "productName": "Corrector liquido tono 05",
+    "barcode": "736372668660",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-475243",
+    "timestamp": "2026-10-31T17:57:55.243Z",
+    "type": "ENTRADA",
+    "productId": "LV-1309",
+    "productName": "Corrector liquido tono 04",
+    "barcode": "736372668653",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-423622",
+    "timestamp": "2026-10-31T17:57:03.622Z",
+    "type": "ENTRADA",
+    "productId": "LV-1308",
+    "productName": "Corrector liquido tono 03",
+    "barcode": "736372668646",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-314775",
+    "timestamp": "2026-10-31T17:55:14.775Z",
+    "type": "ENTRADA",
+    "productId": "LV-1307",
+    "productName": "Corrector liquido tono 01 bone",
+    "barcode": "7707559883605",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-266897",
+    "timestamp": "2026-10-31T17:54:26.897Z",
+    "type": "ENTRADA",
+    "productId": "LV-1306",
+    "productName": "Corrector liquido tono 04 nude",
+    "barcode": "7707375608772",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-974537",
+    "timestamp": "2026-10-31T17:49:34.537Z",
+    "type": "ENTRADA",
+    "productId": "LV-1305",
+    "productName": "Corrector liquido tono 04",
+    "barcode": "7709567836970",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-878160",
+    "timestamp": "2026-10-31T17:47:58.160Z",
+    "type": "ENTRADA",
+    "productId": "LV-1304",
+    "productName": "Contorno en barra tono 02 bloom define",
+    "barcode": "6974482524566",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-822694",
+    "timestamp": "2026-10-31T17:47:02.694Z",
+    "type": "ENTRADA",
+    "productId": "LV-1303",
+    "productName": "Contorno chocolate en barra",
+    "barcode": "7709540026602",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-831656",
+    "timestamp": "2026-10-31T16:40:31.656Z",
+    "type": "ENTRADA",
+    "productId": "LV-1302",
+    "productName": "Contorno en barra",
+    "barcode": "6924372682838",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-605233",
+    "timestamp": "2026-10-31T16:20:05.233Z",
+    "type": "SALIDA",
+    "productId": "LV-1150",
+    "productName": "Fijador en aerosol pequeño",
+    "barcode": "7120250620001",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-592117",
+    "timestamp": "2026-10-31T16:19:52.117Z",
+    "type": "SALIDA",
+    "productId": "LV-1287",
+    "productName": "Got2b",
+    "barcode": "052336341456",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-592113",
+    "timestamp": "2026-10-31T16:19:52.113Z",
+    "type": "SALIDA",
+    "productId": "LV-1150",
+    "productName": "Fijador en aerosol pequeño",
+    "barcode": "7120250620001",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-513536",
+    "timestamp": "2026-10-31T16:18:33.536Z",
+    "type": "SALIDA",
+    "productId": "LV-1190",
+    "productName": "Splash corporal paisita dulce",
+    "barcode": "7709066683419",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-370413",
+    "timestamp": "2026-10-31T15:59:30.413Z",
+    "type": "SALIDA",
+    "productId": "LV-1298",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430352",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-448584",
+    "timestamp": "2026-10-31T01:17:28.584Z",
+    "type": "SALIDA",
+    "productId": "LV-1300",
+    "productName": "Pestañina maxi volumen borgoña",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-445397",
+    "timestamp": "2026-10-31T01:17:25.397Z",
+    "type": "ENTRADA",
+    "productId": "LV-1300",
+    "productName": "Pestañina maxi volumen borgoña",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-444540",
+    "timestamp": "2026-10-31T01:17:24.540Z",
+    "type": "ENTRADA",
+    "productId": "LV-1300",
+    "productName": "Pestañina maxi volumen borgoña",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-443692",
+    "timestamp": "2026-10-31T01:17:23.692Z",
+    "type": "ENTRADA",
+    "productId": "LV-1300",
+    "productName": "Pestañina maxi volumen borgoña",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-442819",
+    "timestamp": "2026-10-31T01:17:22.819Z",
+    "type": "ENTRADA",
+    "productId": "LV-1300",
+    "productName": "Pestañina maxi volumen borgoña",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-441969",
+    "timestamp": "2026-10-31T01:17:21.969Z",
+    "type": "ENTRADA",
+    "productId": "LV-1300",
+    "productName": "Pestañina maxi volumen borgoña",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-429790",
+    "timestamp": "2026-10-31T01:17:09.790Z",
+    "type": "ENTRADA",
+    "productId": "LV-1299",
+    "productName": "Pestañina maxi volumen",
+    "barcode": "7501734430338",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-428975",
+    "timestamp": "2026-10-31T01:17:08.975Z",
+    "type": "ENTRADA",
+    "productId": "LV-1299",
+    "productName": "Pestañina maxi volumen",
+    "barcode": "7501734430338",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-428227",
+    "timestamp": "2026-10-31T01:17:08.227Z",
+    "type": "ENTRADA",
+    "productId": "LV-1299",
+    "productName": "Pestañina maxi volumen",
+    "barcode": "7501734430338",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-427427",
+    "timestamp": "2026-10-31T01:17:07.427Z",
+    "type": "ENTRADA",
+    "productId": "LV-1299",
+    "productName": "Pestañina maxi volumen",
+    "barcode": "7501734430338",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-426687",
+    "timestamp": "2026-10-31T01:17:06.687Z",
+    "type": "ENTRADA",
+    "productId": "LV-1299",
+    "productName": "Pestañina maxi volumen",
+    "barcode": "7501734430338",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-425840",
+    "timestamp": "2026-10-31T01:17:05.840Z",
+    "type": "ENTRADA",
+    "productId": "LV-1299",
+    "productName": "Pestañina maxi volumen",
+    "barcode": "7501734430338",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-424996",
+    "timestamp": "2026-10-31T01:17:04.996Z",
+    "type": "ENTRADA",
+    "productId": "LV-1299",
+    "productName": "Pestañina maxi volumen",
+    "barcode": "7501734430338",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-418920",
+    "timestamp": "2026-10-31T01:16:58.920Z",
+    "type": "ENTRADA",
+    "productId": "LV-1298",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430352",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-418138",
+    "timestamp": "2026-10-31T01:16:58.138Z",
+    "type": "ENTRADA",
+    "productId": "LV-1298",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430352",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-406555",
+    "timestamp": "2026-10-31T01:16:46.555Z",
+    "type": "ENTRADA",
+    "productId": "LV-1297",
+    "productName": "Pestañina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-405680",
+    "timestamp": "2026-10-31T01:16:45.680Z",
+    "type": "ENTRADA",
+    "productId": "LV-1297",
+    "productName": "Pestañina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-404885",
+    "timestamp": "2026-10-31T01:16:44.885Z",
+    "type": "ENTRADA",
+    "productId": "LV-1297",
+    "productName": "Pestañina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-404146",
+    "timestamp": "2026-10-31T01:16:44.146Z",
+    "type": "ENTRADA",
+    "productId": "LV-1297",
+    "productName": "Pestañina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-403360",
+    "timestamp": "2026-10-31T01:16:43.360Z",
+    "type": "ENTRADA",
+    "productId": "LV-1297",
+    "productName": "Pestañina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-396005",
+    "timestamp": "2026-10-31T01:16:36.005Z",
+    "type": "ENTRADA",
+    "productId": "LV-1296",
+    "productName": "Pestañina profesional silicon cafe",
+    "barcode": "7501734430116",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-395226",
+    "timestamp": "2026-10-31T01:16:35.226Z",
+    "type": "ENTRADA",
+    "productId": "LV-1296",
+    "productName": "Pestañina profesional silicon cafe",
+    "barcode": "7501734430116",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-387416",
+    "timestamp": "2026-10-31T01:16:27.416Z",
+    "type": "ENTRADA",
+    "productId": "LV-1295",
+    "productName": "Pestañina profesional",
+    "barcode": "7501734430789",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-386420",
+    "timestamp": "2026-10-31T01:16:26.420Z",
+    "type": "ENTRADA",
+    "productId": "LV-1295",
+    "productName": "Pestañina profesional",
+    "barcode": "7501734430789",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-382913",
+    "timestamp": "2026-10-31T01:16:22.913Z",
+    "type": "ENTRADA",
+    "productId": "LV-1295",
+    "productName": "Pestañina profesional",
+    "barcode": "7501734430789",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-382086",
+    "timestamp": "2026-10-31T01:16:22.086Z",
+    "type": "ENTRADA",
+    "productId": "LV-1295",
+    "productName": "Pestañina profesional",
+    "barcode": "7501734430789",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-377458",
+    "timestamp": "2026-10-31T01:16:17.458Z",
+    "type": "ENTRADA",
+    "productId": "LV-1295",
+    "productName": "Pestañina profesional",
+    "barcode": "7501734430789",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-376516",
+    "timestamp": "2026-10-31T01:16:16.516Z",
+    "type": "ENTRADA",
+    "productId": "LV-1295",
+    "productName": "Pestañina profesional",
+    "barcode": "7501734430789",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-372078",
+    "timestamp": "2026-10-31T01:16:12.078Z",
+    "type": "ENTRADA",
+    "productId": "LV-1295",
+    "productName": "Pestañina profesional",
+    "barcode": "7501734430789",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-371300",
+    "timestamp": "2026-10-31T01:16:11.300Z",
+    "type": "ENTRADA",
+    "productId": "LV-1295",
+    "productName": "Pestañina profesional",
+    "barcode": "7501734430789",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-230909",
+    "timestamp": "2026-10-31T01:13:50.909Z",
+    "type": "ENTRADA",
+    "productId": "LV-1301",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-197022",
+    "timestamp": "2026-10-31T01:13:17.022Z",
+    "type": "ENTRADA",
+    "productId": "LV-1300",
+    "productName": "Pestañina maxi volumen borgoña",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-162706",
+    "timestamp": "2026-10-31T01:12:42.706Z",
+    "type": "ENTRADA",
+    "productId": "LV-1299",
+    "productName": "Pestañina maci volumen",
+    "barcode": "7501734430338",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-131895",
+    "timestamp": "2026-10-31T01:12:11.895Z",
+    "type": "ENTRADA",
+    "productId": "LV-1298",
+    "productName": "Pestañina profesional silicon",
+    "barcode": "7501734430352",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-104119",
+    "timestamp": "2026-10-31T01:11:44.119Z",
+    "type": "ENTRADA",
+    "productId": "LV-1297",
+    "productName": "Pestañina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-069901",
+    "timestamp": "2026-10-31T01:11:09.901Z",
+    "type": "ENTRADA",
+    "productId": "LV-1296",
+    "productName": "Pestañina profesional silicon cafe",
+    "barcode": "7501734430116",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-038569",
+    "timestamp": "2026-10-31T01:10:38.569Z",
+    "type": "ENTRADA",
+    "productId": "LV-1295",
+    "productName": "Pestañina profesional",
+    "barcode": "7501734430789",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-992129",
+    "timestamp": "2026-10-31T01:09:52.129Z",
+    "type": "ENTRADA",
+    "productId": "LV-1294",
+    "productName": "Pestañina super look",
+    "barcode": "7709094542115",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-938380",
+    "timestamp": "2026-10-31T01:08:58.380Z",
+    "type": "ENTRADA",
+    "productId": "LV-1293",
+    "productName": "Pestañina flash lash",
+    "barcode": "7707559885418",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-903055",
+    "timestamp": "2026-10-31T01:08:23.055Z",
+    "type": "ENTRADA",
+    "productId": "LV-1292",
+    "productName": "Pestañina Eternal lash",
+    "barcode": "7707559889874",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-838560",
+    "timestamp": "2026-10-31T01:07:18.560Z",
+    "type": "ENTRADA",
+    "productId": "LV-1291",
+    "productName": "Pestañina brow paradise",
+    "barcode": "7707559886408",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-777619",
+    "timestamp": "2026-10-31T01:06:17.619Z",
+    "type": "ENTRADA",
+    "productId": "LV-1290",
+    "productName": "Pestañina self love",
+    "barcode": "7708133635382",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-505152",
+    "timestamp": "2026-10-31T00:45:05.152Z",
+    "type": "ENTRADA",
+    "productId": "LV-1289",
+    "productName": "gel de cejas",
+    "barcode": "6932159607745",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-455967",
+    "timestamp": "2026-10-31T00:44:15.967Z",
+    "type": "ENTRADA",
+    "productId": "LV-1288",
+    "productName": "Gel laminador de cejas",
+    "barcode": "6973327787371",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-397264",
+    "timestamp": "2026-10-31T00:43:17.264Z",
+    "type": "ENTRADA",
+    "productId": "LV-1287",
+    "productName": "Got2b",
+    "barcode": "052336341456",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-833210",
+    "timestamp": "2026-10-31T00:33:53.210Z",
+    "type": "SALIDA",
+    "productId": "LV-1210",
+    "productName": "Libro de 360 pestañas 10d",
+    "barcode": "226322916332",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo Ref: 1234 | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-708757",
+    "timestamp": "2026-10-31T00:31:48.757Z",
+    "type": "SALIDA",
+    "productId": "LV-1211",
+    "productName": "Pegante negro de pestañas",
+    "barcode": "770168839890",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo Ref: 1234 | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-675312",
+    "timestamp": "2026-10-31T00:31:15.312Z",
+    "type": "SALIDA",
+    "productId": "LV-1150",
+    "productName": "Fijador en aerosol pequeño",
+    "barcode": "7120250620001",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo Ref: 1234 | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-643791",
+    "timestamp": "2026-10-31T00:30:43.792Z",
+    "type": "ENTRADA",
+    "productId": "LV-1286",
+    "productName": "Gel de cejas",
+    "barcode": "7707559882608",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-456831",
+    "timestamp": "2026-10-31T00:27:36.831Z",
+    "type": "SALIDA",
+    "productId": "LV-1010",
+    "productName": "Tratamiento jalea real",
+    "barcode": "7709374293881",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-456824",
+    "timestamp": "2026-10-31T00:27:36.824Z",
+    "type": "SALIDA",
+    "productId": "LV-1034",
+    "productName": "Mini miel capilar",
+    "barcode": "793969805600",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-456820",
+    "timestamp": "2026-10-31T00:27:36.820Z",
+    "type": "SALIDA",
+    "productId": "LV-1121",
+    "productName": "Kit corporal x3 secret crush",
+    "barcode": "677144890509",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-456812",
+    "timestamp": "2026-10-31T00:27:36.812Z",
+    "type": "SALIDA",
+    "productId": "LV-1117",
+    "productName": "Kit corporal x3 sweet cherry",
+    "barcode": "677144889794",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-456806",
+    "timestamp": "2026-10-31T00:27:36.806Z",
+    "type": "SALIDA",
+    "productId": "LV-1013",
+    "productName": "Shampoo cebolla y argan",
+    "barcode": "770700724000",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-596135",
+    "timestamp": "2026-10-30T22:49:56.135Z",
+    "type": "ENTRADA",
+    "productId": "LV-1285",
+    "productName": "Flushy blushy tono 05 berry me",
+    "barcode": "7707559888044",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-560887",
+    "timestamp": "2026-10-30T22:49:20.887Z",
+    "type": "ENTRADA",
+    "productId": "LV-1284",
+    "productName": "Flushy blushy tono 04 that girl",
+    "barcode": "7707559883810",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-520801",
+    "timestamp": "2026-10-30T22:48:40.801Z",
+    "type": "ENTRADA",
+    "productId": "LV-1283",
+    "productName": "Flushy blushy tono 03 toasty",
+    "barcode": "7707559884206",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-463711",
+    "timestamp": "2026-10-30T22:47:43.711Z",
+    "type": "ENTRADA",
+    "productId": "LV-1282",
+    "productName": "Flushy blushy tono 02 tan line",
+    "barcode": "7707559881236",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-418683",
+    "timestamp": "2026-10-30T22:46:58.683Z",
+    "type": "ENTRADA",
+    "productId": "LV-1281",
+    "productName": "flushy blushy tono 01 pink lemonade",
+    "barcode": "7707559884008",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-195464",
+    "timestamp": "2026-10-30T22:43:15.464Z",
+    "type": "ENTRADA",
+    "productId": "LV-1280",
+    "productName": "Rubor liquido bloom floral tono 02",
+    "barcode": "6974482527031",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-085405",
+    "timestamp": "2026-10-30T22:41:25.405Z",
+    "type": "ENTRADA",
+    "productId": "LV-1280",
+    "productName": "Rubor liquido bloom floral tono 02",
+    "barcode": "6974482527031",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-022704",
+    "timestamp": "2026-10-30T22:40:22.704Z",
+    "type": "ENTRADA",
+    "productId": "LV-1279",
+    "productName": "Rubor liquido tono 01",
+    "barcode": "6974482522753",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-845286",
+    "timestamp": "2026-10-30T22:37:25.286Z",
+    "type": "ENTRADA",
+    "productId": "LV-1278",
+    "productName": "Rubor liquido tono 06 martini",
+    "barcode": "7707559884176",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-796910",
+    "timestamp": "2026-10-30T22:36:36.910Z",
+    "type": "ENTRADA",
+    "productId": "LV-1277",
+    "productName": "Rubor liquido tono 05 pink crush",
+    "barcode": "7707559882974",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-745985",
+    "timestamp": "2026-10-30T22:35:45.985Z",
+    "type": "ENTRADA",
+    "productId": "LV-1276",
+    "productName": "Rubor liquido tono 03 zoe",
+    "barcode": "7707559888143",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-705815",
+    "timestamp": "2026-10-30T22:35:05.815Z",
+    "type": "ENTRADA",
+    "productId": "LV-1275",
+    "productName": "Rubor liquido tono 02 ellie",
+    "barcode": "7707559889287",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-660031",
+    "timestamp": "2026-10-30T22:34:20.031Z",
+    "type": "ENTRADA",
+    "productId": "LV-1274",
+    "productName": "Rubor liquido tono 1 lily",
+    "barcode": "7707559882646",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-550736",
+    "timestamp": "2026-10-30T22:32:30.736Z",
+    "type": "ENTRADA",
+    "productId": "LV-1273",
+    "productName": "Rubor liquido star tono 4",
+    "barcode": "7709619004975",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-489261",
+    "timestamp": "2026-10-30T22:31:29.261Z",
+    "type": "ENTRADA",
+    "productId": "LV-1272",
+    "productName": "Serum blush tono luce",
+    "barcode": "736372978585",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-318790",
+    "timestamp": "2026-10-30T22:28:38.790Z",
+    "type": "ENTRADA",
+    "productId": "LV-1271",
+    "productName": "Rubor liquido happy",
+    "barcode": "7709573146896",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-201609",
+    "timestamp": "2026-10-30T22:26:41.609Z",
+    "type": "ENTRADA",
+    "productId": "LV-1270",
+    "productName": "Rubor e iluminador en barra",
+    "barcode": "9540241575819",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-149566",
+    "timestamp": "2026-10-30T22:25:49.566Z",
+    "type": "ENTRADA",
+    "productId": "LV-1269",
+    "productName": "Kit rubor",
+    "barcode": "7709283272359",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-028546",
+    "timestamp": "2026-10-30T22:23:48.546Z",
+    "type": "ENTRADA",
+    "productId": "LV-1268",
+    "productName": "Base semi mate tono 02",
+    "barcode": "6974482524696",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-731185",
+    "timestamp": "2026-10-30T22:18:51.185Z",
+    "type": "ENTRADA",
+    "productId": "LV-1267",
+    "productName": "Base mate tono 05",
+    "barcode": "736372668578",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-698921",
+    "timestamp": "2026-10-30T22:18:18.921Z",
+    "type": "ENTRADA",
+    "productId": "LV-1266",
+    "productName": "Base mate tono 04",
+    "barcode": "736372668561",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-652178",
+    "timestamp": "2026-10-30T22:17:32.178Z",
+    "type": "ENTRADA",
+    "productId": "LV-1265",
+    "productName": "Base mate tono 03",
+    "barcode": "736372668554",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-613288",
+    "timestamp": "2026-10-30T22:16:53.288Z",
+    "type": "ENTRADA",
+    "productId": "LV-1264",
+    "productName": "Base mate tono 02",
+    "barcode": "736372668547",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-502898",
+    "timestamp": "2026-10-30T22:15:02.898Z",
+    "type": "ENTRADA",
+    "productId": "LV-1263",
+    "productName": "Tinta facial glow filter tono 2.0",
+    "barcode": "736372979193",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-433575",
+    "timestamp": "2026-10-30T22:13:53.575Z",
+    "type": "ENTRADA",
+    "productId": "LV-1262",
+    "productName": "Tinta facial glow filter tono 2.0",
+    "barcode": "736372979186",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-290762",
+    "timestamp": "2026-10-30T22:11:30.762Z",
+    "type": "ENTRADA",
+    "productId": "LV-1261",
+    "productName": "Base luminosa tono 03 cream",
+    "barcode": "736372666888",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-212403",
+    "timestamp": "2026-10-30T22:10:12.403Z",
+    "type": "ENTRADA",
+    "productId": "LV-1260",
+    "productName": "Base luminosa tono 02 porcelain",
+    "barcode": "736372667229",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-168333",
+    "timestamp": "2026-10-30T22:09:28.333Z",
+    "type": "ENTRADA",
+    "productId": "LV-1259",
+    "productName": "Base luminosa tono 01 light",
+    "barcode": "736372667212",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-986051",
+    "timestamp": "2026-10-30T22:06:26.051Z",
+    "type": "ENTRADA",
+    "productId": "LV-1258",
+    "productName": "Base semi - matte tono 03",
+    "barcode": "6924372681114",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-940032",
+    "timestamp": "2026-10-30T22:05:40.032Z",
+    "type": "ENTRADA",
+    "productId": "LV-1257",
+    "productName": "Base semi - matte tono 2",
+    "barcode": "6924372681107",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-707195",
+    "timestamp": "2026-10-30T22:01:47.195Z",
+    "type": "SALIDA",
+    "productId": "LV-1206",
+    "productName": "Pestañas de tira",
+    "barcode": "7701136558443",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-104498",
+    "timestamp": "2026-10-30T21:18:24.498Z",
+    "type": "ENTRADA",
+    "productId": "LV-1256",
+    "productName": "Base matte",
+    "barcode": "7709146984498",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-850228",
+    "timestamp": "2026-10-30T21:14:10.228Z",
+    "type": "ENTRADA",
+    "productId": "LV-1255",
+    "productName": "Base 2 en 1 tono 04",
+    "barcode": "7707559889867",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-790948",
+    "timestamp": "2026-10-30T21:13:10.948Z",
+    "type": "ENTRADA",
+    "productId": "LV-1254",
+    "productName": "Base 2 en 1 tono 03",
+    "barcode": "7707559882387",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-706686",
+    "timestamp": "2026-10-30T21:11:46.686Z",
+    "type": "ENTRADA",
+    "productId": "LV-1253",
+    "productName": "Base 2 en 1 tono 02",
+    "barcode": "7707559886453",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-666809",
+    "timestamp": "2026-10-30T21:11:06.809Z",
+    "type": "ENTRADA",
+    "productId": "LV-1252",
+    "productName": "Base 2 en 1 tono 01",
+    "barcode": "7707559884091",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-562191",
+    "timestamp": "2026-10-30T21:09:22.191Z",
+    "type": "ENTRADA",
+    "productId": "LV-1251",
+    "productName": "Base cushion tono 03",
+    "barcode": "6974482522784",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-283177",
+    "timestamp": "2026-10-30T21:04:43.177Z",
+    "type": "SALIDA",
+    "productId": "LV-1235",
+    "productName": "Lapiz de cejas tono arequipe",
+    "barcode": "7707375602985",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-070100",
+    "timestamp": "2026-10-30T21:01:10.100Z",
+    "type": "ENTRADA",
+    "productId": "LV-1250",
+    "productName": "Base en barra",
+    "barcode": "6974482503370",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-864320",
+    "timestamp": "2026-10-30T20:57:44.320Z",
+    "type": "ENTRADA",
+    "productId": "LV-1249",
+    "productName": "Papelitos antigrasa con polvo tono 01",
+    "barcode": "6903072493272",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-704884",
+    "timestamp": "2026-10-30T20:55:04.884Z",
+    "type": "SALIDA",
+    "productId": "LV-1229",
+    "productName": "Polvo suelto x30g",
+    "barcode": "658325384475",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-985842",
+    "timestamp": "2026-10-30T20:43:05.842Z",
+    "type": "ENTRADA",
+    "productId": "LV-1248",
+    "productName": "Pegante de pestañas transparente",
+    "barcode": "7707375605283",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-761865",
+    "timestamp": "2026-10-30T20:39:21.865Z",
+    "type": "SALIDA",
+    "productId": "LV-1133",
+    "productName": "Primer bloom poros invisibles",
+    "barcode": "6924372684252",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-761862",
+    "timestamp": "2026-10-30T20:39:21.862Z",
+    "type": "SALIDA",
+    "productId": "LV-1244",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7707375600530",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-761858",
+    "timestamp": "2026-10-30T20:39:21.858Z",
+    "type": "SALIDA",
+    "productId": "LV-1222",
+    "productName": "Lapiz de ojos negro",
+    "barcode": "7708991454187",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-670014",
+    "timestamp": "2026-10-30T20:21:10.014Z",
+    "type": "ENTRADA",
+    "productId": "LV-1247",
+    "productName": "Base mousse tono 04",
+    "barcode": "7708991454101",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-587359",
+    "timestamp": "2026-10-30T20:19:47.359Z",
+    "type": "ENTRADA",
+    "productId": "LV-1246",
+    "productName": "Papelitos antigrasa bloom paper rose",
+    "barcode": "6903072478750",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-532305",
+    "timestamp": "2026-10-30T20:18:52.305Z",
+    "type": "ENTRADA",
+    "productId": "LV-1245",
+    "productName": "Papelitos antigrasa",
+    "barcode": "764451296435",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-150154",
+    "timestamp": "2026-10-30T20:12:30.155Z",
+    "type": "ENTRADA",
+    "productId": "LV-1244",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7707375600530",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-049044",
+    "timestamp": "2026-10-30T20:10:49.044Z",
+    "type": "ENTRADA",
+    "productId": "LV-1243",
+    "productName": "Polvo 4 tonos grande",
+    "barcode": "6974482524610",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-995636",
+    "timestamp": "2026-10-30T20:09:55.636Z",
+    "type": "ENTRADA",
+    "productId": "LV-1242",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7708970965444",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-929423",
+    "timestamp": "2026-10-30T20:08:49.423Z",
+    "type": "ENTRADA",
+    "productId": "LV-1241",
+    "productName": "Polvo suelto banana",
+    "barcode": "7703378503007",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-871932",
+    "timestamp": "2026-10-30T20:07:51.932Z",
+    "type": "ENTRADA",
+    "productId": "LV-1240",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7703378749528",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-626066",
+    "timestamp": "2026-10-30T20:03:46.066Z",
+    "type": "ENTRADA",
+    "productId": "LV-1239",
+    "productName": "Polvo suelto x2 tono 02",
+    "barcode": "6974482527253",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-586446",
+    "timestamp": "2026-10-30T20:03:06.446Z",
+    "type": "ENTRADA",
+    "productId": "LV-1238",
+    "productName": "Polvo suelto x2 tono 03",
+    "barcode": "6974482527260",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-527864",
+    "timestamp": "2026-10-30T20:02:07.864Z",
+    "type": "ENTRADA",
+    "productId": "LV-1237",
+    "productName": "Polvo 4 tonos mini",
+    "barcode": "6974482524665",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-437268",
+    "timestamp": "2026-10-30T20:00:37.268Z",
+    "type": "ENTRADA",
+    "productId": "LV-1236",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "6924372697405",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-282470",
+    "timestamp": "2026-10-30T19:58:02.470Z",
+    "type": "ENTRADA",
+    "productId": "LV-1235",
+    "productName": "Lapiz de cejas tono arequipe",
+    "barcode": "7707375602985",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-179272",
+    "timestamp": "2026-10-30T19:56:19.272Z",
+    "type": "ENTRADA",
+    "productId": "LV-1234",
+    "productName": "Polvo suelto rosado",
+    "barcode": "7709997969774",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-084783",
+    "timestamp": "2026-10-30T19:54:44.783Z",
+    "type": "ENTRADA",
+    "productId": "LV-1233",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7707559880031",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-370482",
+    "timestamp": "2026-10-30T18:52:50.482Z",
+    "type": "ENTRADA",
+    "productId": "LV-1232",
+    "productName": "Polvo 2 e 1 traslucido mini",
+    "barcode": "6974482524351",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-287828",
+    "timestamp": "2026-10-30T18:51:27.828Z",
+    "type": "ENTRADA",
+    "productId": "LV-1231",
+    "productName": "Polvo suelto rosado x9g",
+    "barcode": "736372668516",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-224004",
+    "timestamp": "2026-10-30T18:50:24.004Z",
+    "type": "ENTRADA",
+    "productId": "LV-1230",
+    "productName": "Polvo suelto traslucido x9g",
+    "barcode": "734191428687",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-110911",
+    "timestamp": "2026-10-30T18:48:30.911Z",
+    "type": "ENTRADA",
+    "productId": "LV-1229",
+    "productName": "Polvo suelto x30g",
+    "barcode": "658325384475",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-972724",
+    "timestamp": "2026-10-30T18:46:12.724Z",
+    "type": "ENTRADA",
+    "productId": "LV-1228",
+    "productName": "Polvo suelto translucido",
+    "barcode": "7709958250224",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-939263",
+    "timestamp": "2026-10-30T18:45:39.263Z",
+    "type": "ENTRADA",
+    "productId": "LV-1227",
+    "productName": "Polvo suelto banana",
+    "barcode": "7709784572590",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-792535",
+    "timestamp": "2026-10-30T18:43:12.535Z",
+    "type": "ENTRADA",
+    "productId": "LV-1226",
+    "productName": "Polvo 2 en 1 purple grande",
+    "barcode": "6974482522760",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-689122",
+    "timestamp": "2026-10-30T18:41:29.122Z",
+    "type": "ENTRADA",
+    "productId": "LV-1225",
+    "productName": "Polvo suelto translucido",
+    "barcode": "736372988782",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-768831",
+    "timestamp": "2026-10-30T18:09:28.831Z",
+    "type": "ENTRADA",
+    "productId": "LV-1224",
+    "productName": "Bloom beige eye liner pencil",
+    "barcode": "6972630571035",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-725524",
+    "timestamp": "2026-10-30T18:08:45.524Z",
+    "type": "ENTRADA",
+    "productId": "LV-1223",
+    "productName": "Bloom black eye liner pencil",
+    "barcode": "6920228540055",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-633027",
+    "timestamp": "2026-10-30T18:07:13.027Z",
+    "type": "ENTRADA",
+    "productId": "LV-1222",
+    "productName": "Lapiz de ojos negro",
+    "barcode": "7708991454187",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-563179",
+    "timestamp": "2026-10-30T18:06:03.179Z",
+    "type": "ENTRADA",
+    "productId": "LV-1221",
+    "productName": "Serum de pestañas",
+    "barcode": "6901783700382",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-506922",
+    "timestamp": "2026-10-30T18:05:06.922Z",
+    "type": "ENTRADA",
+    "productId": "LV-1220",
+    "productName": "Perfume capilar en llavero candy bum",
+    "barcode": "677144890332",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-376899",
+    "timestamp": "2026-10-30T18:02:56.899Z",
+    "type": "ENTRADA",
+    "productId": "LV-1219",
+    "productName": "Polvo base tono 03",
+    "barcode": "6974482524481",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-350297",
+    "timestamp": "2026-10-30T18:02:30.297Z",
+    "type": "ENTRADA",
+    "productId": "LV-1218",
+    "productName": "Polvo base tono 02",
+    "barcode": "6974482524474",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-313781",
+    "timestamp": "2026-10-30T18:01:53.781Z",
+    "type": "ENTRADA",
+    "productId": "LV-1217",
+    "productName": "Polvo base tono 01",
+    "barcode": "6974482524467",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-164853",
+    "timestamp": "2026-10-30T17:59:24.853Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-048622",
+    "timestamp": "2026-10-30T17:57:28.622Z",
+    "type": "ENTRADA",
+    "productId": "LV-1215",
+    "productName": "Polvo compacto jack",
+    "barcode": "7709095760488",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-950560",
+    "timestamp": "2026-10-30T17:55:50.560Z",
+    "type": "SALIDA",
+    "productId": "LV-1213",
+    "productName": "Polvo base tono 3 amelia",
+    "barcode": "6924372686799",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-949963",
+    "timestamp": "2026-10-30T17:55:49.963Z",
+    "type": "SALIDA",
+    "productId": "LV-1213",
+    "productName": "Polvo base tono 3 amelia",
+    "barcode": "6924372686799",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-943006",
+    "timestamp": "2026-10-30T17:55:43.006Z",
+    "type": "ENTRADA",
+    "productId": "LV-1213",
+    "productName": "Polvo base tono 3 amelia",
+    "barcode": "6924372686799",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-941735",
+    "timestamp": "2026-10-30T17:55:41.735Z",
+    "type": "ENTRADA",
+    "productId": "LV-1213",
+    "productName": "Polvo base tono 3 amelia",
+    "barcode": "6924372686799",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-934983",
+    "timestamp": "2026-10-30T17:55:34.983Z",
+    "type": "ENTRADA",
+    "productId": "LV-1214",
+    "productName": "Polvo base tono 2 Elena",
+    "barcode": "764451296626",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-890706",
+    "timestamp": "2026-10-30T17:54:50.706Z",
+    "type": "ENTRADA",
+    "productId": "LV-1213",
+    "productName": "Polvo base tono 3 amelia",
+    "barcode": "6924372686799",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-831094",
+    "timestamp": "2026-10-30T17:53:51.094Z",
+    "type": "ENTRADA",
+    "productId": "LV-1212",
+    "productName": "Polvo compacto banana",
+    "barcode": "7709094542191",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-717742",
+    "timestamp": "2026-10-30T17:51:57.742Z",
+    "type": "ENTRADA",
+    "productId": "LV-1211",
+    "productName": "Pegante negro de pestañas",
+    "barcode": "770168839890",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-626308",
+    "timestamp": "2026-10-30T17:50:26.308Z",
+    "type": "ENTRADA",
+    "productId": "LV-1210",
+    "productName": "Libro de 360 pestañas 10d",
+    "barcode": "226322916332",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-414234",
+    "timestamp": "2026-10-30T17:46:54.234Z",
+    "type": "ENTRADA",
+    "productId": "LV-1209",
+    "productName": "Pestañas punto a punto 20d",
+    "barcode": "275949320677",
+    "quantity": 8,
+    "prevStock": 0,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-363955",
+    "timestamp": "2026-10-30T17:46:03.955Z",
+    "type": "ENTRADA",
+    "productId": "LV-1208",
+    "productName": "Pestañas punto a punto 10d",
+    "barcode": "25949320682",
+    "quantity": 10,
+    "prevStock": 0,
+    "newStock": 10,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-176774",
+    "timestamp": "2026-10-30T17:42:56.774Z",
+    "type": "ENTRADA",
+    "productId": "LV-1207",
+    "productName": "Pestañas de tira",
+    "barcode": "6968902212157",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-118836",
+    "timestamp": "2026-10-30T17:41:58.836Z",
+    "type": "ENTRADA",
+    "productId": "LV-1206",
+    "productName": "Pestañas de tira cafes",
+    "barcode": "7701136558443",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-777700",
+    "timestamp": "2026-10-30T17:36:17.700Z",
+    "type": "SALIDA",
+    "productId": "LV-1110",
+    "productName": "Mantequilla x250ml piña colada",
+    "barcode": "677144266298",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-777696",
+    "timestamp": "2026-10-30T17:36:17.696Z",
+    "type": "SALIDA",
+    "productId": "LV-1098",
+    "productName": "Splash nuevo x200ml Piña colada",
+    "barcode": "677144266274",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-134722",
+    "timestamp": "2026-10-30T17:08:54.722Z",
+    "type": "ENTRADA",
+    "productId": "LV-1205",
+    "productName": "cosmetiquera de tela",
+    "barcode": "7861075670023",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-004058",
+    "timestamp": "2026-10-30T17:06:44.058Z",
+    "type": "ENTRADA",
+    "productId": "LV-1204",
+    "productName": "Cosmetiquera nube",
+    "barcode": "7707559887597",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-862760",
+    "timestamp": "2026-10-30T17:04:22.760Z",
+    "type": "ENTRADA",
+    "productId": "LV-1203",
+    "productName": "Kit maquillaje bear obsession",
+    "barcode": "610985562648",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-048394",
+    "timestamp": "2026-10-30T16:50:48.394Z",
+    "type": "ENTRADA",
+    "productId": "LV-1089",
+    "productName": "Splash Corporal Strawberry X 100 ml",
+    "barcode": "677144890318",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-915177",
+    "timestamp": "2026-10-30T16:48:35.177Z",
+    "type": "ENTRADA",
+    "productId": "LV-1202",
+    "productName": "Desenredante termoprotector morado",
+    "barcode": "7708075180339",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-757885",
+    "timestamp": "2026-10-30T16:45:57.885Z",
+    "type": "ENTRADA",
+    "productId": "LV-1201",
+    "productName": "Desenredante termoprotector rosado",
+    "barcode": "7708075180759",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-641636",
+    "timestamp": "2026-10-30T16:44:01.636Z",
+    "type": "ENTRADA",
+    "productId": "LV-1200",
+    "productName": "Mascarilla capilar de cebolla",
+    "barcode": "7709225678430",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-231504",
+    "timestamp": "2026-10-30T16:20:31.504Z",
+    "type": "ENTRADA",
+    "productId": "LV-1198",
+    "productName": "Kit facial mini de arroz",
+    "barcode": "6942349750793",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-228538",
+    "timestamp": "2026-10-30T16:20:28.538Z",
+    "type": "ENTRADA",
+    "productId": "LV-1196",
+    "productName": "Kit facial mini de centella",
+    "barcode": "6942349789984",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-227988",
+    "timestamp": "2026-10-30T16:20:27.988Z",
+    "type": "ENTRADA",
+    "productId": "LV-1196",
+    "productName": "Kit facial mini de centella",
+    "barcode": "6942349789984",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-221035",
+    "timestamp": "2026-10-30T16:20:21.035Z",
+    "type": "ENTRADA",
+    "productId": "LV-1196",
+    "productName": "Kit facial mini de centella",
+    "barcode": "6942349789984",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-218069",
+    "timestamp": "2026-10-30T16:20:18.069Z",
+    "type": "ENTRADA",
+    "productId": "LV-1198",
+    "productName": "Kit facial mini de arroz",
+    "barcode": "6942349750793",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-214123",
+    "timestamp": "2026-10-30T16:20:14.123Z",
+    "type": "ENTRADA",
+    "productId": "LV-1199",
+    "productName": "Kit facial mini de vitamina c",
+    "barcode": "6942581709610",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-213437",
+    "timestamp": "2026-10-30T16:20:13.437Z",
+    "type": "ENTRADA",
+    "productId": "LV-1199",
+    "productName": "Kit facial mini de vitamina c",
+    "barcode": "6942581709610",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-212700",
+    "timestamp": "2026-10-30T16:20:12.700Z",
+    "type": "ENTRADA",
+    "productId": "LV-1199",
+    "productName": "Kit facial mini de vitamina c",
+    "barcode": "6942581709610",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-146532",
+    "timestamp": "2026-10-30T16:19:06.532Z",
+    "type": "ENTRADA",
+    "productId": "LV-1199",
+    "productName": "Kit facial mini de vitamina c",
+    "barcode": "6942581709610",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-110026",
+    "timestamp": "2026-10-30T16:18:30.026Z",
+    "type": "ENTRADA",
+    "productId": "LV-1198",
+    "productName": "Kit facial mini de arroz",
+    "barcode": "6942349750793",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-047251",
+    "timestamp": "2026-10-30T16:17:27.251Z",
+    "type": "ENTRADA",
+    "productId": "LV-1197",
+    "productName": "Kit facial mini de rosas y acido hialuronico",
+    "barcode": "6942581709580",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-971987",
+    "timestamp": "2026-10-30T16:16:11.987Z",
+    "type": "ENTRADA",
+    "productId": "LV-1196",
+    "productName": "Kit facial mini de centella",
+    "barcode": "6942349789984",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-772947",
+    "timestamp": "2026-10-30T16:12:52.947Z",
+    "type": "ENTRADA",
+    "productId": "LV-1195",
+    "productName": "Brillo corporal shimmer burst tono 01",
+    "barcode": "736372988881",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-771714",
+    "timestamp": "2026-10-30T16:12:51.714Z",
+    "type": "SALIDA",
+    "productId": "LV-1195",
+    "productName": "Brillo corporal shimmer burst tono 01",
+    "barcode": "736372988881",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-765534",
+    "timestamp": "2026-10-30T16:12:45.534Z",
+    "type": "ENTRADA",
+    "productId": "LV-1195",
+    "productName": "Brillo corporal shimmer burst tono 01",
+    "barcode": "736372988881",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-755784",
+    "timestamp": "2026-10-30T16:12:35.784Z",
+    "type": "ENTRADA",
+    "productId": "LV-1195",
+    "productName": "Brillo corporal shimmer burst tono 01",
+    "barcode": "736372988881",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-732888",
+    "timestamp": "2026-10-30T16:12:12.888Z",
+    "type": "ENTRADA",
+    "productId": "LV-1195",
+    "productName": "Brillo corporale shimmer burst tono 01",
+    "barcode": "736372988881",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-486018",
+    "timestamp": "2026-10-30T16:08:06.018Z",
+    "type": "ENTRADA",
+    "productId": "LV-1194",
+    "productName": "Brillo corporal shine on tono 02",
+    "barcode": "6924372682999",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-413411",
+    "timestamp": "2026-10-30T16:06:53.411Z",
+    "type": "ENTRADA",
+    "productId": "LV-1193",
+    "productName": "Brillo corporal shine one tono 04",
+    "barcode": "6924372683019",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-351083",
+    "timestamp": "2026-10-30T16:05:51.083Z",
+    "type": "ENTRADA",
+    "productId": "LV-1192",
+    "productName": "Brillo corporal shine on",
+    "barcode": "6924372682982",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-599629",
+    "timestamp": "2026-10-30T01:09:59.629Z",
+    "type": "ENTRADA",
+    "productId": "LV-1191",
+    "productName": "Crema de arandanos",
+    "barcode": "6976068957614",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-522318",
+    "timestamp": "2026-10-30T01:08:42.318Z",
+    "type": "ENTRADA",
+    "productId": "LV-1190",
+    "productName": "Splash corporal paisita dulce",
+    "barcode": "7709066683419",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-460616",
+    "timestamp": "2026-10-30T01:07:40.616Z",
+    "type": "ENTRADA",
+    "productId": "LV-1189",
+    "productName": "Tonico de rosas y acido hialuronico",
+    "barcode": "6942349715457",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-422374",
+    "timestamp": "2026-10-30T01:07:02.374Z",
+    "type": "ENTRADA",
+    "productId": "LV-1188",
+    "productName": "Limpiador facial de rosas y acido hialuronico",
+    "barcode": "6942349715433",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-374156",
+    "timestamp": "2026-10-30T01:06:14.156Z",
+    "type": "ENTRADA",
+    "productId": "LV-1187",
+    "productName": "Contorno de ojos de rosas y acido hialuronico",
+    "barcode": "6976504680038",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-332177",
+    "timestamp": "2026-10-30T01:05:32.177Z",
+    "type": "ENTRADA",
+    "productId": "LV-1186",
+    "productName": "Serum de rosas y acido hialuronico",
+    "barcode": "6942349715440",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-290675",
+    "timestamp": "2026-10-30T01:04:50.675Z",
+    "type": "ENTRADA",
+    "productId": "LV-1185",
+    "productName": "Espuma con cepillo de rosas",
+    "barcode": "6942349708015",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-533162",
+    "timestamp": "2026-10-30T00:52:13.162Z",
+    "type": "ENTRADA",
+    "productId": "LV-1184",
+    "productName": "Serum de arroz pequeño",
+    "barcode": "6901783700672",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-532577",
+    "timestamp": "2026-10-30T00:52:12.577Z",
+    "type": "ENTRADA",
+    "productId": "LV-1184",
+    "productName": "Serum de arroz pequeño",
+    "barcode": "6901783700672",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-527015",
+    "timestamp": "2026-10-30T00:52:07.015Z",
+    "type": "ENTRADA",
+    "productId": "LV-1183",
+    "productName": "Contorno de ojos de arroz",
+    "barcode": "6942349737398",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-526442",
+    "timestamp": "2026-10-30T00:52:06.442Z",
+    "type": "ENTRADA",
+    "productId": "LV-1183",
+    "productName": "Contorno de ojos de arroz",
+    "barcode": "6942349737398",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-525774",
+    "timestamp": "2026-10-30T00:52:05.774Z",
+    "type": "ENTRADA",
+    "productId": "LV-1183",
+    "productName": "Contorno de ojos de arroz",
+    "barcode": "6942349737398",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-510753",
+    "timestamp": "2026-10-30T00:51:50.753Z",
+    "type": "ENTRADA",
+    "productId": "LV-1182",
+    "productName": "Tonico de arroz",
+    "barcode": "6942349741029",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-486014",
+    "timestamp": "2026-10-30T00:51:26.014Z",
+    "type": "ENTRADA",
+    "productId": "LV-1184",
+    "productName": "Serum de arroz pequeño",
+    "barcode": "6901783700672",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-411730",
+    "timestamp": "2026-10-30T00:50:11.730Z",
+    "type": "ENTRADA",
+    "productId": "LV-1183",
+    "productName": "Contorno de ojos de arroz",
+    "barcode": "6942349737398",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-369789",
+    "timestamp": "2026-10-30T00:49:29.789Z",
+    "type": "ENTRADA",
+    "productId": "LV-1182",
+    "productName": "Tonico de arroz",
+    "barcode": "6942349741029",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-325660",
+    "timestamp": "2026-10-30T00:48:45.660Z",
+    "type": "ENTRADA",
+    "productId": "LV-1181",
+    "productName": "Espuma con cepillo de arroz",
+    "barcode": "6976068951803",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-112408",
+    "timestamp": "2026-10-30T00:45:12.408Z",
+    "type": "ENTRADA",
+    "productId": "LV-1180",
+    "productName": "Limpiadpr facial de vitamina c",
+    "barcode": "6942349700200",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-038595",
+    "timestamp": "2026-10-30T00:43:58.595Z",
+    "type": "ENTRADA",
+    "productId": "LV-1179",
+    "productName": "Tonico de vitamina c",
+    "barcode": "6942349700347",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-990130",
+    "timestamp": "2026-10-30T00:43:10.130Z",
+    "type": "ENTRADA",
+    "productId": "LV-1178",
+    "productName": "Crema hidratante de vitamina c",
+    "barcode": "6901783700351",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-907506",
+    "timestamp": "2026-10-30T00:41:47.506Z",
+    "type": "ENTRADA",
+    "productId": "LV-1173",
+    "productName": "Contorno de ojos de centella",
+    "barcode": "6942349715839",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-895742",
+    "timestamp": "2026-10-30T00:41:35.742Z",
+    "type": "ENTRADA",
+    "productId": "LV-1177",
+    "productName": "Tonico de centella asiatica",
+    "barcode": "6920250000114",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-861373",
+    "timestamp": "2026-10-30T00:41:01.373Z",
+    "type": "ENTRADA",
+    "productId": "LV-1175",
+    "productName": "Serum de centella asiatica",
+    "barcode": "6901783700603",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-860871",
+    "timestamp": "2026-10-30T00:41:00.871Z",
+    "type": "ENTRADA",
+    "productId": "LV-1175",
+    "productName": "Serum de centella asiatica",
+    "barcode": "6901783700603",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-858246",
+    "timestamp": "2026-10-30T00:40:58.246Z",
+    "type": "ENTRADA",
+    "productId": "LV-1176",
+    "productName": "Crema hidratante de centella asiatica",
+    "barcode": "6942349712050",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-857750",
+    "timestamp": "2026-10-30T00:40:57.750Z",
+    "type": "ENTRADA",
+    "productId": "LV-1176",
+    "productName": "Crema hidratante de centella asiatica",
+    "barcode": "6942349712050",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-857265",
+    "timestamp": "2026-10-30T00:40:57.265Z",
+    "type": "ENTRADA",
+    "productId": "LV-1176",
+    "productName": "Crema hidratante de centella asiatica",
+    "barcode": "6942349712050",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-836657",
+    "timestamp": "2026-10-30T00:40:36.657Z",
+    "type": "ENTRADA",
+    "productId": "LV-1177",
+    "productName": "Tonico de centella asiatica",
+    "barcode": "6920250000114",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-784812",
+    "timestamp": "2026-10-30T00:39:44.812Z",
+    "type": "ENTRADA",
+    "productId": "LV-1176",
+    "productName": "Crema hidratante de centella asiatica",
+    "barcode": "6942349712050",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-742521",
+    "timestamp": "2026-10-30T00:39:02.521Z",
+    "type": "ENTRADA",
+    "productId": "LV-1175",
+    "productName": "Serum de centella asiatica",
+    "barcode": "6901783700603",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-683250",
+    "timestamp": "2026-10-30T00:38:03.250Z",
+    "type": "ENTRADA",
+    "productId": "LV-1174",
+    "productName": "Colageno de ojeras caja",
+    "barcode": "6973098895466",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-503078",
+    "timestamp": "2026-10-30T00:35:03.078Z",
+    "type": "ENTRADA",
+    "productId": "LV-1173",
+    "productName": "Contorno de ojos de centella",
+    "barcode": "6942349715839",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-361962",
+    "timestamp": "2026-10-30T00:32:41.962Z",
+    "type": "ENTRADA",
+    "productId": "LV-1172",
+    "productName": "Gel hidratante con aloe vera",
+    "barcode": "7708453335610",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-286715",
+    "timestamp": "2026-10-30T00:31:26.715Z",
+    "type": "ENTRADA",
+    "productId": "LV-1171",
+    "productName": "Gel hidratante",
+    "barcode": "770113020314",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-055278",
+    "timestamp": "2026-10-30T00:27:35.278Z",
+    "type": "SALIDA",
+    "productId": "LV-1009",
+    "productName": "Tratamiento plex",
+    "barcode": "770472104000",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+  },
+  {
+    "id": "K-087278",
+    "timestamp": "2026-10-29T23:54:47.278Z",
+    "type": "ENTRADA",
+    "productId": "LV-1170",
+    "productName": "Acondicionador milagro herbal",
+    "barcode": "7708075180612",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-014543",
+    "timestamp": "2026-10-29T23:53:34.543Z",
+    "type": "ENTRADA",
+    "productId": "LV-1169",
+    "productName": "Tratamiento emergencia capilar",
+    "barcode": "7709225678461",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-950226",
+    "timestamp": "2026-10-29T23:52:30.226Z",
+    "type": "ENTRADA",
+    "productId": "LV-1168",
+    "productName": "Tratamiento a base de frutas",
+    "barcode": "7708075180483",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-887955",
+    "timestamp": "2026-10-29T23:51:27.955Z",
+    "type": "ENTRADA",
+    "productId": "LV-1167",
+    "productName": "Shampoo de emergencia capilar",
+    "barcode": "7707995679435",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-818552",
+    "timestamp": "2026-10-29T23:50:18.552Z",
+    "type": "ENTRADA",
+    "productId": "LV-1166",
+    "productName": "Shampoo anti-caspa",
+    "barcode": "7709059679306",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-634989",
+    "timestamp": "2026-10-29T23:47:14.989Z",
+    "type": "ENTRADA",
+    "productId": "LV-1163",
+    "productName": "Mascarilla mini nueva x50g piña colada",
+    "barcode": "677144266595",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-567393",
+    "timestamp": "2026-10-29T23:46:07.393Z",
+    "type": "SALIDA",
+    "productId": "LV-1155",
+    "productName": "Splash mini x105ml candy bum",
+    "barcode": "7708228097798",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-511936",
+    "timestamp": "2026-10-29T23:45:11.936Z",
+    "type": "SALIDA",
+    "productId": "LV-1150",
+    "productName": "Fijador en aerosol pequeño",
+    "barcode": "7120250620001",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-510726",
+    "timestamp": "2026-10-29T23:45:10.726Z",
+    "type": "SALIDA",
+    "productId": "LV-1150",
+    "productName": "Fijador en aerosol pequeño",
+    "barcode": "7120250620001",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-509920",
+    "timestamp": "2026-10-29T23:45:09.920Z",
+    "type": "SALIDA",
+    "productId": "LV-1150",
+    "productName": "Fijador en aerosol pequeño",
+    "barcode": "7120250620001",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-488795",
+    "timestamp": "2026-10-29T23:44:48.795Z",
+    "type": "SALIDA",
+    "productId": "LV-1147",
+    "productName": "Fijador extreme fix x120ml",
+    "barcode": "770180253930",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-446330",
+    "timestamp": "2026-10-29T23:27:26.330Z",
+    "type": "SALIDA",
+    "productId": "LV-1129",
+    "productName": "Tonico facial de rosas",
+    "barcode": "770357763644",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-430452",
+    "timestamp": "2026-10-29T23:27:10.452Z",
+    "type": "SALIDA",
+    "productId": "LV-1127",
+    "productName": "Agua de rosas",
+    "barcode": "7721001010043",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-397951",
+    "timestamp": "2026-10-29T23:26:37.951Z",
+    "type": "SALIDA",
+    "productId": "LV-1125",
+    "productName": "Bloom essential cream",
+    "barcode": "8809801696359",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-389283",
+    "timestamp": "2026-10-29T23:26:29.283Z",
+    "type": "SALIDA",
+    "productId": "LV-1122",
+    "productName": "Kit corporal x3 grande strawberry cake",
+    "barcode": "610985562617",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-382973",
+    "timestamp": "2026-10-29T23:26:22.973Z",
+    "type": "SALIDA",
+    "productId": "LV-1123",
+    "productName": "Bloom serum balance",
+    "barcode": "8809801696342",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-272673",
+    "timestamp": "2026-10-29T23:24:32.673Z",
+    "type": "SALIDA",
+    "productId": "LV-1120",
+    "productName": "Kit corporal x3 bear cookies",
+    "barcode": "677144890264",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-263785",
+    "timestamp": "2026-10-29T23:24:23.785Z",
+    "type": "SALIDA",
+    "productId": "LV-1119",
+    "productName": "Kit corporal x3 Candy bum",
+    "barcode": "677144266519",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-263299",
+    "timestamp": "2026-10-29T23:24:23.299Z",
+    "type": "SALIDA",
+    "productId": "LV-1119",
+    "productName": "Kit corporal x3 Candy bum",
+    "barcode": "677144266519",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-033619",
+    "timestamp": "2026-10-29T23:20:33.619Z",
+    "type": "SALIDA",
+    "productId": "LV-1105",
+    "productName": "Mantequilla x220ml honey glow",
+    "barcode": "793969699995",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-761452",
+    "timestamp": "2026-10-29T23:16:01.452Z",
+    "type": "SALIDA",
+    "productId": "LV-1087",
+    "productName": "Splash Corporal Caramel Crush X 100 ml",
+    "barcode": "677144702185",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-625698",
+    "timestamp": "2026-10-29T23:13:45.698Z",
+    "type": "SALIDA",
+    "productId": "LV-1074",
+    "productName": "Desmaquillante bifasico Bob Esponja",
+    "barcode": "7709649401867",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-560160",
+    "timestamp": "2026-10-29T23:12:40.160Z",
+    "type": "SALIDA",
+    "productId": "LV-1062",
+    "productName": "Mantequilla rosada grande",
+    "barcode": "7709163330971",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-558844",
+    "timestamp": "2026-10-29T23:12:38.844Z",
+    "type": "SALIDA",
+    "productId": "LV-1061",
+    "productName": "Splash grande rosado",
+    "barcode": "770895840830",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-516444",
+    "timestamp": "2026-10-29T23:11:56.444Z",
+    "type": "SALIDA",
+    "productId": "LV-1054",
+    "productName": "Perfume mini bali",
+    "barcode": "7708075180452",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-501624",
+    "timestamp": "2026-10-29T23:11:41.624Z",
+    "type": "SALIDA",
+    "productId": "LV-1053",
+    "productName": "Perfume mini martina",
+    "barcode": "7709225678423",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-493453",
+    "timestamp": "2026-10-29T23:11:33.453Z",
+    "type": "SALIDA",
+    "productId": "LV-1052",
+    "productName": "Perfume mini majestuosa",
+    "barcode": "7707995679213",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-483290",
+    "timestamp": "2026-10-29T23:11:23.290Z",
+    "type": "SALIDA",
+    "productId": "LV-1051",
+    "productName": "Perfume mini irresistible",
+    "barcode": "7708075180865",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-442053",
+    "timestamp": "2026-10-29T23:10:42.053Z",
+    "type": "SALIDA",
+    "productId": "LV-1049",
+    "productName": "Shampoo control caspa",
+    "barcode": "7708162555163",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-414284",
+    "timestamp": "2026-10-29T23:10:14.284Z",
+    "type": "SALIDA",
+    "productId": "LV-1044",
+    "productName": "Mascarilla de leche y proteinas",
+    "barcode": "7709949388202",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-403551",
+    "timestamp": "2026-10-29T23:10:03.551Z",
+    "type": "SALIDA",
+    "productId": "LV-1043",
+    "productName": "Acondicionador de leche y proteinas",
+    "barcode": "7709360339395",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-398875",
+    "timestamp": "2026-10-29T23:09:58.875Z",
+    "type": "SALIDA",
+    "productId": "LV-1042",
+    "productName": "Shampoo de leche y proteinas",
+    "barcode": "7709360339302",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-371804",
+    "timestamp": "2026-10-29T23:09:31.804Z",
+    "type": "SALIDA",
+    "productId": "LV-1037",
+    "productName": "Perfume capilar mocca shake",
+    "barcode": "7709268279656",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-660050",
+    "timestamp": "2026-10-29T22:24:20.050Z",
+    "type": "SALIDA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-659167",
+    "timestamp": "2026-10-29T22:24:19.167Z",
+    "type": "SALIDA",
+    "productId": "LV-1035",
+    "productName": "Perfume capilar miel",
+    "barcode": "793969805563",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-575579",
+    "timestamp": "2026-10-29T22:22:55.579Z",
+    "type": "ENTRADA",
+    "productId": "LV-1032",
+    "productName": "Termoprotector bifasico leche y miel",
+    "barcode": "7709268279632",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-575114",
+    "timestamp": "2026-10-29T22:22:55.114Z",
+    "type": "ENTRADA",
+    "productId": "LV-1032",
+    "productName": "Termoprotector bifasico leche y miel",
+    "barcode": "7709268279632",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-574658",
+    "timestamp": "2026-10-29T22:22:54.658Z",
+    "type": "ENTRADA",
+    "productId": "LV-1032",
+    "productName": "Termoprotector bifasico leche y miel",
+    "barcode": "7709268279632",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-574150",
+    "timestamp": "2026-10-29T22:22:54.150Z",
+    "type": "ENTRADA",
+    "productId": "LV-1032",
+    "productName": "Termoprotector bifasico leche y miel",
+    "barcode": "7709268279632",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-548932",
+    "timestamp": "2026-10-29T22:22:28.932Z",
+    "type": "SALIDA",
+    "productId": "LV-1030",
+    "productName": "Acondicionador de miel",
+    "barcode": "793969805570",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-531896",
+    "timestamp": "2026-10-29T22:22:11.896Z",
+    "type": "SALIDA",
+    "productId": "LV-1027",
+    "productName": "Shampoo de aji",
+    "barcode": "677144930236",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-531346",
+    "timestamp": "2026-10-29T22:22:11.346Z",
+    "type": "SALIDA",
+    "productId": "LV-1027",
+    "productName": "Shampoo de aji",
+    "barcode": "677144930236",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-462392",
+    "timestamp": "2026-10-29T22:21:02.392Z",
+    "type": "SALIDA",
+    "productId": "LV-1010",
+    "productName": "Tratamiento jalea real",
+    "barcode": "7709374293881",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-409048",
+    "timestamp": "2026-10-29T22:20:09.048Z",
+    "type": "SALIDA",
+    "productId": "LV-1001",
+    "productName": "Shampoo miel rosada",
+    "barcode": "634240468582",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-408574",
+    "timestamp": "2026-10-29T22:20:08.574Z",
+    "type": "SALIDA",
+    "productId": "LV-1001",
+    "productName": "Shampoo miel rosada",
+    "barcode": "634240468582",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-611648",
+    "timestamp": "2026-10-29T22:06:51.648Z",
+    "type": "ENTRADA",
+    "productId": "LV-1003",
+    "productName": "Acondicionador de chocolate",
+    "barcode": "634240480515",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-604716",
+    "timestamp": "2026-10-29T22:06:44.716Z",
+    "type": "SALIDA",
+    "productId": "LV-1006",
+    "productName": "Mascarilla miel rosada",
+    "barcode": "634240384974",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-595574",
+    "timestamp": "2026-10-29T22:06:35.574Z",
+    "type": "ENTRADA",
+    "productId": "LV-1006",
+    "productName": "Mascarilla miel rosada",
+    "barcode": "634240384974",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-562663",
+    "timestamp": "2026-10-29T22:06:02.663Z",
+    "type": "ENTRADA",
+    "productId": "LV-1005",
+    "productName": "Mascarilla chocolate rosado",
+    "barcode": "634240480492",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-395483",
+    "timestamp": "2026-10-29T22:03:15.483Z",
+    "type": "SALIDA",
+    "productId": "LV-1005",
+    "productName": "Mascarilla chocolate rosado",
+    "barcode": "634240480492",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Punto Físico",
+    "notes": ""
+  },
+  {
+    "id": "K-355945",
+    "timestamp": "2026-10-29T22:02:35.945Z",
+    "type": "SALIDA",
+    "productId": "LV-1003",
+    "productName": "Acondicionador de chocolate",
+    "barcode": "634240480515",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Punto Físico",
+    "notes": ""
+  },
+  {
+    "id": "K-738966",
+    "timestamp": "2026-10-24T20:45:38.966Z",
+    "type": "ENTRADA",
+    "productId": "LV-1165",
+    "productName": "Mantequilla mini nueva x50g Candy bum",
+    "barcode": "677144702222",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-669604",
+    "timestamp": "2026-10-24T20:44:29.604Z",
+    "type": "ENTRADA",
+    "productId": "LV-1164",
+    "productName": "Mantequilla mini nueva x50g Bubble gum",
+    "barcode": "677144266588",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-601523",
+    "timestamp": "2026-10-24T20:43:21.523Z",
+    "type": "ENTRADA",
+    "productId": "LV-1163",
+    "productName": "Mascarilla mini nueva x50g piña colada",
+    "barcode": "677144266595",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-340022",
+    "timestamp": "2026-10-24T20:39:00.022Z",
+    "type": "ENTRADA",
+    "productId": "LV-1162",
+    "productName": "Mantequilla mini x50g Birthday cake",
+    "barcode": "7708228097316",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-279359",
+    "timestamp": "2026-10-24T20:37:59.359Z",
+    "type": "ENTRADA",
+    "productId": "LV-1161",
+    "productName": "Mantequilla mini x50g Sweet Lychee",
+    "barcode": "7708970723426",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-175290",
+    "timestamp": "2026-10-24T20:36:15.290Z",
+    "type": "SALIDA",
+    "productId": "LV-1006",
+    "productName": "Mascarilla miel rosada",
+    "barcode": "634240384974",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcáá)"
+  },
+  {
+    "id": "K-076500",
+    "timestamp": "2026-10-24T20:34:36.500Z",
+    "type": "ENTRADA",
+    "productId": "LV-1160",
+    "productName": "Mantequilla mini x50ml Vainilla chill",
+    "barcode": "7709525924626",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-008939",
+    "timestamp": "2026-10-24T20:33:28.939Z",
+    "type": "ENTRADA",
+    "productId": "LV-1159",
+    "productName": "Mantequilla mini x50g girl boss",
+    "barcode": "7708228097743",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-914653",
+    "timestamp": "2026-10-24T20:31:54.653Z",
+    "type": "ENTRADA",
+    "productId": "LV-1158",
+    "productName": "Mantequilla mini x50g pistacho",
+    "barcode": "677144702406",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-802224",
+    "timestamp": "2026-10-24T20:30:02.224Z",
+    "type": "ENTRADA",
+    "productId": "LV-1157",
+    "productName": "Mantequilla mini x50g maracuyazo",
+    "barcode": "677144702376",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-616420",
+    "timestamp": "2026-10-24T20:26:56.420Z",
+    "type": "ENTRADA",
+    "productId": "LV-1156",
+    "productName": "Splash mini x105ml Coconut",
+    "barcode": "7709525924633",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-580599",
+    "timestamp": "2026-10-24T20:26:20.599Z",
+    "type": "ENTRADA",
+    "productId": "LV-1155",
+    "productName": "Splash mini x105ml candy bum",
+    "barcode": "7708228097798",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-540504",
+    "timestamp": "2026-10-24T20:25:40.504Z",
+    "type": "ENTRADA",
+    "productId": "LV-1154",
+    "productName": "Splash mini x105 ml girl boss",
+    "barcode": "7708228097057",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-497718",
+    "timestamp": "2026-10-24T20:24:57.718Z",
+    "type": "ENTRADA",
+    "productId": "LV-1153",
+    "productName": "Splash mini x105ml pistacho",
+    "barcode": "7707894737878",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-453882",
+    "timestamp": "2026-10-24T20:24:13.882Z",
+    "type": "ENTRADA",
+    "productId": "LV-1152",
+    "productName": "Splash mini x105ml Sweet lychee",
+    "barcode": "7708970723471",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-407127",
+    "timestamp": "2026-10-24T20:23:27.127Z",
+    "type": "ENTRADA",
+    "productId": "LV-1151",
+    "productName": "Splash mini x105ml birthday cake",
+    "barcode": "7708228097033",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-247565",
+    "timestamp": "2026-10-24T20:20:47.565Z",
+    "type": "ENTRADA",
+    "productId": "LV-1150",
+    "productName": "Fijador en aerosol pequeño",
+    "barcode": "7120250620001",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-192171",
+    "timestamp": "2026-10-24T20:19:52.171Z",
+    "type": "ENTRADA",
+    "productId": "LV-1149",
+    "productName": "Fijador bifasico mist fix",
+    "barcode": "6903072472321",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-027749",
+    "timestamp": "2026-10-24T20:17:07.749Z",
+    "type": "ENTRADA",
+    "productId": "LV-1148",
+    "productName": "Fijador extreme fix x60ml",
+    "barcode": "770338928307",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-992883",
+    "timestamp": "2026-10-24T20:16:32.883Z",
+    "type": "ENTRADA",
+    "productId": "LV-1147",
+    "productName": "Fijador extreme fix x120ml",
+    "barcode": "770180253930",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-908965",
+    "timestamp": "2026-10-24T20:15:08.965Z",
+    "type": "ENTRADA",
+    "productId": "LV-1146",
+    "productName": "Fijador de gelatina toy story",
+    "barcode": "7709092350927",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-848321",
+    "timestamp": "2026-10-24T20:14:08.321Z",
+    "type": "ENTRADA",
+    "productId": "LV-1145",
+    "productName": "Fijador de maquillaje",
+    "barcode": "7707375604187",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-756880",
+    "timestamp": "2026-10-24T20:12:36.880Z",
+    "type": "ENTRADA",
+    "productId": "LV-1144",
+    "productName": "Fijador de maquillaje",
+    "barcode": "7708080149826",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-928747",
+    "timestamp": "2026-10-24T19:42:08.747Z",
+    "type": "ENTRADA",
+    "productId": "LV-1143",
+    "productName": "Fijador dixy fix x30ml",
+    "barcode": "736372978363",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-770185",
+    "timestamp": "2026-10-24T19:39:30.185Z",
+    "type": "ENTRADA",
+    "productId": "LV-1142",
+    "productName": "Fijador dixy fix x80ml",
+    "barcode": "658325384260",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-627575",
+    "timestamp": "2026-10-24T19:37:07.575Z",
+    "type": "ENTRADA",
+    "productId": "LV-1141",
+    "productName": "Kit primer y fijador skin filter",
+    "barcode": "677144890349",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-318311",
+    "timestamp": "2026-10-24T19:31:58.311Z",
+    "type": "ENTRADA",
+    "productId": "LV-1140",
+    "productName": "Primer y fijador Bloom jelly fusion",
+    "barcode": "6924372689509",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-246567",
+    "timestamp": "2026-10-24T19:30:46.567Z",
+    "type": "ENTRADA",
+    "productId": "LV-1139",
+    "productName": "Primer neutralizante bloom cream purple",
+    "barcode": "6924372681886",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-094117",
+    "timestamp": "2026-10-24T19:28:14.117Z",
+    "type": "ENTRADA",
+    "productId": "LV-1138",
+    "productName": "Primer pop",
+    "barcode": "7709311675480",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-023738",
+    "timestamp": "2026-10-24T19:27:03.738Z",
+    "type": "ENTRADA",
+    "productId": "LV-1137",
+    "productName": "Primer matificante",
+    "barcode": "7707375605177",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-958659",
+    "timestamp": "2026-10-24T19:25:58.659Z",
+    "type": "ENTRADA",
+    "productId": "LV-1136",
+    "productName": "Primer efecto glow",
+    "barcode": "6952465728606",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-730729",
+    "timestamp": "2026-10-24T19:22:10.729Z",
+    "type": "ENTRADA",
+    "productId": "LV-1135",
+    "productName": "Primer pore filter",
+    "barcode": "793969699933",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-296589",
+    "timestamp": "2026-10-24T19:14:56.589Z",
+    "type": "ENTRADA",
+    "productId": "LV-1134",
+    "productName": "Primer de rosas",
+    "barcode": "7709217875380",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-137697",
+    "timestamp": "2026-10-24T19:12:17.698Z",
+    "type": "ENTRADA",
+    "productId": "LV-1133",
+    "productName": "Primer bloom poros invisibles",
+    "barcode": "6924372684252",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-922161",
+    "timestamp": "2026-10-24T19:08:42.161Z",
+    "type": "ENTRADA",
+    "productId": "LV-1132",
+    "productName": "Desmaquillante bifasico",
+    "barcode": "7707894735539",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-861617",
+    "timestamp": "2026-10-24T19:07:41.617Z",
+    "type": "ENTRADA",
+    "productId": "LV-1131",
+    "productName": "Agua micelar con aácido hialuronico",
+    "barcode": "7707894732149",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-711186",
+    "timestamp": "2026-10-24T19:05:11.186Z",
+    "type": "ENTRADA",
+    "productId": "LV-1130",
+    "productName": "Tonico de rosas x120ml",
+    "barcode": "788115817217",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-655974",
+    "timestamp": "2026-10-24T19:04:15.974Z",
+    "type": "ENTRADA",
+    "productId": "LV-1129",
+    "productName": "tonico facial de rosas",
+    "barcode": "770357763644",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-488866",
+    "timestamp": "2026-10-24T19:01:28.866Z",
+    "type": "ENTRADA",
+    "productId": "LV-1128",
+    "productName": "Contorno de ojos",
+    "barcode": "7709411597897",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-249354",
+    "timestamp": "2026-10-24T18:57:29.354Z",
+    "type": "ENTRADA",
+    "productId": "LV-1127",
+    "productName": "Agua de rosas",
+    "barcode": "7721001010043",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-055832",
+    "timestamp": "2026-10-24T18:54:15.832Z",
+    "type": "ENTRADA",
+    "productId": "LV-1126",
+    "productName": "Bloom cleanser lumi gel",
+    "barcode": "8809801696373",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-796945",
+    "timestamp": "2026-10-24T18:49:56.945Z",
+    "type": "ENTRADA",
+    "productId": "LV-1125",
+    "productName": "Bloom essential cream",
+    "barcode": "68809801696359",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-689684",
+    "timestamp": "2026-10-24T18:48:09.684Z",
+    "type": "ENTRADA",
+    "productId": "LV-1124",
+    "productName": "Bloom repair cream",
+    "barcode": "8809801696335",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-643075",
+    "timestamp": "2026-10-24T18:47:23.075Z",
+    "type": "ENTRADA",
+    "productId": "LV-1123",
+    "productName": "Bloom serum balance",
+    "barcode": "8809801696342",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-389156",
+    "timestamp": "2026-10-24T18:09:49.156Z",
+    "type": "ENTRADA",
+    "productId": "LV-1122",
+    "productName": "Kit corporal x3 grande strawberry cake",
+    "barcode": "610985562617",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-061144",
+    "timestamp": "2026-10-24T18:04:21.144Z",
+    "type": "ENTRADA",
+    "productId": "LV-1121",
+    "productName": "Kit corporal x3 secret crush",
+    "barcode": "677144890509",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-011255",
+    "timestamp": "2026-10-24T18:03:31.255Z",
+    "type": "ENTRADA",
+    "productId": "LV-1120",
+    "productName": "Kit corporal x3 bear cookies",
+    "barcode": "677144890264",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-874765",
+    "timestamp": "2026-10-24T18:01:14.765Z",
+    "type": "ENTRADA",
+    "productId": "LV-1119",
+    "productName": "Kit corporal x3 Candy bum",
+    "barcode": "677144266519",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-811450",
+    "timestamp": "2026-10-24T18:00:11.450Z",
+    "type": "ENTRADA",
+    "productId": "LV-1118",
+    "productName": "Kit corporal x3 maracuyazo",
+    "barcode": "677144889800",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-731760",
+    "timestamp": "2026-10-24T17:58:51.760Z",
+    "type": "ENTRADA",
+    "productId": "LV-1117",
+    "productName": "Kit corporal x3 sweet cherry",
+    "barcode": "677144889794",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-631918",
+    "timestamp": "2026-10-24T17:57:11.918Z",
+    "type": "ENTRADA",
+    "productId": "LV-1116",
+    "productName": "Kit corporal x3 chocolate vibes",
+    "barcode": "677144889817",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-561584",
+    "timestamp": "2026-10-24T17:56:01.584Z",
+    "type": "ENTRADA",
+    "productId": "LV-1115",
+    "productName": "Kit corporal x4 Rose lychee",
+    "barcode": "6677144889749",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-594735",
+    "timestamp": "2026-10-24T17:23:14.735Z",
+    "type": "ENTRADA",
+    "productId": "LV-1114",
+    "productName": "Crema corporal candy bum x200ml",
+    "barcode": "677144890424",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-532441",
+    "timestamp": "2026-10-24T17:22:12.441Z",
+    "type": "ENTRADA",
+    "productId": "LV-1113",
+    "productName": "Crema corporal piña colada 200ml",
+    "barcode": "677144890431",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-447899",
+    "timestamp": "2026-10-24T17:20:47.899Z",
+    "type": "ENTRADA",
+    "productId": "LV-1112",
+    "productName": "Splash nuevo x215ml Sweet cherry",
+    "barcode": "677144890585",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-348720",
+    "timestamp": "2026-10-24T17:19:08.720Z",
+    "type": "ENTRADA",
+    "productId": "LV-1111",
+    "productName": "Splash nuevo x215ml Mango crush",
+    "barcode": "610985562518",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-865027",
+    "timestamp": "2026-10-24T17:11:05.027Z",
+    "type": "ENTRADA",
+    "productId": "LV-1110",
+    "productName": "Mantequilla x250ml piña colada",
+    "barcode": "677144266298",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-761735",
+    "timestamp": "2026-10-24T17:09:21.735Z",
+    "type": "ENTRADA",
+    "productId": "LV-1109",
+    "productName": "Mantequilla x220ml Watermelon",
+    "barcode": "736372335784",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-709366",
+    "timestamp": "2026-10-24T17:08:29.366Z",
+    "type": "ENTRADA",
+    "productId": "LV-1108",
+    "productName": "Mantequilla x220ml Sweet lychee",
+    "barcode": "7708970723464",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-582443",
+    "timestamp": "2026-10-24T17:06:22.443Z",
+    "type": "ENTRADA",
+    "productId": "LV-1107",
+    "productName": "Mantequilla x220ml candy bum",
+    "barcode": "788115831305",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-526056",
+    "timestamp": "2026-10-24T17:05:26.056Z",
+    "type": "ENTRADA",
+    "productId": "LV-1106",
+    "productName": "Matequilla x250ml Girl boss",
+    "barcode": "677144266458",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-472403",
+    "timestamp": "2026-10-24T17:04:32.403Z",
+    "type": "ENTRADA",
+    "productId": "LV-1105",
+    "productName": "Mantequilla x220ml honey glow",
+    "barcode": "793969699995",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-425007",
+    "timestamp": "2026-10-24T17:03:45.007Z",
+    "type": "ENTRADA",
+    "productId": "LV-1104",
+    "productName": "Mantequilla birthday  cake x250ml",
+    "barcode": "677144890219",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-675593",
+    "timestamp": "2026-10-24T16:51:15.593Z",
+    "type": "ENTRADA",
+    "productId": "LV-1103",
+    "productName": "Mantequilla nueva x250ml Sweet cherry",
+    "barcode": "677144890608",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-467865",
+    "timestamp": "2026-10-24T16:47:47.865Z",
+    "type": "ENTRADA",
+    "productId": "LV-1102",
+    "productName": "Mantequilla x200ml Mango crush",
+    "barcode": "610985562532",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-359303",
+    "timestamp": "2026-10-24T16:45:59.303Z",
+    "type": "ENTRADA",
+    "productId": "LV-1101",
+    "productName": "Mantequilla nueva x250ml Blueberry",
+    "barcode": "677144890561",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-156266",
+    "timestamp": "2026-10-24T16:42:36.266Z",
+    "type": "ENTRADA",
+    "productId": "LV-1100",
+    "productName": "Exfoliante Piña colada",
+    "barcode": "677144266496",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-946698",
+    "timestamp": "2026-10-24T16:39:06.698Z",
+    "type": "ENTRADA",
+    "productId": "LV-1099",
+    "productName": "Splash nuevo x200ml Girl boss",
+    "barcode": "677144266472",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-893723",
+    "timestamp": "2026-10-24T16:38:13.723Z",
+    "type": "ENTRADA",
+    "productId": "LV-1098",
+    "productName": "Splash nuevo x200ml Piña colada",
+    "barcode": "677144266274",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-813067",
+    "timestamp": "2026-10-24T16:36:53.067Z",
+    "type": "ENTRADA",
+    "productId": "LV-1097",
+    "productName": "Splash nuevo x200ml Maracuyazo",
+    "barcode": "677144889848",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-735022",
+    "timestamp": "2026-10-24T16:35:35.022Z",
+    "type": "ENTRADA",
+    "productId": "LV-1096",
+    "productName": "Splash x200ml Watermelon",
+    "barcode": "677144266359",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-676709",
+    "timestamp": "2026-10-24T16:34:36.709Z",
+    "type": "ENTRADA",
+    "productId": "LV-1095",
+    "productName": "Splash x200ml Bubble gum",
+    "barcode": "793969700042",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-604039",
+    "timestamp": "2026-10-24T16:33:24.039Z",
+    "type": "ENTRADA",
+    "productId": "LV-1094",
+    "productName": "Splash nuevo x200ml birthday cake",
+    "barcode": "677144890233",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-423785",
+    "timestamp": "2026-10-24T16:30:23.785Z",
+    "type": "ENTRADA",
+    "productId": "LV-1093",
+    "productName": "Splash x250ml Sexy champagne",
+    "barcode": "736372335852",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-345900",
+    "timestamp": "2026-10-24T16:29:05.900Z",
+    "type": "ENTRADA",
+    "productId": "LV-1092",
+    "productName": "Splash x250ml Birthday cake",
+    "barcode": "7708228097323",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-277329",
+    "timestamp": "2026-10-24T16:27:57.329Z",
+    "type": "ENTRADA",
+    "productId": "LV-1091",
+    "productName": "Splash x250ml Candy bum",
+    "barcode": "736372335623",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-200610",
+    "timestamp": "2026-10-24T16:26:40.610Z",
+    "type": "ENTRADA",
+    "productId": "LV-1090",
+    "productName": "Spalsh x250ml Vainilla Dreams",
+    "barcode": "764451296190",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-526473",
+    "timestamp": "2026-10-23T22:12:06.473Z",
+    "type": "ENTRADA",
+    "productId": "LV-1089",
+    "productName": "Splash Corporal Strawberry X 100 ml",
+    "barcode": "677144890318",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-418028",
+    "timestamp": "2026-10-23T22:10:18.028Z",
+    "type": "ENTRADA",
+    "productId": "LV-1088",
+    "productName": "Splash Corporal Watermelon x 100 ml",
+    "barcode": "677144890301",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-160939",
+    "timestamp": "2026-10-23T22:06:00.939Z",
+    "type": "ENTRADA",
+    "productId": "LV-1087",
+    "productName": "Splash Corporal Caramel Crush X 100 ml",
+    "barcode": "677144702185",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-036357",
+    "timestamp": "2026-10-23T22:03:56.357Z",
+    "type": "ENTRADA",
+    "productId": "LV-1086",
+    "productName": "Splash corporal Bubble Gum x 100 ml",
+    "barcode": "677144702208",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-925142",
+    "timestamp": "2026-10-23T22:02:05.142Z",
+    "type": "ENTRADA",
+    "productId": "LV-1085",
+    "productName": "Splash Corporal de maracuya x 100 ml",
+    "barcode": "677144890097",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-477894",
+    "timestamp": "2026-10-23T20:47:57.894Z",
+    "type": "ENTRADA",
+    "productId": "LV-1084",
+    "productName": "Splash Corporal birthday x 100 ml",
+    "barcode": "610985562976",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-321559",
+    "timestamp": "2026-10-23T20:45:21.559Z",
+    "type": "ENTRADA",
+    "productId": "LV-1083",
+    "productName": "Splash Corporal Piña Colada x 100 ml",
+    "barcode": "677144702192",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-134220",
+    "timestamp": "2026-10-23T20:42:14.220Z",
+    "type": "ENTRADA",
+    "productId": "LV-1082",
+    "productName": "Body Splash Sweet Candy",
+    "barcode": "7708931071412",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-777358",
+    "timestamp": "2026-10-23T20:19:37.358Z",
+    "type": "ENTRADA",
+    "productId": "LV-1081",
+    "productName": "Agua Micelar Todo en Uno X 100 ml",
+    "barcode": "3600542081160",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-483060",
+    "timestamp": "2026-10-23T19:58:03.060Z",
+    "type": "ENTRADA",
+    "productId": "LV-1080",
+    "productName": "Desmaquillador Bifasico",
+    "barcode": "7708080149017",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-274274",
+    "timestamp": "2026-10-23T19:54:34.274Z",
+    "type": "ENTRADA",
+    "productId": "LV-1079",
+    "productName": "Agua Micelar + pomos de Algodon",
+    "barcode": "7708080149352",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-915413",
+    "timestamp": "2026-10-23T19:48:35.413Z",
+    "type": "ENTRADA",
+    "productId": "LV-1078",
+    "productName": "Espuma Facial de Hamamelis",
+    "barcode": "788115817057",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-779318",
+    "timestamp": "2026-10-23T19:46:19.318Z",
+    "type": "ENTRADA",
+    "productId": "LV-1077",
+    "productName": "Espuma De Rosas Facil",
+    "barcode": "788115817040",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-243208",
+    "timestamp": "2026-10-23T19:37:23.208Z",
+    "type": "ENTRADA",
+    "productId": "LV-1076",
+    "productName": "Tonico facial de rosas + colageno",
+    "barcode": "788115817026",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-895296",
+    "timestamp": "2026-10-23T19:31:35.296Z",
+    "type": "ENTRADA",
+    "productId": "LV-1075",
+    "productName": "Espuma Desmaquillante lavable",
+    "barcode": "7700849375545",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-685270",
+    "timestamp": "2026-10-23T19:28:05.270Z",
+    "type": "ENTRADA",
+    "productId": "LV-1074",
+    "productName": "Desmaquillante bifasico Bob Esponja",
+    "barcode": "7709649401867",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-461580",
+    "timestamp": "2026-10-23T19:24:21.580Z",
+    "type": "ENTRADA",
+    "productId": "LV-1073",
+    "productName": "Agua micelar Pepino y Manzanilla",
+    "barcode": "736372988836",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-259303",
+    "timestamp": "2026-10-23T19:20:59.303Z",
+    "type": "ENTRADA",
+    "productId": "LV-1072",
+    "productName": "Gel hidratante Aloe Vera",
+    "barcode": "793969699988",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-098737",
+    "timestamp": "2026-10-23T18:28:18.737Z",
+    "type": "SALIDA",
+    "productId": "LV-1027",
+    "productName": "Shampoo de aji",
+    "barcode": "677144930236",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcáá)"
+  },
+  {
+    "id": "K-061069",
+    "timestamp": "2026-10-23T18:27:41.069Z",
+    "type": "ENTRADA",
+    "productId": "LV-1027",
+    "productName": "Shampoo de aji",
+    "barcode": "677144930236",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-001537",
+    "timestamp": "2026-10-23T18:26:41.537Z",
+    "type": "ENTRADA",
+    "productId": "LV-1071",
+    "productName": "bronceador con aceite de zanahoria",
+    "barcode": "7707416072500",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-993713",
+    "timestamp": "2026-10-23T18:26:33.713Z",
+    "type": "SALIDA",
+    "productId": "LV-1071",
+    "productName": "bronceador con aceite de zanahoria",
+    "barcode": "7707416072500",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Punto Físico",
+    "notes": ""
+  },
+  {
+    "id": "K-984432",
+    "timestamp": "2026-10-23T18:26:24.432Z",
+    "type": "ENTRADA",
+    "productId": "LV-1071",
+    "productName": "bronceador con aceite de zanahoria",
+    "barcode": "7707416072500",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-705318",
+    "timestamp": "2026-10-23T18:21:45.318Z",
+    "type": "ENTRADA",
+    "productId": "LV-1070",
+    "productName": "Serum revitalizante de puntas",
+    "barcode": "7708075180209",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-567347",
+    "timestamp": "2026-10-23T18:19:27.347Z",
+    "type": "ENTRADA",
+    "productId": "LV-1069",
+    "productName": "Shampoo linea profesional",
+    "barcode": "7709225678492",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-521332",
+    "timestamp": "2026-10-23T18:18:41.332Z",
+    "type": "ENTRADA",
+    "productId": "LV-1068",
+    "productName": "Acondicionador linea profesional",
+    "barcode": "7709225678416",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-446797",
+    "timestamp": "2026-10-23T18:17:26.797Z",
+    "type": "ENTRADA",
+    "productId": "LV-1067",
+    "productName": "MAscarilla capilar ancestral",
+    "barcode": "7709545457784",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-326929",
+    "timestamp": "2026-10-23T18:15:26.929Z",
+    "type": "ENTRADA",
+    "productId": "LV-1066",
+    "productName": "perfume mini citrico",
+    "barcode": "793969805525",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-288372",
+    "timestamp": "2026-10-23T18:14:48.372Z",
+    "type": "ENTRADA",
+    "productId": "LV-1065",
+    "productName": "Perfume mini dulce",
+    "barcode": "793969805495",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-155947",
+    "timestamp": "2026-10-23T18:12:35.947Z",
+    "type": "ENTRADA",
+    "productId": "LV-1064",
+    "productName": "Paleta ferias y fiestas",
+    "barcode": "6933494881258",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-090499",
+    "timestamp": "2026-10-23T18:11:30.499Z",
+    "type": "ENTRADA",
+    "productId": "LV-1063",
+    "productName": "Paleta de sombras",
+    "barcode": "6924372697825",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-968156",
+    "timestamp": "2026-10-23T18:09:28.156Z",
+    "type": "ENTRADA",
+    "productId": "LV-1062",
+    "productName": "Mantequilla rosada grande",
+    "barcode": "7709163330971",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-894471",
+    "timestamp": "2026-10-23T18:08:14.471Z",
+    "type": "ENTRADA",
+    "productId": "LV-1061",
+    "productName": "Splash grande rosado",
+    "barcode": "770895840830",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-651043",
+    "timestamp": "2026-10-23T18:04:11.043Z",
+    "type": "ENTRADA",
+    "productId": "LV-1060",
+    "productName": "Mantequilla corporal mini dorada",
+    "barcode": "7709507915529",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-607978",
+    "timestamp": "2026-10-23T18:03:27.978Z",
+    "type": "ENTRADA",
+    "productId": "LV-1059",
+    "productName": "Splash dorado pequeño",
+    "barcode": "7709507915567",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-458449",
+    "timestamp": "2026-10-23T18:00:58.449Z",
+    "type": "ENTRADA",
+    "productId": "LV-1058",
+    "productName": "Bloom porta cosmeticos",
+    "barcode": "770427842930",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-252463",
+    "timestamp": "2026-10-23T17:57:32.463Z",
+    "type": "ENTRADA",
+    "productId": "LV-1057",
+    "productName": "perfume grande bali",
+    "barcode": "7708075180537",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-193758",
+    "timestamp": "2026-10-23T17:56:33.758Z",
+    "type": "ENTRADA",
+    "productId": "LV-1056",
+    "productName": "Perfume grande majestuosa",
+    "barcode": "7708075180568",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-078329",
+    "timestamp": "2026-10-23T17:54:38.329Z",
+    "type": "SALIDA",
+    "productId": "LV-1027",
+    "productName": "Shampoo de aji",
+    "barcode": "677144930236",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Punto Físico",
+    "notes": ""
+  },
+  {
+    "id": "K-968060",
+    "timestamp": "2026-10-23T17:52:48.060Z",
+    "type": "ENTRADA",
+    "productId": "LV-1055",
+    "productName": "Perfume mini sublime",
+    "barcode": "7708075180872",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-909079",
+    "timestamp": "2026-10-23T17:51:49.079Z",
+    "type": "ENTRADA",
+    "productId": "LV-1054",
+    "productName": "Perfume mini bali",
+    "barcode": "7708075180452",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-870290",
+    "timestamp": "2026-10-23T17:51:10.290Z",
+    "type": "ENTRADA",
+    "productId": "LV-1053",
+    "productName": "Perfume mini martina",
+    "barcode": "7709225678423",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-798766",
+    "timestamp": "2026-10-23T17:49:58.766Z",
+    "type": "ENTRADA",
+    "productId": "LV-1052",
+    "productName": "Perfume mini majestuosa",
+    "barcode": "7707995679213",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-726899",
+    "timestamp": "2026-10-23T17:48:46.899Z",
+    "type": "ENTRADA",
+    "productId": "LV-1051",
+    "productName": "Perfume mini irresistible",
+    "barcode": "7708075180865",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-436530",
+    "timestamp": "2026-10-23T17:43:56.530Z",
+    "type": "ENTRADA",
+    "productId": "LV-1050",
+    "productName": "Acondicionador kids antinudos",
+    "barcode": "7708162555033",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-185447",
+    "timestamp": "2026-10-23T17:39:45.447Z",
+    "type": "ENTRADA",
+    "productId": "LV-1049",
+    "productName": "Shampoo control caspa",
+    "barcode": "7708162555163",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-119187",
+    "timestamp": "2026-10-23T17:38:39.187Z",
+    "type": "ENTRADA",
+    "productId": "LV-1048",
+    "productName": "Shampoo control caida",
+    "barcode": "7708162555934",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-050450",
+    "timestamp": "2026-10-23T17:37:30.450Z",
+    "type": "ENTRADA",
+    "productId": "LV-1047",
+    "productName": "Shampoo control grasa",
+    "barcode": "7708162555200",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-965078",
+    "timestamp": "2026-10-23T17:36:05.078Z",
+    "type": "ENTRADA",
+    "productId": "LV-1046",
+    "productName": "Shampoo kids anti-nudos",
+    "barcode": "7708162555712",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-908883",
+    "timestamp": "2026-10-23T17:35:08.883Z",
+    "type": "ENTRADA",
+    "productId": "LV-1045",
+    "productName": "Shampoo limpieza profunda",
+    "barcode": "7708162555231",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-161485",
+    "timestamp": "2026-10-23T00:59:21.485Z",
+    "type": "ENTRADA",
+    "productId": "LV-1044",
+    "productName": "mascarilla de leche y proteinas",
+    "barcode": "7709949388202",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-048306",
+    "timestamp": "2026-10-23T00:57:28.306Z",
+    "type": "ENTRADA",
+    "productId": "LV-1043",
+    "productName": "acondicionador de leche y proteinas",
+    "barcode": "7709360339395",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-976436",
+    "timestamp": "2026-10-23T00:56:16.436Z",
+    "type": "ENTRADA",
+    "productId": "LV-1042",
+    "productName": "Shampoo de leche y proteinas",
+    "barcode": "87709360339302",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-829457",
+    "timestamp": "2026-10-23T00:53:49.457Z",
+    "type": "ENTRADA",
+    "productId": "LV-1041",
+    "productName": "Tonico capilar de aji",
+    "barcode": "7709828395680",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-484151",
+    "timestamp": "2026-10-23T00:48:04.151Z",
+    "type": "ENTRADA",
+    "productId": "LV-1040",
+    "productName": "Keratina mediana",
+    "barcode": "770770202507",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-335327",
+    "timestamp": "2026-10-23T00:45:35.327Z",
+    "type": "ENTRADA",
+    "productId": "LV-1039",
+    "productName": "Perfume capilar golden toffe",
+    "barcode": "7709268279694",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-289649",
+    "timestamp": "2026-10-23T00:44:49.649Z",
+    "type": "ENTRADA",
+    "productId": "LV-1038",
+    "productName": "Perfume capilar vainilla glaze",
+    "barcode": "7709268279625",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-256991",
+    "timestamp": "2026-10-23T00:44:16.991Z",
+    "type": "ENTRADA",
+    "productId": "LV-1037",
+    "productName": "Perfume capilar mocca shake",
+    "barcode": "7709268279656",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-168170",
+    "timestamp": "2026-10-23T00:42:48.170Z",
+    "type": "ENTRADA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-039936",
+    "timestamp": "2026-10-23T00:40:39.936Z",
+    "type": "ENTRADA",
+    "productId": "LV-1035",
+    "productName": "Perfume capilar miel",
+    "barcode": "793969805563",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-813882",
+    "timestamp": "2026-10-23T00:36:53.882Z",
+    "type": "ENTRADA",
+    "productId": "LV-1034",
+    "productName": "Mini miel capilar",
+    "barcode": "793969805600",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-707180",
+    "timestamp": "2026-10-23T00:35:07.180Z",
+    "type": "ENTRADA",
+    "productId": "LV-1033",
+    "productName": "Miel para el cabello",
+    "barcode": "781718679428",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-555178",
+    "timestamp": "2026-10-23T00:32:35.178Z",
+    "type": "SALIDA",
+    "productId": "LV-1032",
+    "productName": "Termoprotector bifasico leche y miel",
+    "barcode": "7709268279632",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-546101",
+    "timestamp": "2026-10-23T00:32:26.101Z",
+    "type": "ENTRADA",
+    "productId": "LV-1032",
+    "productName": "Termoprotector bifasico leche y miel",
+    "barcode": "7709268279632",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-526150",
+    "timestamp": "2026-10-23T00:32:06.150Z",
+    "type": "ENTRADA",
+    "productId": "LV-1032",
+    "productName": "Termoprotector bifasico leche y miel",
+    "barcode": "7709268279632",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-367979",
+    "timestamp": "2026-10-23T00:29:27.979Z",
+    "type": "ENTRADA",
+    "productId": "LV-1031",
+    "productName": "Mascarilla de miel",
+    "barcode": "799192109164",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-442173",
+    "timestamp": "2026-10-23T00:14:02.173Z",
+    "type": "ENTRADA",
+    "productId": "LV-1008",
+    "productName": "Perfume capilar mil deseos",
+    "barcode": "634240138126",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-840827",
+    "timestamp": "2026-10-23T00:04:00.827Z",
+    "type": "ENTRADA",
+    "productId": "LV-1030",
+    "productName": "Acondicionador de miel",
+    "barcode": "0793969805570",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-733901",
+    "timestamp": "2026-10-23T00:02:13.901Z",
+    "type": "ENTRADA",
+    "productId": "LV-1029",
+    "productName": "shampoo de miel",
+    "barcode": "7709076081885",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-627394",
+    "timestamp": "2026-10-23T00:00:27.394Z",
+    "type": "ENTRADA",
+    "productId": "LV-1028",
+    "productName": "Acondicionar de aji",
+    "barcode": "793969805648",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-524623",
+    "timestamp": "2026-10-22T23:58:44.623Z",
+    "type": "ENTRADA",
+    "productId": "LV-1027",
+    "productName": "Shampoo de aji",
+    "barcode": "677144930236",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-349086",
+    "timestamp": "2026-10-22T23:55:49.086Z",
+    "type": "ENTRADA",
+    "productId": "LV-1002",
+    "productName": "Acondicionador de miel",
+    "barcode": "634240468599",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-348090",
+    "timestamp": "2026-10-22T23:55:48.090Z",
+    "type": "ENTRADA",
+    "productId": "LV-1001",
+    "productName": "Shampoo miel rosada",
+    "barcode": "634240468582",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-305317",
+    "timestamp": "2026-10-22T23:55:05.317Z",
+    "type": "ENTRADA",
+    "productId": "LV-1026",
+    "productName": "Tratamiento de arroz",
+    "barcode": "7707936213087",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-182557",
+    "timestamp": "2026-10-22T23:53:02.557Z",
+    "type": "SALIDA",
+    "productId": "LV-1001",
+    "productName": "Shampoo miel rosada",
+    "barcode": "634240468582",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcáá)"
+  },
+  {
+    "id": "K-111970",
+    "timestamp": "2026-10-22T23:51:51.970Z",
+    "type": "ENTRADA",
+    "productId": "LV-1025",
+    "productName": "Acondicionador de arroz",
+    "barcode": "7709071982170",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-975902",
+    "timestamp": "2026-10-22T23:49:35.902Z",
+    "type": "ENTRADA",
+    "productId": "LV-1024",
+    "productName": "acondicionador de arroz",
+    "barcode": "7709071982132",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-761182",
+    "timestamp": "2026-10-22T23:46:01.182Z",
+    "type": "ENTRADA",
+    "productId": "LV-1023",
+    "productName": "Shampoo de arroz, avena y linaza",
+    "barcode": "7707936213148",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-675086",
+    "timestamp": "2026-10-22T23:44:35.086Z",
+    "type": "ENTRADA",
+    "productId": "LV-1022",
+    "productName": "acondicionador de algodon y coco",
+    "barcode": "7707936213070",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-594839",
+    "timestamp": "2026-10-22T23:43:14.839Z",
+    "type": "ENTRADA",
+    "productId": "LV-1021",
+    "productName": "Shampoo coco, canela y miel",
+    "barcode": "7707936213926",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-526426",
+    "timestamp": "2026-10-22T23:42:06.426Z",
+    "type": "ENTRADA",
+    "productId": "LV-1020",
+    "productName": "Shampoo de cebolla y jengibre",
+    "barcode": "7709997426468",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-768106",
+    "timestamp": "2026-10-22T23:29:28.106Z",
+    "type": "ENTRADA",
+    "productId": "LV-1019",
+    "productName": "Termoprotector rosado",
+    "barcode": "0770790101200",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-713247",
+    "timestamp": "2026-10-22T23:28:33.247Z",
+    "type": "ENTRADA",
+    "productId": "LV-1018",
+    "productName": "Termoprotector azul",
+    "barcode": "0770795771200",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-632950",
+    "timestamp": "2026-10-22T23:27:12.950Z",
+    "type": "ENTRADA",
+    "productId": "LV-1017",
+    "productName": "Termoprotector mini",
+    "barcode": "07700791501535",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-563796",
+    "timestamp": "2026-10-22T23:26:03.796Z",
+    "type": "ENTRADA",
+    "productId": "LV-1016",
+    "productName": "Mascarilla bomba botanica",
+    "barcode": "0770729914000",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-478563",
+    "timestamp": "2026-10-22T23:24:38.563Z",
+    "type": "ENTRADA",
+    "productId": "LV-1015",
+    "productName": "Mantequilla perfumada",
+    "barcode": "770710192400",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-291641",
+    "timestamp": "2026-10-22T23:21:31.641Z",
+    "type": "ENTRADA",
+    "productId": "LV-1014",
+    "productName": "Shampoo romero y eucalipto",
+    "barcode": "770170084000",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-159875",
+    "timestamp": "2026-10-22T23:19:19.875Z",
+    "type": "ENTRADA",
+    "productId": "LV-1013",
+    "productName": "shampoo cebolla y argan",
+    "barcode": "0770700724000",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-056794",
+    "timestamp": "2026-10-22T23:17:36.794Z",
+    "type": "ENTRADA",
+    "productId": "LV-1012",
+    "productName": "Shampoo de menta y aji",
+    "barcode": "0770700964000",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-993214",
+    "timestamp": "2026-10-22T23:16:33.214Z",
+    "type": "ENTRADA",
+    "productId": "LV-1011",
+    "productName": "Shampoo jalea real",
+    "barcode": "7708946977105",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-928331",
+    "timestamp": "2026-10-22T23:15:28.331Z",
+    "type": "ENTRADA",
+    "productId": "LV-1010",
+    "productName": "Tratamiento jalea real",
+    "barcode": "07709374293881",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-918019",
+    "timestamp": "2026-10-22T23:15:18.019Z",
+    "type": "ENTRADA",
+    "productId": "LV-1010",
+    "productName": "Tratamiento jalea real",
+    "barcode": "07709374293881",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-836913",
+    "timestamp": "2026-10-22T23:13:56.913Z",
+    "type": "ENTRADA",
+    "productId": "LV-1009",
+    "productName": "Tratamiento plex",
+    "barcode": "0770472104000",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-758176",
+    "timestamp": "2026-10-22T23:12:38.176Z",
+    "type": "ENTRADA",
+    "productId": "LV-1008",
+    "productName": "Perfume capilar mil deseos",
+    "barcode": "634240138126",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-724258",
+    "timestamp": "2026-10-22T23:12:04.258Z",
+    "type": "ENTRADA",
+    "productId": "LV-1007",
+    "productName": "Perfume capilar candy",
+    "barcode": "0634240138126",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepción Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-711071",
+    "timestamp": "2026-10-22T23:11:51.071Z",
+    "type": "ENTRADA",
+    "productId": "LV-1007",
+    "productName": "Perfume capilar candy",
+    "barcode": "0634240138126",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-482030",
+    "timestamp": "2026-10-22T23:08:02.030Z",
+    "type": "ENTRADA",
+    "productId": "LV-1006",
+    "productName": "Mascarilla miel rosada",
+    "barcode": "634240384974",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-180997",
+    "timestamp": "2026-10-22T23:03:00.997Z",
+    "type": "ENTRADA",
+    "productId": "LV-1005",
+    "productName": "Mascarilla chocolate rosado",
+    "barcode": "634240480492",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catálogo"
+  },
+  {
+    "id": "K-021039",
+    "timestamp": "2026-10-22T22:43:41.039Z",
+    "type": "ENTRADA",
+    "productId": "LV-1004",
+    "productName": "Shampoo chocolate rosado",
+    "barcode": "0634240480508",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto"
+  },
+  {
+    "id": "K-909276",
+    "timestamp": "2026-10-22T22:41:49.276Z",
+    "type": "ENTRADA",
+    "productId": "LV-1003",
+    "productName": "Acondicionador de chocolate",
+    "barcode": "6634240480515",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto"
+  },
+  {
+    "id": "K-716812",
+    "timestamp": "2026-10-22T22:38:36.812Z",
+    "type": "ENTRADA",
+    "productId": "LV-1002",
+    "productName": "Acondicionador de miel",
+    "barcode": "634240468599",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto"
+  },
+  {
+    "id": "K-265844",
+    "timestamp": "2026-10-22T22:31:05.844Z",
+    "type": "ENTRADA",
+    "productId": "LV-1001",
+    "productName": "Shampoo miel",
+    "barcode": "634240468582",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rápido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-218051",
+    "timestamp": "2026-10-22T22:30:18.051Z",
+    "type": "SALIDA",
+    "productId": "LV-1001",
+    "productName": "Shampoo miel",
+    "barcode": "634240468582",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcáá)"
+  },
+  {
+    "id": "K-133361",
+    "timestamp": "2026-10-22T22:28:53.361Z",
+    "type": "ENTRADA",
+    "productId": "LV-1001",
+    "productName": "Shampoo miel",
+    "barcode": "634240468582",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto"
+  },
+  {
+    "id": "K-418445",
+    "timestamp": "2026-10-21T21:16:58.445Z",
+    "type": "SALIDA",
+    "productId": "LV-1004",
+    "productName": "Producto Sin Nombre",
+    "barcode": "770170779524",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rápida Catálogo",
+    "notes": ""
+  },
+  {
+    "id": "K-364214",
+    "timestamp": "2026-10-21T20:26:04.214Z",
+    "type": "SALIDA",
+    "productId": "LV-1001",
+    "productName": "Tinta Labial Velvet Larga Duración",
+    "barcode": "770123456001",
+    "quantity": 1,
+    "prevStock": 9,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcáá)"
+  },
+  {
+    "id": "K-132552",
+    "timestamp": "2026-10-21T19:32:12.552Z",
+    "type": "SALIDA",
+    "productId": "LV-1001",
+    "productName": "Tinta Labial Velvet Larga Duración",
+    "barcode": "770123456001",
+    "quantity": 1,
+    "prevStock": 10,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Venta Punto Físico",
+    "notes": ""
+  },
+  {
+    "id": "K-040126",
+    "timestamp": "2026-10-21T19:30:40.126Z",
+    "type": "SALIDA",
+    "productId": "LV-1001",
+    "productName": "Tinta Labial Velvet Larga Duración",
+    "barcode": "770123456001",
+    "quantity": 1,
+    "prevStock": 11,
+    "newStock": 10,
+    "user": "Laura",
+    "reason": "Venta Punto Físico",
+    "notes": ""
+  },
+  {
+    "id": "K-031597",
+    "timestamp": "2026-10-21T19:30:31.597Z",
+    "type": "SALIDA",
+    "productId": "LV-1001",
+    "productName": "Tinta Labial Velvet Larga Duración",
+    "barcode": "770123456001",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Venta Punto Físico",
+    "notes": ""
+  },
+  {
+    "id": "K-002",
+    "timestamp": "2026-10-20T23:26:24.689Z",
+    "type": "SALIDA",
+    "productId": "LV-1002",
+    "productName": "Gel Hidratante Facial con Áácido Hialurónico",
+    "barcode": "770123456002",
+    "quantity": 2,
+    "prevStock": 10,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Venta Punto Físico",
+    "notes": "Venta asesorada en boutique Calarcáá"
+  },
+  {
+    "id": "K-001",
+    "timestamp": "2026-10-20T20:26:24.689Z",
+    "type": "ENTRADA",
+    "productId": "LV-1002",
+    "productName": "Gel Hidratante Facial con Áácido Hialurónico",
+    "barcode": "770123456002",
+    "quantity": 10,
+    "prevStock": 0,
+    "newStock": 10,
+    "user": "Amanda",
+    "reason": "Recepción Proveedor",
+    "notes": "Pedido mayorista Girly"
+  }
+];
+
+const INITIAL_SALES = [
+  {
+    "id": "TKT-588624",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-06T00:39:48.624Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1342",
+        "name": "Rubor en polvo tono 01",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "764451296220",
+        "price": 15000,
+        "cost": 7000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1456",
+        "name": "Beauty blender",
+        "brand": "Anik",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "7707559883292",
+        "price": 7000,
+        "cost": 3817,
+        "quantity": 1,
+        "stockAvailable": 48
+      },
+      {
+        "productId": "LV-1310",
+        "name": "Corrector liquido tono 05",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "736372668660",
+        "price": 18000,
+        "cost": 9500,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1084",
+        "name": "Splash Corporal birthday x 100 ml",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "610985562976",
+        "price": 19000,
+        "cost": 11000,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 4,
+    "subtotal": 59000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 59000,
+    "cashReceived": 100000,
+    "cashChange": 41000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-469057",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-06T00:21:09.057Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Nequi",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1056",
+        "name": "Perfume grande majestuosa",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7708075180568",
+        "price": 34000,
+        "cost": 20520,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 34000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 34000,
+    "cashReceived": 34000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-945951",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-06T00:12:25.951Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1117",
+        "name": "Kit corporal x3 sweet cherry",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144889794",
+        "price": 44000,
+        "cost": 28000,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 44000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 44000,
+    "cashReceived": 44000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-679266",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-06T00:07:59.266Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1254",
+        "name": "Base 2 en 1 tono 03",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559882387",
+        "price": 44000,
+        "cost": 28200,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1314",
+        "name": "Corrector XL tono 02",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525389",
+        "price": 37000,
+        "cost": 21000,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1544",
+        "name": "Libro de 640 pestañas punto a punto 30d, 40d y 50d",
+        "brand": "Pestañas",
+        "category": "Maquillaje",
+        "barcode": "293456844252",
+        "price": 35000,
+        "cost": 15000,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 116000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 116000,
+    "cashReceived": 116000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-513035",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T23:48:33.035Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "3148711572",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Nequi",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1264",
+        "name": "Base mate tono 02",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "736372668547",
+        "price": 28000,
+        "cost": 14950,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1288",
+        "name": "Bloom lamination",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6973327787371",
+        "price": 18000,
+        "cost": 8200,
+        "quantity": 1,
+        "stockAvailable": 51
+      },
+      {
+        "productId": "LV-1308",
+        "name": "Corrector liquido tono 03",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "736372668646",
+        "price": 18000,
+        "cost": 9500,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1419",
+        "name": "Brillo aura tono 03",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7709631138788",
+        "price": 20000,
+        "cost": 10000,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 4,
+    "subtotal": 84000,
+    "discountType": "pct",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 84000,
+    "cashReceived": 84000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-086982",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T23:08:06.982Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1095",
+        "name": "Splash nuevo x200ml Bubble gum",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "793969700042",
+        "price": 29000,
+        "cost": 17000,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 29000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 29000,
+    "cashReceived": 50000,
+    "cashChange": 21000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-058044",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T23:07:38.044Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1301",
+        "name": "Pestañina profesional silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430130",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1418",
+        "name": "Brillo aura tono 01",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7709311675497",
+        "price": 20000,
+        "cost": 10000,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1375",
+        "name": "Corrector XL tono 03",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525396",
+        "price": 37000,
+        "cost": 21500,
+        "quantity": 1,
+        "stockAvailable": 13
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 77000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 77000,
+    "cashReceived": 100000,
+    "cashChange": 23000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-960387",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T23:06:00.387Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1314",
+        "name": "Corrector XL tono 02",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525389",
+        "price": 37000,
+        "cost": 21000,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 37000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 37000,
+    "cashReceived": 37000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-943335",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T23:05:43.335Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1474",
+        "name": "Beauty blender pequeña con cortes",
+        "brand": "Ruby face",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "6972547656184",
+        "price": 5000,
+        "cost": 2400,
+        "quantity": 1,
+        "stockAvailable": 11
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 5000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 5000,
+    "cashReceived": 5000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-556393",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T22:59:16.393Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1382",
+        "name": "Base semi mate tono 4,5",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524740",
+        "price": 38000,
+        "cost": 20500,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1406",
+        "name": "Tinta bloom bombon",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6903072492398",
+        "price": 18000,
+        "cost": 10000,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1357",
+        "name": "Velvet crush x3 tono 03",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482527093",
+        "price": 39000,
+        "cost": 23000,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1333",
+        "name": "Iluminador tono golden",
+        "brand": "Montoc",
+        "category": "Maquillaje",
+        "barcode": "736372979278",
+        "price": 42000,
+        "cost": 24000,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1498",
+        "name": "Brocha doble para polvo y rubor DB01",
+        "brand": "Atenea",
+        "category": "Maquillaje",
+        "barcode": "7707375603616",
+        "price": 34000,
+        "cost": 17800,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1035",
+        "name": "Perfume capilar miel",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "793969805563",
+        "price": 60000,
+        "cost": 38285,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1284",
+        "name": "Flushy blushy tono 04 that girl",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559883810",
+        "price": 29000,
+        "cost": 17000,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1527",
+        "name": "Corrector 1st scene tono 03 Vanilla",
+        "brand": "Atenea",
+        "category": "Maquillaje",
+        "barcode": "7707375604132",
+        "price": 45000,
+        "cost": 25700,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1034",
+        "name": "Mini miel capilar",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "793969805600",
+        "price": 31000,
+        "cost": 19095,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1288",
+        "name": "Bloom lamination",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6973327787371",
+        "price": 18000,
+        "cost": 8200,
+        "quantity": 1,
+        "stockAvailable": 52
+      },
+      {
+        "productId": "LV-1462",
+        "name": "Delineador de labios tono clear wine",
+        "brand": "Atenea",
+        "category": "Maquillaje",
+        "barcode": "736372667144",
+        "price": 14000,
+        "cost": 7400,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1418",
+        "name": "Brillo aura tono 01",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7709311675497",
+        "price": 20000,
+        "cost": 10000,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1390",
+        "name": "Polvo suelto soft powder x10g",
+        "brand": "Montoc",
+        "category": "Maquillaje",
+        "barcode": "736372977403",
+        "price": 37000,
+        "cost": 20900,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1243",
+        "name": "Polvo 4 tonos grande",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524610",
+        "price": 40000,
+        "cost": 24900,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1298",
+        "name": "Pestañina microfibra",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430352",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 13
+      }
+    ],
+    "totalUnits": 15,
+    "subtotal": 485000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 485000,
+    "cashReceived": 485000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-332167",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T22:05:32.167Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1244",
+        "name": "Polvo suelto traslucido",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "7707375600530",
+        "price": 18000,
+        "cost": 8700,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 18000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 18000,
+    "cashReceived": 20000,
+    "cashChange": 2000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-021919",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T21:43:41.919Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Nequi",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1369",
+        "name": "Corrector mediano tono 04",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525495",
+        "price": 23500,
+        "cost": 13500,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1298",
+        "name": "Pestañina microfibra",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430352",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 14
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 43500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 43500,
+    "cashReceived": 43500,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-470448",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T21:34:30.448Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1369",
+        "name": "Corrector mediano tono 04",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525495",
+        "price": 23500,
+        "cost": 13500,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 23500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 23500,
+    "cashReceived": 25000,
+    "cashChange": 1500,
+    "notes": ""
+  },
+  {
+    "id": "TKT-065748",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T21:27:45.748Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Nequi",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1390",
+        "name": "Polvo suelto soft powder x10g",
+        "brand": "Montoc",
+        "category": "Maquillaje",
+        "barcode": "736372977403",
+        "price": 37000,
+        "cost": 20900,
+        "quantity": 1,
+        "stockAvailable": 6
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 37000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 37000,
+    "cashReceived": 37000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-930590",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T20:35:30.590Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1307",
+        "name": "Corrector liquido tono 01 bone",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559883605",
+        "price": 23500,
+        "cost": 13500,
+        "quantity": 1,
+        "stockAvailable": 7
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 23500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 23500,
+    "cashReceived": 25000,
+    "cashChange": 1500,
+    "notes": ""
+  },
+  {
+    "id": "TKT-470914",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T20:11:10.914Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Nequi",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1297",
+        "name": "Pestañina maxi volumen silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430147",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 14
+      },
+      {
+        "productId": "LV-1288",
+        "name": "Bloom lamination",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6973327787371",
+        "price": 18000,
+        "cost": 8200,
+        "quantity": 1,
+        "stockAvailable": 53
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 38000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 38000,
+    "cashReceived": 38000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-677268",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T19:57:57.268Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1440",
+        "name": "Lip gloss con destellos",
+        "brand": "Sagui",
+        "category": "Maquillaje",
+        "barcode": "6975649922836",
+        "price": 12000,
+        "cost": 6200,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1314",
+        "name": "Corrector XL tono 02",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525389",
+        "price": 37000,
+        "cost": 21000,
+        "quantity": 1,
+        "stockAvailable": 6
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 49000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 49000,
+    "cashReceived": 50000,
+    "cashChange": 1000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-783547",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T18:03:03.547Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1375",
+        "name": "Corrector XL tono 03",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525396",
+        "price": 37000,
+        "cost": 21500,
+        "quantity": 1,
+        "stockAvailable": 14
+      },
+      {
+        "productId": "LV-1549",
+        "name": "Polvo suelto 4 tonos",
+        "brand": "Majikal",
+        "category": "Maquillaje",
+        "barcode": "770990476399",
+        "price": 48000,
+        "cost": 23000,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 85000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 85000,
+    "cashReceived": 100000,
+    "cashChange": 15000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-130219",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-05T17:35:30.219Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1240",
+        "name": "Polvo suelto traslucido",
+        "brand": "Samy",
+        "category": "Maquillaje",
+        "barcode": "7703378749528",
+        "price": 24000,
+        "cost": 14700,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 24000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 24000,
+    "cashReceived": 24000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-704262",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-04T23:25:04.262Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1072",
+        "name": "Gel hidratante Aloe Vera",
+        "brand": "Purpure",
+        "category": "Skincare",
+        "barcode": "793969699988",
+        "price": 29000,
+        "cost": 15200,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 29000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 29000,
+    "cashReceived": 30000,
+    "cashChange": 1000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-512229",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-04T22:31:52.229Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1209",
+        "name": "Pestañas punto a punto 20d",
+        "brand": "Sackvis",
+        "category": "Maquillaje",
+        "barcode": "275949320677",
+        "price": 8500,
+        "cost": 2150,
+        "quantity": 1,
+        "stockAvailable": 7
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 8500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 8500,
+    "cashReceived": 10000,
+    "cashChange": 1500,
+    "notes": ""
+  },
+  {
+    "id": "TKT-462521",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-04T22:31:02.521Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1224",
+        "name": "Bloom beige eye liner pencil",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6972630571035",
+        "price": 10000,
+        "cost": 4200,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1209",
+        "name": "Pestañas punto a punto 20d",
+        "brand": "Sackvis",
+        "category": "Maquillaje",
+        "barcode": "275949320677",
+        "price": 8500,
+        "cost": 2150,
+        "quantity": 1,
+        "stockAvailable": 8
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 18500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 18500,
+    "cashReceived": 20000,
+    "cashChange": 1500,
+    "notes": ""
+  },
+  {
+    "id": "TKT-574262",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-04T21:42:54.262Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1302",
+        "name": "Contorno en barra",
+        "brand": "Alissha",
+        "category": "Maquillaje",
+        "barcode": "6924372682838",
+        "price": 18000,
+        "cost": 9310,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1338",
+        "name": "Iluminador tono 05",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "7707375602930",
+        "price": 16000,
+        "cost": 8400,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1361",
+        "name": "Rubor en polvo tono 05 kitty",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559884428",
+        "price": 20000,
+        "cost": 12000,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 54000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 54000,
+    "cashReceived": 100000,
+    "cashChange": 46000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-705468",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-04T20:55:05.468Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1150",
+        "name": "Fijador en aerosol pequeño",
+        "brand": "Sagui",
+        "category": "Maquillaje",
+        "barcode": "7120250620001",
+        "price": 33000,
+        "cost": 19190,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1115",
+        "name": "Kit corporal x4 Rose lychee",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "6677144889749",
+        "price": 55000,
+        "cost": 34000,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 88000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 88000,
+    "cashReceived": 100000,
+    "cashChange": 12000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-729801",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-04T20:05:29.802Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1197",
+        "name": "Kit facial mini de rosas y acido hialuronico",
+        "brand": "Bioaqua",
+        "category": "Corporal",
+        "barcode": "6942581709580",
+        "price": 26000,
+        "cost": 12500,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 26000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 26000,
+    "cashReceived": 50000,
+    "cashChange": 24000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-643829",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-04T19:47:23.829Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1289",
+        "name": "gel de cejas",
+        "brand": "Melu",
+        "category": "Maquillaje",
+        "barcode": "6932159607745",
+        "price": 21000,
+        "cost": 11800,
+        "quantity": 1,
+        "stockAvailable": 14
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 21000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 21000,
+    "cashReceived": 21000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-797640",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-04T18:59:57.640Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1297",
+        "name": "Pestañina maxi volumen silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430147",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 15
+      },
+      {
+        "productId": "LV-1301",
+        "name": "Pestañina profesional silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430130",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1370",
+        "name": "Corrector mediano tono 05",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525518",
+        "price": 23500,
+        "cost": 13500,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 63500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 63500,
+    "cashReceived": 100000,
+    "cashChange": 36500,
+    "notes": ""
+  },
+  {
+    "id": "TKT-494273",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-04T18:54:54.273Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1398",
+        "name": "Keratina x120ml pequeña",
+        "brand": "Origen Botánico",
+        "category": "Maquillaje",
+        "barcode": "770770301200",
+        "price": 37000,
+        "cost": 25175,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1297",
+        "name": "Pestañina maxi volumen silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430147",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 16
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 57000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 57000,
+    "cashReceived": 100000,
+    "cashChange": 43000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-362541",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-04T18:19:22.541Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1489",
+        "name": "Brocha minimi para rubor",
+        "brand": "Montoc",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "736372978547",
+        "price": 22000,
+        "cost": 13200,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1357",
+        "name": "Velvet crush x3 tono 03",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482527093",
+        "price": 39000,
+        "cost": 23000,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 61000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 61000,
+    "cashReceived": 100000,
+    "cashChange": 39000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-588516",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-03T23:13:08.516Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1117",
+        "name": "Kit corporal x3 sweet cherry",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144889794",
+        "price": 44000,
+        "cost": 28000,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 44000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 44000,
+    "cashReceived": 44000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-905314",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-03T23:01:45.314Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1146",
+        "name": "Fijador de gelatina toy story",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7709092350927",
+        "price": 30000,
+        "cost": 18000,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1376",
+        "name": "Corrector XL tono 04",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525402",
+        "price": 37000,
+        "cost": 21500,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1297",
+        "name": "Pestañina maxi volumen silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430147",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 17
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 87000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 87000,
+    "cashReceived": 100000,
+    "cashChange": 13000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-167999",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-03T22:16:07.999Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1052",
+        "name": "Perfume mini majestuosa",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7707995679213",
+        "price": 12900,
+        "cost": 7505,
+        "quantity": 2,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1108",
+        "name": "Mantequilla x220ml Sweet lychee",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "7708970723464",
+        "price": 28000,
+        "cost": 16500,
+        "quantity": 1,
+        "stockAvailable": 4
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 53800,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 53800,
+    "cashReceived": 53800,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-749090",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-03T22:09:09.090Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1336",
+        "name": "Iluminador tono 02",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "7707375602022",
+        "price": 16000,
+        "cost": 8360,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1172",
+        "name": "Gel hidratante con aloe vera",
+        "brand": "Girly",
+        "category": "Skincare",
+        "barcode": "7708453335610",
+        "price": 34000,
+        "cost": 21090,
+        "quantity": 1,
+        "stockAvailable": 6
+      },
+      {
+        "productId": "LV-1447",
+        "name": "Lip gloss bloom rolon",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6924372689646",
+        "price": 18000,
+        "cost": 10200,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1142",
+        "name": "Fijador dixy fix x80ml",
+        "brand": "Montoc",
+        "category": "Maquillaje",
+        "barcode": "658325384260",
+        "price": 44500,
+        "cost": 25650,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1076",
+        "name": "Tonico facial de rosas + colageno",
+        "brand": "Purpure",
+        "category": "Skincare",
+        "barcode": "788115817026",
+        "price": 18900,
+        "cost": 10200,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1297",
+        "name": "Pestañina maxi volumen silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430147",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 18
+      },
+      {
+        "productId": "LV-1387",
+        "name": "Llavero bloom me espejo",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6972630571509",
+        "price": 28500,
+        "cost": 15900,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 7,
+    "subtotal": 179900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 179900,
+    "cashReceived": 179900,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-601016",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-03T18:30:01.016Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1064",
+        "name": "Paleta ferias y fiestas",
+        "brand": "Engol",
+        "category": "Maquillaje",
+        "barcode": "6933494881258",
+        "price": 45000,
+        "cost": 18050,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1366",
+        "name": "Rubor cuadrado sublime tono sundown",
+        "brand": "Atenea",
+        "category": "Maquillaje",
+        "barcode": "7709783386464",
+        "price": 41000,
+        "cost": 24000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1316",
+        "name": "Corrector pequeño tono 01",
+        "brand": "Majikal",
+        "category": "Maquillaje",
+        "barcode": "770703520378",
+        "price": 35000,
+        "cost": 23370,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 121000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 121000,
+    "cashReceived": 122000,
+    "cashChange": 1000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-523588",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-03T17:05:23.588Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1242",
+        "name": "Polvo suelto traslucido",
+        "brand": "Elaya",
+        "category": "Maquillaje",
+        "barcode": "7708970965444",
+        "price": 20000,
+        "cost": 11500,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1311",
+        "name": "Corrector liquido",
+        "brand": "Dolce bella",
+        "category": "Maquillaje",
+        "barcode": "7708951146794",
+        "price": 18000,
+        "cost": 10200,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1384",
+        "name": "Base semi mate tono 05",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524764",
+        "price": 38000,
+        "cost": 20500,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1477",
+        "name": "Kit de cejas doble tono 03",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "770989794989",
+        "price": 25000,
+        "cost": 13600,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 4,
+    "subtotal": 101000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 101000,
+    "cashReceived": 101000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-247675",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-03T17:00:47.675Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1011",
+        "name": "Shampoo jalea real",
+        "brand": "Origen Botánico",
+        "category": "Capilar",
+        "barcode": "7708946977105",
+        "price": 38000,
+        "cost": 28120,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 38000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 38000,
+    "cashReceived": 38000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-791971",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T23:39:51.971Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1286",
+        "name": "Frezee babes",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559882608",
+        "price": 22000,
+        "cost": 12500,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 22000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 22000,
+    "cashReceived": 22000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-158311",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T23:29:18.311Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1301",
+        "name": "Pestañina profesional silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430130",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 6
+      },
+      {
+        "productId": "LV-1216",
+        "name": "Polvo base",
+        "brand": "Piel canela",
+        "category": "Maquillaje",
+        "barcode": "770358036422",
+        "price": 34000,
+        "cost": 24900,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 54000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 54000,
+    "cashReceived": 54000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-581339",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T22:46:21.339Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1244",
+        "name": "Polvo suelto traslucido",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "7707375600530",
+        "price": 18000,
+        "cost": 8700,
+        "quantity": 1,
+        "stockAvailable": 0
+      },
+      {
+        "productId": "LV-1264",
+        "name": "Base mate tono 02",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "736372668547",
+        "price": 28000,
+        "cost": 14950,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 46000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 46000,
+    "cashReceived": 46000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-301328",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T22:08:21.328Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1233",
+        "name": "Polvo suelto traslucido",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559880031",
+        "price": 37000,
+        "cost": 21701,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 37000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 37000,
+    "cashReceived": 100000,
+    "cashChange": 63000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-359024",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T21:52:39.024Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1230",
+        "name": "Polvo suelto traslucido x9g",
+        "brand": "Atenea",
+        "category": "Maquillaje",
+        "barcode": "734191428687",
+        "price": 37000,
+        "cost": 22000,
+        "quantity": 2,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 74000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 74000,
+    "cashReceived": 100000,
+    "cashChange": 26000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-148969",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T20:59:08.969Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1292",
+        "name": "Pestañina Eternal lash",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559889874",
+        "price": 24000,
+        "cost": 13300,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 24000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 24000,
+    "cashReceived": 24000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-749887",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T20:52:29.887Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1076",
+        "name": "Tonico facial de rosas + colageno",
+        "brand": "Purpure",
+        "category": "Skincare",
+        "barcode": "788115817026",
+        "price": 18900,
+        "cost": 10200,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 18900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 18900,
+    "cashReceived": 20000,
+    "cashChange": 1100,
+    "notes": ""
+  },
+  {
+    "id": "TKT-294137",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T20:44:54.137Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1037",
+        "name": "Perfume capilar mocca shake",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "7709268279656",
+        "price": 40000,
+        "cost": 25659,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1385",
+        "name": "Base semi mate tono 06",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524771",
+        "price": 38000,
+        "cost": 20500,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1368",
+        "name": "Corrector mini tono 03",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482516530",
+        "price": 14000,
+        "cost": 7900,
+        "quantity": 1,
+        "stockAvailable": 8
+      },
+      {
+        "productId": "LV-1448",
+        "name": "Lip balm bloom gelee",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6924372689516",
+        "price": 18000,
+        "cost": 9300,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1344",
+        "name": "Paleta de sombras tono iris",
+        "brand": "Montoc",
+        "category": "Maquillaje",
+        "barcode": "736372979841",
+        "price": 39000,
+        "cost": 21500,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1125",
+        "name": "Bloom essential cream",
+        "brand": "Bloomshell",
+        "category": "Skincare",
+        "barcode": "8809801696359",
+        "price": 59000,
+        "cost": 33820,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1143",
+        "name": "Fijador dixy fix x30ml",
+        "brand": "Montoc",
+        "category": "Maquillaje",
+        "barcode": "736372978363",
+        "price": 29000,
+        "cost": 16530,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1444",
+        "name": "Lip gloss pop",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "677144890240",
+        "price": 18000,
+        "cost": 10000,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 8,
+    "subtotal": 255000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 255000,
+    "cashReceived": 255000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-490663",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T19:41:30.663Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1240",
+        "name": "Polvo suelto traslucido",
+        "brand": "Samy",
+        "category": "Maquillaje",
+        "barcode": "7703378749528",
+        "price": 24000,
+        "cost": 14700,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1371",
+        "name": "Corrector mediano tono 4,5",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525501",
+        "price": 23500,
+        "cost": 13500,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1301",
+        "name": "Pestañina profesional silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430130",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 7
+      },
+      {
+        "productId": "LV-1430",
+        "name": "Lip gloss enchante",
+        "brand": "Enchante",
+        "category": "Maquillaje",
+        "barcode": "6925627318137",
+        "price": 28000,
+        "cost": 15390,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1145",
+        "name": "Fijador de maquillaje",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "7707375604187",
+        "price": 18000,
+        "cost": 9500,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 5,
+    "subtotal": 113500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 113500,
+    "cashReceived": 113500,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-903729",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T18:41:43.729Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1011",
+        "name": "Shampoo jalea real",
+        "brand": "Origen Botánico",
+        "category": "Capilar",
+        "barcode": "7708946977105",
+        "price": 38000,
+        "cost": 28120,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 38000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 38000,
+    "cashReceived": 38000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-890685",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T18:41:30.685Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1149",
+        "name": "Fijador bifasico mist fix",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6903072472321",
+        "price": 28000,
+        "cost": 14915,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1301",
+        "name": "Pestañina profesional silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430130",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 8
+      },
+      {
+        "productId": "LV-1298",
+        "name": "Pestañina microfibra",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430352",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 15
+      },
+      {
+        "productId": "LV-1428",
+        "name": "Purpure pop star con destellos",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "677144889992",
+        "price": 18000,
+        "cost": 8000,
+        "quantity": 1,
+        "stockAvailable": 7
+      }
+    ],
+    "totalUnits": 4,
+    "subtotal": 86000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 86000,
+    "cashReceived": 86000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-815013",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T18:40:15.013Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1384",
+        "name": "Base semi mate tono 05",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524764",
+        "price": 38000,
+        "cost": 20500,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 38000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 38000,
+    "cashReceived": 38000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-768788",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T18:39:28.788Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1212",
+        "name": "Polvo compacto banana",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7709094542191",
+        "price": 16000,
+        "cost": 7000,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 16000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 16000,
+    "cashReceived": 16000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-743667",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T18:39:03.667Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1385",
+        "name": "Base semi mate tono 06",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524771",
+        "price": 38000,
+        "cost": 20500,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1304",
+        "name": "Contorno en barra tono 02 bloom define",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524566",
+        "price": 30000,
+        "cost": 16340,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1051",
+        "name": "Perfume mini irresistible",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7708075180865",
+        "price": 12900,
+        "cost": 7505,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 80900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 80900,
+    "cashReceived": 80900,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-454512",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-02T00:47:34.512Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1122",
+        "name": "Kit corporal x3 grande strawberry cake",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "610985562617",
+        "price": 60000,
+        "cost": 37000,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1290",
+        "name": "Pestañina self love",
+        "brand": "Dolce bella",
+        "category": "Maquillaje",
+        "barcode": "7708133635382",
+        "price": 18000,
+        "cost": 9100,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1311",
+        "name": "Corrector liquido",
+        "brand": "Dolce bella",
+        "category": "Maquillaje",
+        "barcode": "7708951146794",
+        "price": 18000,
+        "cost": 10200,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1428",
+        "name": "Purpure pop star con destellos",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "677144889992",
+        "price": 18000,
+        "cost": 8000,
+        "quantity": 1,
+        "stockAvailable": 8
+      }
+    ],
+    "totalUnits": 4,
+    "subtotal": 114000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 114000,
+    "cashReceived": 150000,
+    "cashChange": 36000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-415839",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-01T23:56:55.839Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1150",
+        "name": "Fijador en aerosol pequeño",
+        "brand": "Sagui",
+        "category": "Maquillaje",
+        "barcode": "7120250620001",
+        "price": 33000,
+        "cost": 19190,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1187",
+        "name": "Contorno de ojos de rosas y acido hialuronico",
+        "brand": "Bioaqua",
+        "category": "Skincare",
+        "barcode": "6976504680038",
+        "price": 12000,
+        "cost": 2500,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1394",
+        "name": "Aceite 4 en 1",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734411405",
+        "price": 22000,
+        "cost": 12000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1166",
+        "name": "Shampoo anti-caspa",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7709059679306",
+        "price": 39900,
+        "cost": 30210,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 4,
+    "subtotal": 106900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 106900,
+    "cashReceived": 106900,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-529552",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-01T21:45:29.552Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1201",
+        "name": "Desenredante termoprotector rosado",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7708075180759",
+        "price": 34000,
+        "cost": 24795,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 34000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 34000,
+    "cashReceived": 34000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-499549",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-01T21:44:59.549Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1100",
+        "name": "Exfoliante Piña colada",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144266496",
+        "price": 28000,
+        "cost": 16500,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1120",
+        "name": "Kit corporal x3 bear cookies",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144890264",
+        "price": 44000,
+        "cost": 28000,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1299",
+        "name": "Pestañina maxi volumen",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430338",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 8
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 92000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 92000,
+    "cashReceived": 92000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-114849",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-01T21:38:34.849Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1001",
+        "name": "Shampoo miel rosada",
+        "brand": "Lluvia de Estrellas",
+        "category": "Capilar",
+        "barcode": "634240468582",
+        "price": 39000,
+        "cost": 24500,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1002",
+        "name": "Acondicionador de miel",
+        "brand": "Lluvia de Estrellas",
+        "category": "Capilar",
+        "barcode": "634240468599",
+        "price": 38000,
+        "cost": 25000,
+        "quantity": 1,
+        "stockAvailable": 6
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 77000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 77000,
+    "cashReceived": 77000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-072676",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-01T21:37:52.676Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1392",
+        "name": "Shampoo de cebolla",
+        "brand": "Milagros",
+        "category": "Maquillaje",
+        "barcode": "7709225678478",
+        "price": 42000,
+        "cost": 31920,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 42000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 42000,
+    "cashReceived": 42000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-198959",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-01T00:33:18.959Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1037",
+        "name": "Perfume capilar mocca shake",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "7709268279656",
+        "price": 40000,
+        "cost": 25659,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1389",
+        "name": "Perfume capilar tropical crush",
+        "brand": "Click Hair",
+        "category": "Maquillaje",
+        "barcode": "7709268279601",
+        "price": 40000,
+        "cost": 25650,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 80000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 80000,
+    "cashReceived": 80000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-885109",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-01T00:28:05.109Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1039",
+        "name": "Perfume capilar golden toffe",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "7709268279694",
+        "price": 40000,
+        "cost": 25650,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1036",
+        "name": "Perfume capilar de miel y masmelo",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "677144930205",
+        "price": 60000,
+        "cost": 38285,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 100000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 100000,
+    "cashReceived": 100000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-839926",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T22:30:39.926Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1015",
+        "name": "Mantequilla perfumada",
+        "brand": "Origen Botánico",
+        "category": "Corporal",
+        "barcode": "770710192400",
+        "price": 30000,
+        "cost": 19950,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 30000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 30000,
+    "cashReceived": 30000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-023467",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T21:43:43.467Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1201",
+        "name": "Desenredante termoprotector rosado",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7708075180759",
+        "price": 34000,
+        "cost": 24795,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1011",
+        "name": "Shampoo jalea real",
+        "brand": "Origen Botánico",
+        "category": "Capilar",
+        "barcode": "7708946977105",
+        "price": 38000,
+        "cost": 28120,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1010",
+        "name": "Tratamiento jalea real",
+        "brand": "Origen Botánico",
+        "category": "Capilar",
+        "barcode": "7709374293881",
+        "price": 37900,
+        "cost": 27360,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1282",
+        "name": "Flushy blushy tono 02 tan line",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559881236",
+        "price": 29000,
+        "cost": 17000,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 4,
+    "subtotal": 138900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 138900,
+    "cashReceived": 138900,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-387391",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T21:16:27.391Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1176",
+        "name": "Crema hidratante de centella asiatica",
+        "brand": "Bioaqua",
+        "category": "Skincare",
+        "barcode": "6942349712050",
+        "price": 16000,
+        "cost": 5500,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1319",
+        "name": "Corrector pequeño tono 04",
+        "brand": "Majikal",
+        "category": "Maquillaje",
+        "barcode": "770879283532",
+        "price": 35000,
+        "cost": 23400,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 51000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 51000,
+    "cashReceived": 51000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-976574",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T20:36:16.574Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1369",
+        "name": "Corrector mediano tono 04",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525495",
+        "price": 23500,
+        "cost": 13500,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 23500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 23500,
+    "cashReceived": 23500,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-616574",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T19:56:56.574Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1063",
+        "name": "Paleta de sombras",
+        "brand": "Alissha",
+        "category": "Maquillaje",
+        "barcode": "6924372697825",
+        "price": 49000,
+        "cost": 26600,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 49000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 49000,
+    "cashReceived": 49000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-826989",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T19:43:46.990Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1017",
+        "name": "Termoprotector mini",
+        "brand": "Origen Botánico",
+        "category": "Capilar",
+        "barcode": "7700791501535",
+        "price": 20000,
+        "cost": 12540,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 20000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 20000,
+    "cashReceived": 20000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-664603",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T19:24:24.604Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1232",
+        "name": "Polvo 2 en 1 traslucido mini",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524351",
+        "price": 34000,
+        "cost": 19500,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 34000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 34000,
+    "cashReceived": 34000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-399795",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T19:19:59.795Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1223",
+        "name": "Bloom black eye liner pencil",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6920228540055",
+        "price": 10000,
+        "cost": 4200,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 10000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 10000,
+    "cashReceived": 10000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-121342",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T18:58:41.342Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1248",
+        "name": "Pegante de pestañas transparente",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "7707375605283",
+        "price": 19000,
+        "cost": 10500,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 19000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 19000,
+    "cashReceived": 19000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-605236",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T16:20:05.236Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1150",
+        "name": "Fijador en aerosol pequeño",
+        "brand": "Sagui",
+        "category": "Maquillaje",
+        "barcode": "7120250620001",
+        "price": 33000,
+        "cost": 19190,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 33000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 33000,
+    "cashReceived": 33000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-592123",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T16:19:52.123Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1150",
+        "name": "Fijador en aerosol pequeño",
+        "brand": "Sagui",
+        "category": "Maquillaje",
+        "barcode": "7120250620001",
+        "price": 33000,
+        "cost": 19190,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1287",
+        "name": "Got2b",
+        "brand": "got2b",
+        "category": "Maquillaje",
+        "barcode": "052336341456",
+        "price": 31000,
+        "cost": 19000,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 64000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 64000,
+    "cashReceived": 64000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-513541",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T16:18:33.541Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1190",
+        "name": "Splash corporal paisita dulce",
+        "brand": "Coco pink",
+        "category": "Corporal",
+        "barcode": "7709066683419",
+        "price": 29000,
+        "cost": 16150,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 29000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 29000,
+    "cashReceived": 29000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-370422",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T15:59:30.422Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1298",
+        "name": "Pestañina profesional silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430352",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 20000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 20000,
+    "cashReceived": 20000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-833214",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T00:33:53.214Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "1234",
+    "items": [
+      {
+        "productId": "LV-1210",
+        "name": "Libro de 360 pestañas 10d",
+        "brand": "cmayome",
+        "category": "Maquillaje",
+        "barcode": "226322916332",
+        "price": 25000,
+        "cost": 15000,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 25000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 25000,
+    "cashReceived": 25000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-708760",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T00:31:48.760Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "1234",
+    "items": [
+      {
+        "productId": "LV-1211",
+        "name": "Pegante negro de pestañas",
+        "brand": "Salon pro",
+        "category": "Maquillaje",
+        "barcode": "770168839890",
+        "price": 8500,
+        "cost": 3000,
+        "quantity": 1,
+        "stockAvailable": 4
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 8500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 8500,
+    "cashReceived": 8500,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-675316",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T00:31:15.316Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "1234",
+    "items": [
+      {
+        "productId": "LV-1150",
+        "name": "Fijador en aerosol pequeño",
+        "brand": "Sagui",
+        "category": "Maquillaje",
+        "barcode": "7120250620001",
+        "price": 33000,
+        "cost": 19190,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 33000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 33000,
+    "cashReceived": 33000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-456838",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-31T00:27:36.838Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "1234",
+    "items": [
+      {
+        "productId": "LV-1013",
+        "name": "Shampoo cebolla y argan",
+        "brand": "Origen Botánico",
+        "category": "Capilar",
+        "barcode": "770700724000",
+        "price": 36000,
+        "cost": 25935,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1117",
+        "name": "Kit corporal x3 sweet cherry",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144889794",
+        "price": 44000,
+        "cost": 28000,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1121",
+        "name": "Kit corporal x3 secret crush",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144890509",
+        "price": 44000,
+        "cost": 28000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1034",
+        "name": "Mini miel capilar",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "793969805600",
+        "price": 31000,
+        "cost": 19095,
+        "quantity": 1,
+        "stockAvailable": 6
+      },
+      {
+        "productId": "LV-1010",
+        "name": "Tratamiento jalea real",
+        "brand": "Origen Botánico",
+        "category": "Capilar",
+        "barcode": "7709374293881",
+        "price": 37900,
+        "cost": 27360,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 5,
+    "subtotal": 192900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 192900,
+    "cashReceived": 192900,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-707201",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-30T22:01:47.201Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1206",
+        "name": "Pestañas de tira",
+        "brand": "Sara marin",
+        "category": "Maquillaje",
+        "barcode": "7701136558443",
+        "price": 10000,
+        "cost": 5605,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 10000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 10000,
+    "cashReceived": 10000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-283182",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-30T21:04:43.182Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1235",
+        "name": "Lapiz de cejas tono arequipe",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "7707375602985",
+        "price": 10000,
+        "cost": 5500,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 10000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 10000,
+    "cashReceived": 10000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-704887",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-30T20:55:04.887Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1229",
+        "name": "Polvo suelto x30g",
+        "brand": "Montoc",
+        "category": "Maquillaje",
+        "barcode": "658325384475",
+        "price": 70000,
+        "cost": 40755,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 70000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 70000,
+    "cashReceived": 70000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-761867",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-30T20:39:21.867Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1222",
+        "name": "Lapiz de ojos negro",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7708991454187",
+        "price": 18000,
+        "cost": 8000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1244",
+        "name": "Polvo suelto traslucido",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "7707375600530",
+        "price": 18000,
+        "cost": 8700,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1133",
+        "name": "Primer bloom poros invisibles",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6924372684252",
+        "price": 21000,
+        "cost": 10165,
+        "quantity": 1,
+        "stockAvailable": 6
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 57000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 57000,
+    "cashReceived": 57000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-777703",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-30T17:36:17.703Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1098",
+        "name": "Splash nuevo x200ml Piña colada",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144266274",
+        "price": 29000,
+        "cost": 17000,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1110",
+        "name": "Mantequilla x250ml piña colada",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144266298",
+        "price": 28000,
+        "cost": 16500,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 57000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 57000,
+    "cashReceived": 57000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-055280",
+    "accountId": "CTA-001",
+    "timestamp": "2026-10-30T00:27:35.280Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1009",
+        "name": "Tratamiento plex",
+        "brand": "Origen Botánico",
+        "category": "Capilar",
+        "barcode": "770472104000",
+        "price": 34900,
+        "cost": 25935,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 34900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 34900,
+    "cashReceived": 34900,
+    "cashChange": 0,
+    "notes": ""
+  }
+];
+
+// ============================================================================
+// 2. SISTEMA DE AUDIO BOUTIQUE (WEB AUDIO API - SIN DEPENDENCIAS EXTERNAS)
+// ============================================================================
+class BoutiqueAudio {
+  constructor() {
+    this.ctx = null;
+    this.enabled = true;
+  }
+
+  init() {
+    if (!this.ctx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) this.ctx = new AudioCtx();
+    }
+  }
+
+  playSuccess() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = "sine";
+      // Chime celestial suave: tono ascendente 880Hz -> 1320Hz
+      osc.frequency.setValueAtTime(880, now);
+      osc.frequency.exponentialRampToValueAtTime(1320, now + 0.12);
+
+      gain.gain.setValueAtTime(0.15, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.25);
+    } catch (e) {
+      console.warn("Audio feedback error:", e);
+    }
+  }
+
+  playError() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(320, now);
+      osc.frequency.setValueAtTime(240, now + 0.1);
+
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.35);
+    } catch (e) {
+      console.warn("Audio feedback error:", e);
+    }
+  }
+
+  playCashChime() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const notes = [523.25, 659.25, 783.99, 1046.50]; // Acorde C mayor ascendente
+      notes.forEach((freq, idx) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const noteStart = now + (idx * 0.075);
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, noteStart);
+        gain.gain.setValueAtTime(0.18, noteStart);
+        gain.gain.exponentialRampToValueAtTime(0.001, noteStart + 0.4);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(noteStart);
+        osc.stop(noteStart + 0.4);
+      });
+    } catch (e) {
+      console.warn("Audio feedback error:", e);
+    }
+  }
+
+  toggle() {
+    this.enabled = !this.enabled;
+    return this.enabled;
+  }
+}
+
+// ============================================================================
+// 3. ESTADO GLOBAL DE LA APLICACIÓN
+// ============================================================================
+const state = {
+  products: [],
+  kardex: [],
+  activeMode: "salida", // 'salida' | 'entrada' | 'consulta'
+  activeUser: "Laura",
+  activeTab: "tab-pos-accounts", // Pestaña inicial: Cuentas & Salidas
+  recentScans: [],
+  audio: new BoutiqueAudio(),
+  printBatch: [],
+  cameraScannerInstance: null,
+
+  // Sistema de Cuentas de Clientes (POS)
+  accounts: [],
+  activeAccountId: null,
+  salesHistory: [],
+  activePOSView: "active", // 'active' | 'history' | 'monthly'
+
+  // Control de Fechas en Historial de Salidas
+  historyDateMode: "today", // 'today' | 'yesterday' | 'all' | 'custom'
+  historyCustomDate: getLocalDateKey(new Date()),
+
+  // Control de Historial Mensual
+  monthlySelectedMonth: getLocalMonthKey(new Date()), // 'YYYY-MM'
+  monthlySearch: "",
+  monthlyFilterMethod: "ALL",
+  monthlyFilterDay: "ALL",
+
+  // Control de Acceso y Roles
+  currentUser: null
+};
+window.state = state;
+
+// ============================================================================
+// SISTEMA DE CONTROL DE ACCESO, ROLES & LOGIN (LUNA VIVA)
+// ============================================================================
+const AUTH_CONFIG = {
+  USERS: {
+    "Laura": {
+      name: "Laura",
+      role: "admin",
+      pin: "5924",
+      label: "Administración & Finanzas",
+      icon: "👑"
+    },
+    "Colaborador": {
+      name: "Colaborador",
+      role: "colaborador",
+      pin: "0000",
+      label: "Turno / Mostrador",
+      icon: "💄"
+    }
+  },
+  STORAGE_KEY_SESSION: "luna_viva_auth_session_v1"
+};
+
+let selectedLoginUsername = "Laura";
+
+function openLoginModal(preselectUser = "Laura") {
+  const overlay = document.getElementById("login-modal-overlay");
+  if (!overlay) return;
+
+  selectedLoginUsername = preselectUser in AUTH_CONFIG.USERS ? preselectUser : "Laura";
+  updateLoginProfileButtons();
+
+  const pinInput = document.getElementById("login-pin-input");
+  if (pinInput) {
+    pinInput.value = "";
+    pinInput.type = "password";
+  }
+  const eyeIcon = document.getElementById("eye-icon");
+  if (eyeIcon && window.lucide) {
+    eyeIcon.setAttribute("data-lucide", "eye");
+    lucide.createIcons();
+  }
+
+  const errBanner = document.getElementById("login-error-banner");
+  if (errBanner) errBanner.style.display = "none";
+
+  overlay.style.display = "flex";
+  setTimeout(() => pinInput?.focus(), 150);
+}
+
+function closeLoginModal() {
+  const overlay = document.getElementById("login-modal-overlay");
+  if (overlay) overlay.style.display = "none";
+}
+
+function updateLoginProfileButtons() {
+  const btnLaura = document.getElementById("btn-select-laura");
+  const btnColab = document.getElementById("btn-select-colab");
+  const labelText = document.getElementById("login-pin-label-text");
+
+  if (selectedLoginUsername === "Laura") {
+    btnLaura?.classList.add("active");
+    btnColab?.classList.remove("active");
+    if (labelText) labelText.textContent = "Ingresa el PIN de Laura (Admin):";
+  } else {
+    btnColab?.classList.add("active");
+    btnLaura?.classList.remove("active");
+    if (labelText) labelText.textContent = "Ingresa el PIN de Colaborador:";
+  }
+}
+
+function loginUser(username, pin) {
+  const user = AUTH_CONFIG.USERS[username];
+  if (!user) return false;
+
+  const trimmedPin = (pin || "").trim();
+  if (trimmedPin === user.pin) {
+    const session = {
+      name: user.name,
+      role: user.role,
+      loginAt: new Date().toISOString()
+    };
+    try {
+      localStorage.setItem(AUTH_CONFIG.STORAGE_KEY_SESSION, JSON.stringify(session));
+    } catch (e) {}
+
+    closeLoginModal();
+    applyUserRolePermissions(user.name, user.role, true);
+    return true;
+  } else {
+    const errBanner = document.getElementById("login-error-banner");
+    const errText = document.getElementById("login-error-text");
+    if (errBanner) {
+      if (errText) errText.textContent = "PIN incorrecto. Por favor verifica e intenta de nuevo.";
+      errBanner.style.display = "flex";
+      if (window.lucide) lucide.createIcons();
+    }
+    const pinInput = document.getElementById("login-pin-input");
+    if (pinInput) {
+      pinInput.value = "";
+      pinInput.focus();
+    }
+    return false;
+  }
+}
+
+function logoutUser() {
+  try {
+    localStorage.removeItem(AUTH_CONFIG.STORAGE_KEY_SESSION);
+  } catch (e) {}
+  state.currentUser = null;
+  openLoginModal(state.activeUser === "Colaborador" ? "Colaborador" : "Laura");
+  showToast("Turno finalizado. Inicia sesión para continuar.", "info");
+}
+
+function applyUserRolePermissions(name, role, notify = false) {
+  state.currentUser = { name, role };
+  state.activeUser = name;
+
+  // Clase CSS en el body para control declarativo de visibilidad
+  document.body.classList.remove("role-admin", "role-colaborador");
+  document.body.classList.add(`role-${role}`);
+
+  // Actualizar tarjeta de usuario en la barra lateral
+  const initialEl = document.getElementById("current-user-initial");
+  const nameEl = document.getElementById("current-user-name");
+  const badgeEl = document.getElementById("current-user-role-badge");
+
+  if (initialEl) initialEl.textContent = name.charAt(0).toUpperCase();
+  if (nameEl) nameEl.textContent = name;
+  if (badgeEl) {
+    badgeEl.className = `user-role-badge badge-${role}`;
+    if (role === "admin") {
+      badgeEl.innerHTML = `<i data-lucide="shield-check" class="role-icon"></i> Administración`;
+    } else {
+      badgeEl.innerHTML = `<i data-lucide="sparkles" class="role-icon"></i> Colaborador`;
+    }
+  }
+
+  // Actualizar select de usuario en cobro POS
+  const checkoutUserSelect = document.getElementById("checkout-user-select");
+  if (checkoutUserSelect) {
+    checkoutUserSelect.value = name;
+  }
+
+  if (window.lucide) lucide.createIcons();
+
+  // Re-renderizar vistas afectadas
+  renderCatalogTable();
+  updateBadgesAndKPIs();
+
+  if (notify) {
+    const roleTitle = role === "admin" ? "Administración & Finanzas" : "Colaborador / Mostrador";
+    showToast(`¡Bienvenida, ${name}! Sesión activa en modo ${roleTitle}.`, "success");
+  }
+}
+
+function initAuthSystem() {
+  // Selector de perfil
+  document.getElementById("btn-select-laura")?.addEventListener("click", () => {
+    selectedLoginUsername = "Laura";
+    updateLoginProfileButtons();
+    document.getElementById("login-pin-input")?.focus();
+  });
+
+  document.getElementById("btn-select-colab")?.addEventListener("click", () => {
+    selectedLoginUsername = "Colaborador";
+    updateLoginProfileButtons();
+    document.getElementById("login-pin-input")?.focus();
+  });
+
+  // Teclado numérico en pantalla
+  document.querySelectorAll(".keypad-btn[data-key]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const pinInput = document.getElementById("login-pin-input");
+      if (pinInput && pinInput.value.length < 8) {
+        pinInput.value += btn.dataset.key;
+      }
+    });
+  });
+
+  document.getElementById("btn-keypad-clear")?.addEventListener("click", () => {
+    const pinInput = document.getElementById("login-pin-input");
+    if (pinInput) pinInput.value = "";
+  });
+
+  document.getElementById("btn-keypad-back")?.addEventListener("click", () => {
+    const pinInput = document.getElementById("login-pin-input");
+    if (pinInput) pinInput.value = pinInput.value.slice(0, -1);
+  });
+
+  // Toggle ver PIN
+  document.getElementById("btn-toggle-pin-visibility")?.addEventListener("click", () => {
+    const pinInput = document.getElementById("login-pin-input");
+    if (!pinInput) return;
+    const isPass = pinInput.type === "password";
+    pinInput.type = isPass ? "text" : "password";
+    const eyeIcon = document.getElementById("eye-icon");
+    if (eyeIcon && window.lucide) {
+      eyeIcon.setAttribute("data-lucide", isPass ? "eye-off" : "eye");
+      lucide.createIcons();
+    }
+  });
+
+  // Envío del formulario
+  document.getElementById("login-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const pin = document.getElementById("login-pin-input")?.value || "";
+    loginUser(selectedLoginUsername, pin);
+  });
+
+  // Botón cerrar turno
+  document.getElementById("btn-logout")?.addEventListener("click", () => {
+    logoutUser();
+  });
+
+  // Verificar sesión existente
+  let activeSession = null;
+  try {
+    const stored = localStorage.getItem(AUTH_CONFIG.STORAGE_KEY_SESSION);
+    if (stored) activeSession = JSON.parse(stored);
+  } catch (e) {}
+
+  if (activeSession && activeSession.name && activeSession.role && AUTH_CONFIG.USERS[activeSession.name]) {
+    applyUserRolePermissions(activeSession.name, activeSession.role, false);
+    closeLoginModal();
+  } else {
+    openLoginModal("Laura");
+  }
+}
+window.initAuthSystem = initAuthSystem;
+window.logoutUser = logoutUser;
+
+
+// ============================================================================
+// 4. PERSISTENCIA DUAL & MANEJO ROBUSTO DE FECHAS LOCALES
+// ============================================================================
+const STORAGE_KEY_PRODUCTS = "luna_viva_products_v1";
+const STORAGE_KEY_KARDEX = "luna_viva_kardex_v1";
+const STORAGE_KEY_ACCOUNTS = "luna_viva_accounts_v1";
+const STORAGE_KEY_ACTIVE_ACCOUNT = "luna_viva_active_account_id";
+const STORAGE_KEY_SALES = "luna_viva_sales_history_v1";
+
+// Helpers de Fecha en Zona Horaria Local (00:00:00 a 23:59:59)
+function getLocalDateKey(dateInput = new Date()) {
+  const d = new Date(dateInput);
+  if (isNaN(d.getTime())) return "";
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function getLocalMonthKey(dateInput = new Date()) {
+  const d = new Date(dateInput);
+  if (isNaN(d.getTime())) return "";
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  return `${year}-${month}`;
+}
+
+function isSameLocalDate(date1, date2 = new Date()) {
+  return getLocalDateKey(date1) === getLocalDateKey(date2);
+}
+
+function isSameLocalMonth(date1, date2 = new Date()) {
+  return getLocalMonthKey(date1) === getLocalMonthKey(date2);
+}
+
+function getMonthNameEs(monthKey) { // 'YYYY-MM'
+  if (!monthKey) return "";
+  const parts = monthKey.split("-");
+  const year = parts[0];
+  const monthIdx = parseInt(parts[1], 10) - 1;
+  const monthNames = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
+  return `${monthNames[monthIdx] || ""} ${year}`;
+}
+
+function getDayOfWeekEs(dateInput) {
+  const d = new Date(dateInput);
+  if (isNaN(d.getTime())) return "";
+  const days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+  return days[d.getDay()];
+}
+
+// Auto-guardado en disco a través del servidor local (server.py)
+function saveToServer(entity, data) {
+  const endpoints = {
+    products: "/api/save-products",
+    kardex: "/api/save-kardex",
+    sales: "/api/save-sales",
+    accounts: "/api/save-accounts"
+  };
+  const ep = endpoints[entity];
+  if (!ep) return;
+
+  const url = window.location.protocol.startsWith("http")
+    ? ep
+    : `http://localhost:8080${ep}`;
+
+  try {
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    }).then(res => {
+      if (res.ok) {
+        console.log(`[Auto-Save Disco] ✓ ${entity} guardado en disco.`);
+      }
+    }).catch(() => {});
+  } catch (e) {}
+}
+
+function removeAccents(str) {
+  return (str || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
+function loadState() {
+  // 1. Carga Inteligente de Productos (549 referencias)
+  const storedProd = localStorage.getItem(STORAGE_KEY_PRODUCTS);
+  let localProducts = null;
+  if (storedProd) {
+    try {
+      const parsed = JSON.parse(storedProd);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        localProducts = parsed;
+      }
+    } catch (e) {
+      console.warn("Error leyendo productos de localStorage:", e);
+    }
+  }
+
+  const productMap = new Map();
+  INITIAL_PRODUCTS.forEach(p => productMap.set(p.id, { ...p }));
+  if (localProducts) {
+    localProducts.forEach(lp => {
+      if (productMap.has(lp.id)) {
+        const cur = productMap.get(lp.id);
+        productMap.set(lp.id, { ...cur, ...lp });
+      } else {
+        productMap.set(lp.id, { ...lp });
+      }
+    });
+  }
+
+  state.products = Array.from(productMap.values()).sort((a, b) => {
+    const numA = parseInt((a.id || "").replace(/\D/g, ""), 10) || 0;
+    const numB = parseInt((b.id || "").replace(/\D/g, ""), 10) || 0;
+    return numA - numB;
+  });
+
+  saveProducts(true);
+
+  // 2. Carga Inteligente de Kardex
+  const storedKardex = localStorage.getItem(STORAGE_KEY_KARDEX);
+  let localKardex = null;
+  if (storedKardex) {
+    try {
+      const parsedK = JSON.parse(storedKardex);
+      if (Array.isArray(parsedK) && parsedK.length > 0) {
+        localKardex = parsedK;
+      }
+    } catch (e) {}
+  }
+
+  const kardexMap = new Map();
+  INITIAL_KARDEX.forEach(k => kardexMap.set(k.id, { ...k }));
+  if (localKardex) {
+    localKardex.forEach(lk => kardexMap.set(lk.id, { ...lk }));
+  }
+
+  state.kardex = Array.from(kardexMap.values()).sort((a, b) => {
+    return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
+  });
+
+  saveKardex(true);
+
+  // 3. Cuentas y Ventas
+  loadAccountsState();
+
+  // 4. Sincronización en segundo plano con archivos del disco
+  syncFromDiskIfAvailable();
+}
+window.loadState = loadState;
+
+async function syncFromDiskIfAvailable() {
+  try {
+    const isHttp = window.location.protocol.startsWith("http");
+    const base = isHttp ? "." : "http://localhost:8080";
+
+    // Sync products
+    fetch(`${base}/products.json`, { cache: "no-store" })
+      .then(r => r.json())
+      .then(diskProds => {
+        if (Array.isArray(diskProds) && diskProds.length > state.products.length) {
+          const map = new Map(state.products.map(p => [p.id, p]));
+          let chg = false;
+          diskProds.forEach(dp => {
+            if (!map.has(dp.id)) { state.products.push(dp); map.set(dp.id, dp); chg = true; }
+          });
+          if (chg) {
+            saveProducts(false);
+            populateBrandFilters();
+            renderCatalogTable();
+            updateBadgesAndKPIs();
+          }
+        }
+      }).catch(() => {});
+
+    // Sync sales
+    fetch(`${base}/sales.json`, { cache: "no-store" })
+      .then(r => r.json())
+      .then(diskSales => {
+        if (Array.isArray(diskSales) && diskSales.length > state.salesHistory.length) {
+          const sMap = new Map(state.salesHistory.map(s => [s.id, s]));
+          let chg = false;
+          diskSales.forEach(ds => {
+            if (!sMap.has(ds.id)) { state.salesHistory.push(ds); sMap.set(ds.id, ds); chg = true; }
+          });
+          if (chg) {
+            saveSalesHistory(false);
+            if (state.activePOSView === "history") renderSalesHistoryView();
+            if (state.activePOSView === "monthly") renderMonthlyHistoryView();
+          }
+        }
+      }).catch(() => {});
+  } catch (e) {}
+}
+
+function saveProducts(syncServer = true) {
+  try {
+    localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(state.products));
+  } catch (err) {
+    console.error("Error guardando productos en almacenamiento local:", err);
+  }
+  updateBadgesAndKPIs();
+
+  if (syncServer) {
+    saveToServer("products", state.products);
+  }
+}
+window.saveProducts = saveProducts;
+
+function saveKardex(syncServer = true) {
+  try {
+    localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex));
+  } catch (err) {
+    console.error("Error guardando kardex en almacenamiento local:", err);
+  }
+  if (syncServer) {
+    saveToServer("kardex", state.kardex);
+  }
+}
+window.saveKardex = saveKardex;
+
+// Formato de moneda colombiana COP
+function formatCOP(amount) {
+  return new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    maximumFractionDigits: 0
+  }).format(amount || 0);
+}
+
+// ============================================================================
+// 5. MOTOR DE ESCANEO DE CÓDIGO DE BARRAS (PISTOLA USB / BT + TECLADO)
+// ============================================================================
+let barcodeBuffer = "";
+let lastKeyTime = 0;
+const SCANNER_BURST_MAX_MS = 60; // Los lectores envían pulsaciones en < 30ms
+
+function initHardwareBarcodeListener() {
+  window.addEventListener("keydown", (e) => {
+    // Si el usuario está escribiendo en un textarea o input de texto común (que no sea el de escaneo),
+    // no capturamos a menos que sea un ráfaga ultra-rápida de pistola
+    const isInput = ["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName);
+    const isManualBarcodeInput = document.activeElement.id === "manual-barcode-input";
+
+    const currentTime = Date.now();
+    const timeDiff = currentTime - lastKeyTime;
+    lastKeyTime = currentTime;
+
+    // Tecla Enter recibida
+    if (e.key === "Enter") {
+      if (barcodeBuffer.length >= 3) {
+        e.preventDefault();
+        const codeToProcess = barcodeBuffer.trim();
+        barcodeBuffer = "";
+        processScannedBarcode(codeToProcess);
+        return;
+      }
+      barcodeBuffer = "";
+      return;
+    }
+
+    // Tecla normal (carácter)
+    if (e.key.length === 1) {
+      if (timeDiff < SCANNER_BURST_MAX_MS || !isInput || isManualBarcodeInput) {
+        barcodeBuffer += e.key;
+      } else {
+        // Escritura manual lenta en otro input, limpiamos buffer
+        barcodeBuffer = e.key;
+      }
+    }
+  });
+
+  // Escucha manual en el input visual
+  const manualInput = document.getElementById("manual-barcode-input");
+  const manualBtn = document.getElementById("btn-manual-scan-submit");
+
+  if (manualInput && manualBtn) {
+    const handleManual = () => {
+      const code = manualInput.value.trim();
+      if (code) {
+        processScannedBarcode(code);
+        manualInput.value = "";
+      }
+    };
+    manualBtn.addEventListener("click", handleManual);
+    manualInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        handleManual();
+      }
+    });
+  }
+}
+
+// ============================================================================
+// 6. PROCESAMIENTO DEL ESCANEO (ENTRADA / SALIDA / CONSULTA)
+// ============================================================================
+function processScannedBarcode(rawBarcode) {
+  // Clean barcode: remove any non-numeric characters that may be added by scanner peripherals
+  const barcode = rawBarcode.trim().replace(/\D/g, "");
+  const feedbackEl = document.getElementById("scan-feedback");
+
+  if (feedbackEl) {
+    feedbackEl.className = "feedback-badge scanning";
+    feedbackEl.textContent = `Escaneado: ${barcode}`;
+  }
+
+  // Buscar producto en la base de datos
+  const product = state.products.find(p => p.barcode === barcode || p.id === barcode);
+
+  if (!product) {
+    state.audio.playError();
+    showToast(`Código no encontrado: ${barcode}`, "warning");
+    if (feedbackEl) {
+      feedbackEl.className = "feedback-badge error";
+      feedbackEl.textContent = `No registrado (${barcode})`;
+    }
+
+    // Sugerir crear producto con ese código de barras
+    if (confirm(`El código "${barcode}" no está en el catálogo de Luna Viva.\n¿Deseas registrar este nuevo producto ahora?`)) {
+      openProductModal();
+      document.getElementById("prod-barcode").value = barcode;
+    }
+    return;
+  }
+
+  // 1. Si estamos en la pestaña Cuentas & Salidas (POS)
+  if (state.activeTab === "tab-pos-accounts") {
+    addProductToActiveAccount(product, 1);
+    if (feedbackEl) {
+      feedbackEl.className = "feedback-badge success";
+      feedbackEl.textContent = `Agregado a la cuenta: ${product.name}`;
+      setTimeout(() => {
+        feedbackEl.className = "feedback-badge ready";
+        feedbackEl.textContent = "Listo para escanear";
+      }, 2000);
+    }
+    return;
+  }
+
+  // Leer parámetros de escaneo
+  const qtyInput = document.getElementById("scan-qty");
+  const qty = parseInt(qtyInput ? qtyInput.value : 1, 10) || 1;
+  const reasonSelect = document.getElementById("scan-reason");
+  const reason = reasonSelect ? reasonSelect.value : "Operación de Tienda";
+
+  const prevStock = product.stock;
+  let newStock = prevStock;
+  let movementType = state.activeMode.toUpperCase();
+
+  if (state.activeMode === "salida") {
+    const salidaTarget = document.getElementById("scan-salida-target")?.value;
+    if (salidaTarget === "cuenta") {
+      addProductToActiveAccount(product, qty);
+      showToast(`✨ Agregado a la cuenta de ${getActiveAccount()?.customerName || 'Cliente'}: ${product.name} (x${qty})`, "success");
+      saveProducts();
+      renderScannedProductCard(product, state.activeMode, qty, prevStock, prevStock, reason);
+      addRecentScan(product, state.activeMode, qty);
+      return;
+    }
+
+    if (product.stock < qty) {
+      state.audio.playError();
+      const proceed = confirm(`¡Atención Luna Viva!\n"${product.name}" solo tiene ${product.stock} unidades disponibles.\n¿Deseas registrar la salida de ${qty} de todas formas?`);
+      if (!proceed) return;
+    }
+    newStock = Math.max(0, product.stock - qty);
+    product.stock = newStock;
+    recordKardexMovement("SALIDA", product, qty, prevStock, newStock, reason);
+    state.audio.playSuccess();
+    showToast(`Salida registrada: -${qty} ${product.name} (Quedan: ${newStock})`, "success");
+  } else if (state.activeMode === "entrada") {
+    newStock = product.stock + qty;
+    product.stock = newStock;
+    recordKardexMovement("ENTRADA", product, qty, prevStock, newStock, reason);
+    state.audio.playSuccess();
+    showToast(`Entrada registrada: +${qty} ${product.name} (Total: ${newStock})`, "success");
+  } else {
+    // Modo Consulta
+    state.audio.playSuccess();
+    showToast(`Consulta: ${product.name} - Stock: ${product.stock} | Precio: ${formatCOP(product.price)}`, "info");
+  }
+
+  saveProducts();
+  renderScannedProductCard(product, state.activeMode, qty, prevStock, newStock, reason);
+  addRecentScan(product, state.activeMode, qty);
+  renderCatalogTable();
+  renderKardexTable();
+
+  if (feedbackEl) {
+    feedbackEl.className = "feedback-badge success";
+    feedbackEl.textContent = `Éxito: ${product.name}`;
+    setTimeout(() => {
+      feedbackEl.className = "feedback-badge ready";
+      feedbackEl.textContent = "Listo para escanear";
+    }, 2500);
+  }
+}
+
+// ============================================================================
+// 7. REGISTRO EN KARDEX
+// ============================================================================
+function recordKardexMovement(type, product, qty, prevStock, newStock, reason, notes = "") {
+  const movement = {
+    id: "K-" + Date.now().toString().slice(-6),
+    timestamp: new Date().toISOString(),
+    type: type,
+    productId: product.id,
+    productName: product.name,
+    barcode: product.barcode,
+    quantity: qty,
+    prevStock: prevStock,
+    newStock: newStock,
+    user: state.activeUser,
+    reason: reason,
+    notes: notes
+  };
+
+  state.kardex.unshift(movement);
+  saveKardex();
+}
+
+function addRecentScan(product, mode, qty) {
+  state.recentScans.unshift({
+    product,
+    mode,
+    qty,
+    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+  });
+  if (state.recentScans.length > 8) state.recentScans.pop();
+  renderRecentScansList();
+}
+
+function renderRecentScansList() {
+  const container = document.getElementById("recent-scans-list");
+  if (!container) return;
+
+  if (state.recentScans.length === 0) {
+    container.innerHTML = `<div class="text-muted" style="font-size:0.82rem; padding:0.5rem 0;">Aún no hay escaneos en esta sesión.</div>`;
+    return;
+  }
+
+  container.innerHTML = state.recentScans.map(item => `
+    <div class="recent-scan-item">
+      <div class="scan-item-main">
+        <span class="scan-type-badge ${item.mode}">${item.mode}</span>
+        <div>
+          <span class="scan-item-prod">${item.product.name}</span>
+          <span class="scan-item-meta"> · ${item.product.brand} · ${item.mode === 'consulta' ? 'Consulta' : (item.mode === 'salida' ? `-${item.qty}` : `+${item.qty}`)} unid.</span>
+        </div>
+      </div>
+      <span class="scan-item-time">${item.time}</span>
+    </div>
+  `).join("");
+}
+
+// ============================================================================
+// 8. RENDER DE TARJETA RESULTADO DE ESCANEO
+// ============================================================================
+function renderScannedProductCard(product, mode, qty, prevStock, newStock, reason) {
+  const emptyCard = document.getElementById("scanned-card-empty");
+  const contentCard = document.getElementById("scanned-card-content");
+  if (!emptyCard || !contentCard) return;
+
+  emptyCard.style.display = "none";
+  contentCard.style.display = "block";
+
+  // Emoji según categoría de Luna Viva
+  const categoryEmojis = {
+    "Maquillaje": "💄",
+    "Skincare": "✨",
+    "Capilar": "💇‍♀️",
+    "Accesorios de Maquillaje": "🖌️",
+    "Corporal": "🌸"
+  };
+  const avatar = categoryEmojis[product.category] || "🛍️";
+
+  document.getElementById("scanned-avatar").textContent = avatar;
+  document.getElementById("scanned-brand").textContent = product.brand;
+  document.getElementById("scanned-category").textContent = product.category;
+  document.getElementById("scanned-name").textContent = product.name;
+  document.getElementById("scanned-code").textContent = product.barcode;
+  document.getElementById("scanned-price").textContent = formatCOP(product.price);
+  document.getElementById("scanned-cost").textContent = formatCOP(product.cost);
+
+  // Margen de ganancia
+  const margin = product.price > 0 ? Math.round(((product.price - product.cost) / product.price) * 100) : 0;
+  document.getElementById("scanned-margin").textContent = `${margin}%`;
+
+  // Badge Modo
+  const badgeMode = document.getElementById("scanned-badge-mode");
+  if (mode === "salida") {
+    badgeMode.textContent = `Salida: -${qty} unid. (${reason})`;
+    badgeMode.style.backgroundColor = "var(--danger-bg)";
+    badgeMode.style.color = "var(--danger)";
+  } else if (mode === "entrada") {
+    badgeMode.textContent = `Entrada: +${qty} unid. (${reason})`;
+    badgeMode.style.backgroundColor = "var(--success-bg)";
+    badgeMode.style.color = "var(--success)";
+  } else {
+    badgeMode.textContent = "Modo Consulta";
+    badgeMode.style.backgroundColor = "var(--info-bg)";
+    badgeMode.style.color = "var(--info)";
+  }
+
+  // Stock
+  const stockEl = document.getElementById("scanned-stock");
+  stockEl.textContent = product.stock;
+
+  const stockPill = document.getElementById("scanned-stock-pill");
+  if (product.stock <= 0) {
+    stockPill.className = "stock-status-pill out";
+    stockPill.textContent = "Agotado en Tienda";
+  } else if (product.stock <= product.minStock) {
+    stockPill.className = "stock-status-pill low";
+    stockPill.textContent = `Stock Crítico (Mín: ${product.minStock})`;
+  } else {
+    stockPill.className = "stock-status-pill";
+    stockPill.textContent = "Stock Disponible";
+  }
+
+  // Auditoría
+  const auditText = document.getElementById("scanned-audit-text");
+  if (mode !== "consulta") {
+    auditText.textContent = `Registrado por ${state.activeUser} | Stock anterior: ${prevStock} → Nuevo stock: ${newStock} | ${new Date().toLocaleTimeString()}`;
+  } else {
+    auditText.textContent = `Consultado por ${state.activeUser} | Sin modificaciones en inventario | ${new Date().toLocaleTimeString()}`;
+  }
+
+  // Conectar botones rápidos en la tarjeta escaneada
+  const btnDec = document.getElementById("btn-quick-decrease");
+  const btnInc = document.getElementById("btn-quick-increase");
+  const btnEdit = document.getElementById("btn-quick-edit");
+
+  btnDec.onclick = () => {
+    state.activeMode = "salida";
+    updateModePills();
+    processScannedBarcode(product.barcode);
+  };
+
+  btnInc.onclick = () => {
+    state.activeMode = "entrada";
+    updateModePills();
+    processScannedBarcode(product.barcode);
+  };
+
+  btnEdit.onclick = () => {
+    openProductModal(product);
+  };
+
+  if (window.lucide) lucide.createIcons();
+}
+
+// ============================================================================
+// 9. RENDER DEL CATÁLOGO DE PRODUCTOS (TABLA & CUADRÍCULA)
+// ============================================================================
+function renderCatalogTable() {
+
+  const tbody = document.getElementById("catalog-table-body");
+  const gridContainer = document.getElementById("catalog-grid-view");
+  const searchVal = (document.getElementById("catalog-search-input")?.value || "").trim();
+  const catFilter = document.getElementById("filter-category")?.value || "ALL";
+  const brandFilter = document.getElementById("filter-brand")?.value || "ALL";
+  const stockFilter = document.getElementById("filter-stock")?.value || "ALL";
+
+  const normSearch = removeAccents(searchVal);
+  const normCatFilter = removeAccents(catFilter);
+  const normBrandFilter = removeAccents(brandFilter);
+
+  // Filtrado compuesto con bsqueda insensible a tildes y maysculas
+  const filtered = state.products.filter(p => {
+    const normName = removeAccents(p.name);
+    const normBarcode = removeAccents(p.barcode);
+    const normBrand = removeAccents(p.brand);
+    const normCat = removeAccents(p.category);
+
+    const matchesSearch = !normSearch ||
+      normName.includes(normSearch) ||
+      normBarcode.includes(normSearch) ||
+      normBrand.includes(normSearch) ||
+      normCat.includes(normSearch);
+
+    const matchesCat = catFilter === "ALL" || normCat === normCatFilter;
+    const matchesBrand = brandFilter === "ALL" || normBrand === normBrandFilter;
+
+    const stock = Number(p.stock) || 0;
+    const minStock = Number(p.minStock) || 0;
+    let matchesStock = true;
+    if (stockFilter === "LOW") matchesStock = stock > 0 && stock <= minStock;
+    else if (stockFilter === "OUT") matchesStock = stock <= 0;
+    else if (stockFilter === "HEALTHY") matchesStock = stock > minStock;
+
+    return matchesSearch && matchesCat && matchesBrand && matchesStock;
+  });
+
+  // Actualizar contadores
+  const visibleCountEl = document.getElementById("catalog-count-visible");
+  const totalCountEl = document.getElementById("catalog-count-total");
+  if (visibleCountEl) visibleCountEl.textContent = filtered.length;
+  if (totalCountEl) totalCountEl.textContent = state.products.length;
+
+  // Render Tabla
+  if (tbody) {
+    const isAdmin = state.currentUser?.role === "admin";
+    const colspan = isAdmin ? 11 : 9;
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="${colspan}" style="text-align:center; padding:2rem; color:var(--text-muted);">No se encontraron productos que coincidan con la búsqueda.</td></tr>`;
+    } else {
+      tbody.innerHTML = filtered.map(p => {
+        const margin = p.price > 0 ? Math.round(((p.price - p.cost) / p.price) * 100) : 0;
+        let stockClass = "ok";
+        let stockLabel = `${p.stock} unid.`;
+        if (p.stock <= 0) {
+          stockClass = "out";
+          stockLabel = "Agotado (0)";
+        } else if (p.stock <= p.minStock) {
+          stockClass = "low";
+          stockLabel = `Bajo (${p.stock})`;
+        }
+
+        const costTd = isAdmin ? `<td>${formatCOP(p.cost)}</td>` : "";
+        const marginTd = isAdmin ? `<td><span style="color:var(--success); font-weight:700;">${margin}%</span></td>` : "";
+
+        return `
+          <tr><td><input type="checkbox" class="row-checkbox" data-id="${p.id}"></td>
+            <td><span class="barcode-badge-mono">${p.barcode}</span></td>
+            <td>
+              <div class="prod-title-group">
+                <span class="prod-name">${p.name}</span>
+                <span class="prod-sub">${p.location || 'Boutique'}</span>
+              </div>
+            </td>
+            <td><span class="badge-tag">${p.category}</span></td>
+            <td><span class="badge-tag badge-brand">${p.brand}</span></td>
+            ${costTd}
+            <td><strong>${formatCOP(p.price)}</strong></td>
+            ${marginTd}
+            <td><span class="badge-stock ${stockClass}">${stockLabel}</span></td>
+            <td>${p.stock > p.minStock ? '<span style="color:var(--success); font-size:0.75rem;">● Óptimo</span>' : '<span style="color:var(--warning); font-size:0.75rem;">▲ Reponer</span>'}</td>
+            <td>
+              <div class="row-actions">
+                <button class="btn-catalog-to-account" title="Agregar a la cuenta de la clienta" onclick="addProductToActiveAccountById('${p.id}', 1)"><i data-lucide="shopping-bag"></i> + A Cuenta</button>
+                <button class="btn-action-icon" title="Salida rápida (-1)" onclick="quickAdjustStock('${p.id}', -1)"><i data-lucide="minus"></i></button>
+                <button class="btn-action-icon" title="Entrada rápida (+1)" onclick="quickAdjustStock('${p.id}', 1)"><i data-lucide="plus"></i></button>
+                <button class="btn-action-icon" title="Generar Etiqueta" onclick="prepareStickerPrint('${p.id}')"><i data-lucide="printer"></i></button>
+                <button class="btn-action-icon" title="Editar producto" onclick="editProduct('${p.id}')"><i data-lucide="edit-2"></i></button>
+                <button class="btn-action-icon danger" title="Eliminar del catálogo" onclick="deleteProduct('${p.id}')"><i data-lucide="trash-2"></i></button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+  }
+
+  // Render Cuadrícula
+  if (gridContainer) {
+    gridContainer.innerHTML = filtered.map(p => `
+      <div class="product-grid-card">
+        <div class="grid-card-header">
+          <span class="badge-tag badge-brand">${p.brand}</span>
+          <span class="barcode-badge-mono">${p.barcode}</span>
+        </div>
+        <h4 class="grid-card-name">${p.name}</h4>
+        <span class="badge-tag">${p.category}</span>
+        <div class="grid-card-pricing">
+          <div>
+            <div style="font-size:0.7rem; color:var(--text-muted);">VENTA</div>
+            <strong style="color:var(--rose-deep); font-size:1.1rem;">${formatCOP(p.price)}</strong>
+          </div>
+          <div>
+            <div style="font-size:0.7rem; color:var(--text-muted);">STOCK</div>
+            <span class="badge-stock ${p.stock <= 0 ? 'out' : (p.stock <= p.minStock ? 'low' : 'ok')}">${p.stock} unid.</span>
+          </div>
+        </div>
+        <div style="display:flex; gap:0.4rem; margin-top:auto; padding-top:0.75rem; flex-wrap:wrap;">
+          <button class="btn-catalog-to-account" style="width:100%; margin:0 0 0.35rem 0; justify-content:center;" onclick="addProductToActiveAccountById('${p.id}', 1)"><i data-lucide="shopping-bag"></i> + A la Cuenta</button>
+          <button class="btn btn-outline-sm flex-1" onclick="quickAdjustStock('${p.id}', -1)">-1 Venta</button>
+          <button class="btn btn-outline-sm flex-1" onclick="quickAdjustStock('${p.id}', 1)">+1 Entrada</button>
+          <button class="btn-action-icon" onclick="editProduct('${p.id}')"><i data-lucide="edit-2"></i></button>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  if (window.lucide) lucide.createIcons();
+
+  // Selección masiva: manejador de checkbox maestro
+  const selectAll = document.getElementById('select-all');
+  const bulkDeleteBtn = document.getElementById('btn-bulk-delete');
+
+  const updateBulkDeleteBtnState = () => {
+    if (!bulkDeleteBtn || !tbody) return;
+    const checked = tbody.querySelectorAll('.row-checkbox:checked');
+    if (checked.length > 0) {
+      bulkDeleteBtn.innerHTML = `<i data-lucide="trash-2"></i> Eliminar Seleccionados (${checked.length})`;
+      bulkDeleteBtn.classList.remove('disabled');
+    } else {
+      bulkDeleteBtn.innerHTML = `<i data-lucide="trash-2"></i> Eliminar Seleccionados`;
+    }
+    if (window.lucide) lucide.createIcons();
+  };
+
+  if (selectAll) {
+    selectAll.checked = false;
+    selectAll.indeterminate = false;
+    selectAll.onchange = () => {
+      const checked = selectAll.checked;
+      tbody.querySelectorAll('.row-checkbox').forEach(cb => cb.checked = checked);
+      updateBulkDeleteBtnState();
+    };
+  }
+
+  // Actualizar estado del checkbox maestro al cambiar cualquier fila
+  tbody?.querySelectorAll('.row-checkbox').forEach(cb => {
+    cb.onchange = () => {
+      const all = tbody.querySelectorAll('.row-checkbox');
+      const checked = tbody.querySelectorAll('.row-checkbox:checked');
+      if (selectAll) {
+        selectAll.checked = all.length > 0 && checked.length === all.length;
+        selectAll.indeterminate = checked.length > 0 && checked.length < all.length;
+      }
+      updateBulkDeleteBtnState();
+    };
+  });
+
+  // Acción de borrado masivo
+  if (bulkDeleteBtn) {
+    updateBulkDeleteBtnState();
+    bulkDeleteBtn.onclick = () => {
+      const checked = tbody.querySelectorAll('.row-checkbox:checked');
+      if (checked.length === 0) {
+        showToast('No hay productos seleccionados. Marca las casillas de los productos que deseas eliminar.', 'info');
+        return;
+      }
+      if (!confirm(`¿Eliminar ${checked.length} productos seleccionados del catálogo de Luna Viva?\nEsta acción no se puede deshacer.`)) return;
+      const idsToDelete = Array.from(checked).map(cb => cb.dataset.id);
+      state.products = state.products.filter(p => !idsToDelete.includes(p.id));
+      saveProducts();
+      populateBrandFilters();
+      updateBadgesAndKPIs();
+      renderCatalogTable();
+      showToast(`${idsToDelete.length} productos eliminados correctamente.`, 'success');
+    };
+  }
+}
+
+// Ajuste rápido desde tabla/tarjetas
+window.quickAdjustStock = function (productId, delta) {
+  const p = state.products.find(item => item.id === productId);
+  if (!p) return;
+
+  const prevStock = p.stock;
+  const newStock = Math.max(0, p.stock + delta);
+  p.stock = newStock;
+  const type = delta > 0 ? "ENTRADA" : "SALIDA";
+  const reason = delta > 0 ? "Ajuste Rápido Entrada" : "Venta Rápida Catálogo";
+
+  recordKardexMovement(type, p, Math.abs(delta), prevStock, newStock, reason);
+  saveProducts();
+  renderCatalogTable();
+  renderKardexTable();
+  updateBadgesAndKPIs();
+  state.audio.playSuccess();
+  showToast(`${type === 'ENTRADA' ? '+1' : '-1'} en ${p.name}. Stock: ${newStock}`, "success");
+};
+
+window.editProduct = function (productId) {
+  const p = state.products.find(item => item.id === productId);
+  if (p) openProductModal(p);
+};
+
+window.deleteProduct = function (productId) {
+  const p = state.products.find(item => item.id === productId);
+  if (!p) return;
+  if (confirm(`¿Estás segura de eliminar "${p.name}" del catálogo de Luna Viva?\nEsta acción no se puede deshacer.`)) {
+    state.products = state.products.filter(item => item.id !== productId);
+    saveProducts();
+    populateBrandFilters();
+    updateBadgesAndKPIs();
+    renderCatalogTable();
+    showToast(`Producto eliminado: ${p.name}`, "warning");
+  }
+};
+
+window.prepareStickerPrint = function (productId) {
+  switchTab("tab-barcode-generator");
+  const select = document.getElementById("label-product-select");
+  if (select) {
+    select.value = productId;
+    updateStickerPreview();
+  }
+};
+
+// ============================================================================
+// 10. RENDER DEL KARDEX (HISTORIAL DE MOVIMIENTOS)
+// ============================================================================
+function renderKardexTable() {
+  const tbody = document.getElementById("kardex-table-body");
+  if (!tbody) return;
+
+  const typeFilter = document.getElementById("kardex-filter-type")?.value || "ALL";
+  const userFilter = document.getElementById("kardex-filter-user")?.value || "ALL";
+  const searchVal = (document.getElementById("kardex-search-input")?.value || "").toLowerCase().trim();
+
+  const filtered = state.kardex.filter(m => {
+    const matchesType = typeFilter === "ALL" || m.type === typeFilter;
+    const matchesUser = userFilter === "ALL" || m.user === userFilter;
+    const matchesSearch = !searchVal ||
+      m.productName.toLowerCase().includes(searchVal) ||
+      m.barcode.toLowerCase().includes(searchVal) ||
+      m.reason.toLowerCase().includes(searchVal);
+    return matchesType && matchesUser && matchesSearch;
+  });
+
+  // KPIs de Kardex
+  const totalEntries = state.kardex.filter(k => k.type === "ENTRADA").reduce((acc, k) => acc + k.quantity, 0);
+  const totalExits = state.kardex.filter(k => k.type === "SALIDA").reduce((acc, k) => acc + k.quantity, 0);
+  const kpiEntriesEl = document.getElementById("kpi-total-entries");
+  const kpiExitsEl = document.getElementById("kpi-total-exits");
+  if (kpiEntriesEl) kpiEntriesEl.textContent = `+${totalEntries}`;
+  if (kpiExitsEl) kpiExitsEl.textContent = `-${totalExits}`;
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:2rem; color:var(--text-muted);">No hay movimientos registrados con los filtros seleccionados.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(m => {
+    const d = new Date(m.timestamp);
+    const dateStr = d.toLocaleDateString() + " " + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const isExit = m.type === "SALIDA";
+    const typeBadge = isExit ?
+      `<span class="scan-type-badge salida">Salida (-)</span>` :
+      `<span class="scan-type-badge entrada">Entrada (+)</span>`;
+
+    return `
+      <tr>
+        <td style="font-size:0.78rem; color:var(--text-muted);">${dateStr}</td>
+        <td>${typeBadge}</td>
+        <td><strong>${m.productName}</strong></td>
+        <td><span class="barcode-badge-mono">${m.barcode}</span></td>
+        <td><strong style="color:${isExit ? 'var(--danger)' : 'var(--success)'};">${isExit ? '-' : '+'}${m.quantity}</strong></td>
+        <td>${m.prevStock}</td>
+        <td><strong>${m.newStock}</strong></td>
+        <td><span class="badge-tag">${m.user}</span></td>
+        <td><span style="font-size:0.8rem; color:var(--text-secondary);">${m.reason}</span></td>
+      </tr>
+    `;
+  }).join("");
+}
+
+// ============================================================================
+// 11. GENERADOR DE ETIQUETAS & CÓDIGOS DE BARRA (IMPRESIÓN)
+// ============================================================================
+let barcodeTabInitialized = false;
+
+function initBarcodeGeneratorTab() {
+  const select = document.getElementById("label-product-select");
+  if (!select) return;
+
+  // Llenar selector de productos conservando selección si es posible
+  const currentVal = select.value;
+  select.innerHTML = state.products.map(p => `
+      <option value="${p.id}">${p.brand} - ${p.name} (${p.barcode})</option>
+    `).join("");
+  if (currentVal && state.products.some(p => p.id === currentVal)) {
+    select.value = currentVal;
+  }
+
+  if (!barcodeTabInitialized) {
+    barcodeTabInitialized = true;
+
+    select.addEventListener("change", updateStickerPreview);
+    document.getElementById("label-show-price")?.addEventListener("change", updateStickerPreview);
+    document.getElementById("label-show-brand")?.addEventListener("change", updateStickerPreview);
+    document.getElementById("label-show-tagline")?.addEventListener("change", updateStickerPreview);
+
+    // Agregar al lote
+    document.getElementById("btn-add-to-print-batch")?.addEventListener("click", () => {
+      const prodId = select.value;
+      const copies = parseInt(document.getElementById("label-copies")?.value || 1, 10);
+      const p = state.products.find(item => item.id === prodId);
+      if (!p) return;
+
+      for (let i = 0; i < copies; i++) {
+        state.printBatch.push({ ...p });
+      }
+      renderPrintSheet();
+      showToast(`Agregadas ${copies} etiquetas al lote`, "success");
+    });
+
+    // Vaciar lote
+    document.getElementById("btn-clear-batch")?.addEventListener("click", () => {
+      state.printBatch = [];
+      renderPrintSheet();
+      showToast("Lote de impresión vaciado", "info");
+    });
+
+    // Imprimir
+    document.getElementById("btn-print-labels-action")?.addEventListener("click", () => {
+      if (state.printBatch.length === 0) {
+        showToast("Primero agrega al menos una etiqueta al lote", "warning");
+        return;
+      }
+      window.print();
+    });
+  }
+
+  updateStickerPreview();
+}
+
+function updateStickerPreview() {
+  const select = document.getElementById("label-product-select");
+  if (!select) return;
+  const prodId = select.value;
+  const p = state.products.find(item => item.id === prodId) || state.products[0];
+  if (!p) return;
+
+  const showPrice = document.getElementById("label-show-price")?.checked ?? true;
+  const showBrand = document.getElementById("label-show-brand")?.checked ?? true;
+
+  document.getElementById("preview-brand-tag").textContent = showBrand ? p.brand : "";
+  document.getElementById("preview-product-name").textContent = p.name;
+  document.getElementById("preview-category-text").textContent = p.category;
+  document.getElementById("preview-price-text").textContent = showPrice ? formatCOP(p.price) : "";
+
+  // Generar código con JsBarcode
+  try {
+    if (window.JsBarcode) {
+      JsBarcode("#preview-barcode-svg", p.barcode, {
+        format: "CODE128",
+        width: 1.6,
+        height: 42,
+        displayValue: true,
+        fontSize: 12,
+        margin: 2
+      });
+    }
+  } catch (e) {
+    console.warn("Error render barcode svg:", e);
+  }
+}
+
+function renderPrintSheet() {
+  const container = document.getElementById("print-sheet-area");
+  const countEl = document.getElementById("batch-count");
+  if (!container) return;
+
+  if (countEl) countEl.textContent = state.printBatch.length;
+
+  if (state.printBatch.length === 0) {
+    container.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:2rem; color:var(--text-muted);">No hay etiquetas en el lote. Selecciona un producto y haz clic en "Agregar al Lote".</div>`;
+    return;
+  }
+
+  const showPrice = document.getElementById("label-show-price")?.checked ?? true;
+
+  container.innerHTML = state.printBatch.map((p, idx) => `
+    <div class="luna-sticker">
+      <div class="sticker-brand-header">
+        <span class="sticker-brand-name">LUNA VIVA</span>
+        <span class="sticker-brand-tag">${p.brand}</span>
+      </div>
+      <div class="sticker-product-name">${p.name}</div>
+      <svg id="batch-barcode-${idx}"></svg>
+      <div class="sticker-footer">
+        <span class="sticker-cat">${p.category}</span>
+        <span class="sticker-price">${showPrice ? formatCOP(p.price) : ''}</span>
+      </div>
+    </div>
+  `).join("");
+
+  // Renderizar cada SVG en el lote
+  if (window.JsBarcode) {
+    state.printBatch.forEach((p, idx) => {
+      try {
+        JsBarcode(`#batch-barcode-${idx}`, p.barcode, {
+          format: "CODE128",
+          width: 1.4,
+          height: 38,
+          displayValue: true,
+          fontSize: 10,
+          margin: 0
+        });
+      } catch (err) { }
+    });
+  }
+}
+
+// ============================================================================
+// 12. MÉTRICAS, REPORTES & ALERTAS (KPIs)
+// ============================================================================
+function updateBadgesAndKPIs() {
+  const totalSKUs = state.products.length;
+  const totalUnits = state.products.reduce((acc, p) => acc + p.stock, 0);
+  const totalCost = state.products.reduce((acc, p) => acc + (p.cost * p.stock), 0);
+  const totalRetail = state.products.reduce((acc, p) => acc + (p.price * p.stock), 0);
+
+  // Alertas
+  const outOfStock = state.products.filter(p => p.stock <= 0);
+  const lowStock = state.products.filter(p => p.stock > 0 && p.stock <= p.minStock);
+  const totalAlerts = outOfStock.length + lowStock.length;
+
+  // Actualizar badges
+  const badgeProd = document.getElementById("badge-total-products");
+  if (badgeProd) badgeProd.textContent = totalSKUs;
+
+  const badgeAlerts = document.getElementById("badge-alerts");
+  if (badgeAlerts) {
+    if (totalAlerts > 0) {
+      badgeAlerts.style.display = "flex";
+      badgeAlerts.textContent = totalAlerts;
+    } else {
+      badgeAlerts.style.display = "none";
+    }
+  }
+
+  // KPIs Tablero
+  const kpiCostEl = document.getElementById("kpi-val-cost");
+  const kpiRetailEl = document.getElementById("kpi-val-retail");
+  const kpiSKUsEl = document.getElementById("kpi-total-skus");
+  const kpiUnitsEl = document.getElementById("kpi-total-units");
+
+  if (kpiCostEl) kpiCostEl.textContent = formatCOP(totalCost);
+  if (kpiRetailEl) kpiRetailEl.textContent = formatCOP(totalRetail);
+  if (kpiSKUsEl) kpiSKUsEl.textContent = totalSKUs;
+  if (kpiUnitsEl) kpiUnitsEl.textContent = `${totalUnits} unid.`;
+
+  // Render Panel Alertas
+  const alertsList = document.getElementById("alerts-list");
+  const alertCountEl = document.getElementById("panel-alert-count");
+  if (alertCountEl) alertCountEl.textContent = `${totalAlerts} críticas`;
+
+  if (alertsList) {
+    const allAlerts = [...outOfStock, ...lowStock];
+    if (allAlerts.length === 0) {
+      alertsList.innerHTML = `<div style="text-align:center; padding:1.5rem; color:var(--success); font-weight:600;"><i data-lucide="check-circle" style="vertical-align:middle;"></i> ¡Todo en orden! No hay productos agotados ni bajo stock mínimo.</div>`;
+    } else {
+      alertsList.innerHTML = allAlerts.map(p => {
+        const isOut = p.stock <= 0;
+        return `
+          <div class="alert-item">
+            <div>
+              <strong style="color:var(--rose-deep); font-size:0.86rem;">${p.name}</strong>
+              <div style="font-size:0.74rem; color:var(--text-muted);">${p.brand} · ${p.category}</div>
+            </div>
+            <div style="text-align:right;">
+              <span class="badge-stock ${isOut ? 'out' : 'low'}">${isOut ? 'Agotado (0)' : `Quedan ${p.stock} (Mín: ${p.minStock})`}</span>
+              <button class="btn-outline-sm" style="margin-left:0.5rem; font-size:0.7rem;" onclick="quickAdjustStock('${p.id}', 5)">+5 Reponer</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+  }
+
+  // Desglose por Categoría
+  const catBreakdown = document.getElementById("category-breakdown");
+  if (catBreakdown) {
+    const categories = ["Maquillaje", "Skincare", "Capilar", "Accesorios de Maquillaje", "Corporal"];
+    catBreakdown.innerHTML = categories.map(cat => {
+      const prodsInCat = state.products.filter(p => p.category === cat);
+      const unitsInCat = prodsInCat.reduce((acc, p) => acc + p.stock, 0);
+      const pct = totalUnits > 0 ? Math.round((unitsInCat / totalUnits) * 100) : 0;
+      return `
+        <div class="cat-bar-item">
+          <div class="cat-bar-header">
+            <span>${cat} (${prodsInCat.length} refs)</span>
+            <span>${unitsInCat} unid. (${pct}%)</span>
+          </div>
+          <div class="cat-bar-track">
+            <div class="cat-bar-fill" style="width: ${pct}%;"></div>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  // Presencia por Marcas
+  const brandsDistribution = document.getElementById("brands-distribution");
+  if (brandsDistribution) {
+    const brandMap = {};
+    state.products.forEach(p => {
+      brandMap[p.brand] = (brandMap[p.brand] || 0) + p.stock;
+    });
+
+    const sortedBrands = Object.entries(brandMap).sort((a, b) => b[1] - a[1]);
+    brandsDistribution.innerHTML = sortedBrands.map(([brand, units]) => `
+      <div class="brand-chip-card">
+        <span class="brand-chip-title">${brand}</span>
+        <span class="brand-chip-sub">${units} unidades en stock</span>
+      </div>
+    `).join("");
+  }
+
+  if (window.lucide) lucide.createIcons();
+}
+
+// ============================================================================
+// 13. MODAL DE CREAR / EDITAR PRODUCTO
+// ============================================================================
+function initProductModal() {
+  const modal = document.getElementById("modal-product");
+  const form = document.getElementById("form-product");
+  const btnClose = document.getElementById("btn-close-modal-product");
+  const btnCancel = document.getElementById("btn-cancel-modal-product");
+  const btnAutogen = document.getElementById("btn-autogen-barcode");
+
+  const costInput = document.getElementById("prod-cost");
+  const priceInput = document.getElementById("prod-price");
+  const marginPreview = document.getElementById("modal-margin-preview");
+
+  function calcMargin() {
+    const cost = parseFloat(costInput.value) || 0;
+    const price = parseFloat(priceInput.value) || 0;
+    if (price > 0) {
+      const m = Math.round(((price - cost) / price) * 100);
+      marginPreview.textContent = `${m}%`;
+      marginPreview.style.color = m >= 40 ? "var(--success)" : "var(--warning)";
+    } else {
+      marginPreview.textContent = "0%";
+    }
+  }
+
+  costInput?.addEventListener("input", calcMargin);
+  priceInput?.addEventListener("input", calcMargin);
+
+  btnAutogen?.addEventListener("click", () => {
+    // Generar código compatible EAN-13 iniciando en 770
+    const randomSuffix = Math.floor(100000000 + Math.random() * 900000000);
+    document.getElementById("prod-barcode").value = `770${randomSuffix}`;
+  });
+
+  const closeModal = () => {
+    modal.style.display = "none";
+  };
+
+  btnClose?.addEventListener("click", closeModal);
+  btnCancel?.addEventListener("click", closeModal);
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const id = document.getElementById("prod-id").value;
+    let barcode = document.getElementById("prod-barcode").value.trim();
+    const name = document.getElementById("prod-name").value.trim();
+    const category = document.getElementById("prod-category").value;
+    const brand = document.getElementById("prod-brand").value.trim();
+    const existingProd = id ? state.products.find(p => p.id === id) : null;
+    const cost = (state.currentUser?.role === "admin")
+      ? (parseFloat(costInput.value) || 0)
+      : (existingProd ? (existingProd.cost || 0) : 0);
+    const price = parseFloat(priceInput.value) || 0;
+    const stock = parseInt(document.getElementById("prod-stock").value, 10) || 0;
+    const minStock = parseInt(document.getElementById("prod-min-stock").value, 10) || 2;
+    const location = document.getElementById("prod-location").value.trim();
+    const notes = document.getElementById("prod-notes").value.trim();
+
+    if (!name) {
+      showToast("Por favor ingresa el nombre del producto.", "warning");
+      return;
+    }
+
+    if (!barcode) {
+      // Auto-generar si el usuario no ingresó uno
+      const randomSuffix = Math.floor(100000000 + Math.random() * 900000000);
+      barcode = `770${randomSuffix}`;
+    }
+
+    // Validar código duplicado con otro producto
+    const existing = state.products.find(p => p.barcode === barcode && p.id !== id);
+    if (existing) {
+      alert(`El código de barras "${barcode}" ya pertenece a otro producto: ${existing.name}`);
+      return;
+    }
+
+    if (id) {
+      // Editar producto existente
+      const idx = state.products.findIndex(p => p.id === id);
+      if (idx !== -1) {
+        state.products[idx] = { ...state.products[idx], barcode, name, category, brand, cost, price, stock, minStock, location, notes };
+        showToast(`Producto actualizado: ${name}`, "success");
+      }
+    } else {
+      // Crear nuevo producto con ID garantizado único
+      const maxIdNum = state.products.reduce((max, p) => {
+        const match = p.id && p.id.match(/^LV-(\d+)$/);
+        return match ? Math.max(max, parseInt(match[1], 10)) : max;
+      }, 1000);
+
+      const newProduct = {
+        id: `LV-${maxIdNum + 1}`,
+        barcode,
+        name,
+        category,
+        brand: brand || "Luna Viva",
+        cost,
+        price,
+        stock,
+        minStock,
+        location: location || "Boutique",
+        notes
+      };
+      state.products.unshift(newProduct);
+      recordKardexMovement("ENTRADA", newProduct, stock, 0, stock, "Inventario Inicial", "Alta de nuevo producto en catálogo");
+      showToast(`✨ Nuevo producto guardado con éxito: ${name}`, "success");
+    }
+
+    saveProducts();
+    populateBrandFilters();
+
+    // Resetear filtros del catálogo para mostrar el nuevo producto inmediatamente
+    const searchInput = document.getElementById("catalog-search-input");
+    if (searchInput) searchInput.value = "";
+    const filterCat = document.getElementById("filter-category");
+    if (filterCat) filterCat.value = "ALL";
+    const filterBr = document.getElementById("filter-brand");
+    if (filterBr) filterBr.value = "ALL";
+    const filterSt = document.getElementById("filter-stock");
+    if (filterSt) filterSt.value = "ALL";
+
+    renderCatalogTable();
+    renderKardexTable();
+    renderPOS();
+    initBarcodeGeneratorTab();
+    closeModal();
+    switchTab("tab-catalog");
+  });
+}
+
+function openProductModal(product = null) {
+  const modal = document.getElementById("modal-product");
+  const title = document.getElementById("modal-product-title");
+  if (!modal) return;
+
+  const isAdmin = state.currentUser?.role === "admin";
+  const costInput = document.getElementById("prod-cost");
+
+  if (product) {
+    title.textContent = `Editar Producto: ${product.name}`;
+    document.getElementById("prod-id").value = product.id;
+    document.getElementById("prod-barcode").value = product.barcode;
+    document.getElementById("prod-name").value = product.name;
+    document.getElementById("prod-category").value = product.category;
+    document.getElementById("prod-brand").value = product.brand;
+    if (costInput) {
+      costInput.value = isAdmin ? product.cost : "";
+      costInput.required = isAdmin;
+    }
+    document.getElementById("prod-price").value = product.price;
+    document.getElementById("prod-stock").value = product.stock;
+    document.getElementById("prod-min-stock").value = product.minStock;
+    document.getElementById("prod-location").value = product.location || "";
+    document.getElementById("prod-notes").value = product.notes || "";
+  } else {
+    title.textContent = "Nuevo Producto en Catálogo";
+    document.getElementById("form-product").reset();
+    document.getElementById("prod-id").value = "";
+    document.getElementById("prod-stock").value = "5";
+    document.getElementById("prod-min-stock").value = "2";
+    if (costInput) {
+      costInput.value = "";
+      costInput.required = isAdmin;
+    }
+    // Generar automáticamente código único EAN listo para usar
+    const randomSuffix = Math.floor(100000000 + Math.random() * 900000000);
+    document.getElementById("prod-barcode").value = `770${randomSuffix}`;
+  }
+
+  // Recalcular margen
+  const cost = parseFloat(document.getElementById("prod-cost").value) || 0;
+  const price = parseFloat(document.getElementById("prod-price").value) || 0;
+  const marginPreview = document.getElementById("modal-margin-preview");
+  if (price > 0) {
+    marginPreview.textContent = `${Math.round(((price - cost) / price) * 100)}%`;
+  } else {
+    marginPreview.textContent = "0%";
+  }
+
+  modal.style.display = "flex";
+  if (window.lucide) lucide.createIcons();
+}
+window.openProductModal = openProductModal;
+
+// ============================================================================
+// 14. IMPORTACIÓN & EXPORTACIÓN EXCEL / CSV
+// ============================================================================
+let parsedImportRows = [];
+
+function initImportExportModule() {
+  const modal = document.getElementById("modal-import");
+  const btnOpen = document.getElementById("btn-open-import-modal");
+  const btnClose = document.getElementById("btn-close-modal-import");
+  const btnCancel = document.getElementById("btn-cancel-modal-import");
+  const dropZone = document.getElementById("csv-drop-zone");
+  const fileInput = document.getElementById("csv-file-input");
+  const btnExecute = document.getElementById("btn-execute-import");
+  const btnDownloadTemplate = document.getElementById("btn-download-csv-template");
+
+  btnOpen?.addEventListener("click", () => {
+    modal.style.display = "flex";
+    parsedImportRows = [];
+    document.getElementById("import-preview-box").style.display = "none";
+    btnExecute.disabled = true;
+  });
+
+  const closeModal = () => modal.style.display = "none";
+  btnClose?.addEventListener("click", closeModal);
+  btnCancel?.addEventListener("click", closeModal);
+
+  // Descarga plantilla CSV
+  btnDownloadTemplate?.addEventListener("click", (e) => {
+    e.preventDefault();
+    const templateContent = "\uFEFFcodigo_barras,nombre,categoria,marca,precio_costo,precio_venta,stock_actual,stock_minimo\n" +
+      "770123456099,Gloss Iluminador Labios,Maquillaje,Bloomshell,12000,22000,10,3\n" +
+      "770123456100,Tónico Purificante Facial,Skincare,Trendy,15000,26000,8,2\n" +
+      ",Kit Esponjas de Precisión,Accesorios de Maquillaje,Montoc,8000,15000,12,4\n";
+
+    const blob = new Blob([templateContent], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "Plantilla_Inventario_Luna_Viva.csv";
+    link.click();
+  });
+
+  // Drag and drop
+  dropZone?.addEventListener("click", () => fileInput.click());
+  dropZone?.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropZone.classList.add("dragover");
+  });
+  dropZone?.addEventListener("dragleave", () => dropZone.classList.remove("dragover"));
+  dropZone?.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropZone.classList.remove("dragover");
+    if (e.dataTransfer.files.length) handleImportFile(e.dataTransfer.files[0]);
+  });
+  fileInput?.addEventListener("change", (e) => {
+    if (e.target.files.length) handleImportFile(e.target.files[0]);
+  });
+
+  function handleImportFile(file) {
+    if (!file) return;
+    if (file.name.toLowerCase().endsWith(".json")) {
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        try {
+          const data = JSON.parse(evt.target.result);
+          const prods = Array.isArray(data) ? data : (data.products || []);
+          if (Array.isArray(prods) && prods.length > 0) {
+            if (confirm(`Se detectó un respaldo JSON con ${prods.length} productos de Luna Viva.\n¿Deseas restaurar este catálogo en el sistema?`)) {
+              state.products = prods;
+              if (Array.isArray(data.kardex)) state.kardex = data.kardex;
+              saveProducts();
+              saveKardex();
+              populateBrandFilters();
+              renderCatalogTable();
+              renderKardexTable();
+              updateBadgesAndKPIs();
+              closeModal();
+              showToast(`¡Catálogo restaurado con éxito (${prods.length} productos)!`, "success");
+            }
+          } else {
+            alert("El archivo JSON no contiene un arreglo válido de productos.");
+          }
+        } catch (err) {
+          alert("Error al leer el archivo JSON: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+    } else {
+      handleCSVFile(file);
+    }
+  }
+
+  function handleCSVFile(file) {
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      const text = evt.target.result;
+      processCSVContent(text);
+    };
+    reader.readAsText(file);
+  }
+
+  function processCSVContent(csvText) {
+    const lines = csvText.split(/\r?\n/).filter(line => line.trim().length > 0);
+    if (lines.length < 2) {
+      alert("El archivo CSV no contiene filas de datos.");
+      return;
+    }
+
+    const delimiter = lines[0].includes(";") ? ";" : ",";
+    const headers = lines[0].split(delimiter).map(h => h.trim().toLowerCase().replace(/"/g, ""));
+
+    parsedImportRows = [];
+    for (let i = 1; i < lines.length; i++) {
+      const values = lines[i].split(delimiter).map(v => v.trim().replace(/"/g, ""));
+      if (values.length < 2) continue;
+
+      const rowObj = {};
+      headers.forEach((h, idx) => {
+        rowObj[h] = values[idx] || "";
+      });
+
+      // Mapear campos
+      const barcode = rowObj["codigo_barras"] || rowObj["codigo"] || rowObj["barcode"] || `770${Math.floor(100000000 + Math.random() * 900000000)}`;
+      const name = rowObj["nombre"] || rowObj["producto"] || rowObj["name"] || "Producto Sin Nombre";
+      const category = rowObj["categoria"] || rowObj["category"] || "Maquillaje";
+      const brand = rowObj["marca"] || rowObj["brand"] || "Trendy";
+      const cost = parseFloat(rowObj["precio_costo"] || rowObj["costo"] || 0);
+      const price = parseFloat(rowObj["precio_venta"] || rowObj["precio"] || 0);
+      const stock = parseInt(rowObj["stock_actual"] || rowObj["stock"] || 0, 10);
+      const minStock = parseInt(rowObj["stock_minimo"] || 2, 10);
+
+      parsedImportRows.push({
+        id: "LV-" + (state.products.length + parsedImportRows.length + 1001),
+        barcode,
+        name,
+        category,
+        brand,
+        cost,
+        price,
+        stock,
+        minStock,
+        location: "Boutique",
+        notes: "Importado vía CSV"
+      });
+    }
+
+    // Mostrar preview
+    document.getElementById("import-preview-box").style.display = "block";
+    document.getElementById("preview-row-count").textContent = `${parsedImportRows.length} productos detectados`;
+    const previewBody = document.getElementById("import-preview-body");
+    previewBody.innerHTML = parsedImportRows.slice(0, 5).map(r => `
+      <tr>
+        <td>${r.barcode}</td>
+        <td>${r.name}</td>
+        <td>${r.category}</td>
+        <td>${r.brand}</td>
+        <td>${formatCOP(r.cost)}</td>
+        <td>${formatCOP(r.price)}</td>
+        <td>${r.stock}</td>
+      </tr>
+    `).join("");
+
+    btnExecute.disabled = parsedImportRows.length === 0;
+  }
+
+  btnExecute?.addEventListener("click", () => {
+    if (parsedImportRows.length === 0) return;
+
+    let addedCount = 0;
+    parsedImportRows.forEach(importedProd => {
+      const existingIdx = state.products.findIndex(p => p.barcode === importedProd.barcode);
+      if (existingIdx !== -1) {
+        state.products[existingIdx] = { ...state.products[existingIdx], ...importedProd };
+      } else {
+        state.products.push(importedProd);
+        addedCount++;
+      }
+    });
+
+    saveProducts();
+    populateBrandFilters();
+    renderCatalogTable();
+    initBarcodeGeneratorTab();
+    closeModal();
+    showToast(`¡Carga masiva exitosa! ${parsedImportRows.length} productos procesados.`, "success");
+  });
+
+  // Exportar Catálogo Completo a Excel CSV
+  document.getElementById("btn-export-csv")?.addEventListener("click", () => {
+    let csv = "\uFEFFcodigo_barras,nombre,categoria,marca,precio_costo,precio_venta,margen_pct,stock_actual,stock_minimo,ubicacion\n";
+    state.products.forEach(p => {
+      const margin = p.price > 0 ? Math.round(((p.price - p.cost) / p.price) * 100) : 0;
+      csv += `"${p.barcode}","${p.name}","${p.category}","${p.brand}",${p.cost},${p.price},${margin}%,${p.stock},${p.minStock},"${p.location || ''}"\n`;
+    });
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `Inventario_Luna_Viva_${new Date().toISOString().slice(0, 10)}.csv`;
+    link.click();
+    showToast("Inventario exportado a CSV", "success");
+  });
+
+  // Exportar Kardex a CSV
+  document.getElementById("btn-export-kardex")?.addEventListener("click", () => {
+    let csv = "\uFEFFfecha,tipo,producto,codigo_barras,cantidad,stock_anterior,nuevo_stock,responsable,motivo,notas\n";
+    state.kardex.forEach(k => {
+      csv += `"${k.timestamp}","${k.type}","${k.productName}","${k.barcode}",${k.quantity},${k.prevStock},${k.newStock},"${k.user}","${k.reason}","${k.notes || ''}"\n`;
+    });
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `Kardex_Luna_Viva_${new Date().toISOString().slice(0, 10)}.csv`;
+    link.click();
+    showToast("Kardex exportado a CSV", "success");
+  });
+
+  // Respaldo JSON completo
+  document.getElementById("btn-export-backup")?.addEventListener("click", () => {
+    const backupData = {
+      brand: "Luna Viva",
+      version: "1.0",
+      exportDate: new Date().toISOString(),
+      products: state.products,
+      kardex: state.kardex
+    };
+    const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `Respaldo_Luna_Viva_${new Date().toISOString().slice(0, 10)}.json`;
+    link.click();
+    showToast("Copia de seguridad guardada con éxito", "success");
+  });
+}
+
+// ============================================================================
+// 15. ESCÁNER POR CÁMARA MÓVIL / WEBCAM
+// ============================================================================
+function initCameraScanner() {
+  const btnToggleCamera = document.getElementById("btn-toggle-camera");
+  const modalCamera = document.getElementById("camera-scanner-modal");
+  const btnCloseCamera = document.getElementById("btn-close-camera");
+
+  if (!btnToggleCamera || !modalCamera) return;
+
+  btnToggleCamera.addEventListener("click", () => {
+    if (modalCamera.style.display === "none" || !modalCamera.style.display) {
+      modalCamera.style.display = "block";
+      startCameraScanning();
+    } else {
+      stopCameraScanning();
+      modalCamera.style.display = "none";
+    }
+  });
+
+  btnCloseCamera?.addEventListener("click", () => {
+    stopCameraScanning();
+    modalCamera.style.display = "none";
+  });
+}
+
+function startCameraScanning() {
+  if (typeof Html5Qrcode === "undefined") {
+    alert("El módulo de cámara está cargando o requiere conexión. Puedes usar la pistola USB/BT.");
+    return;
+  }
+
+  const readerId = "interactive-reader";
+  if (!state.cameraScannerInstance) {
+    state.cameraScannerInstance = new Html5Qrcode(readerId);
+  }
+
+  const config = { fps: 10, qrbox: { width: 250, height: 150 } };
+
+  state.cameraScannerInstance.start(
+    { facingMode: "environment" },
+    config,
+    (decodedText) => {
+      processScannedBarcode(decodedText);
+      // Pausa breve tras escanear
+      state.cameraScannerInstance.pause();
+      setTimeout(() => {
+        try { state.cameraScannerInstance.resume(); } catch (e) { }
+      }, 1500);
+    },
+    (errorMessage) => {
+      // Ignorar errores frame a frame
+    }
+  ).catch(err => {
+    console.warn("Camera scan error:", err);
+    showToast("No se pudo iniciar la cámara (permiso denegado o no disponible)", "warning");
+  });
+}
+
+function stopCameraScanning() {
+  if (state.cameraScannerInstance) {
+    try {
+      state.cameraScannerInstance.stop().then(() => {
+        state.cameraScannerInstance.clear();
+      }).catch(err => { });
+    } catch (e) { }
+  }
+}
+
+// ============================================================================
+// 16. TOAST NOTIFICATIONS
+// ============================================================================
+function showToast(message, type = "info") {
+  const container = document.getElementById("toast-container");
+  if (!container) return;
+
+  const toast = document.createElement("div");
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `
+    <span>${message}</span>
+  `;
+
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = "0";
+    toast.style.transform = "translateY(10px)";
+    setTimeout(() => toast.remove(), 250);
+  }, 3200);
+}
+
+// ============================================================================
+// 17. SISTEMA DE SALIDAS & CUENTAS DE CLIENTES (POS BOUTIQUE)
+// ============================================================================
+function loadAccountsState() {
+  const stored = localStorage.getItem(STORAGE_KEY_ACCOUNTS);
+  if (stored) {
+    try {
+      state.accounts = JSON.parse(stored);
+    } catch (e) {
+      state.accounts = [];
+    }
+  }
+  if (!state.accounts || state.accounts.length === 0) {
+    state.accounts = [createDefaultAccountObject(1)];
+  }
+
+  const storedActiveId = localStorage.getItem(STORAGE_KEY_ACTIVE_ACCOUNT);
+  if (storedActiveId && state.accounts.some(a => a.id === storedActiveId)) {
+    state.activeAccountId = storedActiveId;
+  } else {
+    state.activeAccountId = state.accounts[0].id;
+  }
+
+  const storedSales = localStorage.getItem(STORAGE_KEY_SALES);
+  let localSales = [];
+  if (storedSales) {
+    try {
+      const parsedS = JSON.parse(storedSales);
+      if (Array.isArray(parsedS)) localSales = parsedS;
+    } catch (e) {}
+  }
+
+  // Fusión con INITIAL_SALES
+  const salesMap = new Map();
+  if (typeof INITIAL_SALES !== 'undefined' && Array.isArray(INITIAL_SALES)) {
+    INITIAL_SALES.forEach(s => salesMap.set(s.id, { ...s }));
+  }
+  localSales.forEach(s => salesMap.set(s.id, { ...s }));
+
+  state.salesHistory = Array.from(salesMap.values()).sort((a, b) => {
+    return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
+  });
+
+  saveSalesHistory(true);
+  updateSalesHistoryBadge();
+}
+
+function saveAccountsState() {
+  localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(state.accounts));
+  localStorage.setItem(STORAGE_KEY_ACTIVE_ACCOUNT, state.activeAccountId);
+  updateOpenAccountsBadge();
+}
+
+function saveSalesHistory(syncServer = true) {
+  try {
+    localStorage.setItem(STORAGE_KEY_SALES, JSON.stringify(state.salesHistory));
+  } catch (e) {
+    console.error("Error guardando historial de ventas:", e);
+  }
+  updateSalesHistoryBadge();
+  if (syncServer) {
+    saveToServer("sales", state.salesHistory);
+  }
+}
+
+function updateOpenAccountsBadge() {
+  const badge = document.getElementById("badge-open-accounts");
+  if (badge) {
+    const activeCount = state.accounts.filter(a => a.items && a.items.length > 0).length || state.accounts.length;
+    badge.textContent = activeCount;
+  }
+}
+
+function updateSalesHistoryBadge() {
+  const badge = document.getElementById("badge-history-count");
+  if (badge) {
+    badge.textContent = state.salesHistory.length;
+  }
+}
+
+function createDefaultAccountObject(number) {
+  const accountNum = number || (state.accounts.length + 1);
+  return {
+    id: "CTA-" + String(accountNum).padStart(3, "0"),
+    customerName: accountNum === 1 ? "Cliente Mostrador" : `Clienta #${accountNum}`,
+    phone: "",
+    channel: "Punto Físico (Calarcá)",
+    notes: "",
+    createdAt: new Date().toISOString(),
+    discountType: "cop", // "cop" | "pct"
+    discountValue: 0,
+    items: []
+  };
+}
+
+function getActiveAccount() {
+  if (!state.accounts || state.accounts.length === 0) {
+    state.accounts = [createDefaultAccountObject(1)];
+    state.activeAccountId = state.accounts[0].id;
+  }
+  let acc = state.accounts.find(a => a.id === state.activeAccountId);
+  if (!acc) {
+    acc = state.accounts[0];
+    state.activeAccountId = acc.id;
+  }
+  return acc;
+}
+
+function createNewAccount(name, phone, channel) {
+  let nextNum = state.accounts.length + 1;
+  const newAcc = createDefaultAccountObject(nextNum);
+  if (name) newAcc.customerName = name;
+  if (phone) newAcc.phone = phone;
+  if (channel) newAcc.channel = channel;
+
+  state.accounts.push(newAcc);
+  state.activeAccountId = newAcc.id;
+  saveAccountsState();
+  renderPOS();
+  showToast(`Nueva cuenta creada: ${newAcc.customerName}`, "info");
+  setTimeout(() => document.getElementById("pos-barcode-search-input")?.focus(), 150);
+}
+
+function switchActiveAccount(accountId) {
+  if (state.accounts.some(a => a.id === accountId)) {
+    state.activeAccountId = accountId;
+    saveAccountsState();
+    renderPOS();
+  }
+}
+
+function closeOrDeleteAccount(accountId) {
+  const acc = state.accounts.find(a => a.id === accountId);
+  if (!acc) return;
+
+  if (acc.items.length > 0) {
+    if (!confirm(`La cuenta "${acc.customerName}" tiene ${acc.items.length} productos agregados.\n¿Deseas descartarla y cancelar esta cuenta?`)) {
+      return;
+    }
+  }
+
+  state.accounts = state.accounts.filter(a => a.id !== accountId);
+  if (state.accounts.length === 0) {
+    state.accounts = [createDefaultAccountObject(1)];
+  }
+  state.activeAccountId = state.accounts[0].id;
+  saveAccountsState();
+  renderPOS();
+  showToast("Cuenta cancelada", "info");
+}
+
+function addProductToActiveAccount(product, qty = 1) {
+  const account = getActiveAccount();
+  const existing = account.items.find(item => item.productId === product.id);
+
+  const currentInAccount = existing ? existing.quantity : 0;
+  if (currentInAccount + qty > product.stock) {
+    state.audio.playError();
+    const proceed = confirm(`¡Atención Luna Viva!\n"${product.name}" solo tiene ${product.stock} unidades disponibles en inventario.\nActualmente hay ${currentInAccount} en esta cuenta.\n¿Deseas agregar ${qty} más de todas formas?`);
+    if (!proceed) return;
+  }
+
+  if (existing) {
+    existing.quantity += qty;
+  } else {
+    account.items.push({
+      productId: product.id,
+      name: product.name,
+      brand: product.brand,
+      category: product.category,
+      barcode: product.barcode,
+      price: product.price,
+      cost: product.cost,
+      quantity: qty,
+      stockAvailable: product.stock
+    });
+  }
+
+  state.audio.playSuccess();
+  saveAccountsState();
+  renderPOS();
+  showToast(`+${qty} ${product.name} en cuenta de ${account.customerName}`, "success");
+}
+
+window.addProductToActiveAccountById = function (productId, qty = 1) {
+  const p = state.products.find(item => item.id === productId);
+  if (p) {
+    addProductToActiveAccount(p, qty);
+  }
+};
+
+function updateItemQtyInActiveAccount(productId, newQty) {
+  const account = getActiveAccount();
+  const item = account.items.find(i => i.productId === productId);
+  if (!item) return;
+
+  const product = state.products.find(p => p.id === productId);
+  const availableStock = product ? product.stock : 999;
+
+  if (newQty <= 0) {
+    removeItemFromActiveAccount(productId);
+    return;
+  }
+
+  if (newQty > availableStock) {
+    state.audio.playError();
+    const proceed = confirm(`¡Atención!\n"${item.name}" solo tiene ${availableStock} unidades en stock.\n¿Deseas fijar la cantidad en ${newQty}?`);
+    if (!proceed) {
+      renderActiveAccountItems();
+      return;
+    }
+  }
+
+  item.quantity = newQty;
+  saveAccountsState();
+  renderActiveAccountItems();
+  renderActiveAccountSummary();
+  renderOpenAccountTabs();
+}
+
+function removeItemFromActiveAccount(productId) {
+  const account = getActiveAccount();
+  account.items = account.items.filter(i => i.productId !== productId);
+  saveAccountsState();
+  renderPOS();
+  showToast("Producto removido de la cuenta", "info");
+}
+
+window.switchActiveAccount = switchActiveAccount;
+window.closeOrDeleteAccount = closeOrDeleteAccount;
+window.updateItemQtyInActiveAccount = updateItemQtyInActiveAccount;
+window.removeItemFromActiveAccount = removeItemFromActiveAccount;
+
+function calculateAccountTotals(account) {
+  const totalUnits = account.items.reduce((sum, item) => sum + item.quantity, 0);
+  const subtotal = account.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+  let discountAmount = 0;
+  const discVal = parseFloat(account.discountValue) || 0;
+  if (account.discountType === "pct") {
+    discountAmount = Math.round(subtotal * (Math.min(100, Math.max(0, discVal)) / 100));
+  } else {
+    discountAmount = Math.min(subtotal, Math.max(0, discVal));
+  }
+
+  const grandTotal = Math.max(0, subtotal - discountAmount);
+  return { totalUnits, subtotal, discountAmount, grandTotal };
+}
+
+// ----------------------------------------------------------------------------
+// RENDERIZADO DEL POS & CUENTAS DE CLIENTES
+// ----------------------------------------------------------------------------
+function renderPOS() {
+  renderOpenAccountTabs();
+  renderActiveAccountDetails();
+  renderActiveAccountItems();
+  renderActiveAccountSummary();
+  updateOpenAccountsBadge();
+}
+
+function renderOpenAccountTabs() {
+  const container = document.getElementById("pos-accounts-tabs");
+  if (!container) return;
+
+  container.innerHTML = state.accounts.map(acc => {
+    const isActive = acc.id === state.activeAccountId;
+    const totals = calculateAccountTotals(acc);
+    return `
+      <div class="pos-account-chip ${isActive ? 'active' : ''}" onclick="switchActiveAccount('${acc.id}')">
+        <span class="chip-avatar">👤</span>
+        <span class="chip-name" title="${acc.customerName}">${acc.customerName}</span>
+        <span class="chip-badge-count">${totals.totalUnits}</span>
+        ${totals.grandTotal > 0 ? `<span class="chip-badge-total">${formatCOP(totals.grandTotal)}</span>` : ''}
+        ${state.accounts.length > 1 ? `<button class="chip-close-btn" title="Cerrar/cancelar cuenta" onclick="event.stopPropagation(); closeOrDeleteAccount('${acc.id}')">×</button>` : ''}
+      </div>
+    `;
+  }).join("");
+}
+
+function renderActiveAccountDetails() {
+  const acc = getActiveAccount();
+
+  const nameInput = document.getElementById("pos-account-name-input");
+  const codeLabel = document.getElementById("pos-account-code-label");
+  const phoneInput = document.getElementById("pos-customer-phone");
+  const channelSelect = document.getElementById("pos-channel-select");
+  const notesInput = document.getElementById("pos-account-notes");
+  const itemsBadge = document.getElementById("pos-items-count-badge");
+  const timeBadge = document.getElementById("pos-account-time-badge");
+
+  if (nameInput && document.activeElement !== nameInput) nameInput.value = acc.customerName || "Cliente Mostrador";
+  if (codeLabel) codeLabel.textContent = `Cuenta #${acc.id}`;
+  if (phoneInput && document.activeElement !== phoneInput) phoneInput.value = acc.phone || "";
+  if (channelSelect) channelSelect.value = acc.channel || "Punto Físico (Calarcá)";
+  if (notesInput && document.activeElement !== notesInput) notesInput.value = acc.notes || "";
+
+  const totals = calculateAccountTotals(acc);
+  if (itemsBadge) itemsBadge.textContent = `${totals.totalUnits} ${totals.totalUnits === 1 ? 'producto' : 'productos'}`;
+  if (timeBadge) {
+    const d = new Date(acc.createdAt);
+    timeBadge.textContent = `Iniciada ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+  }
+}
+
+function renderActiveAccountItems() {
+  const acc = getActiveAccount();
+  const tbody = document.getElementById("pos-table-body");
+  const emptyState = document.getElementById("pos-cart-empty-state");
+  const table = document.getElementById("pos-table");
+
+  if (!tbody) return;
+
+  if (acc.items.length === 0) {
+    tbody.innerHTML = "";
+    if (table) table.style.display = "none";
+    if (emptyState) {
+      emptyState.style.display = "flex";
+      renderQuickSuggestionChips();
+    }
+    return;
+  }
+
+  if (table) table.style.display = "table";
+  if (emptyState) emptyState.style.display = "none";
+
+  tbody.innerHTML = acc.items.map(item => {
+    const prod = state.products.find(p => p.id === item.productId);
+    const stock = prod ? prod.stock : item.stockAvailable;
+    const isStockWarning = item.quantity >= stock;
+    const itemSubtotal = item.price * item.quantity;
+
+    return `
+      <tr>
+        <td>
+          <div class="cart-item-prod">
+            <div class="cart-item-avatar">💄</div>
+            <div class="cart-item-details">
+              <span class="cart-item-name">${item.name}</span>
+              <div class="cart-item-submeta">
+                <span class="cart-brand-tag">${item.brand}</span>
+                <span>Cód: ${item.barcode}</span>
+                <span class="cart-stock-hint ${isStockWarning ? 'warning' : ''}">Stock: ${stock} disp.</span>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td><strong>${formatCOP(item.price)}</strong></td>
+        <td style="text-align: center;">
+          <div class="pos-qty-stepper">
+            <button type="button" class="pos-btn-step" onclick="updateItemQtyInActiveAccount('${item.productId}', ${item.quantity - 1})">-</button>
+            <input type="number" class="pos-input-qty" value="${item.quantity}" min="1" max="999"
+              onchange="updateItemQtyInActiveAccount('${item.productId}', parseInt(this.value, 10) || 1)">
+            <button type="button" class="pos-btn-step" onclick="updateItemQtyInActiveAccount('${item.productId}', ${item.quantity + 1})">+</button>
+          </div>
+        </td>
+        <td style="text-align: right;"><span class="pos-item-subtotal">${formatCOP(itemSubtotal)}</span></td>
+        <td style="text-align: center;">
+          <button type="button" class="btn-remove-item" title="Quitar de la cuenta" onclick="removeItemFromActiveAccount('${item.productId}')">
+            <i data-lucide="trash-2"></i>
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join("");
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderQuickSuggestionChips() {
+  const container = document.getElementById("pos-quick-chips");
+  if (!container) return;
+
+  const popular = state.products.slice(0, 6);
+  container.innerHTML = popular.map(p => `
+    <button type="button" class="quick-chip-prod" onclick="addProductToActiveAccountById('${p.id}', 1)">
+      <span>+ ${p.name.split(' ').slice(0, 3).join(' ')}</span>
+      <small style="color:var(--rose-primary); font-weight:700;">${formatCOP(p.price)}</small>
+    </button>
+  `).join("");
+}
+
+function renderActiveAccountSummary() {
+  const acc = getActiveAccount();
+  const totals = calculateAccountTotals(acc);
+
+  const unitsEl = document.getElementById("pos-sum-units");
+  const subtotalEl = document.getElementById("pos-sum-subtotal");
+  const totalEl = document.getElementById("pos-sum-total");
+  const discValueInput = document.getElementById("pos-discount-value");
+  const discDisplay = document.getElementById("pos-discount-display");
+  const btnCheckout = document.getElementById("btn-pos-checkout");
+
+  if (unitsEl) unitsEl.textContent = `${totals.totalUnits} unid.`;
+  if (subtotalEl) subtotalEl.textContent = formatCOP(totals.subtotal);
+  if (totalEl) totalEl.textContent = formatCOP(totals.grandTotal);
+
+  if (discValueInput && document.activeElement !== discValueInput) {
+    discValueInput.value = acc.discountValue || 0;
+  }
+  if (discDisplay) {
+    discDisplay.textContent = `-${formatCOP(totals.discountAmount)}`;
+  }
+
+  // Descuento toggle de tipo
+  const btnCop = document.getElementById("btn-disc-cop");
+  const btnPct = document.getElementById("btn-disc-pct");
+  if (btnCop && btnPct) {
+    btnCop.classList.toggle("active", acc.discountType === "cop");
+    btnPct.classList.toggle("active", acc.discountType === "pct");
+  }
+
+  // Botón checkout disponible si hay productos
+  if (btnCheckout) {
+    btnCheckout.disabled = acc.items.length === 0;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// BÚSQUEDA RÁPIDA & AUTOCOMPLETADO EN EL POS
+// ----------------------------------------------------------------------------
+function initPOSSearchAndBarcode() {
+  const input = document.getElementById("pos-barcode-search-input");
+  const dropdown = document.getElementById("pos-autocomplete-dropdown");
+  const submitBtn = document.getElementById("btn-pos-add-item-submit");
+  const cameraBtn = document.getElementById("btn-pos-camera-scan");
+
+  if (!input || !dropdown) return;
+
+  const handleSearch = () => {
+    const q = input.value.trim().toLowerCase();
+    if (!q || q.length < 2) {
+      dropdown.style.display = "none";
+      dropdown.innerHTML = "";
+      return;
+    }
+
+    // Buscar por código exacto o coincidencia de texto
+    const exactBarcode = state.products.find(p => p.barcode === q || p.id.toLowerCase() === q);
+    if (exactBarcode && input.dataset.scanned === "true") {
+      addProductToActiveAccount(exactBarcode, 1);
+      input.value = "";
+      dropdown.style.display = "none";
+      return;
+    }
+
+    const matches = state.products.filter(p =>
+      p.name.toLowerCase().includes(q) ||
+      p.brand.toLowerCase().includes(q) ||
+      p.barcode.includes(q) ||
+      p.category.toLowerCase().includes(q)
+    ).slice(0, 7);
+
+    if (matches.length === 0) {
+      dropdown.innerHTML = `<div style="padding:0.75rem 1rem; color:var(--text-muted); font-size:0.84rem;">No se encontraron productos para "${q}". Presiona Enter para registrarlo si es un código nuevo.</div>`;
+      dropdown.style.display = "block";
+      return;
+    }
+
+    dropdown.innerHTML = matches.map((p, idx) => {
+      let stockClass = "ok";
+      let stockText = `${p.stock} en stock`;
+      if (p.stock <= 0) { stockClass = "out"; stockText = "Agotado"; }
+      else if (p.stock <= p.minStock) { stockClass = "low"; stockText = `Bajo (${p.stock})`; }
+
+      return `
+        <div class="pos-search-item ${idx === 0 ? 'highlighted' : ''}" data-product-id="${p.id}">
+          <div class="search-item-info">
+            <span class="search-item-title">${p.name}</span>
+            <div class="search-item-meta">
+              <span class="search-item-brand">${p.brand}</span>
+              <span>· ${p.category}</span>
+              <span>· Cód: ${p.barcode}</span>
+            </div>
+          </div>
+          <div class="search-item-price-stock">
+            <span class="search-item-price">${formatCOP(p.price)}</span>
+            <span class="search-item-stock ${stockClass}">${stockText}</span>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    dropdown.style.display = "block";
+
+    // Clicks en resultados
+    dropdown.querySelectorAll(".pos-search-item").forEach(itemEl => {
+      itemEl.addEventListener("click", () => {
+        const prodId = itemEl.getAttribute("data-product-id");
+        const prod = state.products.find(p => p.id === prodId);
+        if (prod) {
+          addProductToActiveAccount(prod, 1);
+          input.value = "";
+          dropdown.style.display = "none";
+          input.focus();
+        }
+      });
+    });
+  };
+
+  input.addEventListener("input", handleSearch);
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const q = input.value.trim();
+      if (!q) return;
+
+      // 1. Probar coincidencia exacta por código
+      const exactMatch = state.products.find(p => p.barcode === q || p.id.toLowerCase() === q.toLowerCase());
+      if (exactMatch) {
+        addProductToActiveAccount(exactMatch, 1);
+        input.value = "";
+        dropdown.style.display = "none";
+        return;
+      }
+
+      // 2. Si hay resultados desplegados, seleccionar el primero
+      const firstResult = dropdown.querySelector(".pos-search-item");
+      if (firstResult) {
+        const prodId = firstResult.getAttribute("data-product-id");
+        const prod = state.products.find(p => p.id === prodId);
+        if (prod) {
+          addProductToActiveAccount(prod, 1);
+          input.value = "";
+          dropdown.style.display = "none";
+          return;
+        }
+      }
+
+      // 3. Si no existe, preguntar para crearlo
+      if (confirm(`El producto con código o término "${q}" no se encuentra en el catálogo.\n¿Deseas registrar un nuevo producto con este código?`)) {
+        openProductModal();
+        document.getElementById("prod-barcode").value = q;
+        input.value = "";
+        dropdown.style.display = "none";
+      }
+    } else if (e.key === "Escape") {
+      dropdown.style.display = "none";
+    }
+  });
+
+  submitBtn?.addEventListener("click", () => {
+    const q = input.value.trim();
+    if (q) {
+      const match = state.products.find(p => p.barcode === q || p.id === q || p.name.toLowerCase().includes(q.toLowerCase()));
+      if (match) {
+        addProductToActiveAccount(match, 1);
+        input.value = "";
+        dropdown.style.display = "none";
+      }
+    }
+  });
+
+  cameraBtn?.addEventListener("click", () => {
+    switchTab("tab-scanner");
+    const modalCamera = document.getElementById("camera-scanner-modal");
+    if (modalCamera && (modalCamera.style.display === "none" || !modalCamera.style.display)) {
+      modalCamera.style.display = "block";
+      startCameraScanning();
+    }
+  });
+
+  // Cerrar dropdown al hacer click fuera
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".pos-search-card")) {
+      dropdown.style.display = "none";
+    }
+  });
+}
+
+// ----------------------------------------------------------------------------
+// MODAL DE COBRO & CIERRE DE CUENTA
+// ----------------------------------------------------------------------------
+function openCheckoutModal() {
+  const acc = getActiveAccount();
+  if (acc.items.length === 0) {
+    showToast("La cuenta no tiene productos para cobrar", "warning");
+    return;
+  }
+
+  const modal = document.getElementById("modal-pos-checkout");
+  if (!modal) return;
+
+  const totals = calculateAccountTotals(acc);
+
+  document.getElementById("checkout-account-subtitle").textContent = `Cuenta: ${acc.customerName} (${acc.id})`;
+  document.getElementById("checkout-amount-total").textContent = formatCOP(totals.grandTotal);
+  document.getElementById("checkout-items-summary").textContent = `${totals.totalUnits} piezas / productos seleccionados`;
+
+  // Canal y usuario por defecto
+  const channelSelect = document.getElementById("checkout-channel-confirm");
+  if (channelSelect) channelSelect.value = acc.channel || "Punto Físico (Calarcá)";
+
+  const userSelect = document.getElementById("checkout-user-select");
+  if (userSelect) userSelect.value = state.activeUser || "Laura";
+
+  // Reset efectivo
+  const cashInput = document.getElementById("checkout-cash-received");
+  if (cashInput) cashInput.value = "";
+  updateCashChangeCalculation(totals.grandTotal);
+
+  // Reset método
+  document.querySelectorAll(".payment-card").forEach(c => {
+    const isEfectivo = c.getAttribute("data-method") === "Efectivo";
+    c.classList.toggle("active", isEfectivo);
+    const radio = c.querySelector("input[type='radio']");
+    if (radio) radio.checked = isEfectivo;
+  });
+
+  document.getElementById("checkout-cash-panel").style.display = "flex";
+  document.getElementById("checkout-reference-panel").style.display = "none";
+
+  modal.style.display = "flex";
+  setTimeout(() => cashInput?.focus(), 150);
+}
+
+function updateCashChangeCalculation(grandTotal) {
+  const cashInput = document.getElementById("checkout-cash-received");
+  const changeEl = document.getElementById("checkout-change-amount");
+  const received = parseFloat(cashInput ? cashInput.value : 0) || 0;
+
+  if (received <= 0) {
+    if (changeEl) changeEl.textContent = "$0";
+    return;
+  }
+
+  const change = received - grandTotal;
+  if (changeEl) {
+    if (change >= 0) {
+      changeEl.textContent = formatCOP(change);
+      changeEl.style.color = "#047857";
+    } else {
+      changeEl.textContent = `Faltan ${formatCOP(Math.abs(change))}`;
+      changeEl.style.color = "var(--danger)";
+    }
+  }
+}
+
+function confirmCheckoutAndExit() {
+  const acc = getActiveAccount();
+  if (acc.items.length === 0) return;
+
+  const totals = calculateAccountTotals(acc);
+
+  // Leer método seleccionado
+  const selectedPayCard = document.querySelector(".payment-card.active");
+  const paymentMethod = selectedPayCard ? selectedPayCard.getAttribute("data-method") : "Efectivo";
+  const user = document.getElementById("checkout-user-select")?.value || state.activeUser;
+  const channel = document.getElementById("checkout-channel-confirm")?.value || acc.channel;
+  const reference = document.getElementById("checkout-pay-reference")?.value || "";
+
+  // En caso de efectivo, verificar
+  const cashReceived = parseFloat(document.getElementById("checkout-cash-received")?.value) || totals.grandTotal;
+  const cashChange = Math.max(0, cashReceived - totals.grandTotal);
+
+  // 1. Validar y descontar stock del inventario
+  for (const item of acc.items) {
+    const prod = state.products.find(p => p.id === item.productId);
+    if (prod) {
+      const prevStock = prod.stock;
+      const newStock = Math.max(0, prod.stock - item.quantity);
+      prod.stock = newStock;
+
+      // Registrar movimiento de salida en el Kardex
+      recordKardexMovement(
+        "SALIDA",
+        prod,
+        item.quantity,
+        prevStock,
+        newStock,
+        `Venta Cuenta #${acc.id} (${acc.customerName})`,
+        `Pago: ${paymentMethod}${reference ? ` Ref: ${reference}` : ''} | Canal: ${channel}`
+      );
+    }
+  }
+
+  // 2. Crear registro de venta formal para el historial
+  const saleRecord = {
+    id: "TKT-" + Date.now().toString().slice(-6),
+    accountId: acc.id,
+    timestamp: new Date().toISOString(),
+    customerName: acc.customerName,
+    customerPhone: acc.phone,
+    channel: channel,
+    user: user,
+    paymentMethod: paymentMethod,
+    paymentReference: reference,
+    items: JSON.parse(JSON.stringify(acc.items)),
+    totalUnits: totals.totalUnits,
+    subtotal: totals.subtotal,
+    discountType: acc.discountType,
+    discountValue: acc.discountValue,
+    discountAmount: totals.discountAmount,
+    grandTotal: totals.grandTotal,
+    cashReceived: paymentMethod === "Efectivo" ? cashReceived : totals.grandTotal,
+    cashChange: paymentMethod === "Efectivo" ? cashChange : 0,
+    notes: acc.notes
+  };
+
+  state.salesHistory.unshift(saleRecord);
+  saveSalesHistory();
+  saveProducts();
+
+  // 3. Reproducir sonido de caja registradora / campanadas boutique
+  state.audio.playCashChime();
+
+  // 4. Cerrar modal de cobro y abrir modal de Ticket
+  document.getElementById("modal-pos-checkout").style.display = "none";
+  openReceiptModal(saleRecord);
+
+  // 5. Reiniciar o remover la cuenta actual
+  state.accounts = state.accounts.filter(a => a.id !== acc.id);
+  if (state.accounts.length === 0) {
+    state.accounts = [createDefaultAccountObject(1)];
+  }
+  state.activeAccountId = state.accounts[0].id;
+  saveAccountsState();
+  renderPOS();
+  renderCatalogTable();
+  renderKardexTable();
+
+  showToast(`¡Salida completada con éxito! Ticket ${saleRecord.id}`, "success");
+}
+
+// ----------------------------------------------------------------------------
+// MODAL DE TICKET / COMPROBANTE DE SALIDA
+// ----------------------------------------------------------------------------
+let currentPrintedSale = null;
+
+function openReceiptModal(sale) {
+  currentPrintedSale = sale;
+  const modal = document.getElementById("modal-pos-ticket");
+  if (!modal) return;
+
+  document.getElementById("rec-ticket-id").textContent = sale.id;
+  const d = new Date(sale.timestamp);
+  document.getElementById("rec-date").textContent = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+  document.getElementById("rec-user").textContent = sale.user;
+  document.getElementById("rec-customer").textContent = sale.customerName;
+
+  const phoneRow = document.getElementById("rec-phone-row");
+  if (phoneRow) {
+    if (sale.customerPhone) {
+      phoneRow.style.display = "flex";
+      document.getElementById("rec-phone").textContent = sale.customerPhone;
+    } else {
+      phoneRow.style.display = "none";
+    }
+  }
+
+  document.getElementById("rec-channel").textContent = sale.channel;
+
+  // Lista de items del ticket
+  const listEl = document.getElementById("rec-items-list");
+  if (listEl) {
+    listEl.innerHTML = sale.items.map(it => `
+      <div class="rec-item-row">
+        <span class="rec-item-name">${it.quantity}x ${it.name} <small style="color:#777;">(${it.brand})</small></span>
+        <span class="rec-item-unit">${formatCOP(it.price)}</span>
+        <span class="rec-item-total">${formatCOP(it.price * it.quantity)}</span>
+      </div>
+    `).join("");
+  }
+
+  // Totales
+  document.getElementById("rec-subtotal").textContent = formatCOP(sale.subtotal);
+
+  const discRow = document.getElementById("rec-discount-row");
+  if (discRow) {
+    if (sale.discountAmount > 0) {
+      discRow.style.display = "flex";
+      document.getElementById("rec-discount").textContent = `-${formatCOP(sale.discountAmount)}`;
+    } else {
+      discRow.style.display = "none";
+    }
+  }
+
+  document.getElementById("rec-grand-total").textContent = formatCOP(sale.grandTotal);
+  document.getElementById("rec-pay-method").textContent = sale.paymentMethod + (sale.paymentReference ? ` (${sale.paymentReference})` : '');
+
+  const cashRecRow = document.getElementById("rec-cash-details-row");
+  const cashChangeRow = document.getElementById("rec-change-details-row");
+  if (sale.paymentMethod === "Efectivo") {
+    if (cashRecRow) { cashRecRow.style.display = "flex"; document.getElementById("rec-cash-received").textContent = formatCOP(sale.cashReceived); }
+    if (cashChangeRow) { cashChangeRow.style.display = "flex"; document.getElementById("rec-cash-change").textContent = formatCOP(sale.cashChange); }
+  } else {
+    if (cashRecRow) cashRecRow.style.display = "none";
+    if (cashChangeRow) cashChangeRow.style.display = "none";
+  }
+
+  modal.style.display = "flex";
+}
+
+function sendTicketWhatsApp(sale) {
+  if (!sale) sale = currentPrintedSale;
+  if (!sale) return;
+
+  const rawPhone = (sale.customerPhone || "").replace(/\D/g, "");
+  let finalPhone = rawPhone;
+  if (rawPhone.length === 10 && rawPhone.startsWith("3")) {
+    finalPhone = "57" + rawPhone;
+  }
+
+  const d = new Date(sale.timestamp);
+  const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+
+  const itemsText = sale.items.map(it => `• ${it.quantity}x ${it.name} (${it.brand}) - ${formatCOP(it.price * it.quantity)}`).join("\n");
+
+  const messageText = `🌸 *LUNA VIVA - Boutique de Belleza* 🌸
+📍 Calarcá, Quindío · Colombia
+
+¡Hola ${sale.customerName}! ✨ Gracias por tu compra en Luna Viva:
+
+🧾 *Ticket:* ${sale.id}
+📅 *Fecha:* ${dateFormatted}
+👩‍💼 *Atendido por:* ${sale.user}
+
+🛍️ *Productos:*
+${itemsText}
+
+───────────────────
+*Subtotal:* ${formatCOP(sale.subtotal)}
+${sale.discountAmount > 0 ? `*Descuento especial:* -${formatCOP(sale.discountAmount)}\n` : ''}✨ *TOTAL PAGADO:* ${formatCOP(sale.grandTotal)}
+💳 *Método de Pago:* ${sale.paymentMethod}
+
+¡Haz brillar tu belleza y tu resplandor único! 💕✨
+Instagram: @lunaviva.co`;
+
+  const waUrl = finalPhone.length >= 10
+    ? `https://api.whatsapp.com/send?phone=${finalPhone}&text=${encodeURIComponent(messageText)}`
+    : `https://api.whatsapp.com/send?text=${encodeURIComponent(messageText)}`;
+
+  window.open(waUrl, "_blank");
+}
+
+function printTicketReceipt() {
+  document.body.classList.add("printing-receipt");
+  window.print();
+  setTimeout(() => {
+    document.body.classList.remove("printing-receipt");
+  }, 1000);
+}
+
+// ----------------------------------------------------------------------------
+// VISTA DE HISTORIAL DE SALIDAS DEL DÍA & APARTADO DEL MES
+// ----------------------------------------------------------------------------
+function renderSalesHistoryView() {
+  const tbody = document.getElementById("pos-history-table-body");
+  if (!tbody) return;
+
+  const searchInput = document.getElementById("pos-history-search");
+  const filterMethod = document.getElementById("pos-history-filter-method");
+  const datePicker = document.getElementById("pos-history-date-picker");
+  const dateLabel = document.getElementById("pos-history-current-date-label");
+
+  const q = searchInput ? searchInput.value.trim().toLowerCase() : "";
+  const method = filterMethod ? filterMethod.value : "ALL";
+
+  // Determinar la fecha objetivo según el modo activo
+  let targetDateKey = null;
+  const now = new Date();
+  const todayKey = getLocalDateKey(now);
+
+  if (state.historyDateMode === "today") {
+    targetDateKey = todayKey;
+    if (dateLabel) dateLabel.textContent = `Historial del Día: Hoy (${now.toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' })})`;
+    if (datePicker) datePicker.value = todayKey;
+  } else if (state.historyDateMode === "yesterday") {
+    const yesterday = new Date(Date.now() - 86400000);
+    targetDateKey = getLocalDateKey(yesterday);
+    if (dateLabel) dateLabel.textContent = `Historial del Día: Ayer (${yesterday.toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' })})`;
+    if (datePicker) datePicker.value = targetDateKey;
+  } else if (state.historyDateMode === "custom") {
+    targetDateKey = state.historyCustomDate || todayKey;
+    const customD = new Date(targetDateKey + "T12:00:00");
+    if (dateLabel) dateLabel.textContent = `Historial del Día: ${customD.toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' })}`;
+    if (datePicker) datePicker.value = targetDateKey;
+  } else {
+    targetDateKey = null; // 'all'
+    if (dateLabel) dateLabel.textContent = "Historial Completo de Todas las Salidas";
+    if (datePicker) datePicker.value = "";
+  }
+
+  // Actualizar botones de preset
+  document.querySelectorAll(".btn-date-preset").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.mode === state.historyDateMode);
+  });
+
+  // Ventas para KPIs del día seleccionado (o totales si está en 'all')
+  const periodSales = targetDateKey
+    ? state.salesHistory.filter(s => getLocalDateKey(s.timestamp) === targetDateKey)
+    : state.salesHistory;
+
+  const totalCOP = periodSales.reduce((acc, s) => acc + (Number(s.grandTotal) || 0), 0);
+  const totalUnits = periodSales.reduce((acc, s) => acc + (Number(s.totalUnits) || 0), 0);
+  const count = periodSales.length;
+  const avgTicket = count > 0 ? Math.round(totalCOP / count) : 0;
+
+  // Actualizar labels de KPIs
+  const lblSales = document.getElementById("pos-kpi-label-sales");
+  const lblCount = document.getElementById("pos-kpi-label-count");
+  if (lblSales) lblSales.textContent = state.historyDateMode === "today" ? "Ventas / Salidas Hoy" : (targetDateKey ? "Ventas del Día" : "Ventas Totales");
+  if (lblCount) lblCount.textContent = state.historyDateMode === "today" ? "Cuentas Cerradas Hoy" : (targetDateKey ? "Cuentas del Día" : "Cuentas Totales");
+
+  document.getElementById("pos-kpi-today-sales").textContent = formatCOP(totalCOP);
+  document.getElementById("pos-kpi-today-count").textContent = count;
+  document.getElementById("pos-kpi-average-ticket").textContent = formatCOP(avgTicket);
+  document.getElementById("pos-kpi-units-sold").textContent = `${totalUnits} unid.`;
+
+  // Filtrado de la tabla de ventas
+  const filtered = state.salesHistory.filter(s => {
+    // Filtro por fecha local
+    if (targetDateKey && getLocalDateKey(s.timestamp) !== targetDateKey) {
+      return false;
+    }
+    // Filtro por método de pago
+    if (method !== "ALL" && s.paymentMethod !== method) {
+      return false;
+    }
+    // Búsqueda textual
+    if (q) {
+      const matchId = (s.id || "").toLowerCase().includes(q);
+      const matchCustomer = (s.customerName || "").toLowerCase().includes(q);
+      const matchPhone = (s.customerPhone || "").includes(q);
+      const matchItems = Array.isArray(s.items) && s.items.some(i => (i.name || "").toLowerCase().includes(q));
+      if (!matchId && !matchCustomer && !matchPhone && !matchItems) return false;
+    }
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    const emptyMsg = targetDateKey
+      ? `No hay salidas registradas para ${state.historyDateMode === 'today' ? 'el día de hoy' : 'esta fecha'}.`
+      : "No se encontraron salidas en el historial.";
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:2.5rem; color:var(--text-muted);">${emptyMsg}</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(s => {
+    const d = new Date(s.timestamp);
+    const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+    const itemsPreview = (s.items || []).map(i => `${i.quantity}x ${i.name}`).join(", ");
+
+    return `
+      <tr>
+        <td><strong class="barcode-badge-mono">${s.id}</strong></td>
+        <td><small>${dateFormatted}</small></td>
+        <td><strong>${s.customerName}</strong></td>
+        <td>${s.customerPhone ? `<a href="https://wa.me/57${s.customerPhone.replace(/\D/g, '')}" target="_blank" style="color:var(--success); font-weight:600;"><i data-lucide="message-circle" style="width:13px;height:13px;display:inline;"></i> ${s.customerPhone}</a>` : '<span class="text-muted">-</span>'}</td>
+        <td><span title="${itemsPreview}" style="max-width:200px; display:inline-block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${s.totalUnits} prods (${itemsPreview})</span></td>
+        <td><strong style="color:var(--rose-deep);">${formatCOP(s.grandTotal)}</strong></td>
+        <td><span class="badge-tag">${s.paymentMethod}</span></td>
+        <td><small>${s.user}</small></td>
+        <td class="text-right">
+          <button class="btn-action-icon" title="Ver e imprimir comprobante" onclick="reprintTicket('${s.id}')"><i data-lucide="printer"></i></button>
+          <button class="btn-action-icon" title="Enviar por WhatsApp" onclick="resendWhatsApp('${s.id}')"><i data-lucide="message-circle"></i></button>
+        </td>
+      </tr>
+    `;
+  }).join("");
+
+  if (window.lucide) lucide.createIcons();
+}
+
+// ----------------------------------------------------------------------------
+// APARTADO: HISTORIAL DEL MES (CONSOLIDADO MENSUAL & KPIs)
+// ----------------------------------------------------------------------------
+function renderMonthlyHistoryView() {
+  const container = document.getElementById("pos-view-monthly-container");
+  if (!container) return;
+
+  const currentMonthKey = state.monthlySelectedMonth || getLocalMonthKey(new Date());
+  state.monthlySelectedMonth = currentMonthKey;
+
+  // Actualizar selector y título
+  const monthInput = document.getElementById("pos-month-input");
+  if (monthInput) monthInput.value = currentMonthKey;
+
+  const displayTitle = document.getElementById("pos-monthly-display-title");
+  if (displayTitle) {
+    displayTitle.textContent = `Historial de Salidas - ${getMonthNameEs(currentMonthKey)}`;
+  }
+
+  // Filtrar todas las ventas correspondientes a este mes en hora local
+  const monthSales = state.salesHistory.filter(s => getLocalMonthKey(s.timestamp) === currentMonthKey);
+
+  // 1. KPIs del Mes
+  const totalCOP = monthSales.reduce((acc, s) => acc + (Number(s.grandTotal) || 0), 0);
+  const totalUnits = monthSales.reduce((acc, s) => acc + (Number(s.totalUnits) || 0), 0);
+  const count = monthSales.length;
+  const avgTicket = count > 0 ? Math.round(totalCOP / count) : 0;
+
+  document.getElementById("pos-kpi-month-sales").textContent = formatCOP(totalCOP);
+  document.getElementById("pos-kpi-month-count").textContent = `${count} ventas`;
+  document.getElementById("pos-kpi-month-avg").textContent = formatCOP(avgTicket);
+  document.getElementById("pos-kpi-month-units").textContent = `${totalUnits} unid.`;
+
+  // 2. Desglose de Métodos de Pago
+  const methodsGrid = document.getElementById("pos-monthly-methods-grid");
+  if (methodsGrid) {
+    const methodsList = ["Efectivo", "Nequi", "Daviplata", "Tarjeta", "Transferencia", "Crédito"];
+    const methodTotals = {};
+    methodsList.forEach(m => methodTotals[m] = { total: 0, count: 0 });
+
+    monthSales.forEach(s => {
+      const m = s.paymentMethod || "Efectivo";
+      if (!methodTotals[m]) methodTotals[m] = { total: 0, count: 0 };
+      methodTotals[m].total += (Number(s.grandTotal) || 0);
+      methodTotals[m].count += 1;
+    });
+
+    methodsGrid.innerHTML = Object.entries(methodTotals)
+      .filter(([_, data]) => data.count > 0 || totalCOP === 0)
+      .map(([mName, data]) => {
+        const pct = totalCOP > 0 ? Math.round((data.total / totalCOP) * 100) : 0;
+        return `
+          <div class="method-stat-card">
+            <span class="method-stat-title">${mName}</span>
+            <span class="method-stat-amount">${formatCOP(data.total)}</span>
+            <span class="method-stat-count">${data.count} ventas (${pct}%)</span>
+          </div>
+        `;
+      }).join("");
+  }
+
+  // 3. Resumen Día por Día del Mes
+  const daysTbody = document.getElementById("pos-monthly-days-tbody");
+  if (daysTbody) {
+    const dayGroups = {};
+    monthSales.forEach(s => {
+      const dKey = getLocalDateKey(s.timestamp);
+      if (!dayGroups[dKey]) {
+        dayGroups[dKey] = {
+          dateKey: dKey,
+          sales: [],
+          totalCOP: 0,
+          totalUnits: 0,
+          methods: {}
+        };
+      }
+      dayGroups[dKey].sales.push(s);
+      dayGroups[dKey].totalCOP += (Number(s.grandTotal) || 0);
+      dayGroups[dKey].totalUnits += (Number(s.totalUnits) || 0);
+      const m = s.paymentMethod || "Efectivo";
+      dayGroups[dKey].methods[m] = (dayGroups[dKey].methods[m] || 0) + 1;
+    });
+
+    const sortedDays = Object.values(dayGroups).sort((a, b) => b.dateKey.localeCompare(a.dateKey));
+
+    if (sortedDays.length === 0) {
+      daysTbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:2rem; color:var(--text-muted);">No se registraron ventas en ningún día de este mes.</td></tr>`;
+    } else {
+      daysTbody.innerHTML = sortedDays.map(dg => {
+        const dObj = new Date(dg.dateKey + "T12:00:00");
+        const formattedDate = dObj.toLocaleDateString('es-CO', { day: '2-digit', month: '2-digit', year: 'numeric' });
+        const dayOfWeek = getDayOfWeekEs(dObj);
+
+        // Método principal
+        const topMethod = Object.entries(dg.methods).sort((a, b) => b[1] - a[1])[0]?.[0] || "Efectivo";
+
+        return `
+          <tr>
+            <td><strong>${formattedDate}</strong></td>
+            <td><span class="badge-tag">${dayOfWeek}</span></td>
+            <td><strong>${dg.sales.length}</strong> ventas</td>
+            <td>${dg.totalUnits} unid.</td>
+            <td><strong style="color:var(--rose-deep);">${formatCOP(dg.totalCOP)}</strong></td>
+            <td><span class="badge-tag">${topMethod}</span></td>
+            <td class="text-right">
+              <button type="button" class="btn-day-action" onclick="viewSpecificDayHistory('${dg.dateKey}')">
+                <i data-lucide="eye"></i> <span>Ver Salidas</span>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+  }
+
+  // 4. Llenar el dropdown de días para filtrar la tabla detallada
+  const daySelect = document.getElementById("pos-monthly-filter-day");
+  if (daySelect) {
+    const currentVal = daySelect.value;
+    const distinctDays = Array.from(new Set(monthSales.map(s => getLocalDateKey(s.timestamp)))).sort().reverse();
+    daySelect.innerHTML = `<option value="ALL">Todos los Días del Mes (${monthSales.length})</option>` +
+      distinctDays.map(dKey => {
+        const dObj = new Date(dKey + "T12:00:00");
+        return `<option value="${dKey}">${dObj.toLocaleDateString('es-CO')} (${getDayOfWeekEs(dObj)})</option>`;
+      }).join("");
+    if (currentVal && (currentVal === "ALL" || distinctDays.includes(currentVal))) {
+      daySelect.value = currentVal;
+    }
+  }
+
+  // 5. Tabla Detallada de Salidas del Mes
+  renderMonthlyDetailTable(monthSales);
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderMonthlyDetailTable(monthSalesInput = null) {
+  const tbody = document.getElementById("pos-monthly-table-body");
+  if (!tbody) return;
+
+  const currentMonthKey = state.monthlySelectedMonth || getLocalMonthKey(new Date());
+  const monthSales = monthSalesInput || state.salesHistory.filter(s => getLocalMonthKey(s.timestamp) === currentMonthKey);
+
+  const searchVal = (document.getElementById("pos-monthly-search")?.value || "").trim().toLowerCase();
+  const methodFilter = document.getElementById("pos-monthly-filter-method")?.value || "ALL";
+  const dayFilter = document.getElementById("pos-monthly-filter-day")?.value || "ALL";
+
+  const filtered = monthSales.filter(s => {
+    if (dayFilter !== "ALL" && getLocalDateKey(s.timestamp) !== dayFilter) return false;
+    if (methodFilter !== "ALL" && s.paymentMethod !== methodFilter) return false;
+    if (searchVal) {
+      const matchId = (s.id || "").toLowerCase().includes(searchVal);
+      const matchCustomer = (s.customerName || "").toLowerCase().includes(searchVal);
+      const matchPhone = (s.customerPhone || "").includes(searchVal);
+      const matchItems = Array.isArray(s.items) && s.items.some(i => (i.name || "").toLowerCase().includes(searchVal));
+      if (!matchId && !matchCustomer && !matchPhone && !matchItems) return false;
+    }
+    return true;
+  });
+
+  const badgeEl = document.getElementById("pos-monthly-detail-badge");
+  if (badgeEl) badgeEl.textContent = `${filtered.length} de ${monthSales.length} ventas`;
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:2rem; color:var(--text-muted);">No se encontraron salidas con los filtros aplicados en este mes.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(s => {
+    const d = new Date(s.timestamp);
+    const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+    const itemsPreview = (s.items || []).map(i => `${i.quantity}x ${i.name}`).join(", ");
+
+    return `
+      <tr>
+        <td><strong class="barcode-badge-mono">${s.id}</strong></td>
+        <td><small>${dateFormatted}</small></td>
+        <td><strong>${s.customerName}</strong></td>
+        <td>${s.customerPhone ? `<a href="https://wa.me/57${s.customerPhone.replace(/\D/g, '')}" target="_blank" style="color:var(--success); font-weight:600;"><i data-lucide="message-circle" style="width:13px;height:13px;display:inline;"></i> ${s.customerPhone}</a>` : '<span class="text-muted">-</span>'}</td>
+        <td><span title="${itemsPreview}" style="max-width:200px; display:inline-block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${s.totalUnits} prods (${itemsPreview})</span></td>
+        <td><strong style="color:var(--rose-deep);">${formatCOP(s.grandTotal)}</strong></td>
+        <td><span class="badge-tag">${s.paymentMethod}</span></td>
+        <td><small>${s.user}</small></td>
+        <td class="text-right">
+          <button class="btn-action-icon" title="Ver e imprimir comprobante" onclick="reprintTicket('${s.id}')"><i data-lucide="printer"></i></button>
+          <button class="btn-action-icon" title="Enviar por WhatsApp" onclick="resendWhatsApp('${s.id}')"><i data-lucide="message-circle"></i></button>
+        </td>
+      </tr>
+    `;
+  }).join("");
+
+  if (window.lucide) lucide.createIcons();
+}
+
+window.viewSpecificDayHistory = function(dateKey) {
+  state.activePOSView = "history";
+  state.historyDateMode = "custom";
+  state.historyCustomDate = dateKey;
+
+  const btnViewActive = document.getElementById("btn-pos-view-active");
+  const btnViewHistory = document.getElementById("btn-pos-view-history");
+  const btnViewMonthly = document.getElementById("btn-pos-view-monthly");
+  const containerActive = document.getElementById("pos-view-active-container");
+  const containerHistory = document.getElementById("pos-view-history-container");
+  const containerMonthly = document.getElementById("pos-view-monthly-container");
+
+  btnViewActive?.classList.remove("active");
+  btnViewMonthly?.classList.remove("active");
+  btnViewHistory?.classList.add("active");
+
+  if (containerActive) containerActive.style.display = "none";
+  if (containerMonthly) containerMonthly.style.display = "none";
+  if (containerHistory) containerHistory.style.display = "flex";
+
+  renderSalesHistoryView();
+};
+
+window.reprintTicket = function (ticketId) {
+  const sale = state.salesHistory.find(s => s.id === ticketId);
+  if (sale) openReceiptModal(sale);
+};
+
+window.resendWhatsApp = function (ticketId) {
+  const sale = state.salesHistory.find(s => s.id === ticketId);
+  if (sale) sendTicketWhatsApp(sale);
+};
+
+function exportSalesCSV() {
+  const targetDateKey = state.historyDateMode === "today" ? getLocalDateKey(new Date()) : (state.historyDateMode === "yesterday" ? getLocalDateKey(Date.now() - 86400000) : (state.historyDateMode === "custom" ? state.historyCustomDate : null));
+  const toExport = targetDateKey ? state.salesHistory.filter(s => getLocalDateKey(s.timestamp) === targetDateKey) : state.salesHistory;
+
+  if (toExport.length === 0) {
+    showToast("No hay salidas registradas para exportar", "warning");
+    return;
+  }
+
+  const headers = ["ID_Ticket", "Fecha_Hora_Local", "Cliente", "Telefono", "Total_Piezas", "Subtotal", "Descuento", "Total_Pagado", "Metodo_Pago", "Atendido_Por", "Canal"];
+  const rows = toExport.map(s => {
+    const d = new Date(s.timestamp);
+    const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+    return [
+      s.id,
+      `"${dateFormatted}"`,
+      `"${(s.customerName || '').replace(/"/g, '""')}"`,
+      `"${s.customerPhone || ''}"`,
+      s.totalUnits,
+      s.subtotal,
+      s.discountAmount,
+      s.grandTotal,
+      s.paymentMethod,
+      s.user,
+      `"${s.channel}"`
+    ];
+  });
+
+  const csvContent = "\uFEFF" + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  const fileNameSuffix = targetDateKey || "Historico_Completo";
+  a.download = `Luna_Viva_Salidas_${fileNameSuffix}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast("Historial de salidas descargado en CSV", "success");
+}
+
+function exportMonthlySalesCSV() {
+  const currentMonthKey = state.monthlySelectedMonth || getLocalMonthKey(new Date());
+  const monthSales = state.salesHistory.filter(s => getLocalMonthKey(s.timestamp) === currentMonthKey);
+
+  if (monthSales.length === 0) {
+    showToast(`No hay salidas registradas en ${getMonthNameEs(currentMonthKey)} para exportar`, "warning");
+    return;
+  }
+
+  const headers = ["ID_Ticket", "Fecha_Local", "Hora_Local", "Cliente", "Telefono", "Total_Piezas", "Subtotal", "Descuento", "Total_Pagado", "Metodo_Pago", "Atendido_Por", "Canal"];
+  const rows = monthSales.map(s => {
+    const d = new Date(s.timestamp);
+    return [
+      s.id,
+      `"${d.toLocaleDateString('es-CO')}"`,
+      `"${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}"`,
+      `"${(s.customerName || '').replace(/"/g, '""')}"`,
+      `"${s.customerPhone || ''}"`,
+      s.totalUnits,
+      s.subtotal,
+      s.discountAmount,
+      s.grandTotal,
+      s.paymentMethod,
+      s.user,
+      `"${s.channel}"`
+    ];
+  });
+
+  const csvContent = "\uFEFF" + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Luna_Viva_Historial_Mes_${currentMonthKey}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast(`Historial de ${getMonthNameEs(currentMonthKey)} exportado a CSV`, "success");
+}
+
+function printMonthlyReport() {
+  const currentMonthKey = state.monthlySelectedMonth || getLocalMonthKey(new Date());
+  const monthSales = state.salesHistory.filter(s => getLocalMonthKey(s.timestamp) === currentMonthKey);
+
+  const totalCOP = monthSales.reduce((acc, s) => acc + (Number(s.grandTotal) || 0), 0);
+  const totalUnits = monthSales.reduce((acc, s) => acc + (Number(s.totalUnits) || 0), 0);
+  const avgTicket = monthSales.length > 0 ? Math.round(totalCOP / monthSales.length) : 0;
+
+  const printWindow = window.open("", "_blank");
+  if (!printWindow) {
+    alert("Permite las ventanas emergentes para imprimir el reporte mensual.");
+    return;
+  }
+
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>Reporte Mensual - ${getMonthNameEs(currentMonthKey)} - Luna Viva</title>
+      <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 2rem; color: #2D2327; }
+        h1, h2 { color: #8A3B58; margin: 0 0 0.5rem 0; }
+        .kpi-row { display: flex; gap: 1rem; margin: 1.5rem 0; }
+        .kpi-card { flex: 1; border: 1px solid #E8D6DE; border-radius: 8px; padding: 1rem; background: #FAF4F7; }
+        .kpi-label { font-size: 0.8rem; color: #665; text-transform: uppercase; }
+        .kpi-val { font-size: 1.4rem; font-weight: bold; color: #8A3B58; margin-top: 0.3rem; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.85rem; }
+        th, td { border: 1px solid #E8D6DE; padding: 0.6rem 0.8rem; text-align: left; }
+        th { background: #FAF4F7; color: #8A3B58; }
+        .text-right { text-align: right; }
+        @media print { body { padding: 0; } }
+      </style>
+    </head>
+    <body>
+      <h2>LUNA VIVA - BOUTIQUE DE BELLEZA</h2>
+      <h1>Reporte Mensual de Ventas: ${getMonthNameEs(currentMonthKey)}</h1>
+      <p style="color:#777; font-size:0.85rem;">Generado el: ${new Date().toLocaleDateString('es-CO')} a las ${new Date().toLocaleTimeString()}</p>
+
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-label">Ventas Totales</div>
+          <div class="kpi-val">${formatCOP(totalCOP)}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Cuentas Cerradas</div>
+          <div class="kpi-val">${monthSales.length} ventas</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Ticket Promedio</div>
+          <div class="kpi-val">${formatCOP(avgTicket)}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Unidades Vendidas</div>
+          <div class="kpi-val">${totalUnits} unid.</div>
+        </div>
+      </div>
+
+      <h3>Detalle de Cuentas / Tickets</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Ticket</th>
+            <th>Fecha & Hora</th>
+            <th>Clienta</th>
+            <th>Productos</th>
+            <th>Total Pagado</th>
+            <th>Método</th>
+            <th>Atendido por</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${monthSales.map(s => {
+            const d = new Date(s.timestamp);
+            return `
+              <tr>
+                <td><strong>${s.id}</strong></td>
+                <td>${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
+                <td>${s.customerName}</td>
+                <td>${s.totalUnits} unid.</td>
+                <td class="text-right"><strong>${formatCOP(s.grandTotal)}</strong></td>
+                <td>${s.paymentMethod}</td>
+                <td>${s.user}</td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
+  setTimeout(() => { printWindow.print(); }, 400);
+}
+
+function initUIEvents() {
+  // Cambio de pestañas
+  const navItems = document.querySelectorAll(".nav-item");
+  navItems.forEach(item => {
+    item.addEventListener("click", () => {
+      const tabId = item.getAttribute("data-tab");
+      switchTab(tabId);
+    });
+  });
+
+  // Selector de responsable activa
+  const userSelect = document.getElementById("active-user-select");
+  userSelect?.addEventListener("change", (e) => {
+    state.activeUser = e.target.value;
+    showToast(`Responsable activa: ${state.activeUser}`, "info");
+  });
+
+  // Toggle de Sonido
+  const soundBtn = document.getElementById("btn-sound-toggle");
+  soundBtn?.addEventListener("click", () => {
+    const isEnabled = state.audio.toggle();
+    const icon = document.getElementById("sound-icon");
+    if (icon) {
+      icon.setAttribute("data-lucide", isEnabled ? "volume-2" : "volume-x");
+      if (window.lucide) lucide.createIcons();
+    }
+    showToast(isEnabled ? "Sonido activado" : "Sonido silenciado", "info");
+  });
+
+  // Selector de Modo (Salida, Entrada, Consulta)
+  const modePills = document.querySelectorAll(".mode-pill");
+  modePills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      const mode = pill.getAttribute("data-mode");
+      state.activeMode = mode;
+      updateModePills();
+    });
+  });
+
+  // Controles de cantidad en escáner
+  const qtyInput = document.getElementById("scan-qty");
+  document.getElementById("btn-qty-minus")?.addEventListener("click", () => {
+    const current = parseInt(qtyInput.value, 10) || 1;
+    if (current > 1) qtyInput.value = current - 1;
+  });
+  document.getElementById("btn-qty-plus")?.addEventListener("click", () => {
+    const current = parseInt(qtyInput.value, 10) || 1;
+    qtyInput.value = current + 1;
+  });
+
+  // Filtros del catálogo
+  document.getElementById("catalog-search-input")?.addEventListener("input", () => {
+    const clearBtn = document.getElementById("btn-clear-search");
+    if (clearBtn) clearBtn.style.display = document.getElementById("catalog-search-input").value ? "flex" : "none";
+    renderCatalogTable();
+  });
+  document.getElementById("btn-clear-search")?.addEventListener("click", () => {
+    document.getElementById("catalog-search-input").value = "";
+    document.getElementById("btn-clear-search").style.display = "none";
+    renderCatalogTable();
+  });
+  document.getElementById("filter-category")?.addEventListener("change", renderCatalogTable);
+  document.getElementById("filter-brand")?.addEventListener("change", renderCatalogTable);
+  document.getElementById("filter-stock")?.addEventListener("change", renderCatalogTable);
+
+  // Toggle vista tabla vs cuadrícula
+  const btnViewTable = document.getElementById("btn-view-table");
+  const btnViewGrid = document.getElementById("btn-view-grid");
+  const tableView = document.getElementById("catalog-table-view");
+  const gridView = document.getElementById("catalog-grid-view");
+
+  btnViewTable?.addEventListener("click", () => {
+    btnViewTable.classList.add("active");
+    btnViewGrid.classList.remove("active");
+    tableView.style.display = "block";
+    gridView.style.display = "none";
+  });
+
+  btnViewGrid?.addEventListener("click", () => {
+    btnViewGrid.classList.add("active");
+    btnViewTable.classList.remove("active");
+    tableView.style.display = "none";
+    gridView.style.display = "grid";
+  });
+
+  // Filtros Kardex
+  document.getElementById("kardex-filter-type")?.addEventListener("change", renderKardexTable);
+  document.getElementById("kardex-filter-user")?.addEventListener("change", renderKardexTable);
+  document.getElementById("kardex-search-input")?.addEventListener("input", renderKardexTable);
+
+  // Botón Nuevo Producto en Header
+  document.getElementById("btn-open-new-product")?.addEventListener("click", () => openProductModal());
+
+  // Imprimir reporte de stock
+  document.getElementById("btn-print-stock-report")?.addEventListener("click", () => window.print());
+
+  // --------------------------------------------------------------------------
+  // EVENTOS DEL SISTEMA DE CUENTAS DE CLIENTES & SALIDAS (POS)
+  // --------------------------------------------------------------------------
+  document.getElementById("btn-new-account")?.addEventListener("click", () => createNewAccount());
+
+  // Switch de Vista POS: Cuenta en Curso vs Historial del Día vs Historial del Mes
+  const btnViewActive = document.getElementById("btn-pos-view-active");
+  const btnViewHistory = document.getElementById("btn-pos-view-history");
+  const btnViewMonthly = document.getElementById("btn-pos-view-monthly");
+  const containerActive = document.getElementById("pos-view-active-container");
+  const containerHistory = document.getElementById("pos-view-history-container");
+  const containerMonthly = document.getElementById("pos-view-monthly-container");
+
+  btnViewActive?.addEventListener("click", () => {
+    state.activePOSView = "active";
+    btnViewActive.classList.add("active");
+    btnViewHistory?.classList.remove("active");
+    btnViewMonthly?.classList.remove("active");
+    if (containerActive) containerActive.style.display = "grid";
+    if (containerHistory) containerHistory.style.display = "none";
+    if (containerMonthly) containerMonthly.style.display = "none";
+    renderPOS();
+    setTimeout(() => document.getElementById("pos-barcode-search-input")?.focus(), 150);
+  });
+
+  btnViewHistory?.addEventListener("click", () => {
+    state.activePOSView = "history";
+    btnViewHistory.classList.add("active");
+    btnViewActive?.classList.remove("active");
+    btnViewMonthly?.classList.remove("active");
+    if (containerActive) containerActive.style.display = "none";
+    if (containerMonthly) containerMonthly.style.display = "none";
+    if (containerHistory) containerHistory.style.display = "flex";
+    renderSalesHistoryView();
+  });
+
+  btnViewMonthly?.addEventListener("click", () => {
+    state.activePOSView = "monthly";
+    btnViewMonthly.classList.add("active");
+    btnViewActive?.classList.remove("active");
+    btnViewHistory?.classList.remove("active");
+    if (containerActive) containerActive.style.display = "none";
+    if (containerHistory) containerHistory.style.display = "none";
+    if (containerMonthly) containerMonthly.style.display = "flex";
+    renderMonthlyHistoryView();
+  });
+
+  // Edición reactiva de datos de la clienta en la cuenta activa
+  const nameInput = document.getElementById("pos-account-name-input");
+  nameInput?.addEventListener("input", (e) => {
+    const acc = getActiveAccount();
+    acc.customerName = e.target.value.trim() || "Cliente Mostrador";
+    saveAccountsState();
+    renderOpenAccountTabs();
+  });
+
+  const phoneInput = document.getElementById("pos-customer-phone");
+  phoneInput?.addEventListener("input", (e) => {
+    const acc = getActiveAccount();
+    acc.phone = e.target.value.trim();
+    saveAccountsState();
+  });
+
+  const channelSelect = document.getElementById("pos-channel-select");
+  channelSelect?.addEventListener("change", (e) => {
+    const acc = getActiveAccount();
+    acc.channel = e.target.value;
+    saveAccountsState();
+  });
+
+  const notesInput = document.getElementById("pos-account-notes");
+  notesInput?.addEventListener("input", (e) => {
+    const acc = getActiveAccount();
+    acc.notes = e.target.value;
+    saveAccountsState();
+  });
+
+  // Descuento Tipo ($ COP / %)
+  const btnCop = document.getElementById("btn-disc-cop");
+  const btnPct = document.getElementById("btn-disc-pct");
+  const discValueInput = document.getElementById("pos-discount-value");
+
+  btnCop?.addEventListener("click", () => {
+    const acc = getActiveAccount();
+    acc.discountType = "cop";
+    btnCop.classList.add("active");
+    btnPct?.classList.remove("active");
+    saveAccountsState();
+    renderActiveAccountSummary();
+    renderOpenAccountTabs();
+  });
+
+  btnPct?.addEventListener("click", () => {
+    const acc = getActiveAccount();
+    acc.discountType = "pct";
+    btnPct.classList.add("active");
+    btnCop?.classList.remove("active");
+    saveAccountsState();
+    renderActiveAccountSummary();
+    renderOpenAccountTabs();
+  });
+
+  discValueInput?.addEventListener("input", (e) => {
+    const acc = getActiveAccount();
+    acc.discountValue = parseFloat(e.target.value) || 0;
+    saveAccountsState();
+    renderActiveAccountSummary();
+    renderOpenAccountTabs();
+  });
+
+  // Botón Cobrar / Salida
+  document.getElementById("btn-pos-checkout")?.addEventListener("click", openCheckoutModal);
+
+  // Botón Poner en Espera
+  document.getElementById("btn-pos-hold")?.addEventListener("click", () => {
+    const acc = getActiveAccount();
+    showToast(`Cuenta de "${acc.customerName}" guardada en espera ⏸️`, "info");
+    // Si hay otra cuenta, podemos rotar hacia ella o simplemente mantenerla
+    if (state.accounts.length > 1) {
+      const other = state.accounts.find(a => a.id !== acc.id);
+      if (other) switchActiveAccount(other.id);
+    }
+  });
+
+  // Botón Cancelar Cuenta
+  document.getElementById("btn-pos-discard")?.addEventListener("click", () => {
+    closeOrDeleteAccount(state.activeAccountId);
+  });
+
+  // Modal Checkout: Métodos de Pago
+  const payCards = document.querySelectorAll(".payment-card");
+  payCards.forEach(card => {
+    card.addEventListener("click", () => {
+      payCards.forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+      const radio = card.querySelector("input[type='radio']");
+      if (radio) radio.checked = true;
+
+      const method = card.getAttribute("data-method");
+      const cashPanel = document.getElementById("checkout-cash-panel");
+      const refPanel = document.getElementById("checkout-reference-panel");
+
+      if (method === "Efectivo") {
+        if (cashPanel) cashPanel.style.display = "flex";
+        if (refPanel) refPanel.style.display = "none";
+      } else {
+        if (cashPanel) cashPanel.style.display = "none";
+        if (refPanel) refPanel.style.display = "block";
+      }
+    });
+  });
+
+  // Input de Efectivo y Billetes Rápidos
+  const cashReceivedInput = document.getElementById("checkout-cash-received");
+  cashReceivedInput?.addEventListener("input", () => {
+    const totals = calculateAccountTotals(getActiveAccount());
+    updateCashChangeCalculation(totals.grandTotal);
+  });
+
+  document.querySelectorAll(".btn-bill").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const totals = calculateAccountTotals(getActiveAccount());
+      const amountAttr = btn.getAttribute("data-amount");
+      if (amountAttr === "exact") {
+        if (cashReceivedInput) cashReceivedInput.value = totals.grandTotal;
+      } else {
+        const val = parseInt(amountAttr, 10) || 0;
+        if (cashReceivedInput) cashReceivedInput.value = val;
+      }
+      updateCashChangeCalculation(totals.grandTotal);
+    });
+  });
+
+  // Cerrar modal checkout
+  document.getElementById("btn-close-modal-checkout")?.addEventListener("click", () => {
+    document.getElementById("modal-pos-checkout").style.display = "none";
+  });
+  document.getElementById("btn-cancel-checkout")?.addEventListener("click", () => {
+    document.getElementById("modal-pos-checkout").style.display = "none";
+  });
+
+  // Confirmar cobro
+  document.getElementById("btn-confirm-checkout-action")?.addEventListener("click", confirmCheckoutAndExit);
+
+  // Modal Ticket Eventos
+  document.getElementById("btn-close-modal-ticket")?.addEventListener("click", () => {
+    document.getElementById("modal-pos-ticket").style.display = "none";
+  });
+  document.getElementById("btn-print-ticket-receipt")?.addEventListener("click", printTicketReceipt);
+  document.getElementById("btn-send-whatsapp-receipt")?.addEventListener("click", () => sendTicketWhatsApp(currentPrintedSale));
+  document.getElementById("btn-ticket-new-sale")?.addEventListener("click", () => {
+    document.getElementById("modal-pos-ticket").style.display = "none";
+    createNewAccount();
+  });
+
+  // Presets de Fecha en Historial del Día
+  document.getElementById("btn-date-today")?.addEventListener("click", () => {
+    state.historyDateMode = "today";
+    renderSalesHistoryView();
+  });
+  document.getElementById("btn-date-yesterday")?.addEventListener("click", () => {
+    state.historyDateMode = "yesterday";
+    renderSalesHistoryView();
+  });
+  document.getElementById("btn-date-all")?.addEventListener("click", () => {
+    state.historyDateMode = "all";
+    renderSalesHistoryView();
+  });
+  document.getElementById("pos-history-date-picker")?.addEventListener("change", (e) => {
+    if (e.target.value) {
+      state.historyDateMode = "custom";
+      state.historyCustomDate = e.target.value;
+      renderSalesHistoryView();
+    }
+  });
+
+  // Filtros de Historial del Día
+  document.getElementById("pos-history-search")?.addEventListener("input", renderSalesHistoryView);
+  document.getElementById("pos-history-filter-method")?.addEventListener("change", renderSalesHistoryView);
+  document.getElementById("btn-export-sales-csv")?.addEventListener("click", exportSalesCSV);
+
+  // Controles de Historial Mensual
+  document.getElementById("btn-month-prev")?.addEventListener("click", () => {
+    const cur = state.monthlySelectedMonth || getLocalMonthKey(new Date());
+    const parts = cur.split("-");
+    let y = parseInt(parts[0], 10);
+    let m = parseInt(parts[1], 10) - 1;
+    if (m < 1) { m = 12; y--; }
+    state.monthlySelectedMonth = `${y}-${String(m).padStart(2, '0')}`;
+    renderMonthlyHistoryView();
+  });
+
+  document.getElementById("btn-month-next")?.addEventListener("click", () => {
+    const cur = state.monthlySelectedMonth || getLocalMonthKey(new Date());
+    const parts = cur.split("-");
+    let y = parseInt(parts[0], 10);
+    let m = parseInt(parts[1], 10) + 1;
+    if (m > 12) { m = 1; y++; }
+    state.monthlySelectedMonth = `${y}-${String(m).padStart(2, '0')}`;
+    renderMonthlyHistoryView();
+  });
+
+  document.getElementById("btn-month-today-btn")?.addEventListener("click", () => {
+    state.monthlySelectedMonth = getLocalMonthKey(new Date());
+    renderMonthlyHistoryView();
+  });
+
+  document.getElementById("pos-month-input")?.addEventListener("change", (e) => {
+    if (e.target.value) {
+      state.monthlySelectedMonth = e.target.value;
+      renderMonthlyHistoryView();
+    }
+  });
+
+  document.getElementById("pos-monthly-search")?.addEventListener("input", () => renderMonthlyDetailTable());
+  document.getElementById("pos-monthly-filter-method")?.addEventListener("change", () => renderMonthlyDetailTable());
+  document.getElementById("pos-monthly-filter-day")?.addEventListener("change", () => renderMonthlyDetailTable());
+  document.getElementById("btn-export-monthly-csv")?.addEventListener("click", exportMonthlySalesCSV);
+  document.getElementById("btn-print-monthly-report")?.addEventListener("click", printMonthlyReport);
+
+  // Link en escáner directo a POS
+  document.getElementById("link-goto-pos")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    switchTab("tab-pos-accounts");
+  });
+}
+
+function switchTab(tabId) {
+  state.activeTab = tabId;
+  document.querySelectorAll(".nav-item").forEach(item => {
+    item.classList.toggle("active", item.getAttribute("data-tab") === tabId);
+  });
+  document.querySelectorAll(".tab-pane").forEach(pane => {
+    pane.classList.toggle("active", pane.id === tabId);
+  });
+
+  // Actualizar título de header
+  const titles = {
+    "tab-pos-accounts": "Cuentas de Clientes & Sistema de Salidas",
+    "tab-scanner": "Pistola / Escáner de Código de Barras",
+    "tab-catalog": "Catálogo de Productos & Control de Stock",
+    "tab-kardex": "Kardex / Historial de Movimientos",
+    "tab-barcode-generator": "Impresión de Etiquetas con Código de Barras",
+    "tab-analytics": "Métricas, Resumen Financiero & Alertas"
+  };
+  const titleEl = document.getElementById("header-section-title");
+  if (titleEl) titleEl.textContent = titles[tabId] || "Inventario";
+
+  // Refrescar vistas pertinentes
+  if (tabId === "tab-pos-accounts") {
+    renderPOS();
+    if (state.activePOSView === "history") renderSalesHistoryView();
+    setTimeout(() => document.getElementById("pos-barcode-search-input")?.focus(), 150);
+  }
+  if (tabId === "tab-catalog") renderCatalogTable();
+  if (tabId === "tab-kardex") renderKardexTable();
+  if (tabId === "tab-barcode-generator") initBarcodeGeneratorTab();
+  if (tabId === "tab-analytics") updateBadgesAndKPIs();
+  if (tabId === "tab-scanner") {
+    setTimeout(() => document.getElementById("manual-barcode-input")?.focus(), 150);
+  }
+}
+
+function updateModePills() {
+  document.querySelectorAll(".mode-pill").forEach(p => {
+    const isSelected = p.getAttribute("data-mode") === state.activeMode;
+    p.classList.toggle("active", isSelected);
+    const radio = p.querySelector("input[type='radio']");
+    if (radio) radio.checked = isSelected;
+  });
+
+  // Badge en la sidebar
+  const badge = document.getElementById("badge-mode");
+  if (badge) {
+    badge.textContent = state.activeMode.toUpperCase();
+    if (state.activeMode === "salida") badge.style.backgroundColor = "var(--danger)";
+    else if (state.activeMode === "entrada") badge.style.backgroundColor = "var(--success)";
+    else badge.style.backgroundColor = "var(--info)";
+  }
+
+  // Opciones de motivo acordes al modo
+  const reasonSelect = document.getElementById("scan-reason");
+  if (reasonSelect) {
+    if (state.activeMode === "salida") {
+      reasonSelect.innerHTML = `
+        <option value="Venta Punto Físico">Venta Punto Físico (Calarcá)</option>
+        <option value="Venta WhatsApp / Redes">Venta WhatsApp / Envíos</option>
+        <option value="Probador / Tester">Probador / Tester en Tienda</option>
+        <option value="Merma o Defecto">Merma / Producto Dañado</option>
+      `;
+    } else if (state.activeMode === "entrada") {
+      reasonSelect.innerHTML = `
+        <option value="Recepción Proveedor">Recepción de Mercancía Proveedor</option>
+        <option value="Devolución de Cliente">Devolución de Cliente</option>
+        <option value="Ajuste de Conteo">Ajuste de Conteo Físico</option>
+      `;
+    } else {
+      reasonSelect.innerHTML = `<option value="Consulta">Solo Consulta Informativa</option>`;
+    }
+  }
+}
+
+function populateBrandFilters() {
+  const brandSelect = document.getElementById("filter-brand");
+  if (!brandSelect) return;
+
+  const currentVal = brandSelect.value;
+  const brands = Array.from(new Set(state.products.map(p => (p.brand || "").trim()).filter(Boolean)))
+    .sort((a, b) => a.localeCompare(b, 'es'));
+
+  brandSelect.innerHTML = `<option value="ALL">Todas las Marcas (${brands.length})</option>` +
+    brands.map(b => `<option value="${b}">${b}</option>`).join("");
+
+  if (currentVal && (currentVal === "ALL" || brands.includes(currentVal))) {
+    brandSelect.value = currentVal;
+  }
+}
+
+// ============================================================================
+// 19. ARRANQUE PRINCIPAL
+// ============================================================================
+document.addEventListener("DOMContentLoaded", () => {
+  loadState();
+  initHardwareBarcodeListener();
+  initUIEvents();
+  initAuthSystem();
+  initPOSSearchAndBarcode();
+  initProductModal();
+  initImportExportModule();
+  initCameraScanner();
+  populateBrandFilters();
+  renderPOS();
+  renderCatalogTable();
+  renderKardexTable();
+  renderRecentScansList();
+  initBarcodeGeneratorTab();
+  updateBadgesAndKPIs();
+  updateModePills();
+  updateOpenAccountsBadge();
+
+  if (window.lucide) lucide.createIcons();
+
+  console.log("🌸 Luna Viva Inventory System & Cuentas de Clientes Inicializado con éxito.");
+});
+
+
+window.renderCatalogTable = renderCatalogTable;

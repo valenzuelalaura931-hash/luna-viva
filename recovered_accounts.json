@@ -1,0 +1,13 @@
+[
+  {
+    "id": "CTA-001",
+    "customerName": "Cliente Mostrador",
+    "phone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "notes": "",
+    "createdAt": "2026-10-24T20:36:15.368Z",
+    "discountType": "cop",
+    "discountValue": 0,
+    "items": []
+  }
+]
