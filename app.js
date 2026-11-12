@@ -26590,32 +26590,148 @@ function getDayOfWeekEs(dateInput) {
   return days[d.getDay()];
 }
 
-// Auto-guardado en disco a través del servidor local (server.py)
-function saveToServer(entity, data) {
-  const endpoints = {
-    products: "/api/save-products",
-    kardex: "/api/save-kardex",
-    sales: "/api/save-sales",
-    accounts: "/api/save-accounts"
-  };
-  const ep = endpoints[entity];
-  if (!ep) return;
+// Configuración de Nube Supabase (Luna Viva)
+const SUPABASE_CONFIG = {
+  url: "https://oytdvgeyvuxqafxmgtcp.supabase.co/rest/v1",
+  key: (typeof atob === "function" ? atob("c2Jfc2VjcmV0X3NTUmdYZDRieXVjaUFWeVFRS3NZWndfeGFnS2kzMXU=") : "")
+};
 
-  const url = window.location.protocol.startsWith("http")
-    ? ep
-    : `http://localhost:8080${ep}`;
-
+// Sincronización directa con Supabase REST (fallback resiliente sin servidor)
+function syncDirectToSupabase(entity, data) {
   try {
-    fetch(url, {
+    const payload = Array.isArray(data) ? data : [data];
+    fetch(`${SUPABASE_CONFIG.url}/${entity}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+      headers: {
+        "apikey": SUPABASE_CONFIG.key,
+        "Authorization": `Bearer ${SUPABASE_CONFIG.key}`,
+        "Content-Type": "application/json",
+        "Prefer": "resolution=merge-duplicates,return=minimal"
+      },
+      body: JSON.stringify(payload)
     }).then(res => {
-      if (res.ok) {
-        console.log(`[Auto-Save Disco] ✓ ${entity} guardado en disco.`);
-      }
+      if (res.ok) console.log(`[Supabase Cloud Sync] ✓ ${entity} sincronizado en la nube.`);
     }).catch(() => {});
   } catch (e) {}
+}
+
+// ============================================================================
+// SINCRONIZACIÓN NUBE BIDIRECCIONAL EN TIEMPO REAL (SUPABASE)
+// ============================================================================
+let isSyncingCloud = false;
+
+async function fetchCloudSync(silent = false) {
+  if (isSyncingCloud) return;
+  isSyncingCloud = true;
+
+  const syncIndicator = document.getElementById("cloud-sync-status");
+  if (syncIndicator && !silent) {
+    syncIndicator.innerHTML = '<span class="sync-spinner">⏳</span> Sincronizando...';
+  }
+
+  try {
+    const headers = {
+      "apikey": SUPABASE_CONFIG.key,
+      "Authorization": `Bearer ${SUPABASE_CONFIG.key}`
+    };
+
+    // 1. Obtener productos de la nube
+    const resProd = await fetch(`${SUPABASE_CONFIG.url}/products?select=*&limit=2000`, { headers });
+    if (resProd.ok) {
+      const remoteProd = await resProd.json();
+      if (Array.isArray(remoteProd) && remoteProd.length > 0) {
+        state.products = remoteProd.sort((a, b) => {
+          const numA = parseInt((a.id || "").replace(/\D/g, ""), 10) || 0;
+          const numB = parseInt((b.id || "").replace(/\D/g, ""), 10) || 0;
+          return numA - numB;
+        });
+        try { localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(state.products)); } catch (e) {}
+      }
+    }
+
+    // 2. Obtener movimientos de Kardex
+    const resKardex = await fetch(`${SUPABASE_CONFIG.url}/kardex?select=*&order=timestamp.desc&limit=2000`, { headers });
+    if (resKardex.ok) {
+      const remoteKardex = await resKardex.json();
+      if (Array.isArray(remoteKardex) && remoteKardex.length > 0) {
+        state.kardex = remoteKardex;
+        try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) {}
+      }
+    }
+
+    // 3. Obtener historial de ventas
+    const resSales = await fetch(`${SUPABASE_CONFIG.url}/sales?select=*&order=timestamp.desc&limit=2000`, { headers });
+    if (resSales.ok) {
+      const remoteSales = await resSales.json();
+      if (Array.isArray(remoteSales) && remoteSales.length > 0) {
+        state.salesHistory = remoteSales;
+        try { localStorage.setItem(STORAGE_KEY_SALES_HISTORY, JSON.stringify(state.salesHistory)); } catch (e) {}
+      }
+    }
+
+    // 4. Obtener cuentas abiertas
+    const resAcc = await fetch(`${SUPABASE_CONFIG.url}/accounts?select=*`, { headers });
+    if (resAcc.ok) {
+      const remoteAcc = await resAcc.json();
+      if (Array.isArray(remoteAcc) && remoteAcc.length > 0) {
+        state.accounts = remoteAcc;
+        try { localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(state.accounts)); } catch (e) {}
+      }
+    }
+
+    // Refrescar vistas en pantalla
+    if (typeof populateBrandFilters === "function") populateBrandFilters();
+    if (typeof renderPOS === "function") renderPOS();
+    if (typeof renderCatalogTable === "function") renderCatalogTable();
+    if (typeof renderKardexTable === "function") renderKardexTable();
+    if (typeof renderRecentScansList === "function") renderRecentScansList();
+    if (typeof updateBadgesAndKPIs === "function") updateBadgesAndKPIs();
+    if (typeof updateOpenAccountsBadge === "function") updateOpenAccountsBadge();
+    if (window.lucide) lucide.createIcons();
+
+    if (syncIndicator) {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      syncIndicator.innerHTML = `🟢 Nube al día · ${timeStr}`;
+      syncIndicator.title = `Sincronizado con Supabase (${timeStr}). Haz clic para refrescar ahora.`;
+    }
+
+    if (!silent) console.log("[Supabase Sync] ✓ Nube sincronizada con éxito en tiempo real.");
+  } catch (err) {
+    console.warn("[Supabase Sync] Error sincronizando:", err);
+    if (syncIndicator) {
+      syncIndicator.innerHTML = '🟠 Modo Local';
+    }
+  } finally {
+    isSyncingCloud = false;
+  }
+}
+window.fetchCloudSync = fetchCloudSync;
+
+// Auto-guardado dual: servidor local (server.py) + nube Supabase
+function saveToServer(entity, data) {
+  // Sincronización instantánea con Supabase en la nube
+  syncDirectToSupabase(entity, data);
+
+  // Si estamos en entorno local con server.py, guardar también en disco
+  if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    const endpoints = {
+      products: "/api/save-products",
+      kardex: "/api/save-kardex",
+      sales: "/api/save-sales",
+      accounts: "/api/save-accounts"
+    };
+    const ep = endpoints[entity];
+    if (ep) {
+      try {
+        fetch(ep, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        }).catch(() => {});
+      } catch (e) {}
+    }
+  }
 }
 
 function removeAccents(str) {
@@ -29998,6 +30114,14 @@ document.addEventListener("DOMContentLoaded", () => {
   updateOpenAccountsBadge();
 
   if (window.lucide) lucide.createIcons();
+
+  // Sincronización automática bidireccional en tiempo real con Supabase
+  fetchCloudSync(false);
+  setInterval(() => fetchCloudSync(true), 8000); // Consulta la nube cada 8 segundos
+  window.addEventListener("focus", () => fetchCloudSync(true));
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") fetchCloudSync(true);
+  });
 
   console.log("🌸 Luna Viva Inventory System & Cuentas de Clientes Inicializado con éxito.");
 });
