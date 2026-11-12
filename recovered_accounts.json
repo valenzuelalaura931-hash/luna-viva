@@ -3,34 +3,11 @@
     "id": "CTA-001",
     "customerName": "Cliente Mostrador",
     "phone": "",
-    "channel": "Punto Fsico (Calarc)",
+    "channel": "Punto Físico (Calarcá)",
     "notes": "",
     "createdAt": "2026-11-11T19:17:31.724Z",
     "discountType": "cop",
     "discountValue": 0,
     "items": []
-  },
-  {
-    "id": "CTA-002",
-    "customerName": "Clienta #2",
-    "phone": "",
-    "channel": "Punto Fsico (Calarc)",
-    "notes": "",
-    "createdAt": "2026-11-12T00:55:11.834Z",
-    "discountType": "cop",
-    "discountValue": 0,
-    "items": [
-      {
-        "productId": "LV-1619",
-        "name": "Polvo suelto mineral tono banana",
-        "brand": "Raquel",
-        "category": "Maquillaje",
-        "barcode": "7707195329994",
-        "price": 28000,
-        "cost": 16200,
-        "quantity": 1,
-        "stockAvailable": 20
-      }
-    ]
   }
 ]

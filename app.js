@@ -36892,14 +36892,27 @@ function removeAccents(str) {
 }
 
 function loadState() {
-  const BACKUP_STAMP = "2026-11-12_LV_V5_EXACT_STOCKS";
+  const BACKUP_STAMP = "2026-11-12_LV_V6_CLEAN_ACCOUNTS";
   const currentStamp = localStorage.getItem("LV_DATA_STAMP");
 
   if (currentStamp !== BACKUP_STAMP) {
-    console.log("🌸 Aplicando sincronización estricta con el Respaldo Oficial Luna Viva...");
+    console.log("🌸 Aplicando sincronización estricta y limpieza de cuentas...");
     try {
       localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(INITIAL_PRODUCTS));
       localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(INITIAL_KARDEX));
+      const cleanDefaultAcc = [{
+        id: "CTA-001",
+        customerName: "Cliente Mostrador",
+        phone: "",
+        channel: "Punto Físico (Calarcá)",
+        notes: "",
+        createdAt: new Date().toISOString(),
+        discountType: "cop",
+        discountValue: 0,
+        items: []
+      }];
+      localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(cleanDefaultAcc));
+      localStorage.setItem(STORAGE_KEY_ACTIVE_ACCOUNT, "CTA-001");
       localStorage.setItem("LV_DATA_STAMP", BACKUP_STAMP);
       localStorage.removeItem("LV_OFFLINE_SYNC_QUEUE");
     } catch (e) {}
@@ -38443,6 +38456,19 @@ function loadAccountsState() {
   updateSalesHistoryBadge();
 }
 
+function deleteAccountFromCloud(accountId) {
+  if (!accountId) return;
+  try {
+    fetch(`${SUPABASE_CONFIG.url}/accounts?id=eq.${accountId}`, {
+      method: "DELETE",
+      headers: {
+        "apikey": SUPABASE_CONFIG.key,
+        "Authorization": `Bearer ${SUPABASE_CONFIG.key}`
+      }
+    }).catch(() => {});
+  } catch (e) {}
+}
+
 function saveAccountsState(syncServer = true) {
   try {
     localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(state.accounts));
@@ -38510,11 +38536,20 @@ function getActiveAccount() {
 }
 
 function createNewAccount(name, phone, channel) {
-  let nextNum = state.accounts.length + 1;
+  let nextNum = 1;
+  const existingNums = (state.accounts || []).map(a => {
+    const m = a.id && a.id.match(/^CTA-(\d+)$/);
+    return m ? parseInt(m[1], 10) : 0;
+  });
+  while (existingNums.includes(nextNum)) {
+    nextNum++;
+  }
+
   const newAcc = createDefaultAccountObject(nextNum);
   if (name) newAcc.customerName = name;
   if (phone) newAcc.phone = phone;
   if (channel) newAcc.channel = channel;
+  newAcc.items = []; // SIEMPRE limpia, sin productos agregados previamente
 
   state.accounts.push(newAcc);
   state.activeAccountId = newAcc.id;
@@ -38542,6 +38577,7 @@ function closeOrDeleteAccount(accountId) {
     }
   }
 
+  deleteAccountFromCloud(accountId);
   state.accounts = state.accounts.filter(a => a.id !== accountId);
   if (state.accounts.length === 0) {
     state.accounts = [createDefaultAccountObject(1)];
@@ -38700,8 +38736,10 @@ function renderActiveAccountDetails() {
   const totals = calculateAccountTotals(acc);
   if (itemsBadge) itemsBadge.textContent = `${totals.totalUnits} ${totals.totalUnits === 1 ? 'producto' : 'productos'}`;
   if (timeBadge) {
-    const d = new Date(acc.createdAt);
-    timeBadge.textContent = `Iniciada ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+    const dateVal = acc.createdAt || acc.updated_at || new Date().toISOString();
+    const d = new Date(dateVal);
+    const timeStr = !isNaN(d.getTime()) ? d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    timeBadge.textContent = `Iniciada ${timeStr}`;
   }
 }
 
@@ -39113,6 +39151,7 @@ function confirmCheckoutAndExit() {
   openReceiptModal(saleRecord);
 
   // 5. Reiniciar o remover la cuenta actual
+  deleteAccountFromCloud(acc.id);
   state.accounts = state.accounts.filter(a => a.id !== acc.id);
   if (state.accounts.length === 0) {
     state.accounts = [createDefaultAccountObject(1)];
