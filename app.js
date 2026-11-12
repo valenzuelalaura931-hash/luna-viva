@@ -36458,239 +36458,135 @@ const INITIAL_SALES = [
   }
 ];
 
+
+
 // ============================================================================
-// SISTEMA DE CONTROL DE ACCESO, ROLES & LOGIN (LUNA VIVA)
+// 2. SISTEMA DE AUDIO BOUTIQUE (WEB AUDIO API - SIN DEPENDENCIAS EXTERNAS)
 // ============================================================================
-const AUTH_CONFIG = {
-  USERS: {
-    "Laura": {
-      name: "Laura",
-      role: "admin",
-      pin: "5924",
-      label: "Administración & Finanzas",
-      icon: "👑"
-    },
-    "Colaborador": {
-      name: "Colaborador",
-      role: "colaborador",
-      pin: "0000",
-      label: "Turno / Mostrador",
-      icon: "💄"
+class BoutiqueAudio {
+  constructor() {
+    this.ctx = null;
+    this.enabled = true;
+  }
+
+  init() {
+    if (!this.ctx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) this.ctx = new AudioCtx();
     }
-  },
-  STORAGE_KEY_SESSION: "luna_viva_auth_session_v1"
-};
-
-let selectedLoginUsername = "Laura";
-
-function openLoginModal(preselectUser = "Laura") {
-  const overlay = document.getElementById("login-modal-overlay");
-  if (!overlay) return;
-
-  selectedLoginUsername = preselectUser in AUTH_CONFIG.USERS ? preselectUser : "Laura";
-  updateLoginProfileButtons();
-
-  const pinInput = document.getElementById("login-pin-input");
-  if (pinInput) {
-    pinInput.value = "";
-    pinInput.type = "password";
-  }
-  const eyeIcon = document.getElementById("eye-icon");
-  if (eyeIcon && window.lucide) {
-    eyeIcon.setAttribute("data-lucide", "eye");
-    lucide.createIcons();
   }
 
-  const errBanner = document.getElementById("login-error-banner");
-  if (errBanner) errBanner.style.display = "none";
-
-  overlay.style.display = "flex";
-  setTimeout(() => pinInput?.focus(), 150);
-}
-
-function closeLoginModal() {
-  const overlay = document.getElementById("login-modal-overlay");
-  if (overlay) overlay.style.display = "none";
-}
-
-function updateLoginProfileButtons() {
-  const btnLaura = document.getElementById("btn-select-laura");
-  const btnColab = document.getElementById("btn-select-colab");
-  const labelText = document.getElementById("login-pin-label-text");
-
-  if (selectedLoginUsername === "Laura") {
-    btnLaura?.classList.add("active");
-    btnColab?.classList.remove("active");
-    if (labelText) labelText.textContent = "Ingresa el PIN de Laura (Admin):";
-  } else {
-    btnColab?.classList.add("active");
-    btnLaura?.classList.remove("active");
-    if (labelText) labelText.textContent = "Ingresa el PIN de Colaborador:";
-  }
-}
-
-function loginUser(username, pin) {
-  const user = AUTH_CONFIG.USERS[username];
-  if (!user) return false;
-
-  const trimmedPin = (pin || "").trim();
-  if (trimmedPin === user.pin) {
-    const session = {
-      name: user.name,
-      role: user.role,
-      loginAt: new Date().toISOString()
-    };
+  playSuccess() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
     try {
-      localStorage.setItem(AUTH_CONFIG.STORAGE_KEY_SESSION, JSON.stringify(session));
-    } catch (e) {}
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = "sine";
+      // Chime celestial suave: tono ascendente 880Hz -> 1320Hz
+      osc.frequency.setValueAtTime(880, now);
+      osc.frequency.exponentialRampToValueAtTime(1320, now + 0.12);
 
-    closeLoginModal();
-    applyUserRolePermissions(user.name, user.role, true);
-    return true;
-  } else {
-    const errBanner = document.getElementById("login-error-banner");
-    const errText = document.getElementById("login-error-text");
-    if (errBanner) {
-      if (errText) errText.textContent = "PIN incorrecto. Por favor verifica e intenta de nuevo.";
-      errBanner.style.display = "flex";
-      if (window.lucide) lucide.createIcons();
-    }
-    const pinInput = document.getElementById("login-pin-input");
-    if (pinInput) {
-      pinInput.value = "";
-      pinInput.focus();
-    }
-    return false;
-  }
-}
+      gain.gain.setValueAtTime(0.15, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
 
-function logoutUser() {
-  try {
-    localStorage.removeItem(AUTH_CONFIG.STORAGE_KEY_SESSION);
-  } catch (e) {}
-  state.currentUser = null;
-  openLoginModal(state.activeUser === "Colaborador" ? "Colaborador" : "Laura");
-  showToast("Turno finalizado. Inicia sesión para continuar.", "info");
-}
-
-function applyUserRolePermissions(name, role, notify = false) {
-  state.currentUser = { name, role };
-  state.activeUser = name;
-
-  // Clase CSS en el body para control declarativo de visibilidad
-  document.body.classList.remove("role-admin", "role-colaborador");
-  document.body.classList.add(`role-${role}`);
-
-  // Actualizar tarjeta de usuario en la barra lateral
-  const initialEl = document.getElementById("current-user-initial");
-  const nameEl = document.getElementById("current-user-name");
-  const badgeEl = document.getElementById("current-user-role-badge");
-
-  if (initialEl) initialEl.textContent = name.charAt(0).toUpperCase();
-  if (nameEl) nameEl.textContent = name;
-  if (badgeEl) {
-    badgeEl.className = `user-role-badge badge-${role}`;
-    if (role === "admin") {
-      badgeEl.innerHTML = `<i data-lucide="shield-check" class="role-icon"></i> Administración`;
-    } else {
-      badgeEl.innerHTML = `<i data-lucide="sparkles" class="role-icon"></i> Colaborador`;
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.25);
+    } catch (e) {
+      console.warn("Audio feedback error:", e);
     }
   }
 
-  // Actualizar select de usuario en cobro POS
-  const checkoutUserSelect = document.getElementById("checkout-user-select");
-  if (checkoutUserSelect) {
-    checkoutUserSelect.value = name;
-  }
+  playError() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(320, now);
+      osc.frequency.setValueAtTime(240, now + 0.1);
 
-  if (window.lucide) lucide.createIcons();
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
 
-  // Re-renderizar vistas afectadas
-  renderCatalogTable();
-  updateBadgesAndKPIs();
-
-  if (notify) {
-    const roleTitle = role === "admin" ? "Administración & Finanzas" : "Colaborador / Mostrador";
-    showToast(`¡Bienvenida, ${name}! Sesión activa en modo ${roleTitle}.`, "success");
-  }
-}
-
-function initAuthSystem() {
-  // Selector de perfil
-  document.getElementById("btn-select-laura")?.addEventListener("click", () => {
-    selectedLoginUsername = "Laura";
-    updateLoginProfileButtons();
-    document.getElementById("login-pin-input")?.focus();
-  });
-
-  document.getElementById("btn-select-colab")?.addEventListener("click", () => {
-    selectedLoginUsername = "Colaborador";
-    updateLoginProfileButtons();
-    document.getElementById("login-pin-input")?.focus();
-  });
-
-  // Teclado numérico en pantalla
-  document.querySelectorAll(".keypad-btn[data-key]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const pinInput = document.getElementById("login-pin-input");
-      if (pinInput && pinInput.value.length < 8) {
-        pinInput.value += btn.dataset.key;
-      }
-    });
-  });
-
-  document.getElementById("btn-keypad-clear")?.addEventListener("click", () => {
-    const pinInput = document.getElementById("login-pin-input");
-    if (pinInput) pinInput.value = "";
-  });
-
-  document.getElementById("btn-keypad-back")?.addEventListener("click", () => {
-    const pinInput = document.getElementById("login-pin-input");
-    if (pinInput) pinInput.value = pinInput.value.slice(0, -1);
-  });
-
-  // Toggle ver PIN
-  document.getElementById("btn-toggle-pin-visibility")?.addEventListener("click", () => {
-    const pinInput = document.getElementById("login-pin-input");
-    if (!pinInput) return;
-    const isPass = pinInput.type === "password";
-    pinInput.type = isPass ? "text" : "password";
-    const eyeIcon = document.getElementById("eye-icon");
-    if (eyeIcon && window.lucide) {
-      eyeIcon.setAttribute("data-lucide", isPass ? "eye-off" : "eye");
-      lucide.createIcons();
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.35);
+    } catch (e) {
+      console.warn("Audio feedback error:", e);
     }
-  });
+  }
 
-  // Envío del formulario
-  document.getElementById("login-form")?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const pin = document.getElementById("login-pin-input")?.value || "";
-    loginUser(selectedLoginUsername, pin);
-  });
+  playCashChime() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const notes = [523.25, 659.25, 783.99, 1046.50]; // Acorde C mayor ascendente
+      notes.forEach((freq, idx) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const noteStart = now + (idx * 0.075);
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, noteStart);
+        gain.gain.setValueAtTime(0.18, noteStart);
+        gain.gain.exponentialRampToValueAtTime(0.001, noteStart + 0.4);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(noteStart);
+        osc.stop(noteStart + 0.4);
+      });
+    } catch (e) {
+      console.warn("Audio feedback error:", e);
+    }
+  }
 
-  // Botón cerrar turno
-  document.getElementById("btn-logout")?.addEventListener("click", () => {
-    logoutUser();
-  });
-
-  // Verificar sesión existente
-  let activeSession = null;
-  try {
-    const stored = localStorage.getItem(AUTH_CONFIG.STORAGE_KEY_SESSION);
-    if (stored) activeSession = JSON.parse(stored);
-  } catch (e) {}
-
-  if (activeSession && activeSession.name && activeSession.role && AUTH_CONFIG.USERS[activeSession.name]) {
-    applyUserRolePermissions(activeSession.name, activeSession.role, false);
-    closeLoginModal();
-  } else {
-    openLoginModal("Laura");
+  toggle() {
+    this.enabled = !this.enabled;
+    return this.enabled;
   }
 }
-window.initAuthSystem = initAuthSystem;
-window.logoutUser = logoutUser;
 
+// ============================================================================
+// 3. ESTADO GLOBAL DE LA APLICACIÓN
+// ============================================================================
+const state = {
+  products: [],
+  kardex: [],
+  activeMode: "salida", // 'salida' | 'entrada' | 'consulta'
+  activeUser: "Laura",
+  activeTab: "tab-pos-accounts", // Pestaña inicial: Cuentas & Salidas
+  recentScans: [],
+  audio: new BoutiqueAudio(),
+  printBatch: [],
+  cameraScannerInstance: null,
+
+  // Sistema de Cuentas de Clientes (POS)
+  accounts: [],
+  activeAccountId: null,
+  salesHistory: [],
+  activePOSView: "active", // 'active' | 'history' | 'monthly'
+
+  // Control de Fechas en Historial de Salidas
+  historyDateMode: "today", // 'today' | 'yesterday' | 'all' | 'custom'
+  historyCustomDate: getLocalDateKey(new Date()),
+
+  // Control de Historial Mensual
+  monthlySelectedMonth: getLocalMonthKey(new Date()), // 'YYYY-MM'
+  monthlySearch: "",
+  monthlyFilterMethod: "ALL",
+  monthlyFilterDay: "ALL"
+};
+window.state = state;
 
 // ============================================================================
 // 4. PERSISTENCIA DUAL & MANEJO ROBUSTO DE FECHAS LOCALES
@@ -36746,13 +36642,15 @@ function getDayOfWeekEs(dateInput) {
   return days[d.getDay()];
 }
 
-// Configuración de Nube Supabase (Luna Viva)
+// Auto-guardado en disco a través del servidor local (server.py)
+// ============================================================================
+// CONFIGURACIÓN SUPABASE & PERSISTENCIA NUBE RESILIENTE
+// ============================================================================
 const SUPABASE_CONFIG = {
   url: "https://oytdvgeyvuxqafxmgtcp.supabase.co/rest/v1",
   key: (typeof atob === "function" ? atob("c2Jfc2VjcmV0X3NTUmdYZDRieXVjaUFWeVFRS3NZWndfeGFnS2kzMXU=") : "")
 };
 
-// Sincronización directa con Supabase REST con cola offline garantizada
 function queueOfflineSync(entity, data) {
   try {
     const q = JSON.parse(localStorage.getItem("LV_OFFLINE_SYNC_QUEUE") || "[]");
@@ -36769,7 +36667,6 @@ async function processOfflineQueue() {
     const queue = JSON.parse(raw);
     if (!Array.isArray(queue) || queue.length === 0) return;
 
-    console.log(`[Offline Queue] Subiendo ${queue.length} operaciones acumuladas a la nube...`);
     const remaining = [];
     for (const item of queue) {
       try {
@@ -36791,7 +36688,7 @@ async function processOfflineQueue() {
     }
     if (remaining.length === 0) {
       localStorage.removeItem("LV_OFFLINE_SYNC_QUEUE");
-      console.log("[Offline Queue] ✓ Todas las operaciones pendientes subidas a la nube con éxito.");
+      console.log("[Offline Queue] ✓ Cola offline subida a la nube.");
     } else {
       localStorage.setItem("LV_OFFLINE_SYNC_QUEUE", JSON.stringify(remaining));
     }
@@ -36799,7 +36696,7 @@ async function processOfflineQueue() {
 }
 
 function syncDirectToSupabase(entity, data) {
-  if (!navigator.onLine) {
+  if (typeof navigator !== "undefined" && !navigator.onLine) {
     queueOfflineSync(entity, data);
     return;
   }
@@ -36828,22 +36725,18 @@ function syncDirectToSupabase(entity, data) {
   }
 }
 
-// ============================================================================
-// SINCRONIZACIÓN NUBE BIDIRECCIONAL EN TIEMPO REAL (SUPABASE)
-// ============================================================================
 let isSyncingCloud = false;
 
 async function fetchCloudSync(silent = false) {
   if (isSyncingCloud) return;
   isSyncingCloud = true;
 
-  const syncIndicator = document.getElementById("cloud-sync-status");
+  const syncIndicator = typeof document !== "undefined" ? document.getElementById("cloud-sync-status") : null;
   if (syncIndicator && !silent) {
     syncIndicator.innerHTML = '<span class="sync-spinner">⏳</span> Sincronizando...';
   }
 
   try {
-    // 0. Si hay ventas u operaciones guardadas offline, subirlas primero
     await processOfflineQueue();
 
     const headers = {
@@ -36865,7 +36758,7 @@ async function fetchCloudSync(silent = false) {
       }
     }
 
-    // 2. Obtener movimientos de Kardex (paginación completa para 1000+ movimientos)
+    // 2. Obtener movimientos de Kardex con paginación completa
     let allKardex = [];
     let kOffset = 0;
     while (true) {
@@ -36882,7 +36775,7 @@ async function fetchCloudSync(silent = false) {
       try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) {}
     }
 
-    // 3. Obtener historial de ventas
+    // 3. Obtener ventas
     const resSales = await fetch(`${SUPABASE_CONFIG.url}/sales?select=*&order=timestamp.desc&limit=2000`, { headers });
     if (resSales.ok) {
       const remoteSales = await resSales.json();
@@ -36892,7 +36785,7 @@ async function fetchCloudSync(silent = false) {
       }
     }
 
-    // 4. Obtener cuentas abiertas
+    // 4. Obtener cuentas
     const resAcc = await fetch(`${SUPABASE_CONFIG.url}/accounts?select=*`, { headers });
     if (resAcc.ok) {
       const remoteAcc = await resAcc.json();
@@ -36902,28 +36795,14 @@ async function fetchCloudSync(silent = false) {
       }
     }
 
-    // 5. Si estamos en localhost, persistir los datos descargados de la nube al disco duro
-    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-      fetch("/api/save-products", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(state.products)
-      }).catch(() => {});
-
-      fetch("/api/save-kardex", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(state.kardex)
-      }).catch(() => {});
-
-      fetch("/api/save-sales", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(state.salesHistory)
-      }).catch(() => {});
+    // 5. En localhost, guardar también a disco
+    if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
+      fetch("/api/save-products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.products) }).catch(() => {});
+      fetch("/api/save-kardex", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.kardex) }).catch(() => {});
+      fetch("/api/save-sales", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.salesHistory) }).catch(() => {});
     }
 
-    // Refrescar vistas en pantalla
+    // Refrescar vistas
     if (typeof populateBrandFilters === "function") populateBrandFilters();
     if (typeof renderPOS === "function") renderPOS();
     if (typeof renderCatalogTable === "function") renderCatalogTable();
@@ -36931,7 +36810,7 @@ async function fetchCloudSync(silent = false) {
     if (typeof renderRecentScansList === "function") renderRecentScansList();
     if (typeof updateBadgesAndKPIs === "function") updateBadgesAndKPIs();
     if (typeof updateOpenAccountsBadge === "function") updateOpenAccountsBadge();
-    if (window.lucide) lucide.createIcons();
+    if (typeof window !== "undefined" && window.lucide) window.lucide.createIcons();
 
     if (syncIndicator) {
       const now = new Date();
@@ -36945,7 +36824,6 @@ async function fetchCloudSync(silent = false) {
     console.warn("[Supabase Sync] Error sincronizando:", err);
     if (syncIndicator) {
       syncIndicator.innerHTML = '🟠 Modo Local (Sin internet)';
-      syncIndicator.title = 'Sin conexión a internet en este momento. Las ventas y cambios se guardan localmente y se subirán al reconectar.';
     }
   } finally {
     isSyncingCloud = false;
@@ -36953,13 +36831,9 @@ async function fetchCloudSync(silent = false) {
 }
 window.fetchCloudSync = fetchCloudSync;
 
-// Auto-guardado dual: servidor local (server.py) + nube Supabase
 function saveToServer(entity, data) {
-  // Sincronización instantánea con Supabase en la nube
   syncDirectToSupabase(entity, data);
-
-  // Si estamos en entorno local con server.py, guardar también en disco
-  if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+  if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
     const endpoints = {
       products: "/api/save-products",
       kardex: "/api/save-kardex",
@@ -37507,11 +37381,8 @@ function renderCatalogTable() {
 
   // Render Tabla
   if (tbody) {
-    const isAdmin = state.currentUser?.role === "admin";
-    const colspan = isAdmin ? 11 : 9;
-
     if (filtered.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="${colspan}" style="text-align:center; padding:2rem; color:var(--text-muted);">No se encontraron productos que coincidan con la búsqueda.</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="11" style="text-align:center; padding:2rem; color:var(--text-muted);">No se encontraron productos que coincidan con la búsqueda.</td></tr>`;
     } else {
       tbody.innerHTML = filtered.map(p => {
         const margin = p.price > 0 ? Math.round(((p.price - p.cost) / p.price) * 100) : 0;
@@ -37525,9 +37396,6 @@ function renderCatalogTable() {
           stockLabel = `Bajo (${p.stock})`;
         }
 
-        const costTd = isAdmin ? `<td>${formatCOP(p.cost)}</td>` : "";
-        const marginTd = isAdmin ? `<td><span style="color:var(--success); font-weight:700;">${margin}%</span></td>` : "";
-
         return `
           <tr><td><input type="checkbox" class="row-checkbox" data-id="${p.id}"></td>
             <td><span class="barcode-badge-mono">${p.barcode}</span></td>
@@ -37539,9 +37407,9 @@ function renderCatalogTable() {
             </td>
             <td><span class="badge-tag">${p.category}</span></td>
             <td><span class="badge-tag badge-brand">${p.brand}</span></td>
-            ${costTd}
+            <td>${formatCOP(p.cost)}</td>
             <td><strong>${formatCOP(p.price)}</strong></td>
-            ${marginTd}
+            <td><span style="color:var(--success); font-weight:700;">${margin}%</span></td>
             <td><span class="badge-stock ${stockClass}">${stockLabel}</span></td>
             <td>${p.stock > p.minStock ? '<span style="color:var(--success); font-size:0.75rem;">● Óptimo</span>' : '<span style="color:var(--warning); font-size:0.75rem;">▲ Reponer</span>'}</td>
             <td>
@@ -38056,10 +37924,7 @@ function initProductModal() {
     const name = document.getElementById("prod-name").value.trim();
     const category = document.getElementById("prod-category").value;
     const brand = document.getElementById("prod-brand").value.trim();
-    const existingProd = id ? state.products.find(p => p.id === id) : null;
-    const cost = (state.currentUser?.role === "admin")
-      ? (parseFloat(costInput.value) || 0)
-      : (existingProd ? (existingProd.cost || 0) : 0);
+    const cost = parseFloat(costInput.value) || 0;
     const price = parseFloat(priceInput.value) || 0;
     const stock = parseInt(document.getElementById("prod-stock").value, 10) || 0;
     const minStock = parseInt(document.getElementById("prod-min-stock").value, 10) || 2;
@@ -38143,9 +38008,6 @@ function openProductModal(product = null) {
   const title = document.getElementById("modal-product-title");
   if (!modal) return;
 
-  const isAdmin = state.currentUser?.role === "admin";
-  const costInput = document.getElementById("prod-cost");
-
   if (product) {
     title.textContent = `Editar Producto: ${product.name}`;
     document.getElementById("prod-id").value = product.id;
@@ -38153,10 +38015,7 @@ function openProductModal(product = null) {
     document.getElementById("prod-name").value = product.name;
     document.getElementById("prod-category").value = product.category;
     document.getElementById("prod-brand").value = product.brand;
-    if (costInput) {
-      costInput.value = isAdmin ? product.cost : "";
-      costInput.required = isAdmin;
-    }
+    document.getElementById("prod-cost").value = product.cost;
     document.getElementById("prod-price").value = product.price;
     document.getElementById("prod-stock").value = product.stock;
     document.getElementById("prod-min-stock").value = product.minStock;
@@ -38168,10 +38027,6 @@ function openProductModal(product = null) {
     document.getElementById("prod-id").value = "";
     document.getElementById("prod-stock").value = "5";
     document.getElementById("prod-min-stock").value = "2";
-    if (costInput) {
-      costInput.value = "";
-      costInput.required = isAdmin;
-    }
     // Generar automáticamente código único EAN listo para usar
     const randomSuffix = Math.floor(100000000 + Math.random() * 900000000);
     document.getElementById("prod-barcode").value = `770${randomSuffix}`;
@@ -40343,7 +40198,6 @@ document.addEventListener("DOMContentLoaded", () => {
   loadState();
   initHardwareBarcodeListener();
   initUIEvents();
-  initAuthSystem();
   initPOSSearchAndBarcode();
   initProductModal();
   initImportExportModule();
@@ -40360,20 +40214,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (window.lucide) lucide.createIcons();
 
-  // Sincronización automática bidireccional en tiempo real con Supabase
+  // Sincronización en tiempo real con Supabase
   fetchCloudSync(false);
-  setInterval(() => fetchCloudSync(true), 8000); // Consulta la nube cada 8 segundos
+  setInterval(() => fetchCloudSync(true), 8000);
   window.addEventListener("focus", () => fetchCloudSync(true));
-  // Reanudar sincronización al reconectar internet
-  window.addEventListener("online", () => {
-    console.log("[Red] Conexión a internet reanudada. Sincronizando con Supabase...");
-    fetchCloudSync(false);
-  });
-  window.addEventListener("offline", () => {
-    const syncIndicator = document.getElementById("cloud-sync-status");
-    if (syncIndicator) syncIndicator.innerHTML = '🟠 Modo Local (Sin internet)';
-  });
-
+  window.addEventListener("online", () => fetchCloudSync(false));
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") fetchCloudSync(true);
   });
