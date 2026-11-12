@@ -29538,6 +29538,138 @@ const INITIAL_KARDEX = [
 
 const INITIAL_SALES = [
   {
+    "id": "TKT-537146",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-12T19:58:57.146Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1286",
+        "name": "Frezee babes",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559882608",
+        "price": 22000,
+        "cost": 12500,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 22000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 22000,
+    "cashReceived": 22000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-519131",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-12T19:58:39.115Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1530",
+        "name": "Polvo suelto 1st scene x30g",
+        "brand": "Atenea",
+        "category": "Maquillaje",
+        "barcode": "781159407963",
+        "price": 72000,
+        "cost": 39710,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1354",
+        "name": "Duo rubor allure tono pink crush",
+        "brand": "Atenea",
+        "category": "Maquillaje",
+        "barcode": "736372667700",
+        "price": 45000,
+        "cost": 26200,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1615",
+        "name": "Gel de cejas bloom lamination XL",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6973327780501",
+        "price": 26000,
+        "cost": 13900,
+        "quantity": 1,
+        "stockAvailable": 12
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 143000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 143000,
+    "cashReceived": 143000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-467293",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-12T19:57:47.287Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Físico (Calarcá)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1299",
+        "name": "Pestañina maxi volumen",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430338",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 7
+      },
+      {
+        "productId": "LV-1288",
+        "name": "Gel de cejas bloom lamination",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6973327787371",
+        "price": 18000,
+        "cost": 8200,
+        "quantity": 1,
+        "stockAvailable": 43
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 38000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 38000,
+    "cashReceived": 38000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
     "id": "TKT-732283",
     "accountId": "CTA-002",
     "timestamp": "2026-11-12T01:08:52.283Z",
@@ -36459,8 +36591,6 @@ const INITIAL_SALES = [
 ];
 
 
-
-// ============================================================================
 // 2. SISTEMA DE AUDIO BOUTIQUE (WEB AUDIO API - SIN DEPENDENCIAS EXTERNAS)
 // ============================================================================
 class BoutiqueAudio {
@@ -37045,12 +37175,24 @@ async function fetchCloudSync(silent = false) {
       try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) {}
     }
 
-    // 3. Obtener ventas
+    // 3. Obtener ventas con unión segura para nunca perder ventas locales
     const resSales = await fetch(`${SUPABASE_CONFIG.url}/sales?select=*&order=timestamp.desc&limit=2000`, { headers });
     if (resSales.ok) {
       const remoteSales = await resSales.json();
       if (Array.isArray(remoteSales) && remoteSales.length > 0) {
-        state.salesHistory = remoteSales;
+        const salesMap = new Map();
+        remoteSales.forEach(s => {
+          if (s && s.id) salesMap.set(s.id, s);
+        });
+        (state.salesHistory || []).forEach(s => {
+          if (s && s.id && !salesMap.has(s.id)) {
+            salesMap.set(s.id, s);
+            syncDirectToSupabase("sales", s);
+          }
+        });
+        state.salesHistory = Array.from(salesMap.values()).sort((a, b) => {
+          return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
+        });
         try { localStorage.setItem(STORAGE_KEY_SALES, JSON.stringify(state.salesHistory)); } catch (e) {}
       }
     }
@@ -37082,6 +37224,7 @@ async function fetchCloudSync(silent = false) {
     if (typeof updateBadgesAndKPIs === "function") updateBadgesAndKPIs();
     if (typeof updateOpenAccountsBadge === "function") updateOpenAccountsBadge();
     if (typeof updateSalesHistoryBadge === "function") updateSalesHistoryBadge();
+    if (typeof renderSalesHistoryView === "function") renderSalesHistoryView();
     if (typeof renderMonthlyHistoryView === "function") renderMonthlyHistoryView();
     if (typeof window !== "undefined" && window.lucide) window.lucide.createIcons();
 
@@ -39383,6 +39526,7 @@ function confirmCheckoutAndExit() {
   };
 
   state.salesHistory.unshift(saleRecord);
+  syncDirectToSupabase("sales", saleRecord);
   saveSalesHistory();
   saveProducts();
 
@@ -39404,6 +39548,8 @@ function confirmCheckoutAndExit() {
   renderPOS();
   renderCatalogTable();
   renderKardexTable();
+  renderSalesHistoryView();
+  updateSalesHistoryBadge();
 
   showToast(`¡Salida completada con éxito! Ticket ${saleRecord.id}`, "success");
 }
