@@ -37158,21 +37158,35 @@ async function fetchCloudSync(silent = false) {
       }
     }
 
-    // 2. Obtener movimientos de Kardex con paginación completa
-    let allKardex = [];
-    let kOffset = 0;
-    while (true) {
-      const resK = await fetch(`${SUPABASE_CONFIG.url}/kardex?select=*&order=timestamp.desc&limit=1000&offset=${kOffset}`, { headers });
-      if (!resK.ok) break;
-      const batch = await resK.json();
-      if (!batch || batch.length === 0) break;
-      allKardex = allKardex.concat(batch);
-      if (batch.length < 1000) break;
-      kOffset += 1000;
-    }
-    if (allKardex.length > 0) {
-      state.kardex = allKardex;
-      try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) {}
+    // 2. Obtener movimientos de Kardex (rápido en segundo plano, completo si es inicio)
+    if (silent && state.kardex && state.kardex.length > 0) {
+      const resK = await fetch(`${SUPABASE_CONFIG.url}/kardex?select=*&order=timestamp.desc&limit=50`, { headers });
+      if (resK.ok) {
+        const recentK = await resK.json();
+        if (Array.isArray(recentK) && recentK.length > 0) {
+          const kMap = new Map();
+          recentK.forEach(k => { if (k && k.id) kMap.set(k.id, k); });
+          (state.kardex || []).forEach(k => { if (k && k.id && !kMap.has(k.id)) kMap.set(k.id, k); });
+          state.kardex = Array.from(kMap.values()).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+          try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) {}
+        }
+      }
+    } else {
+      let allKardex = [];
+      let kOffset = 0;
+      while (true) {
+        const resK = await fetch(`${SUPABASE_CONFIG.url}/kardex?select=*&order=timestamp.desc&limit=1000&offset=${kOffset}`, { headers });
+        if (!resK.ok) break;
+        const batch = await resK.json();
+        if (!batch || batch.length === 0) break;
+        allKardex = allKardex.concat(batch);
+        if (batch.length < 1000) break;
+        kOffset += 1000;
+      }
+      if (allKardex.length > 0) {
+        state.kardex = allKardex;
+        try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) {}
+      }
     }
 
     // 3. Obtener ventas con unión segura para nunca perder ventas locales
@@ -37215,18 +37229,34 @@ async function fetchCloudSync(silent = false) {
       fetch("/api/save-accounts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.accounts) }).catch(() => {});
     }
 
-    // Refrescar vistas en tiempo real
-    if (typeof populateBrandFilters === "function") populateBrandFilters();
-    if (typeof renderPOS === "function") renderPOS();
-    if (typeof renderCatalogTable === "function") renderCatalogTable();
-    if (typeof renderKardexTable === "function") renderKardexTable();
-    if (typeof renderRecentScansList === "function") renderRecentScansList();
+    // Refrescar ÚNICAMENTE la vista activa para máximo rendimiento (cero lag al hacer clic)
+    if (state.activeTab === "tab-pos-accounts") {
+      if (typeof renderPOS === "function") renderPOS();
+      if (state.activePOSView === "history" && typeof renderSalesHistoryView === "function") {
+        renderSalesHistoryView();
+      } else if (state.activePOSView === "monthly" && typeof renderMonthlyHistoryView === "function") {
+        renderMonthlyHistoryView();
+      }
+    } else if (state.activeTab === "tab-catalog") {
+      if (typeof renderCatalogTable === "function") renderCatalogTable();
+    } else if (state.activeTab === "tab-kardex") {
+      if (typeof renderKardexTable === "function") renderKardexTable();
+    } else if (state.activeTab === "tab-scanner") {
+      if (typeof renderRecentScansList === "function") renderRecentScansList();
+    }
+
     if (typeof updateBadgesAndKPIs === "function") updateBadgesAndKPIs();
     if (typeof updateOpenAccountsBadge === "function") updateOpenAccountsBadge();
     if (typeof updateSalesHistoryBadge === "function") updateSalesHistoryBadge();
-    if (typeof renderSalesHistoryView === "function") renderSalesHistoryView();
-    if (typeof renderMonthlyHistoryView === "function") renderMonthlyHistoryView();
-    if (typeof window !== "undefined" && window.lucide) window.lucide.createIcons();
+
+    if (typeof window !== "undefined" && window.lucide) {
+      const activePane = document.querySelector(".tab-pane.active");
+      if (activePane) {
+        window.lucide.createIcons({ root: activePane });
+      } else {
+        window.lucide.createIcons();
+      }
+    }
 
     if (syncIndicator) {
       const now = new Date();
@@ -37817,12 +37847,14 @@ function renderCatalogTable() {
   if (visibleCountEl) visibleCountEl.textContent = filtered.length;
   if (totalCountEl) totalCountEl.textContent = state.products.length;
 
-  // Render Tabla
+  // Render Tabla (Optimizado con paginación fluida)
   if (tbody) {
     if (filtered.length === 0) {
       tbody.innerHTML = `<tr><td colspan="11" style="text-align:center; padding:2rem; color:var(--text-muted);">No se encontraron productos que coincidan con la búsqueda.</td></tr>`;
     } else {
-      tbody.innerHTML = filtered.map(p => {
+      const limit = window.catalogDisplayLimit || 80;
+      const toDisplay = filtered.slice(0, limit);
+      let html = toDisplay.map(p => {
         const margin = p.price > 0 ? Math.round(((p.price - p.cost) / p.price) * 100) : 0;
         let stockClass = "ok";
         let stockLabel = `${p.stock} unid.`;
@@ -37863,12 +37895,19 @@ function renderCatalogTable() {
           </tr>
         `;
       }).join("");
+
+      if (filtered.length > limit) {
+        html += `<tr><td colspan="11" style="text-align:center; padding:1.25rem;"><button type="button" class="btn btn-outline-sm" onclick="window.catalogDisplayLimit = (window.catalogDisplayLimit || 80) + 80; renderCatalogTable();">Mostrando ${limit} de ${filtered.length} productos · Cargar más</button></td></tr>`;
+      }
+      tbody.innerHTML = html;
     }
   }
 
-  // Render Cuadrícula
+  // Render Cuadrícula (Optimizado)
   if (gridContainer) {
-    gridContainer.innerHTML = filtered.map(p => `
+    const limit = window.catalogDisplayLimit || 80;
+    const toDisplay = filtered.slice(0, limit);
+    gridContainer.innerHTML = toDisplay.map(p => `
       <div class="product-grid-card">
         <div class="grid-card-header">
           <span class="badge-tag badge-brand">${p.brand}</span>
@@ -38039,7 +38078,10 @@ function renderKardexTable() {
     return;
   }
 
-  tbody.innerHTML = filtered.map(m => {
+  const limit = window.kardexDisplayLimit || 80;
+  const toDisplay = filtered.slice(0, limit);
+
+  let html = toDisplay.map(m => {
     const d = new Date(m.timestamp);
     const dateStr = d.toLocaleDateString() + " " + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     const isExit = m.type === "SALIDA";
@@ -38061,6 +38103,12 @@ function renderKardexTable() {
       </tr>
     `;
   }).join("");
+
+  if (filtered.length > limit) {
+    html += `<tr><td colspan="9" style="text-align:center; padding:1.25rem;"><button type="button" class="btn btn-outline-sm" onclick="window.kardexDisplayLimit = (window.kardexDisplayLimit || 80) + 80; renderKardexTable();">Mostrando ${limit} de ${filtered.length} movimientos · Cargar más</button></td></tr>`;
+  }
+
+  tbody.innerHTML = html;
 }
 
 // ============================================================================
@@ -40703,8 +40751,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Sincronización en tiempo real con Supabase
   fetchCloudSync(false);
-  setInterval(() => fetchCloudSync(true), 3000);
-  window.addEventListener("focus", () => fetchCloudSync(true));
+  setInterval(() => {
+    if (document.visibilityState === "visible") {
+      fetchCloudSync(true);
+    }
+  }, 8000);
+  window.addEventListener("focus", () => {
+    if (document.visibilityState === "visible") fetchCloudSync(true);
+  });
   window.addEventListener("online", () => fetchCloudSync(false));
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") fetchCloudSync(true);
