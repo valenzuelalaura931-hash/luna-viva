@@ -26596,8 +26596,57 @@ const SUPABASE_CONFIG = {
   key: (typeof atob === "function" ? atob("c2Jfc2VjcmV0X3NTUmdYZDRieXVjaUFWeVFRS3NZWndfeGFnS2kzMXU=") : "")
 };
 
-// Sincronización directa con Supabase REST (fallback resiliente sin servidor)
+// Sincronización directa con Supabase REST con cola offline garantizada
+function queueOfflineSync(entity, data) {
+  try {
+    const q = JSON.parse(localStorage.getItem("LV_OFFLINE_SYNC_QUEUE") || "[]");
+    q.push({ entity, data, time: Date.now() });
+    localStorage.setItem("LV_OFFLINE_SYNC_QUEUE", JSON.stringify(q));
+    console.log(`[Offline Queue] 📦 Guardado en cola local para subir a la nube: ${entity}`);
+  } catch (e) {}
+}
+
+async function processOfflineQueue() {
+  try {
+    const raw = localStorage.getItem("LV_OFFLINE_SYNC_QUEUE");
+    if (!raw) return;
+    const queue = JSON.parse(raw);
+    if (!Array.isArray(queue) || queue.length === 0) return;
+
+    console.log(`[Offline Queue] Subiendo ${queue.length} operaciones acumuladas a la nube...`);
+    const remaining = [];
+    for (const item of queue) {
+      try {
+        const payload = Array.isArray(item.data) ? item.data : [item.data];
+        const res = await fetch(`${SUPABASE_CONFIG.url}/${item.entity}`, {
+          method: "POST",
+          headers: {
+            "apikey": SUPABASE_CONFIG.key,
+            "Authorization": `Bearer ${SUPABASE_CONFIG.key}`,
+            "Content-Type": "application/json",
+            "Prefer": "resolution=merge-duplicates,return=minimal"
+          },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) remaining.push(item);
+      } catch (e) {
+        remaining.push(item);
+      }
+    }
+    if (remaining.length === 0) {
+      localStorage.removeItem("LV_OFFLINE_SYNC_QUEUE");
+      console.log("[Offline Queue] ✓ Todas las operaciones pendientes subidas a la nube con éxito.");
+    } else {
+      localStorage.setItem("LV_OFFLINE_SYNC_QUEUE", JSON.stringify(remaining));
+    }
+  } catch (e) {}
+}
+
 function syncDirectToSupabase(entity, data) {
+  if (!navigator.onLine) {
+    queueOfflineSync(entity, data);
+    return;
+  }
   try {
     const payload = Array.isArray(data) ? data : [data];
     fetch(`${SUPABASE_CONFIG.url}/${entity}`, {
@@ -26610,9 +26659,17 @@ function syncDirectToSupabase(entity, data) {
       },
       body: JSON.stringify(payload)
     }).then(res => {
-      if (res.ok) console.log(`[Supabase Cloud Sync] ✓ ${entity} sincronizado en la nube.`);
-    }).catch(() => {});
-  } catch (e) {}
+      if (res.ok) {
+        console.log(`[Supabase Cloud Sync] ✓ ${entity} sincronizado en la nube.`);
+      } else {
+        queueOfflineSync(entity, data);
+      }
+    }).catch(() => {
+      queueOfflineSync(entity, data);
+    });
+  } catch (e) {
+    queueOfflineSync(entity, data);
+  }
 }
 
 // ============================================================================
@@ -26630,6 +26687,9 @@ async function fetchCloudSync(silent = false) {
   }
 
   try {
+    // 0. Si hay ventas u operaciones guardadas offline, subirlas primero
+    await processOfflineQueue();
+
     const headers = {
       "apikey": SUPABASE_CONFIG.key,
       "Authorization": `Bearer ${SUPABASE_CONFIG.key}`
@@ -26649,14 +26709,21 @@ async function fetchCloudSync(silent = false) {
       }
     }
 
-    // 2. Obtener movimientos de Kardex
-    const resKardex = await fetch(`${SUPABASE_CONFIG.url}/kardex?select=*&order=timestamp.desc&limit=2000`, { headers });
-    if (resKardex.ok) {
-      const remoteKardex = await resKardex.json();
-      if (Array.isArray(remoteKardex) && remoteKardex.length > 0) {
-        state.kardex = remoteKardex;
-        try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) {}
-      }
+    // 2. Obtener movimientos de Kardex (paginación completa para 1000+ movimientos)
+    let allKardex = [];
+    let kOffset = 0;
+    while (true) {
+      const resK = await fetch(`${SUPABASE_CONFIG.url}/kardex?select=*&order=timestamp.desc&limit=1000&offset=${kOffset}`, { headers });
+      if (!resK.ok) break;
+      const batch = await resK.json();
+      if (!batch || batch.length === 0) break;
+      allKardex = allKardex.concat(batch);
+      if (batch.length < 1000) break;
+      kOffset += 1000;
+    }
+    if (allKardex.length > 0) {
+      state.kardex = allKardex;
+      try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) {}
     }
 
     // 3. Obtener historial de ventas
@@ -26677,6 +26744,27 @@ async function fetchCloudSync(silent = false) {
         state.accounts = remoteAcc;
         try { localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(state.accounts)); } catch (e) {}
       }
+    }
+
+    // 5. Si estamos en localhost, persistir los datos descargados de la nube al disco duro
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      fetch("/api/save-products", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(state.products)
+      }).catch(() => {});
+
+      fetch("/api/save-kardex", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(state.kardex)
+      }).catch(() => {});
+
+      fetch("/api/save-sales", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(state.salesHistory)
+      }).catch(() => {});
     }
 
     // Refrescar vistas en pantalla
@@ -26700,7 +26788,8 @@ async function fetchCloudSync(silent = false) {
   } catch (err) {
     console.warn("[Supabase Sync] Error sincronizando:", err);
     if (syncIndicator) {
-      syncIndicator.innerHTML = '🟠 Modo Local';
+      syncIndicator.innerHTML = '🟠 Modo Local (Sin internet)';
+      syncIndicator.title = 'Sin conexión a internet en este momento. Las ventas y cambios se guardan localmente y se subirán al reconectar.';
     }
   } finally {
     isSyncingCloud = false;
@@ -30119,6 +30208,16 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchCloudSync(false);
   setInterval(() => fetchCloudSync(true), 8000); // Consulta la nube cada 8 segundos
   window.addEventListener("focus", () => fetchCloudSync(true));
+  // Reanudar sincronización al reconectar internet
+  window.addEventListener("online", () => {
+    console.log("[Red] Conexión a internet reanudada. Sincronizando con Supabase...");
+    fetchCloudSync(false);
+  });
+  window.addEventListener("offline", () => {
+    const syncIndicator = document.getElementById("cloud-sync-status");
+    if (syncIndicator) syncIndicator.innerHTML = '🟠 Modo Local (Sin internet)';
+  });
+
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") fetchCloudSync(true);
   });
