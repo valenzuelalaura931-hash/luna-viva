@@ -269,23 +269,24 @@ class LunaVivaHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Expires', '0')
         super().end_headers()
 
-print("========================================================")
-print("          LUNA VIVA - SISTEMA DE INVENTARIO             ")
-print("      Boutique de Belleza, Resplandor & Vitalidad       ")
-print("========================================================")
-print(f"Directorio raíz: {PROJECT_DIR}")
-print(f"Persistencia dual & Sincronización en tiempo real activa:")
-print(f"  1. Disco Local  : products.json, kardex.json, sales.json (Modo Offline)")
-print(f"  2. Nube Supabase: {SUPABASE_URL} (Modo Online)")
-print(f"Servidor iniciado en http://localhost:{PORT}")
-print("========================================================")
+if __name__ == '__main__':
+    print("========================================================")
+    print("          LUNA VIVA - SISTEMA DE INVENTARIO             ")
+    print("      Boutique de Belleza, Resplandor & Vitalidad       ")
+    print("========================================================")
+    print(f"Directorio raíz: {PROJECT_DIR}")
+    print(f"Persistencia dual & Sincronización en tiempo real activa:")
+    print(f"  1. Disco Local  : products.json, kardex.json, sales.json (Modo Offline)")
+    print(f"  2. Nube Supabase: {SUPABASE_URL} (Modo Online)")
+    print(f"Servidor iniciado en http://localhost:{PORT}")
+    print("========================================================")
 
-# Iniciar sincronizador bidireccional en segundo plano
-start_periodic_cloud_sync()
+    # Iniciar sincronizador bidireccional en segundo plano
+    start_periodic_cloud_sync()
 
-socketserver.TCPServer.allow_reuse_address = True
-try:
-    with socketserver.TCPServer(("", PORT), LunaVivaHandler) as httpd:
-        httpd.serve_forever()
-except KeyboardInterrupt:
-    print("\nServidor detenido por el usuario.")
+    socketserver.TCPServer.allow_reuse_address = True
+    try:
+        with socketserver.TCPServer(("", PORT), LunaVivaHandler) as httpd:
+            httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\nServidor detenido por el usuario.")
