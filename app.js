@@ -37427,6 +37427,11 @@ const SCANNER_BURST_MAX_MS = 60; // Los lectores envían pulsaciones en < 30ms
 
 function initHardwareBarcodeListener() {
   window.addEventListener("keydown", (e) => {
+    // Si el foco está en el input del POS, no procesar aquí para evitar doble registro
+    if (e.target && e.target.id === "pos-barcode-search-input") {
+      return;
+    }
+
     // Si el usuario está escribiendo en un textarea o input de texto común (que no sea el de escaneo),
     // no capturamos a menos que sea un ráfaga ultra-rápida de pistola
     const isInput = ["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName);
@@ -37485,9 +37490,19 @@ function initHardwareBarcodeListener() {
 // ============================================================================
 // 6. PROCESAMIENTO DEL ESCANEO (ENTRADA / SALIDA / CONSULTA)
 // ============================================================================
+let lastScannedBarcode = "";
+let lastScanTime = 0;
+
 function processScannedBarcode(rawBarcode) {
   // Clean barcode: remove any non-numeric characters that may be added by scanner peripherals
-  const barcode = rawBarcode.trim().replace(/\D/g, "");
+  const barcode = (rawBarcode || "").trim().replace(/\D/g, "");
+  const now = Date.now();
+  if (barcode && barcode === lastScannedBarcode && (now - lastScanTime) < 500) {
+    console.warn(`[Scanner] Código repetido ignorado en ráfaga (${barcode})`);
+    return;
+  }
+  lastScannedBarcode = barcode;
+  lastScanTime = now;
   const feedbackEl = document.getElementById("scan-feedback");
 
   if (feedbackEl) {
@@ -38974,7 +38989,18 @@ function closeOrDeleteAccount(accountId) {
   showToast("Cuenta cancelada", "info");
 }
 
+let lastAddProductId = "";
+let lastAddTime = 0;
+
 function addProductToActiveAccount(product, qty = 1) {
+  const now = Date.now();
+  if (product && product.id === lastAddProductId && (now - lastAddTime) < 400) {
+    console.warn(`[POS] Doble registro prevenido para "${product.name}" (${now - lastAddTime}ms)`);
+    return;
+  }
+  lastAddProductId = product ? product.id : "";
+  lastAddTime = now;
+
   const account = getActiveAccount();
   const existing = account.items.find(item => item.productId === product.id);
 
@@ -39330,6 +39356,8 @@ function initPOSSearchAndBarcode() {
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
+      e.stopPropagation();
+      barcodeBuffer = "";
       const q = input.value.trim();
       if (!q) return;
 
