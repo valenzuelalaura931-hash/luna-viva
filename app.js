@@ -36564,6 +36564,7 @@ const state = {
   kardex: [],
   activeMode: "salida", // 'salida' | 'entrada' | 'consulta'
   activeUser: "Laura",
+  currentUser: { name: "Laura", role: "admin" },
   activeTab: "tab-pos-accounts", // Pestaña inicial: Cuentas & Salidas
   recentScans: [],
   audio: new BoutiqueAudio(),
@@ -36586,6 +36587,248 @@ const state = {
   monthlyFilterMethod: "ALL",
   monthlyFilterDay: "ALL"
 };
+
+// ============================================================================
+// SISTEMA DE CONTROL DE ACCESO, ROLES & LOGIN (LUNA VIVA)
+// ============================================================================
+const AUTH_CONFIG = {
+  USERS: {
+    "Laura": {
+      name: "Laura",
+      role: "admin",
+      pin: "5924",
+      label: "Administración & Finanzas",
+      icon: "👑"
+    },
+    "Colaborador": {
+      name: "Colaborador",
+      role: "colaborador",
+      pin: "0000",
+      label: "Turno / Mostrador",
+      icon: "💄"
+    }
+  },
+  STORAGE_KEY_SESSION: "luna_viva_auth_session_v1"
+};
+
+let selectedLoginUsername = "Laura";
+
+function openLoginModal(preselectUser = null) {
+  const overlay = document.getElementById("login-modal-overlay");
+  if (!overlay) return;
+
+  const targetUser = preselectUser || state.activeUser || "Laura";
+  selectedLoginUsername = targetUser in AUTH_CONFIG.USERS ? targetUser : "Laura";
+  updateLoginProfileButtons();
+
+  const pinInput = document.getElementById("login-pin-input");
+  if (pinInput) {
+    pinInput.value = "";
+    pinInput.type = "password";
+  }
+  const eyeIcon = document.getElementById("eye-icon");
+  if (eyeIcon && window.lucide) {
+    eyeIcon.setAttribute("data-lucide", "eye");
+    lucide.createIcons();
+  }
+
+  const errBanner = document.getElementById("login-error-banner");
+  if (errBanner) errBanner.style.display = "none";
+
+  overlay.style.display = "flex";
+  setTimeout(() => pinInput?.focus(), 150);
+}
+window.openLoginModal = openLoginModal;
+
+function closeLoginModal() {
+  const overlay = document.getElementById("login-modal-overlay");
+  if (overlay) overlay.style.display = "none";
+}
+window.closeLoginModal = closeLoginModal;
+
+function updateLoginProfileButtons() {
+  const btnLaura = document.getElementById("btn-select-laura");
+  const btnColab = document.getElementById("btn-select-colab");
+  const labelText = document.getElementById("login-pin-label-text");
+
+  if (selectedLoginUsername === "Laura") {
+    btnLaura?.classList.add("active");
+    btnColab?.classList.remove("active");
+    if (labelText) labelText.textContent = "Ingresa el PIN de Laura (5924):";
+  } else {
+    btnColab?.classList.add("active");
+    btnLaura?.classList.remove("active");
+    if (labelText) labelText.textContent = "Ingresa el PIN de Colaborador (0000):";
+  }
+}
+
+function loginUser(username, pin) {
+  const user = AUTH_CONFIG.USERS[username];
+  if (!user) return false;
+
+  const trimmedPin = (pin || "").trim();
+  if (trimmedPin === user.pin) {
+    const session = {
+      name: user.name,
+      role: user.role,
+      loginAt: new Date().toISOString()
+    };
+    try {
+      localStorage.setItem(AUTH_CONFIG.STORAGE_KEY_SESSION, JSON.stringify(session));
+    } catch (e) {}
+
+    closeLoginModal();
+    applyUserRolePermissions(user.name, user.role, true);
+    return true;
+  } else {
+    const errBanner = document.getElementById("login-error-banner");
+    const errText = document.getElementById("login-error-text");
+    if (errBanner) {
+      if (errText) errText.textContent = `PIN incorrecto para ${username}. Intenta de nuevo.`;
+      errBanner.style.display = "flex";
+      if (window.lucide) lucide.createIcons();
+    }
+    const pinInput = document.getElementById("login-pin-input");
+    if (pinInput) {
+      pinInput.value = "";
+      pinInput.focus();
+    }
+    if (state.audio?.playError) state.audio.playError();
+    return false;
+  }
+}
+
+function logoutUser() {
+  const targetUser = state.activeUser === "Laura" ? "Colaborador" : "Laura";
+  openLoginModal(targetUser);
+}
+window.logoutUser = logoutUser;
+
+function applyUserRolePermissions(name, role, notify = false) {
+  state.currentUser = { name, role };
+  state.activeUser = name;
+
+  document.body.classList.remove("role-admin", "role-colaborador");
+  document.body.classList.add(`role-${role}`);
+
+  const initialEl = document.getElementById("current-user-avatar");
+  const nameEl = document.getElementById("current-user-name");
+  const badgeEl = document.getElementById("current-user-role-badge");
+
+  if (initialEl) initialEl.textContent = name.charAt(0).toUpperCase();
+  if (nameEl) nameEl.textContent = name;
+  if (badgeEl) {
+    badgeEl.className = `user-role-badge badge-${role}`;
+    if (role === "admin") {
+      badgeEl.innerHTML = `<i data-lucide="shield-check" class="role-icon"></i> Administración`;
+    } else {
+      badgeEl.innerHTML = `<i data-lucide="sparkles" class="role-icon"></i> Mostrador`;
+    }
+  }
+
+  const checkoutUserSelect = document.getElementById("checkout-user-select");
+  if (checkoutUserSelect) {
+    checkoutUserSelect.value = name;
+  }
+
+  if (window.lucide) lucide.createIcons();
+  if (typeof renderCatalogTable === "function") renderCatalogTable();
+  if (typeof updateBadgesAndKPIs === "function") updateBadgesAndKPIs();
+
+  if (notify) {
+    const roleTitle = role === "admin" ? "Administración" : "Turno Mostrador";
+    showToast(`Turno cambiado a: ${name} (${roleTitle})`, "success");
+    if (state.audio?.playSuccess) state.audio.playSuccess();
+  }
+}
+
+function initAuthSystem() {
+  document.getElementById("btn-select-laura")?.addEventListener("click", () => {
+    selectedLoginUsername = "Laura";
+    updateLoginProfileButtons();
+    document.getElementById("login-pin-input")?.focus();
+  });
+
+  document.getElementById("btn-select-colab")?.addEventListener("click", () => {
+    selectedLoginUsername = "Colaborador";
+    updateLoginProfileButtons();
+    document.getElementById("login-pin-input")?.focus();
+  });
+
+  document.querySelectorAll(".keypad-btn[data-key]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const pinInput = document.getElementById("login-pin-input");
+      if (pinInput && pinInput.value.length < 8) {
+        pinInput.value += btn.dataset.key;
+      }
+    });
+  });
+
+  document.getElementById("btn-keypad-clear")?.addEventListener("click", () => {
+    const pinInput = document.getElementById("login-pin-input");
+    if (pinInput) pinInput.value = "";
+  });
+
+  document.getElementById("btn-keypad-back")?.addEventListener("click", () => {
+    const pinInput = document.getElementById("login-pin-input");
+    if (pinInput) pinInput.value = pinInput.value.slice(0, -1);
+  });
+
+  document.getElementById("btn-toggle-pin-visibility")?.addEventListener("click", () => {
+    const pinInput = document.getElementById("login-pin-input");
+    if (!pinInput) return;
+    const isPass = pinInput.type === "password";
+    pinInput.type = isPass ? "text" : "password";
+    const eyeIcon = document.getElementById("eye-icon");
+    if (eyeIcon && window.lucide) {
+      eyeIcon.setAttribute("data-lucide", isPass ? "eye-off" : "eye");
+      lucide.createIcons();
+    }
+  });
+
+  document.getElementById("login-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const pin = document.getElementById("login-pin-input")?.value || "";
+    loginUser(selectedLoginUsername, pin);
+  });
+
+  document.getElementById("btn-logout")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    logoutUser();
+  });
+
+  const userCard = document.querySelector(".user-session-card");
+  if (userCard) {
+    userCard.style.cursor = "pointer";
+    userCard.setAttribute("title", "Haz clic para cambiar de personal");
+    userCard.addEventListener("click", (e) => {
+      if (e.target.closest("#btn-logout")) return;
+      openLoginModal(state.activeUser === "Laura" ? "Colaborador" : "Laura");
+    });
+  }
+
+  document.getElementById("btn-close-login-modal")?.addEventListener("click", closeLoginModal);
+  const overlay = document.getElementById("login-modal-overlay");
+  overlay?.addEventListener("click", (e) => {
+    if (e.target === overlay && state.currentUser) {
+      closeLoginModal();
+    }
+  });
+
+  let activeSession = null;
+  try {
+    const stored = localStorage.getItem(AUTH_CONFIG.STORAGE_KEY_SESSION);
+    if (stored) activeSession = JSON.parse(stored);
+  } catch (e) {}
+
+  if (activeSession && activeSession.name && activeSession.role && AUTH_CONFIG.USERS[activeSession.name]) {
+    applyUserRolePermissions(activeSession.name, activeSession.role, false);
+  } else {
+    applyUserRolePermissions("Laura", "admin", false);
+  }
+}
+window.initAuthSystem = initAuthSystem;
+
 window.state = state;
 
 // ============================================================================
@@ -40267,6 +40510,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadState();
   initHardwareBarcodeListener();
   initUIEvents();
+  initAuthSystem();
   initPOSSearchAndBarcode();
   initProductModal();
   initImportExportModule();
