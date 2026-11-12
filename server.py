@@ -26,7 +26,7 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 # Configuración de Nube Supabase (Luna Viva)
 import base64
 SUPABASE_URL = 'https://oytdvgeyvuxqafxmgtcp.supabase.co/rest/v1'
-SUPABASE_KEY = base64.b64decode('c2Jfc2VjcmV0X3NTUmdYZDRieXVjaUFWeVFRS3NZWndfeGFnS2kzMXU=').decode('utf-8')
+SUPABASE_KEY = base64.b64decode('c2JfcHVibGlzaGFibGVfX29HOHNXNU4yVTdCZzAxOHdmUEwzd18zeFdpald0aA==').decode('utf-8')
 SUPABASE_HEADERS = {
     'apikey': SUPABASE_KEY,
     'Authorization': f'Bearer {SUPABASE_KEY}',

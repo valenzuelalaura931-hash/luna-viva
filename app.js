@@ -36648,7 +36648,7 @@ function getDayOfWeekEs(dateInput) {
 // ============================================================================
 const SUPABASE_CONFIG = {
   url: "https://oytdvgeyvuxqafxmgtcp.supabase.co/rest/v1",
-  key: (typeof atob === "function" ? atob("c2Jfc2VjcmV0X3NTUmdYZDRieXVjaUFWeVFRS3NZWndfeGFnS2kzMXU=") : "")
+  key: (typeof atob === "function" ? atob("c2JfcHVibGlzaGFibGVfX29HOHNXNU4yVTdCZzAxOHdmUEwzd18zeFdpald0aA==") : "sb_publishable__oG8sW5N2U7Bg018wfPL3w_3xWijWth")
 };
 
 function queueOfflineSync(entity, data) {
@@ -36688,7 +36688,7 @@ async function processOfflineQueue() {
     }
     if (remaining.length === 0) {
       localStorage.removeItem("LV_OFFLINE_SYNC_QUEUE");
-      console.log("[Offline Queue] ✓ Cola offline subida a la nube.");
+      console.log("[Offline Queue] ✓ Cola offline subida a la nube con éxito.");
     } else {
       localStorage.setItem("LV_OFFLINE_SYNC_QUEUE", JSON.stringify(remaining));
     }
@@ -36702,24 +36702,49 @@ function syncDirectToSupabase(entity, data) {
   }
   try {
     const payload = Array.isArray(data) ? data : [data];
-    fetch(`${SUPABASE_CONFIG.url}/${entity}`, {
-      method: "POST",
-      headers: {
-        "apikey": SUPABASE_CONFIG.key,
-        "Authorization": `Bearer ${SUPABASE_CONFIG.key}`,
-        "Content-Type": "application/json",
-        "Prefer": "resolution=merge-duplicates,return=minimal"
-      },
-      body: JSON.stringify(payload)
-    }).then(res => {
-      if (res.ok) {
-        console.log(`[Supabase Cloud Sync] ✓ ${entity} sincronizado en la nube.`);
-      } else {
-        queueOfflineSync(entity, data);
+    const chunkSize = 100;
+    
+    if (payload.length > chunkSize) {
+      for (let i = 0; i < payload.length; i += chunkSize) {
+        const chunk = payload.slice(i, i + chunkSize);
+        fetch(`${SUPABASE_CONFIG.url}/${entity}`, {
+          method: "POST",
+          headers: {
+            "apikey": SUPABASE_CONFIG.key,
+            "Authorization": `Bearer ${SUPABASE_CONFIG.key}`,
+            "Content-Type": "application/json",
+            "Prefer": "resolution=merge-duplicates,return=minimal"
+          },
+          body: JSON.stringify(chunk)
+        }).catch(() => {
+          queueOfflineSync(entity, chunk);
+        });
       }
-    }).catch(() => {
-      queueOfflineSync(entity, data);
-    });
+    } else {
+      fetch(`${SUPABASE_CONFIG.url}/${entity}`, {
+        method: "POST",
+        headers: {
+          "apikey": SUPABASE_CONFIG.key,
+          "Authorization": `Bearer ${SUPABASE_CONFIG.key}`,
+          "Content-Type": "application/json",
+          "Prefer": "resolution=merge-duplicates,return=minimal"
+        },
+        body: JSON.stringify(payload)
+      }).then(res => {
+        if (res.ok) {
+          const syncIndicator = typeof document !== "undefined" ? document.getElementById("cloud-sync-status") : null;
+          if (syncIndicator) {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            syncIndicator.innerHTML = `🟢 Nube al día · ${timeStr}`;
+          }
+        } else {
+          queueOfflineSync(entity, data);
+        }
+      }).catch(() => {
+        queueOfflineSync(entity, data);
+      });
+    }
   } catch (e) {
     queueOfflineSync(entity, data);
   }
@@ -36781,11 +36806,11 @@ async function fetchCloudSync(silent = false) {
       const remoteSales = await resSales.json();
       if (Array.isArray(remoteSales) && remoteSales.length > 0) {
         state.salesHistory = remoteSales;
-        try { localStorage.setItem(STORAGE_KEY_SALES_HISTORY, JSON.stringify(state.salesHistory)); } catch (e) {}
+        try { localStorage.setItem(STORAGE_KEY_SALES, JSON.stringify(state.salesHistory)); } catch (e) {}
       }
     }
 
-    // 4. Obtener cuentas
+    // 4. Obtener cuentas de clientes
     const resAcc = await fetch(`${SUPABASE_CONFIG.url}/accounts?select=*`, { headers });
     if (resAcc.ok) {
       const remoteAcc = await resAcc.json();
@@ -36795,14 +36820,15 @@ async function fetchCloudSync(silent = false) {
       }
     }
 
-    // 5. En localhost, guardar también a disco
+    // 5. En localhost, guardar también a disco local
     if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
       fetch("/api/save-products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.products) }).catch(() => {});
       fetch("/api/save-kardex", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.kardex) }).catch(() => {});
       fetch("/api/save-sales", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.salesHistory) }).catch(() => {});
+      fetch("/api/save-accounts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.accounts) }).catch(() => {});
     }
 
-    // Refrescar vistas
+    // Refrescar vistas en tiempo real
     if (typeof populateBrandFilters === "function") populateBrandFilters();
     if (typeof renderPOS === "function") renderPOS();
     if (typeof renderCatalogTable === "function") renderCatalogTable();
@@ -36810,6 +36836,8 @@ async function fetchCloudSync(silent = false) {
     if (typeof renderRecentScansList === "function") renderRecentScansList();
     if (typeof updateBadgesAndKPIs === "function") updateBadgesAndKPIs();
     if (typeof updateOpenAccountsBadge === "function") updateOpenAccountsBadge();
+    if (typeof updateSalesHistoryBadge === "function") updateSalesHistoryBadge();
+    if (typeof renderMonthlyHistoryView === "function") renderMonthlyHistoryView();
     if (typeof window !== "undefined" && window.lucide) window.lucide.createIcons();
 
     if (syncIndicator) {
@@ -38419,10 +38447,15 @@ function loadAccountsState() {
   updateSalesHistoryBadge();
 }
 
-function saveAccountsState() {
-  localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(state.accounts));
-  localStorage.setItem(STORAGE_KEY_ACTIVE_ACCOUNT, state.activeAccountId);
+function saveAccountsState(syncServer = true) {
+  try {
+    localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(state.accounts));
+    localStorage.setItem(STORAGE_KEY_ACTIVE_ACCOUNT, state.activeAccountId);
+  } catch (e) {}
   updateOpenAccountsBadge();
+  if (syncServer) {
+    saveToServer("accounts", state.accounts);
+  }
 }
 
 function saveSalesHistory(syncServer = true) {
@@ -38755,6 +38788,7 @@ function renderQuickSuggestionChips() {
 
 function renderActiveAccountSummary() {
   const acc = getActiveAccount();
+  if (!acc) return;
   const totals = calculateAccountTotals(acc);
 
   const unitsEl = document.getElementById("pos-sum-units");
@@ -40216,7 +40250,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Sincronización en tiempo real con Supabase
   fetchCloudSync(false);
-  setInterval(() => fetchCloudSync(true), 8000);
+  setInterval(() => fetchCloudSync(true), 3000);
   window.addEventListener("focus", () => fetchCloudSync(true));
   window.addEventListener("online", () => fetchCloudSync(false));
   document.addEventListener("visibilitychange", () => {
