@@ -9,6 +9,32 @@
 // ============================================================================
 const INITIAL_PRODUCTS = [
   {
+    "id": "LV-1619",
+    "barcode": "7707195329994",
+    "name": "Polvo suelto mineral tono banana",
+    "category": "Maquillaje",
+    "brand": "Raquel",
+    "cost": 16200,
+    "price": 28000,
+    "stock": 19,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1618",
+    "barcode": "7707195326740",
+    "name": "Polvo suelto mineral tono translucido",
+    "category": "Maquillaje",
+    "brand": "Raquel",
+    "cost": 16200,
+    "price": 28000,
+    "stock": 19,
+    "minStock": 2,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
     "id": "LV-1001",
     "barcode": "634240468582",
     "name": "Shampoo miel rosada",
@@ -16,7 +42,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Lluvia de Estrellas",
     "cost": 24500,
     "price": 39000,
-    "stock": 2,
+    "stock": 5,
     "minStock": 1,
     "location": "",
     "notes": ""
@@ -94,7 +120,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Lluvia de Estrellas",
     "cost": 23845,
     "price": 41000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -107,7 +133,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Lluvia de Estrellas",
     "cost": 23845,
     "price": 41000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -117,7 +143,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "770472104000",
     "name": "Tratamiento plex",
     "category": "Capilar",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 25935,
     "price": 34900,
     "stock": 4,
@@ -130,7 +156,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7709374293881",
     "name": "Tratamiento jalea real",
     "category": "Capilar",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 27360,
     "price": 37900,
     "stock": 0,
@@ -143,7 +169,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7708946977105",
     "name": "Shampoo jalea real",
     "category": "Capilar",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 28120,
     "price": 38000,
     "stock": 1,
@@ -156,10 +182,10 @@ const INITIAL_PRODUCTS = [
     "barcode": "770700964000",
     "name": "Shampoo de menta y aji",
     "category": "Capilar",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 25935,
     "price": 36000,
-    "stock": 1,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -169,10 +195,10 @@ const INITIAL_PRODUCTS = [
     "barcode": "770700724000",
     "name": "Shampoo cebolla y argan",
     "category": "Capilar",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 25935,
     "price": 36000,
-    "stock": 0,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -182,7 +208,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "770170084000",
     "name": "Shampoo romero y eucalipto",
     "category": "Capilar",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 25935,
     "price": 35900,
     "stock": 2,
@@ -195,10 +221,10 @@ const INITIAL_PRODUCTS = [
     "barcode": "770710192400",
     "name": "Mantequilla perfumada",
     "category": "Corporal",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 19950,
     "price": 30000,
-    "stock": 1,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -208,7 +234,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "770729914000",
     "name": "Mascarilla bomba botanica",
     "category": "Capilar",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 27360,
     "price": 38000,
     "stock": 2,
@@ -221,7 +247,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7700791501535",
     "name": "Termoprotector mini",
     "category": "Capilar",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 12540,
     "price": 20000,
     "stock": 2,
@@ -234,7 +260,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "770795771200",
     "name": "Termoprotector azul",
     "category": "Capilar",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 17005,
     "price": 25000,
     "stock": 3,
@@ -247,7 +273,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "770790101200",
     "name": "Termoprotector rosado",
     "category": "Capilar",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 17005,
     "price": 25000,
     "stock": 4,
@@ -260,10 +286,10 @@ const INITIAL_PRODUCTS = [
     "barcode": "7709997426468",
     "name": "Shampoo de cebolla y jengibre",
     "category": "Capilar",
-    "brand": "Olé",
+    "brand": "Ol",
     "cost": 22800,
     "price": 38900,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -273,7 +299,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7707936213926",
     "name": "Shampoo coco, canela y miel",
     "category": "Capilar",
-    "brand": "Olé",
+    "brand": "Ol",
     "cost": 22800,
     "price": 38900,
     "stock": 1,
@@ -286,7 +312,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7707936213070",
     "name": "Acondicionador de algodon y coco",
     "category": "Capilar",
-    "brand": "Olé",
+    "brand": "Ol",
     "cost": 21660,
     "price": 38900,
     "stock": 2,
@@ -299,7 +325,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7707936213148",
     "name": "Shampoo de arroz, avena y linaza",
     "category": "Capilar",
-    "brand": "Olé",
+    "brand": "Ol",
     "cost": 22800,
     "price": 38900,
     "stock": 1,
@@ -312,7 +338,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7709071982132",
     "name": "Acondicionador de arroz",
     "category": "Capilar",
-    "brand": "Olé",
+    "brand": "Ol",
     "cost": 22800,
     "price": 38900,
     "stock": 1,
@@ -325,7 +351,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7709071982170",
     "name": "Acondicionador de arroz mini",
     "category": "Capilar",
-    "brand": "Olé",
+    "brand": "Ol",
     "cost": 8550,
     "price": 12000,
     "stock": 1,
@@ -338,7 +364,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7707936213087",
     "name": "Tratamiento de arroz",
     "category": "Capilar",
-    "brand": "Olé",
+    "brand": "Ol",
     "cost": 23370,
     "price": 39900,
     "stock": 1,
@@ -354,7 +380,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Click Hair",
     "cost": 29350,
     "price": 45900,
-    "stock": 2,
+    "stock": 6,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -445,7 +471,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Click Hair",
     "cost": 19095,
     "price": 31000,
-    "stock": 4,
+    "stock": 3,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -471,7 +497,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Click Hair",
     "cost": 38285,
     "price": 60000,
-    "stock": 0,
+    "stock": 3,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -510,8 +536,8 @@ const INITIAL_PRODUCTS = [
     "brand": "Click Hair",
     "cost": 25650,
     "price": 40000,
-    "stock": 3,
-    "minStock": 2,
+    "stock": 4,
+    "minStock": 1,
     "location": "Boutique",
     "notes": ""
   },
@@ -520,10 +546,10 @@ const INITIAL_PRODUCTS = [
     "barcode": "770770202507",
     "name": "Keratina mediana",
     "category": "Capilar",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 43130,
     "price": 63000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -549,7 +575,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Click Hair",
     "cost": 33820,
     "price": 53000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -562,7 +588,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Click Hair",
     "cost": 33820,
     "price": 53000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -585,7 +611,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7708162555231",
     "name": "Shampoo limpieza profunda",
     "category": "Capilar",
-    "brand": "La Poción",
+    "brand": "La Pocin",
     "cost": 31730,
     "price": 38900,
     "stock": 2,
@@ -598,7 +624,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7708162555712",
     "name": "Shampoo kids anti-nudos",
     "category": "Capilar",
-    "brand": "La Poción",
+    "brand": "La Pocin",
     "cost": 30115,
     "price": 38000,
     "stock": 1,
@@ -611,10 +637,10 @@ const INITIAL_PRODUCTS = [
     "barcode": "7708162555200",
     "name": "Shampoo control grasa",
     "category": "Capilar",
-    "brand": "La Poción",
+    "brand": "La Pocin",
     "cost": 30305,
     "price": 40000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -624,7 +650,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7708162555934",
     "name": "Shampoo control caida",
     "category": "Capilar",
-    "brand": "La Poción",
+    "brand": "La Pocin",
     "cost": 36955,
     "price": 49900,
     "stock": 4,
@@ -637,7 +663,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7708162555163",
     "name": "Shampoo control caspa",
     "category": "Capilar",
-    "brand": "La Poción",
+    "brand": "La Pocin",
     "cost": 36575,
     "price": 44900,
     "stock": 1,
@@ -650,7 +676,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7708162555033",
     "name": "Acondicionador kids antinudos",
     "category": "Capilar",
-    "brand": "La Poción",
+    "brand": "La Pocin",
     "cost": 30115,
     "price": 38000,
     "stock": 1,
@@ -692,7 +718,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Milagros",
     "cost": 7505,
     "price": 12900,
-    "stock": 1,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -718,7 +744,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Milagros",
     "cost": 7505,
     "price": 12900,
-    "stock": 1,
+    "stock": 4,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -757,7 +783,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 10000,
     "price": 20000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -765,12 +791,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1059",
     "barcode": "7709507915567",
-    "name": "Splash dorado pequeño",
+    "name": "Splash dorado pequeo",
     "category": "Corporal",
     "brand": "Glow Shine",
     "cost": 15250,
     "price": 26000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -783,7 +809,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Glow Shine",
     "cost": 15250,
     "price": 26000,
-    "stock": 6,
+    "stock": 4,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -817,12 +843,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1063",
     "barcode": "6924372697825",
-    "name": "Paleta de sombras",
+    "name": "Paleta de sombras beauty glam",
     "category": "Maquillaje",
     "brand": "Alissha",
     "cost": 26600,
     "price": 49000,
-    "stock": 1,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -861,7 +887,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Click Hair",
     "cost": 10418,
     "price": 17900,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -871,7 +897,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7709545457784",
     "name": "Mascarilla capilar ancestral",
     "category": "Capilar",
-    "brand": "La Poción",
+    "brand": "La Pocin",
     "cost": 32490,
     "price": 42000,
     "stock": 3,
@@ -887,7 +913,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Milagros",
     "cost": 49875,
     "price": 72999,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -900,7 +926,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Milagros",
     "cost": 47880,
     "price": 70000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -923,7 +949,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "7707416072500",
     "name": "Bronceador con aceite de zanahoria",
     "category": "Corporal",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 26700,
     "price": 39000,
     "stock": 1,
@@ -999,7 +1025,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1077",
     "barcode": "788115817040",
-    "name": "Espuma De Rosas Facil",
+    "name": "Espuma De Rosas Facial",
     "category": "Skincare",
     "brand": "Purpure",
     "cost": 15000,
@@ -1069,7 +1095,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 10000,
     "price": 18000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1077,7 +1103,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1083",
     "barcode": "677144702192",
-    "name": "Splash Corporal Piña Colada x 100 ml",
+    "name": "Splash Corporal Pia Colada x 100 ml",
     "category": "Corporal",
     "brand": "Purpure",
     "cost": 11000,
@@ -1095,7 +1121,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 11000,
     "price": 19000,
-    "stock": 4,
+    "stock": 3,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -1108,7 +1134,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 11000,
     "price": 19000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1225,7 +1251,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 17000,
     "price": 29000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1272,12 +1298,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1098",
     "barcode": "677144266274",
-    "name": "Splash nuevo x200ml Piña colada",
+    "name": "Splash nuevo x200ml Pia colada",
     "category": "Corporal",
     "brand": "Purpure",
     "cost": 17000,
     "price": 29000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -1298,7 +1324,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1100",
     "barcode": "677144266496",
-    "name": "Exfoliante Piña colada",
+    "name": "Exfoliante Pia colada",
     "category": "Corporal",
     "brand": "Purpure",
     "cost": 16500,
@@ -1342,7 +1368,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 17500,
     "price": 30000,
-    "stock": 4,
+    "stock": 3,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -1355,7 +1381,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 16500,
     "price": 28000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1428,7 +1454,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1110",
     "barcode": "677144266298",
-    "name": "Mantequilla x250ml piña colada",
+    "name": "Mantequilla x250ml pia colada",
     "category": "Corporal",
     "brand": "Purpure",
     "cost": 16500,
@@ -1459,7 +1485,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 17000,
     "price": 29000,
-    "stock": 4,
+    "stock": 3,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1467,7 +1493,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1113",
     "barcode": "677144890431",
-    "name": "Crema corporal piña colada 200ml",
+    "name": "Crema corporal pia colada 200ml",
     "category": "Corporal",
     "brand": "Purpure",
     "cost": 16000,
@@ -1498,7 +1524,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 34000,
     "price": 55000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1524,7 +1550,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 28000,
     "price": 44000,
-    "stock": 1,
+    "stock": 3,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1602,7 +1628,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 30685,
     "price": 56000,
-    "stock": 0,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1667,7 +1693,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Dream On",
     "cost": 16815,
     "price": 29000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1732,7 +1758,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 10165,
     "price": 21000,
-    "stock": 5,
+    "stock": 4,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1797,7 +1823,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Trendy",
     "cost": 5000,
     "price": 15000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1888,7 +1914,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Lula",
     "cost": 9500,
     "price": 18000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -1948,7 +1974,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1150",
     "barcode": "7120250620001",
-    "name": "Fijador en aerosol pequeño",
+    "name": "Fijador en aerosol pequeo",
     "category": "Maquillaje",
     "brand": "Sagui",
     "cost": 19190,
@@ -2096,7 +2122,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 7000,
     "price": 12500,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2117,7 +2143,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1163",
     "barcode": "677144266595",
-    "name": "Mascarilla mini nueva x50g piña colada",
+    "name": "Mascarilla mini nueva x50g pia colada",
     "category": "Corporal",
     "brand": "Purpure",
     "cost": 8000,
@@ -2161,7 +2187,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Milagros",
     "cost": 30210,
     "price": 39900,
-    "stock": 0,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2239,7 +2265,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Girly",
     "cost": 21090,
     "price": 34000,
-    "stock": 5,
+    "stock": 3,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2369,7 +2395,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bioaqua",
     "cost": 5000,
     "price": 16000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2382,7 +2408,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bioaqua",
     "cost": 2500,
     "price": 12000,
-    "stock": 4,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2390,12 +2416,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1184",
     "barcode": "6901783700672",
-    "name": "Serum de arroz pequeño",
+    "name": "Serum de arroz pequeo",
     "category": "Skincare",
     "brand": "Bioaqua",
     "cost": 4500,
     "price": 16000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2473,7 +2499,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Coco pink",
     "cost": 16150,
     "price": 29000,
-    "stock": 0,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2611,12 +2637,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1201",
     "barcode": "7708075180759",
-    "name": "Desenredante termoprotector rosado",
+    "name": "Desenredante termoprotector rosado martina",
     "category": "Capilar",
     "brand": "Milagros",
     "cost": 24795,
     "price": 34000,
-    "stock": 0,
+    "stock": 3,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2629,7 +2655,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Milagros",
     "cost": 28500,
     "price": 36000,
-    "stock": 3,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2642,7 +2668,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 27000,
     "price": 46000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2655,7 +2681,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Anik",
     "cost": 13500,
     "price": 24000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2676,7 +2702,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1206",
     "barcode": "7701136558443",
-    "name": "Pestañas de tira",
+    "name": "Pestaas de tira",
     "category": "Maquillaje",
     "brand": "Sara marin",
     "cost": 5605,
@@ -2689,7 +2715,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1207",
     "barcode": "6968902212157",
-    "name": "Pestañas de tira",
+    "name": "Pestaas de tira",
     "category": "Maquillaje",
     "brand": "Bloomshell",
     "cost": 3000,
@@ -2702,7 +2728,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1208",
     "barcode": "25949320682",
-    "name": "Pestañas punto a punto 10d",
+    "name": "Pestaas punto a punto 10d",
     "category": "Maquillaje",
     "brand": "Sackvis",
     "cost": 2150,
@@ -2715,12 +2741,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1209",
     "barcode": "275949320677",
-    "name": "Pestañas punto a punto 20d",
+    "name": "Pestaas punto a punto 20d",
     "category": "Maquillaje",
     "brand": "Sackvis",
     "cost": 2150,
     "price": 8500,
-    "stock": 6,
+    "stock": 5,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -2728,7 +2754,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1210",
     "barcode": "226322916332",
-    "name": "Libro de 360 pestañas punto a punto 10d",
+    "name": "Libro de 360 pestaas punto a punto 10d",
     "category": "Maquillaje",
     "brand": "cmayome",
     "cost": 15000,
@@ -2741,12 +2767,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1211",
     "barcode": "770168839890",
-    "name": "Pegante negro de pestañas",
+    "name": "Pegante negro de pestaas",
     "category": "Maquillaje",
     "brand": "Salon pro",
     "cost": 3000,
     "price": 8500,
-    "stock": 5,
+    "stock": 4,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -2758,8 +2784,8 @@ const INITIAL_PRODUCTS = [
     "category": "Maquillaje",
     "brand": "Trendy",
     "cost": 7000,
-    "price": 16000,
-    "stock": 4,
+    "price": 14000,
+    "stock": 3,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2767,12 +2793,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1213",
     "barcode": "6924372686799",
-    "name": "Polvo base tono 3 amelia",
+    "name": "Polvo base tono 3 y 3,4 amelia y emma (mismo codigo)",
     "category": "Maquillaje",
     "brand": "Purpure",
     "cost": 18000,
     "price": 34000,
-    "stock": 1,
+    "stock": 5,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2785,7 +2811,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 18000,
     "price": 34000,
-    "stock": 4,
+    "stock": 6,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2798,7 +2824,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Trendy",
     "cost": 13000,
     "price": 24000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2811,7 +2837,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Piel canela",
     "cost": 24900,
     "price": 34900,
-    "stock": 1,
+    "stock": 15,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2824,7 +2850,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 16900,
     "price": 33000,
-    "stock": 4,
+    "stock": 3,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -2871,12 +2897,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1221",
     "barcode": "6901783700382",
-    "name": "Serum de pestañas",
+    "name": "Serum de pestaas",
     "category": "Skincare",
     "brand": "Bioaqua",
     "cost": 3800,
     "price": 15000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3058,7 +3084,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Lula",
     "cost": 5500,
     "price": 12000,
-    "stock": 1,
+    "stock": 4,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3123,7 +3149,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Samy",
     "cost": 14700,
     "price": 24000,
-    "stock": 2,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3136,7 +3162,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Samy",
     "cost": 15900,
     "price": 26000,
-    "stock": 4,
+    "stock": 5,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3162,7 +3188,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 24900,
     "price": 40000,
-    "stock": 3,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3222,7 +3248,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1248",
     "barcode": "7707375605283",
-    "name": "Pegante de pestañas transparente",
+    "name": "Pegante de pestaas transparente",
     "category": "Maquillaje",
     "brand": "Lula",
     "cost": 10500,
@@ -3344,7 +3370,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Alissha",
     "cost": 12800,
     "price": 26000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3396,7 +3422,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Atenea",
     "cost": 28000,
     "price": 48000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3482,7 +3508,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1268",
     "barcode": "6974482524696",
-    "name": "Base semi mate tono 02",
+    "name": "Base my foundation tono 02",
     "category": "Maquillaje",
     "brand": "Bloomshell",
     "cost": 20500,
@@ -3721,7 +3747,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Anik",
     "cost": 12500,
     "price": 22000,
-    "stock": 2,
+    "stock": 3,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3734,7 +3760,7 @@ const INITIAL_PRODUCTS = [
     "brand": "got2b",
     "cost": 19000,
     "price": 31000,
-    "stock": 10,
+    "stock": 15,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3742,12 +3768,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1288",
     "barcode": "6973327787371",
-    "name": "Bloom lamination",
+    "name": "Gel de cejas bloom lamination",
     "category": "Maquillaje",
     "brand": "Bloomshell",
     "cost": 8200,
     "price": 18000,
-    "stock": 50,
+    "stock": 43,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3760,7 +3786,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Melu",
     "cost": 11800,
     "price": 21000,
-    "stock": 13,
+    "stock": 17,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3768,12 +3794,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1290",
     "barcode": "7708133635382",
-    "name": "Pestañina self love",
+    "name": "Pestaina self love",
     "category": "Maquillaje",
     "brand": "Dolce bella",
     "cost": 9100,
     "price": 18000,
-    "stock": 0,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3781,7 +3807,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1291",
     "barcode": "7707559886408",
-    "name": "Pestañina brow paradise",
+    "name": "Pestaina brow paradise",
     "category": "Maquillaje",
     "brand": "Anik",
     "cost": 13300,
@@ -3794,7 +3820,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1292",
     "barcode": "7707559889874",
-    "name": "Pestañina Eternal lash",
+    "name": "Pestaina Eternal lash",
     "category": "Maquillaje",
     "brand": "Anik",
     "cost": 13300,
@@ -3807,7 +3833,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1293",
     "barcode": "7707559885418",
-    "name": "Pestañina flash lash",
+    "name": "Pestaina flash lash",
     "category": "Maquillaje",
     "brand": "Anik",
     "cost": 13300,
@@ -3820,7 +3846,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1294",
     "barcode": "7709094542115",
-    "name": "Pestañina super look",
+    "name": "Pestaina super look",
     "category": "Maquillaje",
     "brand": "Trendy",
     "cost": 7000,
@@ -3833,12 +3859,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1295",
     "barcode": "7501734430789",
-    "name": "Pestañina profesional",
+    "name": "Pestaina profesional",
     "category": "Maquillaje",
     "brand": "Prosa",
     "cost": 10800,
     "price": 20000,
-    "stock": 9,
+    "stock": 8,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3846,12 +3872,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1296",
     "barcode": "7501734430116",
-    "name": "Pestañina profesional silicon cafe",
+    "name": "Pestaina profesional silicon cafe",
     "category": "Maquillaje",
     "brand": "Prosa",
     "cost": 10800,
     "price": 20000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3859,20 +3885,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1297",
     "barcode": "7501734430147",
-    "name": "Pestañina maxi volumen silicon",
-    "category": "Maquillaje",
-    "brand": "Prosa",
-    "cost": 10800,
-    "price": 20000,
-    "stock": 13,
-    "minStock": 1,
-    "location": "Boutique",
-    "notes": ""
-  },
-  {
-    "id": "LV-1298",
-    "barcode": "7501734430352",
-    "name": "Pestañina microfibra",
+    "name": "Pestaina maxi volumen silicon",
     "category": "Maquillaje",
     "brand": "Prosa",
     "cost": 10800,
@@ -3883,9 +3896,22 @@ const INITIAL_PRODUCTS = [
     "notes": ""
   },
   {
+    "id": "LV-1298",
+    "barcode": "7501734430352",
+    "name": "Pestaina microfibra",
+    "category": "Maquillaje",
+    "brand": "Prosa",
+    "cost": 10800,
+    "price": 20000,
+    "stock": 11,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
     "id": "LV-1299",
     "barcode": "7501734430338",
-    "name": "Pestañina maxi volumen",
+    "name": "Pestaina maxi volumen",
     "category": "Maquillaje",
     "brand": "Prosa",
     "cost": 10800,
@@ -3898,12 +3924,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1300",
     "barcode": "7501734430567",
-    "name": "Pestañina maxi volumen borgoña",
+    "name": "Pestaina maxi volumen borgoa",
     "category": "Maquillaje",
     "brand": "Prosa",
     "cost": 10800,
     "price": 20000,
-    "stock": 5,
+    "stock": 8,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3911,12 +3937,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1301",
     "barcode": "7501734430130",
-    "name": "Pestañina profesional silicon",
+    "name": "Pestaina profesional silicon",
     "category": "Maquillaje",
     "brand": "Prosa",
     "cost": 10800,
     "price": 20000,
-    "stock": 3,
+    "stock": 8,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3942,7 +3968,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Trendy",
     "cost": 9000,
     "price": 17000,
-    "stock": 6,
+    "stock": 5,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -3955,7 +3981,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 16340,
     "price": 30000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4046,7 +4072,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Dolce bella",
     "cost": 10200,
     "price": 18000,
-    "stock": 4,
+    "stock": 9,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4072,7 +4098,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 13500,
     "price": 23500,
-    "stock": 1,
+    "stock": 7,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4085,7 +4111,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 21000,
     "price": 37000,
-    "stock": 3,
+    "stock": 10,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4093,7 +4119,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1315",
     "barcode": "770814264638",
-    "name": "Corrector pequeño tono 00",
+    "name": "Corrector pequeo tono 00",
     "category": "Maquillaje",
     "brand": "Majikal",
     "cost": 23400,
@@ -4106,7 +4132,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1316",
     "barcode": "770703520378",
-    "name": "Corrector pequeño tono 01",
+    "name": "Corrector pequeo tono 01",
     "category": "Maquillaje",
     "brand": "Majikal",
     "cost": 23370,
@@ -4119,12 +4145,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1317",
     "barcode": "770388117416",
-    "name": "Corrector pequeño tono 02",
+    "name": "Corrector pequeo tono 02",
     "category": "Maquillaje",
     "brand": "Majikal",
     "cost": 23400,
     "price": 35000,
-    "stock": 2,
+    "stock": 6,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4132,12 +4158,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1318",
     "barcode": "770359657356",
-    "name": "Corrector pequeño tono 03",
+    "name": "Corrector pequeo tono 03",
     "category": "Maquillaje",
     "brand": "Majikal",
     "cost": 23400,
     "price": 35000,
-    "stock": 5,
+    "stock": 4,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4145,12 +4171,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1319",
     "barcode": "770879283532",
-    "name": "Corrector pequeño tono 04",
+    "name": "Corrector pequeo tono 04",
     "category": "Maquillaje",
     "brand": "Majikal",
     "cost": 23400,
     "price": 35000,
-    "stock": 0,
+    "stock": 3,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4176,7 +4202,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Majikal",
     "cost": 28800,
     "price": 48000,
-    "stock": 2,
+    "stock": 3,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4189,7 +4215,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Majikal",
     "cost": 28800,
     "price": 48000,
-    "stock": 4,
+    "stock": 6,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4215,7 +4241,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Majikal",
     "cost": 28800,
     "price": 48000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4353,7 +4379,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1335",
     "barcode": "736372667007",
-    "name": "Sombra cremosa tono boreal",
+    "name": "Sombra cremosa individual  tono boreal",
     "category": "Maquillaje",
     "brand": "Atenea",
     "cost": 11000,
@@ -4644,7 +4670,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 23000,
     "price": 39000,
-    "stock": 3,
+    "stock": 6,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4670,7 +4696,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Anik",
     "cost": 12000,
     "price": 20000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4717,12 +4743,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1363",
     "barcode": "6925627318229",
-    "name": "Vibrant duo",
+    "name": "Rubor Vibrant duo",
     "category": "Maquillaje",
-    "brand": "Enchanté",
+    "brand": "Enchant",
     "cost": 19600,
     "price": 35001,
-    "stock": 4,
+    "stock": 10,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4787,7 +4813,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 7900,
     "price": 14000,
-    "stock": 7,
+    "stock": 6,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -4800,7 +4826,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 13500,
     "price": 23500,
-    "stock": 0,
+    "stock": 4,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4826,7 +4852,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 13500,
     "price": 23500,
-    "stock": 0,
+    "stock": 6,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4852,7 +4878,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 21500,
     "price": 37000,
-    "stock": 1,
+    "stock": 4,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4865,7 +4891,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 21500,
     "price": 37000,
-    "stock": 3,
+    "stock": 4,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4878,7 +4904,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 21500,
     "price": 37000,
-    "stock": 12,
+    "stock": 11,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4912,7 +4938,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1378",
     "barcode": "6974482524702",
-    "name": "Base semi mate tono 2,5",
+    "name": "Base my foundation tono 2,5",
     "category": "Maquillaje",
     "brand": "Bloomshell",
     "cost": 20500,
@@ -4925,7 +4951,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1379",
     "barcode": "6974482524719",
-    "name": "Base semi mate tono 03",
+    "name": "Base my foundation tono 03",
     "category": "Maquillaje",
     "brand": "Bloomshell",
     "cost": 20500,
@@ -4938,7 +4964,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1380",
     "barcode": "6974482524726",
-    "name": "Base semi mate tono 04",
+    "name": "Base my foundation tono 04",
     "category": "Maquillaje",
     "brand": "Bloomshell",
     "cost": 20500,
@@ -4951,7 +4977,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1381",
     "barcode": "6974482524733",
-    "name": "Base semi mate tono 4,2",
+    "name": "Base my foundation tono 4,2",
     "category": "Maquillaje",
     "brand": "Bloomshell",
     "cost": 20500,
@@ -4964,7 +4990,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1382",
     "barcode": "6974482524740",
-    "name": "Base semi mate tono 4,5",
+    "name": "Base my foundation tono 4,5",
     "category": "Maquillaje",
     "brand": "Bloomshell",
     "cost": 20500,
@@ -4977,12 +5003,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1383",
     "barcode": "6974482524757",
-    "name": "Base semi mate tono 4,8",
+    "name": "Base my foundation tono 4,8",
     "category": "Maquillaje",
     "brand": "Bloomshell",
     "cost": 20500,
     "price": 38000,
-    "stock": 2,
+    "stock": 6,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -4990,7 +5016,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1384",
     "barcode": "6974482524764",
-    "name": "Base semi mate tono 05",
+    "name": "Base my foundation tono 05",
     "category": "Maquillaje",
     "brand": "Bloomshell",
     "cost": 20500,
@@ -5003,7 +5029,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1385",
     "barcode": "6974482524771",
-    "name": "Base semi mate tono 06",
+    "name": "Base my foundation tono 06",
     "category": "Maquillaje",
     "brand": "Bloomshell",
     "cost": 20500,
@@ -5019,9 +5045,9 @@ const INITIAL_PRODUCTS = [
     "name": "Llavero bloom mocha espejo",
     "category": "Maquillaje",
     "brand": "Bloomshell",
-    "cost": 15900,
-    "price": 28500,
-    "stock": 2,
+    "cost": 16340,
+    "price": 30000,
+    "stock": 5,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5032,8 +5058,8 @@ const INITIAL_PRODUCTS = [
     "name": "Llavero bloom me espejo",
     "category": "Maquillaje",
     "brand": "Bloomshell",
-    "cost": 15900,
-    "price": 28500,
+    "cost": 16340,
+    "price": 30000,
     "stock": 2,
     "minStock": 1,
     "location": "Boutique",
@@ -5047,7 +5073,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Lula",
     "cost": 9500,
     "price": 18000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5060,7 +5086,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Click Hair",
     "cost": 25650,
     "price": 40000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5073,7 +5099,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Montoc",
     "cost": 20900,
     "price": 37000,
-    "stock": 4,
+    "stock": 9,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5086,7 +5112,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Milagros",
     "cost": 29450,
     "price": 39900,
-    "stock": 1,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5099,7 +5125,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Milagros",
     "cost": 31920,
     "price": 42000,
-    "stock": 1,
+    "stock": 5,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5172,12 +5198,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1398",
     "barcode": "770770301200",
-    "name": "Keratina x120ml pequeña",
+    "name": "Keratina x120ml pequea",
     "category": "Maquillaje",
-    "brand": "Origen Botánico",
+    "brand": "Origen Botnico",
     "cost": 25175,
     "price": 37000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5228,8 +5254,8 @@ const INITIAL_PRODUCTS = [
     "category": "Maquillaje",
     "brand": "Bioaqua",
     "cost": 30400,
-    "price": 75000,
-    "stock": 2,
+    "price": 65000,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5242,7 +5268,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 6000,
     "price": 15000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5307,7 +5333,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 8500,
     "price": 17500,
-    "stock": 6,
+    "stock": 5,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5320,7 +5346,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 7000,
     "price": 17000,
-    "stock": 8,
+    "stock": 7,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5424,7 +5450,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Majikal",
     "cost": 14750,
     "price": 26000,
-    "stock": 7,
+    "stock": 6,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5437,7 +5463,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Trendy",
     "cost": 10000,
     "price": 20000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5476,7 +5502,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Trendy",
     "cost": 10000,
     "price": 20000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5489,7 +5515,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Trendy",
     "cost": 10000,
     "price": 20000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5523,7 +5549,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1425",
     "barcode": "677144890400",
-    "name": "Lip serum tiramisú",
+    "name": "Lip serum tiramis",
     "category": "Maquillaje",
     "brand": "Purpure",
     "cost": 12000,
@@ -5541,7 +5567,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 13300,
     "price": 26000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5554,7 +5580,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 7000,
     "price": 16000,
-    "stock": 8,
+    "stock": 11,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5590,7 +5616,7 @@ const INITIAL_PRODUCTS = [
     "barcode": "6925627318137",
     "name": "Lip gloss vibrant",
     "category": "Maquillaje",
-    "brand": "Enchanté",
+    "brand": "Enchant",
     "cost": 15390,
     "price": 28000,
     "stock": 5,
@@ -5606,7 +5632,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Purpure",
     "cost": 8000,
     "price": 16000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5827,7 +5853,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 9300,
     "price": 18000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5931,7 +5957,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Anik",
     "cost": 3817,
     "price": 7000,
-    "stock": 47,
+    "stock": 44,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -5944,7 +5970,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 6000,
     "price": 12000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -6139,7 +6165,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Beauty tool",
     "cost": 2375,
     "price": 6000,
-    "stock": 11,
+    "stock": 10,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -6160,12 +6186,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1474",
     "barcode": "6972547656184",
-    "name": "Beauty blender pequeña con cortes",
+    "name": "Beauty blender pequea con cortes",
     "category": "Accesorios de Maquillaje",
     "brand": "Ruby face",
     "cost": 2400,
     "price": 5000,
-    "stock": 10,
+    "stock": 9,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -6191,7 +6217,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 2300,
     "price": 5000,
-    "stock": 12,
+    "stock": 11,
     "minStock": 3,
     "location": "Boutique",
     "notes": ""
@@ -6202,9 +6228,9 @@ const INITIAL_PRODUCTS = [
     "name": "Kit de cejas doble tono 03 dark",
     "category": "Maquillaje",
     "brand": "Anik",
-    "cost": 13600,
-    "price": 25000,
-    "stock": 6,
+    "cost": 11700,
+    "price": 22000,
+    "stock": 4,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -6347,7 +6373,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Trendy",
     "cost": 5000,
     "price": 11000,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -6386,7 +6412,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Sagui",
     "cost": 3800,
     "price": 10000,
-    "stock": 8,
+    "stock": 6,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -6399,7 +6425,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Trendy",
     "cost": 12000,
     "price": 21000,
-    "stock": 5,
+    "stock": 4,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -6524,12 +6550,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1502",
     "barcode": "6989711290266",
-    "name": "Pañitos bloom remover",
+    "name": "Paitos bloom remover",
     "category": "Skincare",
     "brand": "Bloomshell",
     "cost": 6900,
     "price": 14900,
-    "stock": 1,
+    "stock": 4,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -6537,7 +6563,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1503",
     "barcode": "7709399982579",
-    "name": "Lip gloss niñas dolly chic",
+    "name": "Lip gloss nias dolly chic",
     "category": "Maquillaje",
     "brand": "Trendy",
     "cost": 5000,
@@ -6563,7 +6589,7 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1505",
     "barcode": "793969699742",
-    "name": "Pañitos makeup remover",
+    "name": "Paitos makeup remover",
     "category": "Skincare",
     "brand": "Purpure",
     "cost": 3000,
@@ -6581,7 +6607,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Acne patch",
     "cost": 3300,
     "price": 8000,
-    "stock": 4,
+    "stock": 3,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -6680,12 +6706,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1514",
     "barcode": "286773848347",
-    "name": "Lima para uñas",
+    "name": "Lima para uas",
     "category": "Maquillaje",
     "brand": "Lima",
     "cost": 373,
     "price": 2000,
-    "stock": 22,
+    "stock": 21,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -6737,7 +6763,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Ruby face",
     "cost": 4751,
     "price": 11000,
-    "stock": 8,
+    "stock": 7,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -6815,7 +6841,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 16200,
     "price": 32000,
-    "stock": 4,
+    "stock": 11,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -6828,7 +6854,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 16200,
     "price": 32000,
-    "stock": 4,
+    "stock": 13,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -6867,7 +6893,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Atenea",
     "cost": 25700,
     "price": 45000,
-    "stock": 2,
+    "stock": 1,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -6958,7 +6984,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Anik",
     "cost": 12700,
     "price": 23500,
-    "stock": 6,
+    "stock": 5,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -7049,7 +7075,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Anik",
     "cost": 11700,
     "price": 22000,
-    "stock": 5,
+    "stock": 4,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -7070,12 +7096,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1544",
     "barcode": "293456844252",
-    "name": "Libro de 640 pestañas punto a punto 30d, 40d y 50d",
+    "name": "Libro de 640 pestaas punto a punto 30d, 40d y 50d",
     "category": "Maquillaje",
-    "brand": "Pestañas",
+    "brand": "Pestaas",
     "cost": 15000,
     "price": 35000,
-    "stock": 4,
+    "stock": 0,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -7083,12 +7109,12 @@ const INITIAL_PRODUCTS = [
   {
     "id": "LV-1545",
     "barcode": "23456844182",
-    "name": "Libro de 640 pestañas punto a punto",
+    "name": "Libro de 640 pestaas punto a punto",
     "category": "Maquillaje",
-    "brand": "Pestañas",
+    "brand": "Pestaas",
     "cost": 15000,
     "price": 35000,
-    "stock": 1,
+    "stock": 0,
     "minStock": 2,
     "location": "Boutique",
     "notes": ""
@@ -7114,7 +7140,7 @@ const INITIAL_PRODUCTS = [
     "brand": "Bloomshell",
     "cost": 16900,
     "price": 29900,
-    "stock": 3,
+    "stock": 2,
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
@@ -7144,10 +7170,7026 @@ const INITIAL_PRODUCTS = [
     "minStock": 1,
     "location": "Boutique",
     "notes": ""
+  },
+  {
+    "id": "LV-1550",
+    "barcode": "788115817187",
+    "name": "Agua micelar con niacinamida",
+    "category": "Skincare",
+    "brand": "Purpure",
+    "cost": 14000,
+    "price": 23900,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1551",
+    "barcode": "764451296480",
+    "name": "Pads de algodon",
+    "category": "Skincare",
+    "brand": "Purpure",
+    "cost": 5600,
+    "price": 9900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1552",
+    "barcode": "677144889930",
+    "name": "Labial en barra pop star",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 12900,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1553",
+    "barcode": "793969699766",
+    "name": "Tinta serum candy",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 5000,
+    "price": 10000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1554",
+    "barcode": "677144701997",
+    "name": "Rubor x3 pretty blush",
+    "category": "Maquillaje",
+    "brand": "Purpure",
+    "cost": 16000,
+    "price": 30000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1555",
+    "barcode": "7708970723495",
+    "name": "Splash x250ml Sweet lychee",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 17000,
+    "price": 29000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1556",
+    "barcode": "610985566509",
+    "name": "Shimmer corporal en llavero",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 7000,
+    "price": 12000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1557",
+    "barcode": "793969700134",
+    "name": "Kit corporal x3 pia colada",
+    "category": "Corporal",
+    "brand": "Purpure",
+    "cost": 28000,
+    "price": 44000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1558",
+    "barcode": "634240255427",
+    "name": "Tinta de labios lollipop",
+    "category": "Maquillaje",
+    "brand": "Lluvia de estrellas",
+    "cost": 13600,
+    "price": 24000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1559",
+    "barcode": "6903072467686",
+    "name": "Tinta de labios velvet ink",
+    "category": "Maquillaje",
+    "brand": "Myk",
+    "cost": 7700,
+    "price": 14900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1560",
+    "barcode": "6973098894865",
+    "name": "Colageno de ojeras en cajita durazno",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 4800,
+    "price": 16000,
+    "stock": 0,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1561",
+    "barcode": "6901783700320",
+    "name": "Serum de vitamina c",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 5300,
+    "price": 16000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1562",
+    "barcode": "6942349741005",
+    "name": "Jabon de arroz",
+    "category": "Maquillaje",
+    "brand": "Bioaqua",
+    "cost": 3400,
+    "price": 14000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1563",
+    "barcode": "6976068956303",
+    "name": "Crema facial de arroz",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 4800,
+    "price": 14000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1564",
+    "barcode": "6976623800638",
+    "name": "Hidratante de labios durazno",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 1900,
+    "price": 5000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1565",
+    "barcode": "6976623800621",
+    "name": "Hidratante de labios de fresa",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 1900,
+    "price": 5000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1566",
+    "barcode": "6942349742613",
+    "name": "Crema hidratante de rosas y acido hialuronico",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 3800,
+    "price": 14000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1567",
+    "barcode": "6942349712043",
+    "name": "Jabon facial de centella asiatica",
+    "category": "Skincare",
+    "brand": "Bioaqua",
+    "cost": 3800,
+    "price": 14000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1568",
+    "barcode": "6982588111085",
+    "name": "Beauty blender x9",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Powder puff",
+    "cost": 7200,
+    "price": 15000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1569",
+    "barcode": "770114467583",
+    "name": "Brocha para corrector rosada",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Ruby face",
+    "cost": 4800,
+    "price": 11000,
+    "stock": 7,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1570",
+    "barcode": "6972547656603",
+    "name": "Beauty blender pastel",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Ruby face",
+    "cost": 2400,
+    "price": 7000,
+    "stock": 9,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1571",
+    "barcode": "6972547656634",
+    "name": "Beauty blender doble pastel",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Ruby face",
+    "cost": 2900,
+    "price": 8000,
+    "stock": 7,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1572",
+    "barcode": "6972547656450",
+    "name": "Rodillo de jade y gua-sha",
+    "category": "Skincare",
+    "brand": "Ruby face",
+    "cost": 11000,
+    "price": 21000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1573",
+    "barcode": "6972547657044",
+    "name": "Brocha doble de polvo y rubor",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Ruby face",
+    "cost": 10000,
+    "price": 20000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1574",
+    "barcode": "6972547657099",
+    "name": "Brocha de contorno y rubor dorada",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Ruby face",
+    "cost": 4800,
+    "price": 11000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1575",
+    "barcode": "770417360337",
+    "name": "Calendario de adviento",
+    "category": "Maquillaje",
+    "brand": "Trendy",
+    "cost": 160000,
+    "price": 200000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1576",
+    "barcode": "6902102601960",
+    "name": "cosmetiquera con agarradera de colores",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Ruby face",
+    "cost": 7600,
+    "price": 16000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1577",
+    "barcode": "6902102601977",
+    "name": "Cosmetiquera transparente con estampado",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Sidifu",
+    "cost": 7600,
+    "price": 16000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1578",
+    "barcode": "6976623804940",
+    "name": "Mascarilla de labios de uva",
+    "category": "Maquillaje",
+    "brand": "Bioaqua",
+    "cost": 2400,
+    "price": 7000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1579",
+    "barcode": "6942349700170",
+    "name": "Crema de manos de durazno",
+    "category": "Corporal",
+    "brand": "Bioaqua",
+    "cost": 2400,
+    "price": 7000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1580",
+    "barcode": "6976623804971",
+    "name": "Kit de labios mascarilla + lip balm de fresa",
+    "category": "Maquillaje",
+    "brand": "Bioaqua",
+    "cost": 4800,
+    "price": 11000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1581",
+    "barcode": "8004504165335",
+    "name": "Paquete de pomys x80",
+    "category": "Skincare",
+    "brand": "V&C",
+    "cost": 4300,
+    "price": 10000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1582",
+    "barcode": "6920266261189",
+    "name": "Brocha de rubor oro rosa metalizada",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Annina",
+    "cost": 6200,
+    "price": 13500,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1583",
+    "barcode": "6940202851151",
+    "name": "Kit perfiladores x3",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Tinrile",
+    "cost": 1615,
+    "price": 5500,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1584",
+    "barcode": "6990195409440",
+    "name": "Kit de brochas rosadas x11",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Bh",
+    "cost": 18050,
+    "price": 33000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1585",
+    "barcode": "7708075180957",
+    "name": "Shampoo ultranutritivo premium",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 30210,
+    "price": 39900,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1586",
+    "barcode": "7708075180070",
+    "name": "Shampoo magia capilar",
+    "category": "Capilar",
+    "brand": "Milagros",
+    "cost": 30210,
+    "price": 39900,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1587",
+    "barcode": "7709066683440",
+    "name": "Splash corporal costeita tropical",
+    "category": "Corporal",
+    "brand": "Coco pink",
+    "cost": 16150,
+    "price": 29000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1588",
+    "barcode": "770161379536",
+    "name": "Splash corporal isleita coqueta",
+    "category": "Corporal",
+    "brand": "Coco pink",
+    "cost": 16150,
+    "price": 29000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1589",
+    "barcode": "7701136558467",
+    "name": "Pinza aplicador de pestaas",
+    "category": "Accesorios de Maquillaje",
+    "brand": "Sara marin",
+    "cost": 8000,
+    "price": 16500,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1590",
+    "barcode": "7709093315314",
+    "name": "Delineador liquido en plumon",
+    "category": "Maquillaje",
+    "brand": "Dolce bella",
+    "cost": 9000,
+    "price": 18000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1591",
+    "barcode": "7708080149055",
+    "name": "Delineador liquido en plumon",
+    "category": "Maquillaje",
+    "brand": "Elaya",
+    "cost": 8250,
+    "price": 17000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1592",
+    "barcode": "7703378903784",
+    "name": "Delineador en lapiz tono salmon",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 2565,
+    "price": 5000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1593",
+    "barcode": "7703378010178",
+    "name": "Delineador en lapiz tono palo de rosa",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 2565,
+    "price": 5000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1594",
+    "barcode": "7703378688209",
+    "name": "Delineador en lapiz tono late",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 2565,
+    "price": 5000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1595",
+    "barcode": "7703378004207",
+    "name": "Delineador en lapiz tono tabaco",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 2565,
+    "price": 5000,
+    "stock": 3,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1596",
+    "barcode": "7703378004160",
+    "name": "Delineador en lapiz tono cafe",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 2565,
+    "price": 5000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1597",
+    "barcode": "7703378004146",
+    "name": "Delineador en lapiz tono blanco",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 2565,
+    "price": 5000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1598",
+    "barcode": "7703378004191",
+    "name": "Delineador en lapiz tono negro",
+    "category": "Maquillaje",
+    "brand": "Samy",
+    "cost": 2565,
+    "price": 5000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1599",
+    "barcode": "6927874875562",
+    "name": "Base liquida stay matte tono 535 classic beige",
+    "category": "Maquillaje",
+    "brand": "OG",
+    "cost": 25220,
+    "price": 46000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1600",
+    "barcode": "6927874875548",
+    "name": "Base liquida stay matte tono 525 sun beige",
+    "category": "Maquillaje",
+    "brand": "OG",
+    "cost": 25220,
+    "price": 46000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1601",
+    "barcode": "6927874875500",
+    "name": "Base liquida stay matte tono 425 warm nude",
+    "category": "Maquillaje",
+    "brand": "OG",
+    "cost": 25220,
+    "price": 46000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1602",
+    "barcode": "6974482525488",
+    "name": "Corrector mediano tono 03",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13100,
+    "price": 23500,
+    "stock": 22,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1603",
+    "barcode": "6974482525471",
+    "name": "Corrector mediano tono 02",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13100,
+    "price": 23500,
+    "stock": 24,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1604",
+    "barcode": "6973098893462",
+    "name": "Colageno de ojeras en cajita",
+    "category": "Maquillaje",
+    "brand": "Bioaqua",
+    "cost": 5000,
+    "price": 16000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1605",
+    "barcode": "781159032028",
+    "name": "Sombra cremosa individual tono nakedmind",
+    "category": "Maquillaje",
+    "brand": "Atenea",
+    "cost": 12540,
+    "price": 22000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1606",
+    "barcode": "6903695107365",
+    "name": "Kit blender bliss x4",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 6500,
+    "price": 15000,
+    "stock": 7,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1607",
+    "barcode": "6974482524795",
+    "name": "Base my foundation tono 07",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 38000,
+    "stock": 2,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1608",
+    "barcode": "6974482524788",
+    "name": "Base my foundation tono 6,5",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 20500,
+    "price": 38000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1609",
+    "barcode": "770357639076",
+    "name": "Bloom serum rehab",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 8200,
+    "price": 16000,
+    "stock": 10,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1610",
+    "barcode": "6974482525464",
+    "name": "Corrector mediano tono 01",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 12900,
+    "price": 23500,
+    "stock": 12,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1611",
+    "barcode": "6972630571141",
+    "name": "Lip gloss bloom esplendor tono 01 nude",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 9250,
+    "price": 18000,
+    "stock": 4,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1612",
+    "barcode": "6972630571158",
+    "name": "Lip gloss bloom esplendor tono 02 cherry",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 9250,
+    "price": 18000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1613",
+    "barcode": "6972630571165",
+    "name": "Lip gloss bloom esplendor tono 03 petal",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 9250,
+    "price": 18000,
+    "stock": 8,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1614",
+    "barcode": "8809801696281",
+    "name": "Tonico facial bloom mist repair",
+    "category": "Skincare",
+    "brand": "Bloomshell",
+    "cost": 32800,
+    "price": 59000,
+    "stock": 1,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1615",
+    "barcode": "6973327780501",
+    "name": "Gel de cejas bloom lamination XL",
+    "category": "Maquillaje",
+    "brand": "Bloomshell",
+    "cost": 13900,
+    "price": 26000,
+    "stock": 12,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1616",
+    "barcode": "6932159619151",
+    "name": "tinta de labios en gel tono fresh red",
+    "category": "Maquillaje",
+    "brand": "Ruby rose",
+    "cost": 13800,
+    "price": 24000,
+    "stock": 5,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
+  },
+  {
+    "id": "LV-1617",
+    "barcode": "6932159619168",
+    "name": "Tinta de labios en gel tono cran berry",
+    "category": "Maquillaje",
+    "brand": "Ruby rose",
+    "cost": 13800,
+    "price": 24000,
+    "stock": 6,
+    "minStock": 1,
+    "location": "Boutique",
+    "notes": ""
   }
 ];
 
 const INITIAL_KARDEX = [
+  {
+    "id": "K-732259",
+    "timestamp": "2026-11-12T01:08:52.259Z",
+    "type": "SALIDA",
+    "productId": "LV-1619",
+    "productName": "Polvo suelto mineral tono banana",
+    "barcode": "7707195329994",
+    "quantity": 1,
+    "prevStock": 20,
+    "newStock": 19,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-907120",
+    "timestamp": "2026-11-12T00:55:07.120Z",
+    "type": "SALIDA",
+    "productId": "LV-1295",
+    "productName": "Pestaina profesional",
+    "barcode": "7501734430789",
+    "quantity": 1,
+    "prevStock": 9,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-612911",
+    "timestamp": "2026-11-12T00:16:52.911Z",
+    "type": "SALIDA",
+    "productId": "LV-1047",
+    "productName": "Shampoo control grasa",
+    "barcode": "7708162555200",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-856900",
+    "timestamp": "2026-11-12T00:04:16.900Z",
+    "type": "SALIDA",
+    "productId": "LV-1182",
+    "productName": "Tonico de arroz",
+    "barcode": "6942349741029",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-856890",
+    "timestamp": "2026-11-12T00:04:16.890Z",
+    "type": "SALIDA",
+    "productId": "LV-1562",
+    "productName": "Jabon de arroz",
+    "barcode": "6942349741005",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-856876",
+    "timestamp": "2026-11-12T00:04:16.876Z",
+    "type": "SALIDA",
+    "productId": "LV-1563",
+    "productName": "Crema facial de arroz",
+    "barcode": "6976068956303",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-856865",
+    "timestamp": "2026-11-12T00:04:16.865Z",
+    "type": "SALIDA",
+    "productId": "LV-1183",
+    "productName": "Contorno de ojos de arroz",
+    "barcode": "6942349737398",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-856856",
+    "timestamp": "2026-11-12T00:04:16.856Z",
+    "type": "SALIDA",
+    "productId": "LV-1184",
+    "productName": "Serum de arroz pequeo",
+    "barcode": "6901783700672",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-681360",
+    "timestamp": "2026-11-12T00:01:21.360Z",
+    "type": "SALIDA",
+    "productId": "LV-1618",
+    "productName": "Polvo suelto mineral tono translucido",
+    "barcode": "7707195326740",
+    "quantity": 1,
+    "prevStock": 20,
+    "newStock": 19,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-681349",
+    "timestamp": "2026-11-12T00:01:21.349Z",
+    "type": "SALIDA",
+    "productId": "LV-1528",
+    "productName": "Corrector 1st scene tono 05 beige",
+    "barcode": "7707375600110",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-203642",
+    "timestamp": "2026-11-11T23:53:23.642Z",
+    "type": "SALIDA",
+    "productId": "LV-1203",
+    "productName": "Kit maquillaje bear obsession",
+    "barcode": "610985562648",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-083906",
+    "timestamp": "2026-11-11T23:51:23.906Z",
+    "type": "SALIDA",
+    "productId": "LV-1403",
+    "productName": "Tinta scarlet tono 1",
+    "barcode": "770642945331",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-083894",
+    "timestamp": "2026-11-11T23:51:23.894Z",
+    "type": "SALIDA",
+    "productId": "LV-1243",
+    "productName": "Polvo 4 tonos grande",
+    "barcode": "6974482524610",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-083883",
+    "timestamp": "2026-11-11T23:51:23.883Z",
+    "type": "SALIDA",
+    "productId": "LV-1261",
+    "productName": "Base x30ml tono 03 cream",
+    "barcode": "736372666888",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-823883",
+    "timestamp": "2026-11-11T23:30:23.883Z",
+    "type": "SALIDA",
+    "productId": "LV-1212",
+    "productName": "Polvo compacto banana",
+    "barcode": "7709094542191",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-856322",
+    "timestamp": "2026-11-11T22:57:36.322Z",
+    "type": "SALIDA",
+    "productId": "LV-1612",
+    "productName": "Lip gloss bloom esplendor tono 02 cherry",
+    "barcode": "6972630571158",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-856298",
+    "timestamp": "2026-11-11T22:57:36.298Z",
+    "type": "SALIDA",
+    "productId": "LV-1472",
+    "productName": "Borla triangular doble",
+    "barcode": "6972656451069",
+    "quantity": 1,
+    "prevStock": 11,
+    "newStock": 10,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-856281",
+    "timestamp": "2026-11-11T22:57:36.281Z",
+    "type": "SALIDA",
+    "productId": "LV-1172",
+    "productName": "Gel hidratante con aloe vera",
+    "barcode": "7708453335610",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-856272",
+    "timestamp": "2026-11-11T22:57:36.272Z",
+    "type": "SALIDA",
+    "productId": "LV-1133",
+    "productName": "Primer bloom poros invisibles",
+    "barcode": "6924372684252",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-432876",
+    "timestamp": "2026-11-11T22:50:32.876Z",
+    "type": "SALIDA",
+    "productId": "LV-1368",
+    "productName": "Corrector mini tono 03",
+    "barcode": "6974482516530",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-432861",
+    "timestamp": "2026-11-11T22:50:32.861Z",
+    "type": "SALIDA",
+    "productId": "LV-1318",
+    "productName": "Corrector pequeo tono 03",
+    "barcode": "770359657356",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-976945",
+    "timestamp": "2026-11-11T22:26:16.945Z",
+    "type": "ENTRADA",
+    "productId": "LV-1619",
+    "productName": "Polvo suelto mineral tono banana",
+    "barcode": "7707195329994",
+    "quantity": 20,
+    "prevStock": 0,
+    "newStock": 20,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-903436",
+    "timestamp": "2026-11-11T22:25:03.436Z",
+    "type": "ENTRADA",
+    "productId": "LV-1618",
+    "productName": "Polvo suelto mineral tono translucido",
+    "barcode": "7707195326740",
+    "quantity": 20,
+    "prevStock": 0,
+    "newStock": 20,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-085665",
+    "timestamp": "2026-11-11T22:11:25.665Z",
+    "type": "SALIDA",
+    "productId": "LV-1402",
+    "productName": "Kit de rosas y acido hialuronico en caja",
+    "barcode": "6942349742620",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-034158",
+    "timestamp": "2026-11-11T22:10:34.158Z",
+    "type": "SALIDA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 23,
+    "newStock": 22,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-034142",
+    "timestamp": "2026-11-11T22:10:34.142Z",
+    "type": "SALIDA",
+    "productId": "LV-1566",
+    "productName": "Crema hidratante de rosas y acido hialuronico",
+    "barcode": "6942349742613",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-962427",
+    "timestamp": "2026-11-11T22:09:22.427Z",
+    "type": "SALIDA",
+    "productId": "LV-1554",
+    "productName": "Rubor x3 pretty blush",
+    "barcode": "677144701997",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-651638",
+    "timestamp": "2026-11-11T19:17:31.638Z",
+    "type": "SALIDA",
+    "productId": "LV-1491",
+    "productName": "Brocha de cejas",
+    "barcode": "6961120205383",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-651628",
+    "timestamp": "2026-11-11T19:17:31.628Z",
+    "type": "SALIDA",
+    "productId": "LV-1409",
+    "productName": "Tinta cafe cocoa kiss",
+    "barcode": "677144890448",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-651617",
+    "timestamp": "2026-11-11T19:17:31.617Z",
+    "type": "SALIDA",
+    "productId": "LV-1408",
+    "productName": "Tinta cafe bear Kiss",
+    "barcode": "677144890158",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-278155",
+    "timestamp": "2026-11-11T16:41:18.155Z",
+    "type": "ENTRADA",
+    "productId": "LV-1311",
+    "productName": "Corrector liquido",
+    "barcode": "7708951146794",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-277873",
+    "timestamp": "2026-11-11T16:41:17.873Z",
+    "type": "ENTRADA",
+    "productId": "LV-1311",
+    "productName": "Corrector liquido",
+    "barcode": "7708951146794",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-260202",
+    "timestamp": "2026-11-11T16:41:00.202Z",
+    "type": "ENTRADA",
+    "productId": "LV-1201",
+    "productName": "Desenredante termoprotector rosado martina",
+    "barcode": "7708075180759",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-259887",
+    "timestamp": "2026-11-11T16:40:59.887Z",
+    "type": "ENTRADA",
+    "productId": "LV-1201",
+    "productName": "Desenredante termoprotector rosado martina",
+    "barcode": "7708075180759",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-208787",
+    "timestamp": "2026-11-11T16:40:08.787Z",
+    "type": "ENTRADA",
+    "productId": "LV-1392",
+    "productName": "Shampoo de cebolla",
+    "barcode": "7709225678478",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-208486",
+    "timestamp": "2026-11-11T16:40:08.486Z",
+    "type": "ENTRADA",
+    "productId": "LV-1392",
+    "productName": "Shampoo de cebolla",
+    "barcode": "7709225678478",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-185677",
+    "timestamp": "2026-11-11T16:39:45.677Z",
+    "type": "ENTRADA",
+    "productId": "LV-1166",
+    "productName": "Shampoo anti-caspa",
+    "barcode": "7709059679306",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-185009",
+    "timestamp": "2026-11-11T16:39:45.009Z",
+    "type": "ENTRADA",
+    "productId": "LV-1166",
+    "productName": "Shampoo anti-caspa",
+    "barcode": "7709059679306",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-157237",
+    "timestamp": "2026-11-11T16:39:17.237Z",
+    "type": "ENTRADA",
+    "productId": "LV-1053",
+    "productName": "Perfume mini martina",
+    "barcode": "7709225678423",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-156963",
+    "timestamp": "2026-11-11T16:39:16.964Z",
+    "type": "ENTRADA",
+    "productId": "LV-1053",
+    "productName": "Perfume mini martina",
+    "barcode": "7709225678423",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-146490",
+    "timestamp": "2026-11-11T16:39:06.490Z",
+    "type": "ENTRADA",
+    "productId": "LV-1055",
+    "productName": "Perfume mini sublime",
+    "barcode": "7708075180872",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-084487",
+    "timestamp": "2026-11-11T16:38:04.487Z",
+    "type": "ENTRADA",
+    "productId": "LV-1617",
+    "productName": "Tinta de labios en gel tono cran berry",
+    "barcode": "6932159619168",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-036522",
+    "timestamp": "2026-11-11T16:37:16.522Z",
+    "type": "ENTRADA",
+    "productId": "LV-1616",
+    "productName": "tinta de labios en gel tono fresh red",
+    "barcode": "6932159619151",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-906863",
+    "timestamp": "2026-11-11T16:35:06.863Z",
+    "type": "ENTRADA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto soft powder x10g",
+    "barcode": "736372977403",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-906273",
+    "timestamp": "2026-11-11T16:35:06.273Z",
+    "type": "ENTRADA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto soft powder x10g",
+    "barcode": "736372977403",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-903877",
+    "timestamp": "2026-11-11T16:35:03.877Z",
+    "type": "ENTRADA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto soft powder x10g",
+    "barcode": "736372977403",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-903151",
+    "timestamp": "2026-11-11T16:35:03.151Z",
+    "type": "ENTRADA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto soft powder x10g",
+    "barcode": "736372977403",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-902629",
+    "timestamp": "2026-11-11T16:35:02.629Z",
+    "type": "ENTRADA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto soft powder x10g",
+    "barcode": "736372977403",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-902033",
+    "timestamp": "2026-11-11T16:35:02.033Z",
+    "type": "ENTRADA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto soft powder x10g",
+    "barcode": "736372977403",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-873515",
+    "timestamp": "2026-11-11T16:34:33.515Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 13,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-870815",
+    "timestamp": "2026-11-11T16:34:30.815Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 11,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-869437",
+    "timestamp": "2026-11-11T16:34:29.437Z",
+    "type": "SALIDA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-869147",
+    "timestamp": "2026-11-11T16:34:29.147Z",
+    "type": "SALIDA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 13,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-846709",
+    "timestamp": "2026-11-11T16:34:06.709Z",
+    "type": "ENTRADA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 13,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-846023",
+    "timestamp": "2026-11-11T16:34:06.023Z",
+    "type": "ENTRADA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 11,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-845347",
+    "timestamp": "2026-11-11T16:34:05.347Z",
+    "type": "ENTRADA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 10,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-844253",
+    "timestamp": "2026-11-11T16:34:04.253Z",
+    "type": "ENTRADA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 9,
+    "newStock": 10,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-843125",
+    "timestamp": "2026-11-11T16:34:03.125Z",
+    "type": "ENTRADA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-842351",
+    "timestamp": "2026-11-11T16:34:02.351Z",
+    "type": "ENTRADA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-841619",
+    "timestamp": "2026-11-11T16:34:01.619Z",
+    "type": "ENTRADA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-840925",
+    "timestamp": "2026-11-11T16:34:00.925Z",
+    "type": "ENTRADA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-840103",
+    "timestamp": "2026-11-11T16:34:00.103Z",
+    "type": "ENTRADA",
+    "productId": "LV-1524",
+    "productName": "Translucent mate mini malla tono 01 white",
+    "barcode": "6974482525563",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-812911",
+    "timestamp": "2026-11-11T16:33:32.911Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 10,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-810103",
+    "timestamp": "2026-11-11T16:33:30.103Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 9,
+    "newStock": 10,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-808592",
+    "timestamp": "2026-11-11T16:33:28.592Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-808266",
+    "timestamp": "2026-11-11T16:33:28.267Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-805518",
+    "timestamp": "2026-11-11T16:33:25.518Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-803923",
+    "timestamp": "2026-11-11T16:33:23.923Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-802005",
+    "timestamp": "2026-11-11T16:33:22.005Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-801168",
+    "timestamp": "2026-11-11T16:33:21.168Z",
+    "type": "ENTRADA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-628465",
+    "timestamp": "2026-11-11T16:30:28.465Z",
+    "type": "SALIDA",
+    "productId": "LV-1288",
+    "productName": "Gel de cejas bloom lamination",
+    "barcode": "6973327787371",
+    "quantity": 3,
+    "prevStock": 46,
+    "newStock": 43,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-516926",
+    "timestamp": "2026-11-11T16:28:36.926Z",
+    "type": "ENTRADA",
+    "productId": "LV-1615",
+    "productName": "Gel de cejas bloom lamination XL",
+    "barcode": "6973327780501",
+    "quantity": 12,
+    "prevStock": 0,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-399227",
+    "timestamp": "2026-11-11T16:26:39.227Z",
+    "type": "ENTRADA",
+    "productId": "LV-1614",
+    "productName": "Tonico faical bloom mist repair",
+    "barcode": "8809801696281",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-243355",
+    "timestamp": "2026-11-11T16:24:03.355Z",
+    "type": "ENTRADA",
+    "productId": "LV-1613",
+    "productName": "Lip gloss bloom esplendor tono 03 petal",
+    "barcode": "6972630571165",
+    "quantity": 8,
+    "prevStock": 0,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-175330",
+    "timestamp": "2026-11-11T16:22:55.330Z",
+    "type": "ENTRADA",
+    "productId": "LV-1612",
+    "productName": "Lip gloss bloom esplendor tono 02 cherry",
+    "barcode": "6972630571158",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-125525",
+    "timestamp": "2026-11-11T16:22:05.525Z",
+    "type": "ENTRADA",
+    "productId": "LV-1611",
+    "productName": "Lip gloss bloom splendor tono 01 nude",
+    "barcode": "6972630571141",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-043741",
+    "timestamp": "2026-11-11T16:20:43.741Z",
+    "type": "ENTRADA",
+    "productId": "LV-1502",
+    "productName": "Paitos bloom remover",
+    "barcode": "6989711290266",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-041847",
+    "timestamp": "2026-11-11T16:20:41.847Z",
+    "type": "ENTRADA",
+    "productId": "LV-1502",
+    "productName": "Paitos bloom remover",
+    "barcode": "6989711290266",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-040958",
+    "timestamp": "2026-11-11T16:20:40.958Z",
+    "type": "ENTRADA",
+    "productId": "LV-1502",
+    "productName": "Paitos bloom remover",
+    "barcode": "6989711290266",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-028221",
+    "timestamp": "2026-11-11T16:20:28.221Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 23,
+    "newStock": 24,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-026046",
+    "timestamp": "2026-11-11T16:20:26.046Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 22,
+    "newStock": 23,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-024217",
+    "timestamp": "2026-11-11T16:20:24.217Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 21,
+    "newStock": 22,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-022085",
+    "timestamp": "2026-11-11T16:20:22.085Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 20,
+    "newStock": 21,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-019679",
+    "timestamp": "2026-11-11T16:20:19.679Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 19,
+    "newStock": 20,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-017977",
+    "timestamp": "2026-11-11T16:20:17.977Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 18,
+    "newStock": 19,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-015163",
+    "timestamp": "2026-11-11T16:20:15.163Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 17,
+    "newStock": 18,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-013775",
+    "timestamp": "2026-11-11T16:20:13.775Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 16,
+    "newStock": 17,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-010899",
+    "timestamp": "2026-11-11T16:20:10.899Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 15,
+    "newStock": 16,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-009683",
+    "timestamp": "2026-11-11T16:20:09.683Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 14,
+    "newStock": 15,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-006439",
+    "timestamp": "2026-11-11T16:20:06.439Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 13,
+    "newStock": 14,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-005547",
+    "timestamp": "2026-11-11T16:20:05.547Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 13,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-001305",
+    "timestamp": "2026-11-11T16:20:01.305Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 22,
+    "newStock": 23,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-999613",
+    "timestamp": "2026-11-11T16:19:59.613Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 21,
+    "newStock": 22,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-998257",
+    "timestamp": "2026-11-11T16:19:58.257Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 20,
+    "newStock": 21,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-997283",
+    "timestamp": "2026-11-11T16:19:57.283Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 19,
+    "newStock": 20,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-996083",
+    "timestamp": "2026-11-11T16:19:56.083Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 18,
+    "newStock": 19,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-995229",
+    "timestamp": "2026-11-11T16:19:55.229Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 17,
+    "newStock": 18,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-993941",
+    "timestamp": "2026-11-11T16:19:53.941Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 16,
+    "newStock": 17,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-993045",
+    "timestamp": "2026-11-11T16:19:53.045Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 15,
+    "newStock": 16,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-991363",
+    "timestamp": "2026-11-11T16:19:51.363Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 14,
+    "newStock": 15,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-990289",
+    "timestamp": "2026-11-11T16:19:50.289Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 13,
+    "newStock": 14,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-989537",
+    "timestamp": "2026-11-11T16:19:49.537Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 13,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-988731",
+    "timestamp": "2026-11-11T16:19:48.731Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 11,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-961004",
+    "timestamp": "2026-11-11T16:19:21.004Z",
+    "type": "ENTRADA",
+    "productId": "LV-1610",
+    "productName": "Corrector mediano tono 01",
+    "barcode": "6974482525464",
+    "quantity": 12,
+    "prevStock": 0,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-833521",
+    "timestamp": "2026-11-11T16:17:13.521Z",
+    "type": "ENTRADA",
+    "productId": "LV-1313",
+    "productName": "Corrector mediano tono 00",
+    "barcode": "6974482525457",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-832601",
+    "timestamp": "2026-11-11T16:17:12.601Z",
+    "type": "ENTRADA",
+    "productId": "LV-1313",
+    "productName": "Corrector mediano tono 00",
+    "barcode": "6974482525457",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-831735",
+    "timestamp": "2026-11-11T16:17:11.735Z",
+    "type": "ENTRADA",
+    "productId": "LV-1313",
+    "productName": "Corrector mediano tono 00",
+    "barcode": "6974482525457",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-830929",
+    "timestamp": "2026-11-11T16:17:10.929Z",
+    "type": "ENTRADA",
+    "productId": "LV-1313",
+    "productName": "Corrector mediano tono 00",
+    "barcode": "6974482525457",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-830247",
+    "timestamp": "2026-11-11T16:17:10.247Z",
+    "type": "ENTRADA",
+    "productId": "LV-1313",
+    "productName": "Corrector mediano tono 00",
+    "barcode": "6974482525457",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-829567",
+    "timestamp": "2026-11-11T16:17:09.567Z",
+    "type": "ENTRADA",
+    "productId": "LV-1313",
+    "productName": "Corrector mediano tono 00",
+    "barcode": "6974482525457",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-818659",
+    "timestamp": "2026-11-11T16:16:58.659Z",
+    "type": "ENTRADA",
+    "productId": "LV-1371",
+    "productName": "Corrector mediano tono 4,5",
+    "barcode": "6974482525501",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-817575",
+    "timestamp": "2026-11-11T16:16:57.575Z",
+    "type": "ENTRADA",
+    "productId": "LV-1371",
+    "productName": "Corrector mediano tono 4,5",
+    "barcode": "6974482525501",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-816461",
+    "timestamp": "2026-11-11T16:16:56.461Z",
+    "type": "ENTRADA",
+    "productId": "LV-1371",
+    "productName": "Corrector mediano tono 4,5",
+    "barcode": "6974482525501",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-815666",
+    "timestamp": "2026-11-11T16:16:55.666Z",
+    "type": "ENTRADA",
+    "productId": "LV-1371",
+    "productName": "Corrector mediano tono 4,5",
+    "barcode": "6974482525501",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-814831",
+    "timestamp": "2026-11-11T16:16:54.831Z",
+    "type": "ENTRADA",
+    "productId": "LV-1371",
+    "productName": "Corrector mediano tono 4,5",
+    "barcode": "6974482525501",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-813831",
+    "timestamp": "2026-11-11T16:16:53.831Z",
+    "type": "ENTRADA",
+    "productId": "LV-1371",
+    "productName": "Corrector mediano tono 4,5",
+    "barcode": "6974482525501",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-804321",
+    "timestamp": "2026-11-11T16:16:44.321Z",
+    "type": "ENTRADA",
+    "productId": "LV-1369",
+    "productName": "Corrector mediano tono 04",
+    "barcode": "6974482525495",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-803619",
+    "timestamp": "2026-11-11T16:16:43.619Z",
+    "type": "ENTRADA",
+    "productId": "LV-1369",
+    "productName": "Corrector mediano tono 04",
+    "barcode": "6974482525495",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-802881",
+    "timestamp": "2026-11-11T16:16:42.881Z",
+    "type": "ENTRADA",
+    "productId": "LV-1369",
+    "productName": "Corrector mediano tono 04",
+    "barcode": "6974482525495",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-801971",
+    "timestamp": "2026-11-11T16:16:41.971Z",
+    "type": "ENTRADA",
+    "productId": "LV-1369",
+    "productName": "Corrector mediano tono 04",
+    "barcode": "6974482525495",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-707637",
+    "timestamp": "2026-11-11T16:15:07.637Z",
+    "type": "ENTRADA",
+    "productId": "LV-1609",
+    "productName": "Bloom serum rehab",
+    "barcode": "770357639076",
+    "quantity": 10,
+    "prevStock": 0,
+    "newStock": 10,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-566737",
+    "timestamp": "2026-11-11T16:12:46.737Z",
+    "type": "ENTRADA",
+    "productId": "LV-1383",
+    "productName": "Base my foundation tono 4,8",
+    "barcode": "6974482524757",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-564751",
+    "timestamp": "2026-11-11T16:12:44.751Z",
+    "type": "ENTRADA",
+    "productId": "LV-1383",
+    "productName": "Base my foundation tono 4,8",
+    "barcode": "6974482524757",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-562567",
+    "timestamp": "2026-11-11T16:12:42.567Z",
+    "type": "ENTRADA",
+    "productId": "LV-1383",
+    "productName": "Base my foundation tono 4,8",
+    "barcode": "6974482524757",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-561574",
+    "timestamp": "2026-11-11T16:12:41.574Z",
+    "type": "ENTRADA",
+    "productId": "LV-1383",
+    "productName": "Base my foundation tono 4,8",
+    "barcode": "6974482524757",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-553033",
+    "timestamp": "2026-11-11T16:12:33.033Z",
+    "type": "ENTRADA",
+    "productId": "LV-1608",
+    "productName": "Base my foundation tono 6,5",
+    "barcode": "6974482524788",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-483718",
+    "timestamp": "2026-11-11T16:11:23.718Z",
+    "type": "ENTRADA",
+    "productId": "LV-1607",
+    "productName": "Base my foundation tono 07",
+    "barcode": "6974482524795",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-113998",
+    "timestamp": "2026-11-11T16:05:13.998Z",
+    "type": "ENTRADA",
+    "productId": "LV-1606",
+    "productName": "Kit blender bliss x4",
+    "barcode": "6903695107365",
+    "quantity": 7,
+    "prevStock": 0,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-026685",
+    "timestamp": "2026-11-11T16:03:46.685Z",
+    "type": "ENTRADA",
+    "productId": "LV-1001",
+    "productName": "Shampoo miel rosada",
+    "barcode": "634240468582",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-025024",
+    "timestamp": "2026-11-11T16:03:45.024Z",
+    "type": "ENTRADA",
+    "productId": "LV-1001",
+    "productName": "Shampoo miel rosada",
+    "barcode": "634240468582",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-023454",
+    "timestamp": "2026-11-11T16:03:43.454Z",
+    "type": "ENTRADA",
+    "productId": "LV-1001",
+    "productName": "Shampoo miel rosada",
+    "barcode": "634240468582",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-936709",
+    "timestamp": "2026-11-11T16:02:16.709Z",
+    "type": "SALIDA",
+    "productId": "LV-1518",
+    "productName": "Encrespador de puntos",
+    "barcode": "6972547654524",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-742592",
+    "timestamp": "2026-11-11T15:59:02.592Z",
+    "type": "ENTRADA",
+    "productId": "LV-1605",
+    "productName": "Sombras cremosas individuales tono nakedmind",
+    "barcode": "781159032028",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-506633",
+    "timestamp": "2026-11-11T15:55:06.633Z",
+    "type": "ENTRADA",
+    "productId": "LV-1386",
+    "productName": "Llavero bloom mocha espejo",
+    "barcode": "6972630571516",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-506013",
+    "timestamp": "2026-11-11T15:55:06.013Z",
+    "type": "ENTRADA",
+    "productId": "LV-1386",
+    "productName": "Llavero bloom mocha espejo",
+    "barcode": "6972630571516",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-505452",
+    "timestamp": "2026-11-11T15:55:05.452Z",
+    "type": "ENTRADA",
+    "productId": "LV-1386",
+    "productName": "Llavero bloom mocha espejo",
+    "barcode": "6972630571516",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-436998",
+    "timestamp": "2026-11-11T15:53:56.998Z",
+    "type": "SALIDA",
+    "productId": "LV-1300",
+    "productName": "Pestaina maxi volumen borgoa",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 9,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-424565",
+    "timestamp": "2026-11-11T15:53:44.565Z",
+    "type": "SALIDA",
+    "productId": "LV-1514",
+    "productName": "Lima para uas",
+    "barcode": "286773848347",
+    "quantity": 1,
+    "prevStock": 22,
+    "newStock": 21,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-413822",
+    "timestamp": "2026-11-11T15:53:33.822Z",
+    "type": "SALIDA",
+    "productId": "LV-1172",
+    "productName": "Gel hidratante con aloe vera",
+    "barcode": "7708453335610",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-388625",
+    "timestamp": "2026-11-11T15:53:08.625Z",
+    "type": "SALIDA",
+    "productId": "LV-1604",
+    "productName": "Colageno de ojeras en cajita",
+    "barcode": "6973098893462",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-388613",
+    "timestamp": "2026-11-11T15:53:08.613Z",
+    "type": "SALIDA",
+    "productId": "LV-1560",
+    "productName": "Colageno de ojeras en cajita durazno",
+    "barcode": "6973098894865",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-370229",
+    "timestamp": "2026-11-11T15:52:50.229Z",
+    "type": "ENTRADA",
+    "productId": "LV-1604",
+    "productName": "Colageno de ojeras en cajita",
+    "barcode": "6973098893462",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-521139",
+    "timestamp": "2026-11-11T01:12:01.139Z",
+    "type": "SALIDA",
+    "productId": "LV-1491",
+    "productName": "Brocha de cejas",
+    "barcode": "6961120205383",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-521128",
+    "timestamp": "2026-11-11T01:12:01.128Z",
+    "type": "SALIDA",
+    "productId": "LV-1477",
+    "productName": "Kit de cejas doble tono 03 dark",
+    "barcode": "770989794989",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-373545",
+    "timestamp": "2026-11-11T01:09:33.545Z",
+    "type": "SALIDA",
+    "productId": "LV-1575",
+    "productName": "Calendario de adviento",
+    "barcode": "770417360337",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-373532",
+    "timestamp": "2026-11-11T01:09:33.532Z",
+    "type": "SALIDA",
+    "productId": "LV-1544",
+    "productName": "Libro de 640 pestaas punto a punto 30d, 40d y 50d",
+    "barcode": "293456844252",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-373519",
+    "timestamp": "2026-11-11T01:09:33.519Z",
+    "type": "SALIDA",
+    "productId": "LV-1257",
+    "productName": "Base semi - matte tono 2",
+    "barcode": "6924372681107",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-373508",
+    "timestamp": "2026-11-11T01:09:33.508Z",
+    "type": "SALIDA",
+    "productId": "LV-1201",
+    "productName": "Desenredante termoprotector rosado",
+    "barcode": "7708075180759",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-374806",
+    "timestamp": "2026-11-11T00:52:54.806Z",
+    "type": "ENTRADA",
+    "productId": "LV-1575",
+    "productName": "Calendario de adviento",
+    "barcode": "770417360337",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-372734",
+    "timestamp": "2026-11-11T00:52:52.734Z",
+    "type": "ENTRADA",
+    "productId": "LV-1575",
+    "productName": "Calendario de adviento",
+    "barcode": "770417360337",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-178142",
+    "timestamp": "2026-11-11T00:32:58.142Z",
+    "type": "SALIDA",
+    "productId": "LV-1221",
+    "productName": "Serum de pestaas",
+    "barcode": "6901783700382",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-158120",
+    "timestamp": "2026-11-11T00:32:38.120Z",
+    "type": "SALIDA",
+    "productId": "LV-1215",
+    "productName": "Polvo compacto jack",
+    "barcode": "7709095760488",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-981599",
+    "timestamp": "2026-11-11T00:29:41.599Z",
+    "type": "SALIDA",
+    "productId": "LV-1053",
+    "productName": "Perfume mini martina",
+    "barcode": "7709225678423",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-981582",
+    "timestamp": "2026-11-11T00:29:41.582Z",
+    "type": "SALIDA",
+    "productId": "LV-1202",
+    "productName": "Desenredante termoprotector morado",
+    "barcode": "7708075180339",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-967282",
+    "timestamp": "2026-11-11T00:12:47.282Z",
+    "type": "ENTRADA",
+    "productId": "LV-1043",
+    "productName": "Acondicionador de leche y proteinas",
+    "barcode": "7709360339395",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-965600",
+    "timestamp": "2026-11-11T00:12:45.600Z",
+    "type": "ENTRADA",
+    "productId": "LV-1042",
+    "productName": "Shampoo de leche y proteinas",
+    "barcode": "7709360339302",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-700166",
+    "timestamp": "2026-11-11T00:08:20.166Z",
+    "type": "SALIDA",
+    "productId": "LV-1297",
+    "productName": "Pestaina maxi volumen silicon",
+    "barcode": "7501734430147",
+    "quantity": 1,
+    "prevStock": 13,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-656416",
+    "timestamp": "2026-11-10T23:50:56.416Z",
+    "type": "SALIDA",
+    "productId": "LV-1545",
+    "productName": "Libro de 640 pestaas punto a punto",
+    "barcode": "23456844182",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-656399",
+    "timestamp": "2026-11-10T23:50:56.399Z",
+    "type": "SALIDA",
+    "productId": "LV-1211",
+    "productName": "Pegante negro de pestaas",
+    "barcode": "770168839890",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-090034",
+    "timestamp": "2026-11-10T23:08:10.034Z",
+    "type": "SALIDA",
+    "productId": "LV-1138",
+    "productName": "Primer pop",
+    "barcode": "7709311675480",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-875881",
+    "timestamp": "2026-11-10T23:04:35.881Z",
+    "type": "SALIDA",
+    "productId": "LV-1426",
+    "productName": "Lip oil XL mimosa",
+    "barcode": "6972630571493",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-875866",
+    "timestamp": "2026-11-10T23:04:35.866Z",
+    "type": "SALIDA",
+    "productId": "LV-1289",
+    "productName": "gel de cejas",
+    "barcode": "6932159607745",
+    "quantity": 1,
+    "prevStock": 18,
+    "newStock": 17,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-875848",
+    "timestamp": "2026-11-10T23:04:35.848Z",
+    "type": "SALIDA",
+    "productId": "LV-1547",
+    "productName": "Bloom fix mini",
+    "barcode": "6957574850552",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-875838",
+    "timestamp": "2026-11-10T23:04:35.838Z",
+    "type": "SALIDA",
+    "productId": "LV-1554",
+    "productName": "Rubor x3 pretty blush",
+    "barcode": "677144701997",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-875830",
+    "timestamp": "2026-11-10T23:04:35.830Z",
+    "type": "SALIDA",
+    "productId": "LV-1204",
+    "productName": "Cosmetiquera lilo",
+    "barcode": "7707559887597",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-909088",
+    "timestamp": "2026-11-10T21:41:49.088Z",
+    "type": "SALIDA",
+    "productId": "LV-1550",
+    "productName": "Agua micelar con niacinamida",
+    "barcode": "788115817187",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-909075",
+    "timestamp": "2026-11-10T21:41:49.075Z",
+    "type": "SALIDA",
+    "productId": "LV-1551",
+    "productName": "Pads de algodon",
+    "barcode": "764451296480",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-909063",
+    "timestamp": "2026-11-10T21:41:49.063Z",
+    "type": "SALIDA",
+    "productId": "LV-1456",
+    "productName": "Beauty blender",
+    "barcode": "7707559883292",
+    "quantity": 1,
+    "prevStock": 45,
+    "newStock": 44,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-909056",
+    "timestamp": "2026-11-10T21:41:49.056Z",
+    "type": "SALIDA",
+    "productId": "LV-1488",
+    "productName": "Brocha de corrector mini",
+    "barcode": "7709178308750",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-909041",
+    "timestamp": "2026-11-10T21:41:49.041Z",
+    "type": "SALIDA",
+    "productId": "LV-1243",
+    "productName": "Polvo 4 tonos grande",
+    "barcode": "6974482524610",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-909024",
+    "timestamp": "2026-11-10T21:41:49.024Z",
+    "type": "SALIDA",
+    "productId": "LV-1324",
+    "productName": "Corrector XL tono 04",
+    "barcode": "770545771432",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-265552",
+    "timestamp": "2026-11-10T19:34:25.552Z",
+    "type": "SALIDA",
+    "productId": "LV-1183",
+    "productName": "Contorno de ojos de arroz",
+    "barcode": "6942349737398",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-653758",
+    "timestamp": "2026-11-10T18:17:33.758Z",
+    "type": "ENTRADA",
+    "productId": "LV-1241",
+    "productName": "Polvo suelto banana",
+    "barcode": "7703378503007",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-639197",
+    "timestamp": "2026-11-10T18:17:19.197Z",
+    "type": "SALIDA",
+    "productId": "LV-1240",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7703378749528",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-638770",
+    "timestamp": "2026-11-10T18:17:18.770Z",
+    "type": "SALIDA",
+    "productId": "LV-1240",
+    "productName": "Polvo suelto traslucido",
+    "barcode": "7703378749528",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-373080",
+    "timestamp": "2026-11-10T01:49:33.080Z",
+    "type": "SALIDA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-588802",
+    "timestamp": "2026-11-10T00:46:28.802Z",
+    "type": "SALIDA",
+    "productId": "LV-1542",
+    "productName": "kit de cejas doble tono 02 medium",
+    "barcode": "770873326599",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-786107",
+    "timestamp": "2026-11-09T23:59:46.107Z",
+    "type": "SALIDA",
+    "productId": "LV-1390",
+    "productName": "Polvo suelto soft powder x10g",
+    "barcode": "736372977403",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-719195",
+    "timestamp": "2026-11-09T23:58:39.195Z",
+    "type": "SALIDA",
+    "productId": "LV-1456",
+    "productName": "Beauty blender",
+    "barcode": "7707559883292",
+    "quantity": 1,
+    "prevStock": 46,
+    "newStock": 45,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-590636",
+    "timestamp": "2026-11-09T23:56:30.636Z",
+    "type": "SALIDA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 11,
+    "newStock": 10,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-729542",
+    "timestamp": "2026-11-09T23:08:49.542Z",
+    "type": "SALIDA",
+    "productId": "LV-1304",
+    "productName": "Contorno en barra tono 02 bloom define",
+    "barcode": "6974482524566",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-729529",
+    "timestamp": "2026-11-09T23:08:49.529Z",
+    "type": "SALIDA",
+    "productId": "LV-1375",
+    "productName": "Corrector XL tono 03",
+    "barcode": "6974482525396",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-481056",
+    "timestamp": "2026-11-09T23:04:41.056Z",
+    "type": "ENTRADA",
+    "productId": "LV-1039",
+    "productName": "Perfume capilar golden toffe",
+    "barcode": "7709268279694",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-480667",
+    "timestamp": "2026-11-09T23:04:40.667Z",
+    "type": "ENTRADA",
+    "productId": "LV-1039",
+    "productName": "Perfume capilar golden toffe",
+    "barcode": "7709268279694",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-480133",
+    "timestamp": "2026-11-09T23:04:40.133Z",
+    "type": "ENTRADA",
+    "productId": "LV-1039",
+    "productName": "Perfume capilar golden toffe",
+    "barcode": "7709268279694",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-433911",
+    "timestamp": "2026-11-09T23:03:53.911Z",
+    "type": "ENTRADA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-433338",
+    "timestamp": "2026-11-09T23:03:53.338Z",
+    "type": "ENTRADA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-432878",
+    "timestamp": "2026-11-09T23:03:52.878Z",
+    "type": "ENTRADA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-423286",
+    "timestamp": "2026-11-09T23:03:43.286Z",
+    "type": "SALIDA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-422819",
+    "timestamp": "2026-11-09T23:03:42.819Z",
+    "type": "SALIDA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-422157",
+    "timestamp": "2026-11-09T23:03:42.157Z",
+    "type": "SALIDA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-074186",
+    "timestamp": "2026-11-09T22:57:54.186Z",
+    "type": "ENTRADA",
+    "productId": "LV-1603",
+    "productName": "Corrector mediano tono 02",
+    "barcode": "6974482525471",
+    "quantity": 12,
+    "prevStock": 0,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-023567",
+    "timestamp": "2026-11-09T22:57:03.567Z",
+    "type": "ENTRADA",
+    "productId": "LV-1602",
+    "productName": "Corrector mediano tono 03",
+    "barcode": "6974482525488",
+    "quantity": 12,
+    "prevStock": 0,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-945565",
+    "timestamp": "2026-11-09T22:55:45.565Z",
+    "type": "SALIDA",
+    "productId": "LV-1476",
+    "productName": "Borla triangular",
+    "barcode": "6988268481073",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-945548",
+    "timestamp": "2026-11-09T22:55:45.548Z",
+    "type": "SALIDA",
+    "productId": "LV-1288",
+    "productName": "Bloom lamination",
+    "barcode": "6973327787371",
+    "quantity": 1,
+    "prevStock": 47,
+    "newStock": 46,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-945531",
+    "timestamp": "2026-11-09T22:55:45.531Z",
+    "type": "SALIDA",
+    "productId": "LV-1039",
+    "productName": "Perfume capilar golden toffe",
+    "barcode": "7709268279694",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-516310",
+    "timestamp": "2026-11-09T22:48:36.310Z",
+    "type": "SALIDA",
+    "productId": "LV-1020",
+    "productName": "Shampoo de cebolla y jengibre",
+    "barcode": "7709997426468",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-314406",
+    "timestamp": "2026-11-09T22:45:14.406Z",
+    "type": "ENTRADA",
+    "productId": "LV-1290",
+    "productName": "Pestaina self love",
+    "barcode": "7708133635382",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-313681",
+    "timestamp": "2026-11-09T22:45:13.681Z",
+    "type": "ENTRADA",
+    "productId": "LV-1290",
+    "productName": "Pestaina self love",
+    "barcode": "7708133635382",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-276232",
+    "timestamp": "2026-11-09T22:44:36.232Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 10,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-275353",
+    "timestamp": "2026-11-09T22:44:35.353Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 9,
+    "newStock": 10,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-274656",
+    "timestamp": "2026-11-09T22:44:34.656Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-273752",
+    "timestamp": "2026-11-09T22:44:33.752Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-272309",
+    "timestamp": "2026-11-09T22:44:32.309Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-271602",
+    "timestamp": "2026-11-09T22:44:31.602Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-270957",
+    "timestamp": "2026-11-09T22:44:30.957Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-270290",
+    "timestamp": "2026-11-09T22:44:30.290Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-269568",
+    "timestamp": "2026-11-09T22:44:29.568Z",
+    "type": "ENTRADA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-239600",
+    "timestamp": "2026-11-09T22:43:59.600Z",
+    "type": "ENTRADA",
+    "productId": "LV-1601",
+    "productName": "Base liquida stay matte tono 425 warm nude",
+    "barcode": "6927874875500",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-203008",
+    "timestamp": "2026-11-09T22:43:23.008Z",
+    "type": "ENTRADA",
+    "productId": "LV-1600",
+    "productName": "Base liquida stay matte tono 525 sun beige",
+    "barcode": "6927874875548",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-132376",
+    "timestamp": "2026-11-09T22:42:12.376Z",
+    "type": "ENTRADA",
+    "productId": "LV-1599",
+    "productName": "Base liquida stay matte tono 535 classic beige",
+    "barcode": "6927874875562",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Colaborador",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-905940",
+    "timestamp": "2026-11-09T22:38:25.940Z",
+    "type": "ENTRADA",
+    "productId": "LV-1027",
+    "productName": "Shampoo de aji",
+    "barcode": "677144930236",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-861353",
+    "timestamp": "2026-11-09T22:37:41.353Z",
+    "type": "SALIDA",
+    "productId": "LV-1422",
+    "productName": "Brillo aura mocca tono 03",
+    "barcode": "7709911354495",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-812265",
+    "timestamp": "2026-11-09T22:36:52.265Z",
+    "type": "SALIDA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 16,
+    "newStock": 15,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-812259",
+    "timestamp": "2026-11-09T22:36:52.259Z",
+    "type": "SALIDA",
+    "productId": "LV-1456",
+    "productName": "Beauty blender",
+    "barcode": "7707559883292",
+    "quantity": 1,
+    "prevStock": 47,
+    "newStock": 46,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-812251",
+    "timestamp": "2026-11-09T22:36:52.251Z",
+    "type": "SALIDA",
+    "productId": "LV-1477",
+    "productName": "Kit de cejas doble tono 03 dark",
+    "barcode": "770989794989",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-652878",
+    "timestamp": "2026-11-09T01:10:52.878Z",
+    "type": "SALIDA",
+    "productId": "LV-1007",
+    "productName": "Perfume capilar candy",
+    "barcode": "0634240138126",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-256107",
+    "timestamp": "2026-11-09T00:47:36.107Z",
+    "type": "SALIDA",
+    "productId": "LV-1286",
+    "productName": "Frezee babes",
+    "barcode": "7707559882608",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-256099",
+    "timestamp": "2026-11-09T00:47:36.099Z",
+    "type": "SALIDA",
+    "productId": "LV-1112",
+    "productName": "Splash nuevo x215ml Sweet cherry",
+    "barcode": "677144890585",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-256086",
+    "timestamp": "2026-11-09T00:47:36.086Z",
+    "type": "SALIDA",
+    "productId": "LV-1069",
+    "productName": "Shampoo linea profesional",
+    "barcode": "7709225678492",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-256075",
+    "timestamp": "2026-11-09T00:47:36.075Z",
+    "type": "SALIDA",
+    "productId": "LV-1068",
+    "productName": "Acondicionador linea profesional",
+    "barcode": "7709225678416",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-149952",
+    "timestamp": "2026-11-09T00:45:49.952Z",
+    "type": "SALIDA",
+    "productId": "LV-1161",
+    "productName": "Mantequilla mini x50g Sweet Lychee",
+    "barcode": "7708970723426",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-149942",
+    "timestamp": "2026-11-09T00:45:49.942Z",
+    "type": "SALIDA",
+    "productId": "LV-1555",
+    "productName": "Splash x250ml Sweet lychee",
+    "barcode": "7708970723495",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-632090",
+    "timestamp": "2026-11-09T00:03:52.090Z",
+    "type": "SALIDA",
+    "productId": "LV-1314",
+    "productName": "Corrector XL tono 02",
+    "barcode": "6974482525389",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-983558",
+    "timestamp": "2026-11-08T23:53:03.558Z",
+    "type": "SALIDA",
+    "productId": "LV-1296",
+    "productName": "Pestaina profesional silicon cafe",
+    "barcode": "7501734430116",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-406037",
+    "timestamp": "2026-11-08T23:26:46.037Z",
+    "type": "SALIDA",
+    "productId": "LV-1595",
+    "productName": "Delineador en lapiz tono tabaco",
+    "barcode": "7703378004207",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-406026",
+    "timestamp": "2026-11-08T23:26:46.026Z",
+    "type": "SALIDA",
+    "productId": "LV-1591",
+    "productName": "Delineador liquido en plumon",
+    "barcode": "7708080149055",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-406017",
+    "timestamp": "2026-11-08T23:26:46.017Z",
+    "type": "SALIDA",
+    "productId": "LV-1303",
+    "productName": "Contorno chocolate en barra",
+    "barcode": "7709540026602",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-406003",
+    "timestamp": "2026-11-08T23:26:46.003Z",
+    "type": "SALIDA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-405992",
+    "timestamp": "2026-11-08T23:26:45.992Z",
+    "type": "SALIDA",
+    "productId": "LV-1145",
+    "productName": "Fijador de maquillaje",
+    "barcode": "7707375604187",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-257554",
+    "timestamp": "2026-11-08T23:24:17.554Z",
+    "type": "SALIDA",
+    "productId": "LV-1286",
+    "productName": "Frezee babes",
+    "barcode": "7707559882608",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-257544",
+    "timestamp": "2026-11-08T23:24:17.544Z",
+    "type": "SALIDA",
+    "productId": "LV-1288",
+    "productName": "Bloom lamination",
+    "barcode": "6973327787371",
+    "quantity": 1,
+    "prevStock": 48,
+    "newStock": 47,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-241023",
+    "timestamp": "2026-11-08T23:24:01.023Z",
+    "type": "SALIDA",
+    "productId": "LV-1288",
+    "productName": "Bloom lamination",
+    "barcode": "6973327787371",
+    "quantity": 1,
+    "prevStock": 49,
+    "newStock": 48,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-048060",
+    "timestamp": "2026-11-08T00:34:08.060Z",
+    "type": "SALIDA",
+    "productId": "LV-1598",
+    "productName": "Delineador en lapiz tono negro",
+    "barcode": "7703378004191",
+    "quantity": 2,
+    "prevStock": 6,
+    "newStock": 4,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-548298",
+    "timestamp": "2026-11-08T00:25:48.298Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 15,
+    "newStock": 16,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-547003",
+    "timestamp": "2026-11-08T00:25:47.003Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 14,
+    "newStock": 15,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-546159",
+    "timestamp": "2026-11-08T00:25:46.159Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 13,
+    "newStock": 14,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-545152",
+    "timestamp": "2026-11-08T00:25:45.152Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 13,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-543703",
+    "timestamp": "2026-11-08T00:25:43.703Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 11,
+    "newStock": 12,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-542837",
+    "timestamp": "2026-11-08T00:25:42.837Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 10,
+    "newStock": 11,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-541715",
+    "timestamp": "2026-11-08T00:25:41.715Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 9,
+    "newStock": 10,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-540939",
+    "timestamp": "2026-11-08T00:25:40.939Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-539261",
+    "timestamp": "2026-11-08T00:25:39.261Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-538522",
+    "timestamp": "2026-11-08T00:25:38.522Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-537759",
+    "timestamp": "2026-11-08T00:25:37.759Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-536627",
+    "timestamp": "2026-11-08T00:25:36.627Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-535112",
+    "timestamp": "2026-11-08T00:25:35.112Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-534446",
+    "timestamp": "2026-11-08T00:25:34.447Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-533635",
+    "timestamp": "2026-11-08T00:25:33.635Z",
+    "type": "ENTRADA",
+    "productId": "LV-1216",
+    "productName": "Polvo base",
+    "barcode": "770358036422",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Colaborador",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-105525",
+    "timestamp": "2026-11-07T23:45:05.525Z",
+    "type": "SALIDA",
+    "productId": "LV-1544",
+    "productName": "Libro de 640 pestaas punto a punto 30d, 40d y 50d",
+    "barcode": "293456844252",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-088222",
+    "timestamp": "2026-11-07T23:44:48.222Z",
+    "type": "SALIDA",
+    "productId": "LV-1398",
+    "productName": "Keratina x120ml pequea",
+    "barcode": "770770301200",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-088209",
+    "timestamp": "2026-11-07T23:44:48.209Z",
+    "type": "SALIDA",
+    "productId": "LV-1040",
+    "productName": "Keratina mediana",
+    "barcode": "770770202507",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-174106",
+    "timestamp": "2026-11-07T22:56:14.106Z",
+    "type": "ENTRADA",
+    "productId": "LV-1357",
+    "productName": "Velvet crush x3 tono 03",
+    "barcode": "6974482527093",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-173325",
+    "timestamp": "2026-11-07T22:56:13.325Z",
+    "type": "ENTRADA",
+    "productId": "LV-1357",
+    "productName": "Velvet crush x3 tono 03",
+    "barcode": "6974482527093",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-172544",
+    "timestamp": "2026-11-07T22:56:12.544Z",
+    "type": "ENTRADA",
+    "productId": "LV-1357",
+    "productName": "Velvet crush x3 tono 03",
+    "barcode": "6974482527093",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-158579",
+    "timestamp": "2026-11-07T22:55:58.579Z",
+    "type": "ENTRADA",
+    "productId": "LV-1289",
+    "productName": "gel de cejas",
+    "barcode": "6932159607745",
+    "quantity": 1,
+    "prevStock": 17,
+    "newStock": 18,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-157159",
+    "timestamp": "2026-11-07T22:55:57.159Z",
+    "type": "ENTRADA",
+    "productId": "LV-1289",
+    "productName": "gel de cejas",
+    "barcode": "6932159607745",
+    "quantity": 1,
+    "prevStock": 16,
+    "newStock": 17,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-156435",
+    "timestamp": "2026-11-07T22:55:56.435Z",
+    "type": "ENTRADA",
+    "productId": "LV-1289",
+    "productName": "gel de cejas",
+    "barcode": "6932159607745",
+    "quantity": 1,
+    "prevStock": 15,
+    "newStock": 16,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-155728",
+    "timestamp": "2026-11-07T22:55:55.728Z",
+    "type": "ENTRADA",
+    "productId": "LV-1289",
+    "productName": "gel de cejas",
+    "barcode": "6932159607745",
+    "quantity": 1,
+    "prevStock": 14,
+    "newStock": 15,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-154289",
+    "timestamp": "2026-11-07T22:55:54.289Z",
+    "type": "ENTRADA",
+    "productId": "LV-1289",
+    "productName": "gel de cejas",
+    "barcode": "6932159607745",
+    "quantity": 1,
+    "prevStock": 13,
+    "newStock": 14,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-145757",
+    "timestamp": "2026-11-07T22:55:45.757Z",
+    "type": "ENTRADA",
+    "productId": "LV-1287",
+    "productName": "Got2b",
+    "barcode": "052336341456",
+    "quantity": 1,
+    "prevStock": 14,
+    "newStock": 15,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-144326",
+    "timestamp": "2026-11-07T22:55:44.326Z",
+    "type": "ENTRADA",
+    "productId": "LV-1287",
+    "productName": "Got2b",
+    "barcode": "052336341456",
+    "quantity": 1,
+    "prevStock": 13,
+    "newStock": 14,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-142701",
+    "timestamp": "2026-11-07T22:55:42.701Z",
+    "type": "ENTRADA",
+    "productId": "LV-1287",
+    "productName": "Got2b",
+    "barcode": "052336341456",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 13,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-141618",
+    "timestamp": "2026-11-07T22:55:41.618Z",
+    "type": "ENTRADA",
+    "productId": "LV-1287",
+    "productName": "Got2b",
+    "barcode": "052336341456",
+    "quantity": 1,
+    "prevStock": 11,
+    "newStock": 12,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-140929",
+    "timestamp": "2026-11-07T22:55:40.929Z",
+    "type": "ENTRADA",
+    "productId": "LV-1287",
+    "productName": "Got2b",
+    "barcode": "052336341456",
+    "quantity": 1,
+    "prevStock": 10,
+    "newStock": 11,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-120644",
+    "timestamp": "2026-11-07T22:55:20.644Z",
+    "type": "ENTRADA",
+    "productId": "LV-1392",
+    "productName": "Shampoo de cebolla",
+    "barcode": "7709225678478",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepcin Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-118410",
+    "timestamp": "2026-11-07T22:55:18.410Z",
+    "type": "ENTRADA",
+    "productId": "LV-1392",
+    "productName": "Shampoo de cebolla",
+    "barcode": "7709225678478",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepcin Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-052094",
+    "timestamp": "2026-11-07T22:54:12.094Z",
+    "type": "ENTRADA",
+    "productId": "LV-1373",
+    "productName": "Corrector XL tono 00",
+    "barcode": "6974482525365",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-051430",
+    "timestamp": "2026-11-07T22:54:11.430Z",
+    "type": "ENTRADA",
+    "productId": "LV-1373",
+    "productName": "Corrector XL tono 00",
+    "barcode": "6974482525365",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-050897",
+    "timestamp": "2026-11-07T22:54:10.897Z",
+    "type": "ENTRADA",
+    "productId": "LV-1373",
+    "productName": "Corrector XL tono 00",
+    "barcode": "6974482525365",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-043605",
+    "timestamp": "2026-11-07T22:54:03.605Z",
+    "type": "ENTRADA",
+    "productId": "LV-1374",
+    "productName": "Corrector XL tono 01",
+    "barcode": "6974482525372",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-043068",
+    "timestamp": "2026-11-07T22:54:03.068Z",
+    "type": "ENTRADA",
+    "productId": "LV-1374",
+    "productName": "Corrector XL tono 01",
+    "barcode": "6974482525372",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-042592",
+    "timestamp": "2026-11-07T22:54:02.592Z",
+    "type": "ENTRADA",
+    "productId": "LV-1374",
+    "productName": "Corrector XL tono 01",
+    "barcode": "6974482525372",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-987952",
+    "timestamp": "2026-11-07T22:53:07.952Z",
+    "type": "ENTRADA",
+    "productId": "LV-1319",
+    "productName": "Corrector pequeo tono 04",
+    "barcode": "770879283532",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-987166",
+    "timestamp": "2026-11-07T22:53:07.166Z",
+    "type": "ENTRADA",
+    "productId": "LV-1319",
+    "productName": "Corrector pequeo tono 04",
+    "barcode": "770879283532",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-986347",
+    "timestamp": "2026-11-07T22:53:06.347Z",
+    "type": "ENTRADA",
+    "productId": "LV-1319",
+    "productName": "Corrector pequeo tono 04",
+    "barcode": "770879283532",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-979333",
+    "timestamp": "2026-11-07T22:52:59.333Z",
+    "type": "ENTRADA",
+    "productId": "LV-1317",
+    "productName": "Corrector pequeo tono 02",
+    "barcode": "770388117416",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-978611",
+    "timestamp": "2026-11-07T22:52:58.611Z",
+    "type": "ENTRADA",
+    "productId": "LV-1317",
+    "productName": "Corrector pequeo tono 02",
+    "barcode": "770388117416",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-977865",
+    "timestamp": "2026-11-07T22:52:57.865Z",
+    "type": "ENTRADA",
+    "productId": "LV-1317",
+    "productName": "Corrector pequeo tono 02",
+    "barcode": "770388117416",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-977395",
+    "timestamp": "2026-11-07T22:52:57.395Z",
+    "type": "ENTRADA",
+    "productId": "LV-1317",
+    "productName": "Corrector pequeo tono 02",
+    "barcode": "770388117416",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-969218",
+    "timestamp": "2026-11-07T22:52:49.218Z",
+    "type": "ENTRADA",
+    "productId": "LV-1322",
+    "productName": "Corrector XL tono 02",
+    "barcode": "770314408091",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-968951",
+    "timestamp": "2026-11-07T22:52:48.951Z",
+    "type": "ENTRADA",
+    "productId": "LV-1322",
+    "productName": "Corrector XL tono 02",
+    "barcode": "770314408091",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-964650",
+    "timestamp": "2026-11-07T22:52:44.650Z",
+    "type": "ENTRADA",
+    "productId": "LV-1321",
+    "productName": "Corrector XL tono 01",
+    "barcode": "770189636171",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-922351",
+    "timestamp": "2026-11-07T22:52:02.351Z",
+    "type": "ENTRADA",
+    "productId": "LV-1027",
+    "productName": "Shampoo de aji",
+    "barcode": "677144930236",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-921685",
+    "timestamp": "2026-11-07T22:52:01.685Z",
+    "type": "ENTRADA",
+    "productId": "LV-1027",
+    "productName": "Shampoo de aji",
+    "barcode": "677144930236",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-921031",
+    "timestamp": "2026-11-07T22:52:01.031Z",
+    "type": "ENTRADA",
+    "productId": "LV-1027",
+    "productName": "Shampoo de aji",
+    "barcode": "677144930236",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-893103",
+    "timestamp": "2026-11-07T22:51:33.103Z",
+    "type": "ENTRADA",
+    "productId": "LV-1013",
+    "productName": "Shampoo cebolla y argan",
+    "barcode": "770700724000",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-892839",
+    "timestamp": "2026-11-07T22:51:32.839Z",
+    "type": "ENTRADA",
+    "productId": "LV-1013",
+    "productName": "Shampoo cebolla y argan",
+    "barcode": "770700724000",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-884625",
+    "timestamp": "2026-11-07T22:51:24.625Z",
+    "type": "ENTRADA",
+    "productId": "LV-1012",
+    "productName": "Shampoo de menta y aji",
+    "barcode": "770700964000",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-865756",
+    "timestamp": "2026-11-07T22:51:05.756Z",
+    "type": "ENTRADA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-865431",
+    "timestamp": "2026-11-07T22:51:05.431Z",
+    "type": "ENTRADA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-865171",
+    "timestamp": "2026-11-07T22:51:05.171Z",
+    "type": "ENTRADA",
+    "productId": "LV-1036",
+    "productName": "Perfume capilar de miel y masmelo",
+    "barcode": "677144930205",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-850278",
+    "timestamp": "2026-11-07T22:50:50.278Z",
+    "type": "ENTRADA",
+    "productId": "LV-1235",
+    "productName": "Lapiz de cejas tono arequipe",
+    "barcode": "7707375602985",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Recepcin Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-846958",
+    "timestamp": "2026-11-07T22:50:46.958Z",
+    "type": "ENTRADA",
+    "productId": "LV-1235",
+    "productName": "Lapiz de cejas tono arequipe",
+    "barcode": "7707375602985",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepcin Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-844271",
+    "timestamp": "2026-11-07T22:50:44.271Z",
+    "type": "ENTRADA",
+    "productId": "LV-1235",
+    "productName": "Lapiz de cejas tono arequipe",
+    "barcode": "7707375602985",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepcin Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-800779",
+    "timestamp": "2026-11-07T22:50:00.779Z",
+    "type": "ENTRADA",
+    "productId": "LV-1300",
+    "productName": "Pestaina maxi volumen borgoa",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-798207",
+    "timestamp": "2026-11-07T22:49:58.207Z",
+    "type": "ENTRADA",
+    "productId": "LV-1300",
+    "productName": "Pestaina maxi volumen borgoa",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-797341",
+    "timestamp": "2026-11-07T22:49:57.341Z",
+    "type": "ENTRADA",
+    "productId": "LV-1300",
+    "productName": "Pestaina maxi volumen borgoa",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-796487",
+    "timestamp": "2026-11-07T22:49:56.487Z",
+    "type": "ENTRADA",
+    "productId": "LV-1300",
+    "productName": "Pestaina maxi volumen borgoa",
+    "barcode": "7501734430567",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-767067",
+    "timestamp": "2026-11-07T22:49:27.067Z",
+    "type": "ENTRADA",
+    "productId": "LV-1301",
+    "productName": "Pestaina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-766758",
+    "timestamp": "2026-11-07T22:49:26.758Z",
+    "type": "ENTRADA",
+    "productId": "LV-1301",
+    "productName": "Pestaina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-762629",
+    "timestamp": "2026-11-07T22:49:22.629Z",
+    "type": "ENTRADA",
+    "productId": "LV-1301",
+    "productName": "Pestaina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-762337",
+    "timestamp": "2026-11-07T22:49:22.337Z",
+    "type": "ENTRADA",
+    "productId": "LV-1301",
+    "productName": "Pestaina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-762079",
+    "timestamp": "2026-11-07T22:49:22.079Z",
+    "type": "ENTRADA",
+    "productId": "LV-1301",
+    "productName": "Pestaina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-734378",
+    "timestamp": "2026-11-07T22:48:54.378Z",
+    "type": "ENTRADA",
+    "productId": "LV-1015",
+    "productName": "Mantequilla perfumada",
+    "barcode": "770710192400",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-678439",
+    "timestamp": "2026-11-07T22:47:58.439Z",
+    "type": "SALIDA",
+    "productId": "LV-1553",
+    "productName": "Tinta serum candy",
+    "barcode": "793969699766",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-416164",
+    "timestamp": "2026-11-07T22:43:36.164Z",
+    "type": "SALIDA",
+    "productId": "LV-1286",
+    "productName": "Frezee babes",
+    "barcode": "7707559882608",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-416152",
+    "timestamp": "2026-11-07T22:43:36.153Z",
+    "type": "SALIDA",
+    "productId": "LV-1082",
+    "productName": "Body Splash Sweet Candy",
+    "barcode": "7708931071412",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-416141",
+    "timestamp": "2026-11-07T22:43:36.141Z",
+    "type": "SALIDA",
+    "productId": "LV-1085",
+    "productName": "Splash Corporal de maracuya x 100 ml",
+    "barcode": "677144890097",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-416132",
+    "timestamp": "2026-11-07T22:43:36.132Z",
+    "type": "SALIDA",
+    "productId": "LV-1084",
+    "productName": "Splash Corporal birthday x 100 ml",
+    "barcode": "610985562976",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-416118",
+    "timestamp": "2026-11-07T22:43:36.118Z",
+    "type": "SALIDA",
+    "productId": "LV-1034",
+    "productName": "Mini miel capilar",
+    "barcode": "793969805600",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-416106",
+    "timestamp": "2026-11-07T22:43:36.106Z",
+    "type": "SALIDA",
+    "productId": "LV-1039",
+    "productName": "Perfume capilar golden toffe",
+    "barcode": "7709268279694",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-337584",
+    "timestamp": "2026-11-07T22:42:17.584Z",
+    "type": "ENTRADA",
+    "productId": "LV-1598",
+    "productName": "Delineador en lapiz tono negro",
+    "barcode": "7703378004191",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-298810",
+    "timestamp": "2026-11-07T22:41:38.810Z",
+    "type": "ENTRADA",
+    "productId": "LV-1597",
+    "productName": "Delineador en lapiz tono blanco",
+    "barcode": "7703378004146",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-233461",
+    "timestamp": "2026-11-07T22:40:33.461Z",
+    "type": "ENTRADA",
+    "productId": "LV-1596",
+    "productName": "Delineador en lapiz tono cafe",
+    "barcode": "7703378004160",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-161314",
+    "timestamp": "2026-11-07T22:39:21.315Z",
+    "type": "ENTRADA",
+    "productId": "LV-1595",
+    "productName": "Delineador en lapiz tono tabaco",
+    "barcode": "7703378004207",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-076471",
+    "timestamp": "2026-11-07T22:37:56.471Z",
+    "type": "ENTRADA",
+    "productId": "LV-1594",
+    "productName": "Delineador en lapiz tono late",
+    "barcode": "7703378688209",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-002830",
+    "timestamp": "2026-11-07T22:36:42.830Z",
+    "type": "ENTRADA",
+    "productId": "LV-1593",
+    "productName": "Delineador en lapiz tono palo de rosa",
+    "barcode": "7703378010178",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-918374",
+    "timestamp": "2026-11-07T22:35:18.374Z",
+    "type": "ENTRADA",
+    "productId": "LV-1592",
+    "productName": "Delineador en lapiz tono salmon",
+    "barcode": "7703378903784",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-688459",
+    "timestamp": "2026-11-07T22:31:28.459Z",
+    "type": "ENTRADA",
+    "productId": "LV-1591",
+    "productName": "Delineador liquido en plumon",
+    "barcode": "7708080149055",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-575983",
+    "timestamp": "2026-11-07T22:29:35.983Z",
+    "type": "ENTRADA",
+    "productId": "LV-1590",
+    "productName": "Delineador liquido en plumon",
+    "barcode": "7709093315314",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-476515",
+    "timestamp": "2026-11-07T22:27:56.515Z",
+    "type": "ENTRADA",
+    "productId": "LV-1363",
+    "productName": "Rubor Vibrant duo",
+    "barcode": "6925627318229",
+    "quantity": 1,
+    "prevStock": 9,
+    "newStock": 10,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-476236",
+    "timestamp": "2026-11-07T22:27:56.236Z",
+    "type": "ENTRADA",
+    "productId": "LV-1363",
+    "productName": "Rubor Vibrant duo",
+    "barcode": "6925627318229",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-472601",
+    "timestamp": "2026-11-07T22:27:52.601Z",
+    "type": "ENTRADA",
+    "productId": "LV-1363",
+    "productName": "Rubor Vibrant duo",
+    "barcode": "6925627318229",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-472341",
+    "timestamp": "2026-11-07T22:27:52.341Z",
+    "type": "ENTRADA",
+    "productId": "LV-1363",
+    "productName": "Rubor Vibrant duo",
+    "barcode": "6925627318229",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-469516",
+    "timestamp": "2026-11-07T22:27:49.516Z",
+    "type": "ENTRADA",
+    "productId": "LV-1363",
+    "productName": "Rubor Vibrant duo",
+    "barcode": "6925627318229",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-469136",
+    "timestamp": "2026-11-07T22:27:49.136Z",
+    "type": "ENTRADA",
+    "productId": "LV-1363",
+    "productName": "Rubor Vibrant duo",
+    "barcode": "6925627318229",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-280101",
+    "timestamp": "2026-11-07T22:24:40.101Z",
+    "type": "ENTRADA",
+    "productId": "LV-1589",
+    "productName": "Pinza aplicador de pestaas",
+    "barcode": "7701136558467",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-877419",
+    "timestamp": "2026-11-07T22:17:57.419Z",
+    "type": "ENTRADA",
+    "productId": "LV-1588",
+    "productName": "splash corporal isleita coqueta",
+    "barcode": "770161379536",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-804078",
+    "timestamp": "2026-11-07T22:16:44.078Z",
+    "type": "ENTRADA",
+    "productId": "LV-1587",
+    "productName": "Splash costeita tropical",
+    "barcode": "7709066683440",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-648390",
+    "timestamp": "2026-11-07T22:14:08.390Z",
+    "type": "ENTRADA",
+    "productId": "LV-1190",
+    "productName": "Splash corporal paisita dulce",
+    "barcode": "7709066683419",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-648141",
+    "timestamp": "2026-11-07T22:14:08.141Z",
+    "type": "ENTRADA",
+    "productId": "LV-1190",
+    "productName": "Splash corporal paisita dulce",
+    "barcode": "7709066683419",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-591636",
+    "timestamp": "2026-11-07T22:13:11.637Z",
+    "type": "ENTRADA",
+    "productId": "LV-1311",
+    "productName": "Corrector liquido",
+    "barcode": "7708951146794",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-587708",
+    "timestamp": "2026-11-07T22:13:07.708Z",
+    "type": "ENTRADA",
+    "productId": "LV-1311",
+    "productName": "Corrector liquido",
+    "barcode": "7708951146794",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-587449",
+    "timestamp": "2026-11-07T22:13:07.449Z",
+    "type": "ENTRADA",
+    "productId": "LV-1311",
+    "productName": "Corrector liquido",
+    "barcode": "7708951146794",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-579405",
+    "timestamp": "2026-11-07T22:12:59.405Z",
+    "type": "SALIDA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-576083",
+    "timestamp": "2026-11-07T22:12:56.083Z",
+    "type": "SALIDA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-575299",
+    "timestamp": "2026-11-07T22:12:55.299Z",
+    "type": "SALIDA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 9,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Venta Rpida Catlogo",
+    "notes": ""
+  },
+  {
+    "id": "K-565201",
+    "timestamp": "2026-11-07T22:12:45.201Z",
+    "type": "ENTRADA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 8,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-561399",
+    "timestamp": "2026-11-07T22:12:41.399Z",
+    "type": "ENTRADA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 8,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-561116",
+    "timestamp": "2026-11-07T22:12:41.116Z",
+    "type": "ENTRADA",
+    "productId": "LV-1535",
+    "productName": "Corrector bonita tono 03 honey",
+    "barcode": "7707559882493",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-548849",
+    "timestamp": "2026-11-07T22:12:28.849Z",
+    "type": "ENTRADA",
+    "productId": "LV-1123",
+    "productName": "Bloom serum balance",
+    "barcode": "8809801696342",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-548585",
+    "timestamp": "2026-11-07T22:12:28.585Z",
+    "type": "ENTRADA",
+    "productId": "LV-1123",
+    "productName": "Bloom serum balance",
+    "barcode": "8809801696342",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-480983",
+    "timestamp": "2026-11-07T22:11:20.983Z",
+    "type": "ENTRADA",
+    "productId": "LV-1286",
+    "productName": "Frezee babes",
+    "barcode": "7707559882608",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-478440",
+    "timestamp": "2026-11-07T22:11:18.440Z",
+    "type": "ENTRADA",
+    "productId": "LV-1286",
+    "productName": "Frezee babes",
+    "barcode": "7707559882608",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-478148",
+    "timestamp": "2026-11-07T22:11:18.148Z",
+    "type": "ENTRADA",
+    "productId": "LV-1286",
+    "productName": "Frezee babes",
+    "barcode": "7707559882608",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-477900",
+    "timestamp": "2026-11-07T22:11:17.900Z",
+    "type": "ENTRADA",
+    "productId": "LV-1286",
+    "productName": "Frezee babes",
+    "barcode": "7707559882608",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-448564",
+    "timestamp": "2026-11-07T22:10:48.564Z",
+    "type": "ENTRADA",
+    "productId": "LV-1391",
+    "productName": "acondicionador de cebolla",
+    "barcode": "7709225678409",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepcin Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-429937",
+    "timestamp": "2026-11-07T22:10:29.937Z",
+    "type": "ENTRADA",
+    "productId": "LV-1586",
+    "productName": "Shampoo magia capilar",
+    "barcode": "7708075180070",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-376924",
+    "timestamp": "2026-11-07T22:09:36.924Z",
+    "type": "ENTRADA",
+    "productId": "LV-1201",
+    "productName": "Desenredante termoprotector rosado",
+    "barcode": "7708075180759",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepcin Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-374079",
+    "timestamp": "2026-11-07T22:09:34.079Z",
+    "type": "ENTRADA",
+    "productId": "LV-1201",
+    "productName": "Desenredante termoprotector rosado",
+    "barcode": "7708075180759",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Recepcin Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-291800",
+    "timestamp": "2026-11-07T22:08:11.800Z",
+    "type": "ENTRADA",
+    "productId": "LV-1585",
+    "productName": "Shampoo ultranutritivo premium",
+    "barcode": "7708075180957",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-219683",
+    "timestamp": "2026-11-07T22:06:59.683Z",
+    "type": "ENTRADA",
+    "productId": "LV-1055",
+    "productName": "Perfume mini sublime",
+    "barcode": "7708075180872",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-219430",
+    "timestamp": "2026-11-07T22:06:59.430Z",
+    "type": "ENTRADA",
+    "productId": "LV-1055",
+    "productName": "Perfume mini sublime",
+    "barcode": "7708075180872",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-206430",
+    "timestamp": "2026-11-07T22:06:46.430Z",
+    "type": "ENTRADA",
+    "productId": "LV-1584",
+    "productName": "Kit de brochas rosadas x11",
+    "barcode": "6990195409440",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-124716",
+    "timestamp": "2026-11-07T22:05:24.716Z",
+    "type": "ENTRADA",
+    "productId": "LV-1583",
+    "productName": "Kit perfiladores x3",
+    "barcode": "6940202851151",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-949414",
+    "timestamp": "2026-11-07T22:02:29.414Z",
+    "type": "SALIDA",
+    "productId": "LV-1103",
+    "productName": "Mantequilla nueva x250ml Sweet cherry",
+    "barcode": "677144890608",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-949401",
+    "timestamp": "2026-11-07T22:02:29.401Z",
+    "type": "SALIDA",
+    "productId": "LV-1098",
+    "productName": "Splash nuevo x200ml Pia colada",
+    "barcode": "677144266274",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-914973",
+    "timestamp": "2026-11-07T22:01:54.973Z",
+    "type": "SALIDA",
+    "productId": "LV-1066",
+    "productName": "Perfume mini citrico",
+    "barcode": "793969805525",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-914959",
+    "timestamp": "2026-11-07T22:01:54.959Z",
+    "type": "SALIDA",
+    "productId": "LV-1389",
+    "productName": "Perfume capilar tropical crush",
+    "barcode": "7709268279601",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-914947",
+    "timestamp": "2026-11-07T22:01:54.947Z",
+    "type": "SALIDA",
+    "productId": "LV-1544",
+    "productName": "Libro de 640 pestaas punto a punto 30d, 40d y 50d",
+    "barcode": "293456844252",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-764738",
+    "timestamp": "2026-11-07T21:59:24.738Z",
+    "type": "SALIDA",
+    "productId": "LV-1043",
+    "productName": "Acondicionador de leche y proteinas",
+    "barcode": "7709360339395",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-764729",
+    "timestamp": "2026-11-07T21:59:24.729Z",
+    "type": "SALIDA",
+    "productId": "LV-1042",
+    "productName": "Shampoo de leche y proteinas",
+    "barcode": "7709360339302",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-729603",
+    "timestamp": "2026-11-07T21:58:49.603Z",
+    "type": "SALIDA",
+    "productId": "LV-1288",
+    "productName": "Bloom lamination",
+    "barcode": "6973327787371",
+    "quantity": 1,
+    "prevStock": 50,
+    "newStock": 49,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-729590",
+    "timestamp": "2026-11-07T21:58:49.590Z",
+    "type": "SALIDA",
+    "productId": "LV-1556",
+    "productName": "Shimmer corporal en llavero",
+    "barcode": "610985566509",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-729580",
+    "timestamp": "2026-11-07T21:58:49.580Z",
+    "type": "SALIDA",
+    "productId": "LV-1557",
+    "productName": "Kit corporal x3 pia colada",
+    "barcode": "793969700134",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-055201",
+    "timestamp": "2026-11-07T21:47:35.201Z",
+    "type": "ENTRADA",
+    "productId": "LV-1582",
+    "productName": "Brocha de rubor oro rosa metalizada",
+    "barcode": "6920266261189",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-929545",
+    "timestamp": "2026-11-07T21:45:29.545Z",
+    "type": "ENTRADA",
+    "productId": "LV-1581",
+    "productName": "Paquete de pomys x80",
+    "barcode": "8004504165335",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-788488",
+    "timestamp": "2026-11-07T21:43:08.488Z",
+    "type": "SALIDA",
+    "productId": "LV-1580",
+    "productName": "Kit de labios mascarilla + lip balm de fresa",
+    "barcode": "6976623804971",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-773467",
+    "timestamp": "2026-11-07T21:42:53.467Z",
+    "type": "ENTRADA",
+    "productId": "LV-1580",
+    "productName": "Kit de labios mascarilla + lip balm de fresa",
+    "barcode": "6976623804971",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-632074",
+    "timestamp": "2026-11-07T21:40:32.075Z",
+    "type": "ENTRADA",
+    "productId": "LV-1579",
+    "productName": "Crema de manos de durazno",
+    "barcode": "6942349700170",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-558614",
+    "timestamp": "2026-11-07T21:39:18.614Z",
+    "type": "ENTRADA",
+    "productId": "LV-1578",
+    "productName": "Mascarilla de labios de uva",
+    "barcode": "6976623804940",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-507681",
+    "timestamp": "2026-11-07T21:38:27.681Z",
+    "type": "ENTRADA",
+    "productId": "LV-1577",
+    "productName": "Cosmetiquera transparente con estampado",
+    "barcode": "6902102601977",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-312959",
+    "timestamp": "2026-11-07T21:35:12.959Z",
+    "type": "ENTRADA",
+    "productId": "LV-1576",
+    "productName": "cosmetiquera con agarradera de colores",
+    "barcode": "6902102601960",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-950223",
+    "timestamp": "2026-11-07T21:29:10.223Z",
+    "type": "SALIDA",
+    "productId": "LV-1575",
+    "productName": "Calendario de adviento",
+    "barcode": "770417360337",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Nora elena agudelo castao)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-876972",
+    "timestamp": "2026-11-07T21:27:56.972Z",
+    "type": "ENTRADA",
+    "productId": "LV-1575",
+    "productName": "Calendario de adviento",
+    "barcode": "770417360337",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-823825",
+    "timestamp": "2026-11-07T21:27:03.825Z",
+    "type": "SALIDA",
+    "productId": "LV-1058",
+    "productName": "Bloom porta cosmeticos",
+    "barcode": "770427842930",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-468718",
+    "timestamp": "2026-11-07T21:21:08.718Z",
+    "type": "ENTRADA",
+    "productId": "LV-1574",
+    "productName": "Brocha de contorno y rubor dorada",
+    "barcode": "6972547657099",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-388623",
+    "timestamp": "2026-11-07T21:19:48.623Z",
+    "type": "SALIDA",
+    "productId": "LV-1042",
+    "productName": "Shampoo de leche y proteinas",
+    "barcode": "7709360339302",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-388614",
+    "timestamp": "2026-11-07T21:19:48.614Z",
+    "type": "SALIDA",
+    "productId": "LV-1043",
+    "productName": "Acondicionador de leche y proteinas",
+    "barcode": "7709360339395",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-219062",
+    "timestamp": "2026-11-07T21:16:59.062Z",
+    "type": "ENTRADA",
+    "productId": "LV-1573",
+    "productName": "Brocha doble de polvo y rubor",
+    "barcode": "6972547657044",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-099726",
+    "timestamp": "2026-11-07T21:14:59.726Z",
+    "type": "ENTRADA",
+    "productId": "LV-1572",
+    "productName": "Rodillo de jade y gua-sha",
+    "barcode": "6972547656450",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-565213",
+    "timestamp": "2026-11-07T21:06:05.213Z",
+    "type": "ENTRADA",
+    "productId": "LV-1571",
+    "productName": "Beauty blender doble pastel",
+    "barcode": "6972547656634",
+    "quantity": 7,
+    "prevStock": 0,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-506814",
+    "timestamp": "2026-11-07T21:05:06.814Z",
+    "type": "ENTRADA",
+    "productId": "LV-1570",
+    "productName": "Beauty blender pastel",
+    "barcode": "6972547656603",
+    "quantity": 9,
+    "prevStock": 0,
+    "newStock": 9,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-384239",
+    "timestamp": "2026-11-07T21:03:04.239Z",
+    "type": "ENTRADA",
+    "productId": "LV-1569",
+    "productName": "Brocha para corrector rosada",
+    "barcode": "770114467583",
+    "quantity": 7,
+    "prevStock": 0,
+    "newStock": 7,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-736300",
+    "timestamp": "2026-11-07T20:52:16.300Z",
+    "type": "SALIDA",
+    "productId": "LV-1359",
+    "productName": "Rubor bonita tono 03 selena",
+    "barcode": "7707559886118",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-722064",
+    "timestamp": "2026-11-07T20:52:02.064Z",
+    "type": "SALIDA",
+    "productId": "LV-1506",
+    "productName": "Parches de estrellas",
+    "barcode": "20250702006",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-707377",
+    "timestamp": "2026-11-07T20:51:47.377Z",
+    "type": "SALIDA",
+    "productId": "LV-1060",
+    "productName": "Mantequilla corporal mini dorada",
+    "barcode": "7709507915529",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-707361",
+    "timestamp": "2026-11-07T20:51:47.361Z",
+    "type": "SALIDA",
+    "productId": "LV-1059",
+    "productName": "Splash dorado pequeo",
+    "barcode": "7709507915567",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-680035",
+    "timestamp": "2026-11-07T20:51:20.035Z",
+    "type": "SALIDA",
+    "productId": "LV-1492",
+    "productName": "Brocha para base p103",
+    "barcode": "7709181860931",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-641872",
+    "timestamp": "2026-11-07T20:50:41.872Z",
+    "type": "SALIDA",
+    "productId": "LV-1374",
+    "productName": "Corrector XL tono 01",
+    "barcode": "6974482525372",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-926044",
+    "timestamp": "2026-11-07T20:38:46.044Z",
+    "type": "ENTRADA",
+    "productId": "LV-1568",
+    "productName": "Beauty blender x9",
+    "barcode": "6982588111085",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-775578",
+    "timestamp": "2026-11-07T20:36:15.578Z",
+    "type": "ENTRADA",
+    "productId": "LV-1567",
+    "productName": "Jabon facial de centella asiatica",
+    "barcode": "6942349712043",
+    "quantity": 5,
+    "prevStock": 0,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-728117",
+    "timestamp": "2026-11-07T20:35:28.117Z",
+    "type": "ENTRADA",
+    "productId": "LV-1566",
+    "productName": "Crema hidratante de rosas y acido hialuronico",
+    "barcode": "6942349742613",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-673359",
+    "timestamp": "2026-11-07T20:34:33.359Z",
+    "type": "ENTRADA",
+    "productId": "LV-1565",
+    "productName": "Hidratante de labios de fresa",
+    "barcode": "6976623800621",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-523334",
+    "timestamp": "2026-11-07T20:32:03.334Z",
+    "type": "ENTRADA",
+    "productId": "LV-1564",
+    "productName": "Hidratante de labios durazno",
+    "barcode": "6976623800638",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-452753",
+    "timestamp": "2026-11-07T20:30:52.753Z",
+    "type": "ENTRADA",
+    "productId": "LV-1563",
+    "productName": "Crema facial de arroz",
+    "barcode": "6976068956303",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-406704",
+    "timestamp": "2026-11-07T20:30:06.704Z",
+    "type": "ENTRADA",
+    "productId": "LV-1562",
+    "productName": "Jabon de arroz",
+    "barcode": "6942349741005",
+    "quantity": 6,
+    "prevStock": 0,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-839612",
+    "timestamp": "2026-11-07T20:20:39.612Z",
+    "type": "ENTRADA",
+    "productId": "LV-1561",
+    "productName": "Serum de vitamina c",
+    "barcode": "6901783700320",
+    "quantity": 3,
+    "prevStock": 0,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-792699",
+    "timestamp": "2026-11-07T20:19:52.699Z",
+    "type": "ENTRADA",
+    "productId": "LV-1560",
+    "productName": "Colageno de ojeras en cajita durazno",
+    "barcode": "6973098894865",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-737986",
+    "timestamp": "2026-11-07T20:18:57.986Z",
+    "type": "ENTRADA",
+    "productId": "LV-1559",
+    "productName": "Tinta de labios velvet ink",
+    "barcode": "6903072467686",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-656906",
+    "timestamp": "2026-11-07T20:17:36.906Z",
+    "type": "ENTRADA",
+    "productId": "LV-1558",
+    "productName": "Tinta de labios lollipop",
+    "barcode": "634240255427",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Colaborador",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-410329",
+    "timestamp": "2026-11-07T00:13:30.329Z",
+    "type": "SALIDA",
+    "productId": "LV-1431",
+    "productName": "Lip gloss candy love",
+    "barcode": "764451296213",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-441329",
+    "timestamp": "2026-11-06T23:57:21.329Z",
+    "type": "SALIDA",
+    "productId": "LV-1202",
+    "productName": "Desenredante termoprotector morado",
+    "barcode": "7708075180339",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-421014",
+    "timestamp": "2026-11-06T23:57:01.014Z",
+    "type": "SALIDA",
+    "productId": "LV-1417",
+    "productName": "shiny lip oil",
+    "barcode": "770817250787",
+    "quantity": 1,
+    "prevStock": 7,
+    "newStock": 6,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-421001",
+    "timestamp": "2026-11-06T23:57:01.001Z",
+    "type": "SALIDA",
+    "productId": "LV-1094",
+    "productName": "Splash nuevo x200ml birthday cake",
+    "barcode": "677144890233",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-420989",
+    "timestamp": "2026-11-06T23:57:00.989Z",
+    "type": "SALIDA",
+    "productId": "LV-1104",
+    "productName": "Mantequilla birthday  cake x250ml",
+    "barcode": "677144890219",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-936873",
+    "timestamp": "2026-11-06T22:42:16.873Z",
+    "type": "SALIDA",
+    "productId": "LV-1301",
+    "productName": "Pestaina profesional silicon",
+    "barcode": "7501734430130",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-583383",
+    "timestamp": "2026-11-06T21:46:23.383Z",
+    "type": "SALIDA",
+    "productId": "LV-1418",
+    "productName": "Brillo aura tono 01",
+    "barcode": "7709311675497",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-583372",
+    "timestamp": "2026-11-06T21:46:23.372Z",
+    "type": "SALIDA",
+    "productId": "LV-1474",
+    "productName": "Beauty blender pequea con cortes",
+    "barcode": "6972547656184",
+    "quantity": 1,
+    "prevStock": 10,
+    "newStock": 9,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-583360",
+    "timestamp": "2026-11-06T21:46:23.360Z",
+    "type": "SALIDA",
+    "productId": "LV-1374",
+    "productName": "Corrector XL tono 01",
+    "barcode": "6974482525372",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-560021",
+    "timestamp": "2026-11-06T21:46:00.021Z",
+    "type": "SALIDA",
+    "productId": "LV-1008",
+    "productName": "Perfume capilar grande",
+    "barcode": "634240138126",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (amanda)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-560010",
+    "timestamp": "2026-11-06T21:46:00.010Z",
+    "type": "SALIDA",
+    "productId": "LV-1060",
+    "productName": "Mantequilla corporal mini dorada",
+    "barcode": "7709507915529",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (amanda)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-560001",
+    "timestamp": "2026-11-06T21:46:00.001Z",
+    "type": "SALIDA",
+    "productId": "LV-1525",
+    "productName": "Translucent mate mini malla tono 03 natural",
+    "barcode": "6974482525587",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (amanda)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-559989",
+    "timestamp": "2026-11-06T21:45:59.989Z",
+    "type": "SALIDA",
+    "productId": "LV-1421",
+    "productName": "Brillo aura mocca tono 02",
+    "barcode": "7709911354419",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (amanda)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-559976",
+    "timestamp": "2026-11-06T21:45:59.976Z",
+    "type": "SALIDA",
+    "productId": "LV-1448",
+    "productName": "Lip balm bloom gelee",
+    "barcode": "6924372689516",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (amanda)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-559962",
+    "timestamp": "2026-11-06T21:45:59.962Z",
+    "type": "SALIDA",
+    "productId": "LV-1128",
+    "productName": "Contorno de ojos",
+    "barcode": "7709411597897",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (amanda)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-017095",
+    "timestamp": "2026-11-06T20:46:57.095Z",
+    "type": "SALIDA",
+    "productId": "LV-1298",
+    "productName": "Pestaina microfibra",
+    "barcode": "7501734430352",
+    "quantity": 1,
+    "prevStock": 12,
+    "newStock": 11,
+    "user": "Colaborador",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-058871",
+    "timestamp": "2026-11-06T19:57:38.871Z",
+    "type": "SALIDA",
+    "productId": "LV-1544",
+    "productName": "Libro de 640 pestaas punto a punto 30d, 40d y 50d",
+    "barcode": "293456844252",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-682561",
+    "timestamp": "2026-11-06T19:01:22.561Z",
+    "type": "ENTRADA",
+    "productId": "LV-1557",
+    "productName": "Kit corporal x3 pia colada",
+    "barcode": "793969700134",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-622933",
+    "timestamp": "2026-11-06T19:00:22.933Z",
+    "type": "ENTRADA",
+    "productId": "LV-1117",
+    "productName": "Kit corporal x3 sweet cherry",
+    "barcode": "677144889794",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Recepcin Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-621033",
+    "timestamp": "2026-11-06T19:00:21.033Z",
+    "type": "ENTRADA",
+    "productId": "LV-1117",
+    "productName": "Kit corporal x3 sweet cherry",
+    "barcode": "677144889794",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Recepcin Proveedor",
+    "notes": ""
+  },
+  {
+    "id": "K-125149",
+    "timestamp": "2026-11-06T18:52:05.149Z",
+    "type": "ENTRADA",
+    "productId": "LV-1556",
+    "productName": "Shimmer corporal en llavero",
+    "barcode": "610985566509",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-960410",
+    "timestamp": "2026-11-06T18:49:20.410Z",
+    "type": "ENTRADA",
+    "productId": "LV-1555",
+    "productName": "Splash x250ml Sweet lychee",
+    "barcode": "7708970723495",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-810012",
+    "timestamp": "2026-11-06T18:46:50.013Z",
+    "type": "ENTRADA",
+    "productId": "LV-1554",
+    "productName": "Rubor x3 pretty blush",
+    "barcode": "677144701997",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-608034",
+    "timestamp": "2026-11-06T18:43:28.034Z",
+    "type": "ENTRADA",
+    "productId": "LV-1213",
+    "productName": "Polvo base tono 3 amelia",
+    "barcode": "6924372686799",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-607653",
+    "timestamp": "2026-11-06T18:43:27.653Z",
+    "type": "ENTRADA",
+    "productId": "LV-1213",
+    "productName": "Polvo base tono 3 amelia",
+    "barcode": "6924372686799",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-596168",
+    "timestamp": "2026-11-06T18:43:16.168Z",
+    "type": "ENTRADA",
+    "productId": "LV-1214",
+    "productName": "Polvo base tono 2 y 1 Elena y mariana (mismo codigo)",
+    "barcode": "764451296626",
+    "quantity": 1,
+    "prevStock": 5,
+    "newStock": 6,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-595813",
+    "timestamp": "2026-11-06T18:43:15.813Z",
+    "type": "ENTRADA",
+    "productId": "LV-1214",
+    "productName": "Polvo base tono 2 y 1 Elena y mariana (mismo codigo)",
+    "barcode": "764451296626",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Ajuste Rpido Entrada",
+    "notes": ""
+  },
+  {
+    "id": "K-519266",
+    "timestamp": "2026-11-06T18:41:59.266Z",
+    "type": "ENTRADA",
+    "productId": "LV-1553",
+    "productName": "Tinta serum candy",
+    "barcode": "793969699766",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-383904",
+    "timestamp": "2026-11-06T18:39:43.904Z",
+    "type": "ENTRADA",
+    "productId": "LV-1552",
+    "productName": "Labial en barra pop star",
+    "barcode": "677144889930",
+    "quantity": 4,
+    "prevStock": 0,
+    "newStock": 4,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-277556",
+    "timestamp": "2026-11-06T18:37:57.556Z",
+    "type": "ENTRADA",
+    "productId": "LV-1551",
+    "productName": "Pads de algodon",
+    "barcode": "764451296480",
+    "quantity": 2,
+    "prevStock": 0,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-133898",
+    "timestamp": "2026-11-06T18:35:33.898Z",
+    "type": "ENTRADA",
+    "productId": "LV-1550",
+    "productName": "Agua micelar con niacinamida",
+    "barcode": "788115817187",
+    "quantity": 1,
+    "prevStock": 0,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Inventario Inicial",
+    "notes": "Alta de nuevo producto en catlogo"
+  },
+  {
+    "id": "K-700094",
+    "timestamp": "2026-11-06T18:28:20.094Z",
+    "type": "SALIDA",
+    "productId": "LV-1457",
+    "productName": "Beauty blender XL",
+    "barcode": "6926594000292",
+    "quantity": 1,
+    "prevStock": 1,
+    "newStock": 0,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-700087",
+    "timestamp": "2026-11-06T18:28:20.087Z",
+    "type": "SALIDA",
+    "productId": "LV-1217",
+    "productName": "Polvo base tono 01",
+    "barcode": "6974482524467",
+    "quantity": 1,
+    "prevStock": 4,
+    "newStock": 3,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-700081",
+    "timestamp": "2026-11-06T18:28:20.081Z",
+    "type": "SALIDA",
+    "productId": "LV-1209",
+    "productName": "Pestaas punto a punto 20d",
+    "barcode": "275949320677",
+    "quantity": 1,
+    "prevStock": 6,
+    "newStock": 5,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-700075",
+    "timestamp": "2026-11-06T18:28:20.075Z",
+    "type": "SALIDA",
+    "productId": "LV-1388",
+    "productName": "Corrector liquido tono 02",
+    "barcode": "736372668639",
+    "quantity": 1,
+    "prevStock": 3,
+    "newStock": 2,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
+  {
+    "id": "K-010665",
+    "timestamp": "2026-11-06T18:16:50.665Z",
+    "type": "SALIDA",
+    "productId": "LV-1115",
+    "productName": "Kit corporal x4 Rose lychee",
+    "barcode": "677144889749",
+    "quantity": 1,
+    "prevStock": 2,
+    "newStock": 1,
+    "user": "Laura",
+    "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
+  },
   {
     "id": "K-588617",
     "timestamp": "2026-11-06T00:39:48.617Z",
@@ -7160,7 +14202,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-588608",
@@ -7174,7 +14216,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-588600",
@@ -7188,7 +14230,7 @@ const INITIAL_KARDEX = [
     "newStock": 47,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-588594",
@@ -7202,7 +14244,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-469049",
@@ -7216,7 +14258,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-945944",
@@ -7230,21 +14272,21 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-679257",
     "timestamp": "2026-11-06T00:07:59.257Z",
     "type": "SALIDA",
     "productId": "LV-1544",
-    "productName": "Libro de 640 pestañas punto a punto 30d, 40d y 50d",
+    "productName": "Libro de 640 pestaas punto a punto 30d, 40d y 50d",
     "barcode": "293456844252",
     "quantity": 1,
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-679249",
@@ -7258,7 +14300,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-679241",
@@ -7272,7 +14314,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-513029",
@@ -7286,7 +14328,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-513023",
@@ -7300,7 +14342,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-513015",
@@ -7314,7 +14356,7 @@ const INITIAL_KARDEX = [
     "newStock": 50,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-513007",
@@ -7328,7 +14370,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-086970",
@@ -7342,7 +14384,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-058037",
@@ -7356,7 +14398,7 @@ const INITIAL_KARDEX = [
     "newStock": 12,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-058025",
@@ -7370,21 +14412,21 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-058019",
     "timestamp": "2026-11-05T23:07:38.019Z",
     "type": "SALIDA",
     "productId": "LV-1301",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430130",
     "quantity": 1,
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-960380",
@@ -7398,21 +14440,21 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-943325",
     "timestamp": "2026-11-05T23:05:43.325Z",
     "type": "SALIDA",
     "productId": "LV-1474",
-    "productName": "Beauty blender pequeña con cortes",
+    "productName": "Beauty blender pequea con cortes",
     "barcode": "6972547656184",
     "quantity": 1,
     "prevStock": 11,
     "newStock": 10,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-708102",
@@ -7433,14 +14475,14 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-05T22:59:16.387Z",
     "type": "SALIDA",
     "productId": "LV-1298",
-    "productName": "Pestañina microfibra",
+    "productName": "Pestaina microfibra",
     "barcode": "7501734430352",
     "quantity": 1,
     "prevStock": 13,
     "newStock": 12,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556380",
@@ -7454,7 +14496,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556375",
@@ -7468,7 +14510,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556369",
@@ -7482,7 +14524,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556363",
@@ -7496,7 +14538,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556358",
@@ -7510,7 +14552,7 @@ const INITIAL_KARDEX = [
     "newStock": 51,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556350",
@@ -7524,7 +14566,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556343",
@@ -7538,7 +14580,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556337",
@@ -7552,7 +14594,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556330",
@@ -7566,7 +14608,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556325",
@@ -7580,7 +14622,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556319",
@@ -7594,7 +14636,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556312",
@@ -7608,7 +14650,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556306",
@@ -7622,7 +14664,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-556300",
@@ -7636,7 +14678,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-332157",
@@ -7650,21 +14692,21 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-021911",
     "timestamp": "2026-11-05T21:43:41.911Z",
     "type": "SALIDA",
     "productId": "LV-1298",
-    "productName": "Pestañina microfibra",
+    "productName": "Pestaina microfibra",
     "barcode": "7501734430352",
     "quantity": 1,
     "prevStock": 14,
     "newStock": 13,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-021904",
@@ -7678,7 +14720,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-470441",
@@ -7692,7 +14734,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-219898",
@@ -7705,7 +14747,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -7720,7 +14762,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-930576",
@@ -7734,7 +14776,7 @@ const INITIAL_KARDEX = [
     "newStock": 6,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-470905",
@@ -7748,21 +14790,21 @@ const INITIAL_KARDEX = [
     "newStock": 52,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-470897",
     "timestamp": "2026-11-05T20:11:10.897Z",
     "type": "SALIDA",
     "productId": "LV-1297",
-    "productName": "Pestañina maxi volumen silicon",
+    "productName": "Pestaina maxi volumen silicon",
     "barcode": "7501734430147",
     "quantity": 1,
     "prevStock": 14,
     "newStock": 13,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-677261",
@@ -7776,7 +14818,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-677253",
@@ -7790,7 +14832,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-783538",
@@ -7804,7 +14846,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-783531",
@@ -7818,7 +14860,7 @@ const INITIAL_KARDEX = [
     "newStock": 13,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-750704",
@@ -7832,7 +14874,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-130205",
@@ -7846,7 +14888,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-316392",
@@ -7874,7 +14916,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-079726",
@@ -7888,7 +14930,7 @@ const INITIAL_KARDEX = [
     "newStock": 7,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-053970",
@@ -7902,7 +14944,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-870443",
@@ -7915,7 +14957,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -7929,7 +14971,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -7944,63 +14986,63 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-732534",
     "timestamp": "2026-11-04T22:35:32.534Z",
     "type": "ENTRADA",
     "productId": "LV-1545",
-    "productName": "Libro de 640 pestañas punto a punto",
+    "productName": "Libro de 640 pestaas punto a punto",
     "barcode": "23456844182",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-628708",
     "timestamp": "2026-11-04T22:33:48.708Z",
     "type": "ENTRADA",
     "productId": "LV-1544",
-    "productName": "Libro de pestañas punto a punto 30d, 40d y 50d",
+    "productName": "Libro de pestaas punto a punto 30d, 40d y 50d",
     "barcode": "293456844252",
     "quantity": 5,
     "prevStock": 0,
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-512222",
     "timestamp": "2026-11-04T22:31:52.222Z",
     "type": "SALIDA",
     "productId": "LV-1209",
-    "productName": "Pestañas punto a punto 20d",
+    "productName": "Pestaas punto a punto 20d",
     "barcode": "275949320677",
     "quantity": 1,
     "prevStock": 7,
     "newStock": 6,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-462508",
     "timestamp": "2026-11-04T22:31:02.508Z",
     "type": "SALIDA",
     "productId": "LV-1209",
-    "productName": "Pestañas punto a punto 20d",
+    "productName": "Pestaas punto a punto 20d",
     "barcode": "275949320677",
     "quantity": 1,
     "prevStock": 8,
     "newStock": 7,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-462499",
@@ -8014,7 +15056,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-170991",
@@ -8027,7 +15069,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8041,7 +15083,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8056,7 +15098,7 @@ const INITIAL_KARDEX = [
     "newStock": 6,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-028528",
@@ -8069,7 +15111,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8083,7 +15125,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8097,7 +15139,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8111,7 +15153,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8125,7 +15167,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8139,7 +15181,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8153,7 +15195,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8167,7 +15209,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8181,7 +15223,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8195,7 +15237,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8209,7 +15251,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8223,7 +15265,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8237,7 +15279,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8251,7 +15293,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8266,7 +15308,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-426982",
@@ -8279,7 +15321,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8293,7 +15335,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8307,7 +15349,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8321,7 +15363,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8335,7 +15377,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8350,7 +15392,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-217407",
@@ -8363,7 +15405,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8377,7 +15419,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8391,7 +15433,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8405,7 +15447,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8419,7 +15461,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8433,7 +15475,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8447,7 +15489,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8462,7 +15504,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-881172",
@@ -8476,7 +15518,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-814542",
@@ -8489,7 +15531,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8503,7 +15545,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8518,7 +15560,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-705821",
@@ -8531,7 +15573,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Venta Punto Físico",
+    "reason": "Venta Punto Fsico",
     "notes": ""
   },
   {
@@ -8545,7 +15587,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8559,7 +15601,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8573,7 +15615,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8587,7 +15629,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -8601,7 +15643,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8615,7 +15657,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8629,7 +15671,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8637,13 +15679,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-04T21:50:02.765Z",
     "type": "ENTRADA",
     "productId": "LV-1293",
-    "productName": "Pestañina flash lash",
+    "productName": "Pestaina flash lash",
     "barcode": "7707559885418",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8651,13 +15693,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-04T21:50:02.525Z",
     "type": "ENTRADA",
     "productId": "LV-1293",
-    "productName": "Pestañina flash lash",
+    "productName": "Pestaina flash lash",
     "barcode": "7707559885418",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8671,7 +15713,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8685,7 +15727,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8699,7 +15741,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8713,7 +15755,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8728,7 +15770,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-574254",
@@ -8742,7 +15784,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-574242",
@@ -8756,7 +15798,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-574230",
@@ -8770,7 +15812,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-577143",
@@ -8783,7 +15825,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8797,7 +15839,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8811,7 +15853,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8825,7 +15867,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8839,7 +15881,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8853,7 +15895,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8867,7 +15909,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8881,7 +15923,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8895,7 +15937,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8909,7 +15951,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8923,7 +15965,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -8938,7 +15980,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-400129",
@@ -8952,7 +15994,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-367799",
@@ -8966,7 +16008,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-304627",
@@ -8980,7 +16022,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-275511",
@@ -8993,7 +16035,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -9008,7 +16050,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-235921",
@@ -9022,20 +16064,20 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-954632",
     "timestamp": "2026-11-04T21:15:54.632Z",
     "type": "ENTRADA",
     "productId": "LV-1317",
-    "productName": "Corrector pequeño tono 02",
+    "productName": "Corrector pequeo tono 02",
     "barcode": "770388117416",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9043,13 +16085,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-04T21:15:53.536Z",
     "type": "ENTRADA",
     "productId": "LV-1318",
-    "productName": "Corrector pequeño tono 03",
+    "productName": "Corrector pequeo tono 03",
     "barcode": "770359657356",
     "quantity": 1,
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9057,13 +16099,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-04T21:15:52.938Z",
     "type": "ENTRADA",
     "productId": "LV-1318",
-    "productName": "Corrector pequeño tono 03",
+    "productName": "Corrector pequeo tono 03",
     "barcode": "770359657356",
     "quantity": 1,
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9071,13 +16113,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-04T21:15:50.481Z",
     "type": "ENTRADA",
     "productId": "LV-1316",
-    "productName": "Corrector pequeño tono 01",
+    "productName": "Corrector pequeo tono 01",
     "barcode": "770703520378",
     "quantity": 1,
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9085,13 +16127,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-04T21:15:49.768Z",
     "type": "ENTRADA",
     "productId": "LV-1316",
-    "productName": "Corrector pequeño tono 01",
+    "productName": "Corrector pequeo tono 01",
     "barcode": "770703520378",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9099,13 +16141,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-04T21:15:49.067Z",
     "type": "ENTRADA",
     "productId": "LV-1316",
-    "productName": "Corrector pequeño tono 01",
+    "productName": "Corrector pequeo tono 01",
     "barcode": "770703520378",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9119,7 +16161,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -9133,7 +16175,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9147,7 +16189,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9161,7 +16203,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9175,7 +16217,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9189,7 +16231,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9203,7 +16245,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9217,7 +16259,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9231,7 +16273,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9245,7 +16287,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9259,7 +16301,7 @@ const INITIAL_KARDEX = [
     "prevStock": 6,
     "newStock": 7,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9273,7 +16315,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9287,7 +16329,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9301,7 +16343,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9315,7 +16357,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9329,7 +16371,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9343,7 +16385,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9357,7 +16399,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9371,7 +16413,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9386,7 +16428,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-328192",
@@ -9400,7 +16442,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-275581",
@@ -9414,7 +16456,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-230248",
@@ -9427,7 +16469,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -9442,7 +16484,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-153112",
@@ -9456,7 +16498,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-037544",
@@ -9469,7 +16511,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9483,7 +16525,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9497,7 +16539,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9511,7 +16553,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9525,7 +16567,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9539,7 +16581,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -9554,7 +16596,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-898516",
@@ -9568,7 +16610,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-705459",
@@ -9582,21 +16624,21 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-705449",
     "timestamp": "2026-11-04T20:55:05.449Z",
     "type": "SALIDA",
     "productId": "LV-1150",
-    "productName": "Fijador en aerosol pequeño",
+    "productName": "Fijador en aerosol pequeo",
     "barcode": "7120250620001",
     "quantity": 1,
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-295042",
@@ -9609,7 +16651,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9623,7 +16665,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9637,7 +16679,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9651,7 +16693,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9665,7 +16707,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9679,7 +16721,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9693,7 +16735,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9707,7 +16749,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9721,7 +16763,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9735,7 +16777,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9749,7 +16791,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9763,7 +16805,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9777,7 +16819,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9791,7 +16833,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9805,7 +16847,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9819,7 +16861,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9833,7 +16875,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9847,7 +16889,7 @@ const INITIAL_KARDEX = [
     "prevStock": 13,
     "newStock": 14,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9861,7 +16903,7 @@ const INITIAL_KARDEX = [
     "prevStock": 12,
     "newStock": 13,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9875,7 +16917,7 @@ const INITIAL_KARDEX = [
     "prevStock": 11,
     "newStock": 12,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9889,7 +16931,7 @@ const INITIAL_KARDEX = [
     "prevStock": 10,
     "newStock": 11,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9903,7 +16945,7 @@ const INITIAL_KARDEX = [
     "prevStock": 9,
     "newStock": 10,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9917,7 +16959,7 @@ const INITIAL_KARDEX = [
     "prevStock": 8,
     "newStock": 9,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9931,7 +16973,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9945,7 +16987,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9959,7 +17001,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9973,7 +17015,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -9988,7 +17030,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-065502",
@@ -10001,7 +17043,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10015,7 +17057,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10029,7 +17071,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10043,7 +17085,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10057,7 +17099,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10071,7 +17113,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10085,7 +17127,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10099,7 +17141,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10113,7 +17155,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10127,7 +17169,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10141,7 +17183,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10155,7 +17197,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10169,7 +17211,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10183,7 +17225,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10197,7 +17239,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10211,7 +17253,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10226,7 +17268,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-849684",
@@ -10239,7 +17281,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10253,7 +17295,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10267,7 +17309,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10281,7 +17323,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10295,7 +17337,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10309,7 +17351,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10323,7 +17365,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10337,7 +17379,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10351,7 +17393,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10365,7 +17407,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10379,7 +17421,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10393,7 +17435,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10407,7 +17449,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10421,7 +17463,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10435,7 +17477,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -10450,7 +17492,7 @@ const INITIAL_KARDEX = [
     "newStock": 21,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-729795",
@@ -10464,7 +17506,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-643821",
@@ -10478,7 +17520,7 @@ const INITIAL_KARDEX = [
     "newStock": 13,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-504945",
@@ -10492,7 +17534,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-334217",
@@ -10506,7 +17548,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-035965",
@@ -10520,7 +17562,7 @@ const INITIAL_KARDEX = [
     "newStock": 8,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-962800",
@@ -10534,7 +17576,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-839758",
@@ -10548,7 +17590,7 @@ const INITIAL_KARDEX = [
     "newStock": 8,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-184678",
@@ -10562,21 +17604,21 @@ const INITIAL_KARDEX = [
     "newStock": 6,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-118030",
     "timestamp": "2026-11-04T19:05:18.030Z",
     "type": "ENTRADA",
     "productId": "LV-1514",
-    "productName": "Lima para uñas",
+    "productName": "Lima para uas",
     "barcode": "286773848347",
     "quantity": 22,
     "prevStock": 0,
     "newStock": 22,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-797635",
@@ -10590,63 +17632,63 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-797630",
     "timestamp": "2026-11-04T18:59:57.630Z",
     "type": "SALIDA",
     "productId": "LV-1301",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430130",
     "quantity": 1,
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-797624",
     "timestamp": "2026-11-04T18:59:57.624Z",
     "type": "SALIDA",
     "productId": "LV-1297",
-    "productName": "Pestañina maxi volumen silicon",
+    "productName": "Pestaina maxi volumen silicon",
     "barcode": "7501734430147",
     "quantity": 1,
     "prevStock": 15,
     "newStock": 14,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-494267",
     "timestamp": "2026-11-04T18:54:54.267Z",
     "type": "SALIDA",
     "productId": "LV-1297",
-    "productName": "Pestañina maxi volumen silicon",
+    "productName": "Pestaina maxi volumen silicon",
     "barcode": "7501734430147",
     "quantity": 1,
     "prevStock": 16,
     "newStock": 15,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-494261",
     "timestamp": "2026-11-04T18:54:54.261Z",
     "type": "SALIDA",
     "productId": "LV-1398",
-    "productName": "Keratina x120ml pequeña",
+    "productName": "Keratina x120ml pequea",
     "barcode": "770770301200",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-005637",
@@ -10660,7 +17702,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-802951",
@@ -10674,7 +17716,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-579136",
@@ -10688,7 +17730,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-547399",
@@ -10702,7 +17744,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-510279",
@@ -10716,7 +17758,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-472318",
@@ -10730,7 +17772,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-434694",
@@ -10744,7 +17786,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-202350",
@@ -10758,21 +17800,21 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-003457",
     "timestamp": "2026-11-04T18:30:03.457Z",
     "type": "ENTRADA",
     "productId": "LV-1505",
-    "productName": "Pañitos makeup remover",
+    "productName": "Paitos makeup remover",
     "barcode": "793969699742",
     "quantity": 2,
     "prevStock": 0,
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-898779",
@@ -10786,35 +17828,35 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-851345",
     "timestamp": "2026-11-04T18:27:31.345Z",
     "type": "ENTRADA",
     "productId": "LV-1503",
-    "productName": "Lip gloss niñas dolly chic",
+    "productName": "Lip gloss nias dolly chic",
     "barcode": "7709399982579",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-776734",
     "timestamp": "2026-11-04T18:26:16.734Z",
     "type": "ENTRADA",
     "productId": "LV-1502",
-    "productName": "Pañitos bloom remover",
+    "productName": "Paitos bloom remover",
     "barcode": "6989711290266",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-565095",
@@ -10828,7 +17870,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-362533",
@@ -10842,7 +17884,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-362519",
@@ -10856,7 +17898,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-588508",
@@ -10870,21 +17912,21 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-905310",
     "timestamp": "2026-11-03T23:01:45.310Z",
     "type": "SALIDA",
     "productId": "LV-1297",
-    "productName": "Pestañina maxi volumen silicon",
+    "productName": "Pestaina maxi volumen silicon",
     "barcode": "7501734430147",
     "quantity": 1,
     "prevStock": 17,
     "newStock": 16,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-905304",
@@ -10898,7 +17940,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-905298",
@@ -10912,7 +17954,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-167991",
@@ -10926,7 +17968,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-167982",
@@ -10940,7 +17982,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-749082",
@@ -10954,21 +17996,21 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-749075",
     "timestamp": "2026-11-03T22:09:09.075Z",
     "type": "SALIDA",
     "productId": "LV-1297",
-    "productName": "Pestañina maxi volumen silicon",
+    "productName": "Pestaina maxi volumen silicon",
     "barcode": "7501734430147",
     "quantity": 1,
     "prevStock": 18,
     "newStock": 17,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-749067",
@@ -10982,7 +18024,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-749061",
@@ -10996,7 +18038,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-749055",
@@ -11010,7 +18052,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-749047",
@@ -11024,7 +18066,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-749037",
@@ -11038,21 +18080,21 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-601010",
     "timestamp": "2026-11-03T18:30:01.010Z",
     "type": "SALIDA",
     "productId": "LV-1316",
-    "productName": "Corrector pequeño tono 01",
+    "productName": "Corrector pequeo tono 01",
     "barcode": "770703520378",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-601000",
@@ -11066,7 +18108,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-600990",
@@ -11080,7 +18122,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-523579",
@@ -11094,7 +18136,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-523573",
@@ -11108,7 +18150,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-523563",
@@ -11122,7 +18164,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-523557",
@@ -11136,7 +18178,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-247663",
@@ -11150,7 +18192,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-593799",
@@ -11163,7 +18205,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -11177,7 +18219,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -11191,7 +18233,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -11206,7 +18248,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-323824",
@@ -11220,7 +18262,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-105970",
@@ -11234,7 +18276,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-028506",
@@ -11248,7 +18290,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-390027",
@@ -11262,7 +18304,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-226408",
@@ -11276,7 +18318,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-139078",
@@ -11290,7 +18332,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-863850",
@@ -11304,7 +18346,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-769002",
@@ -11318,7 +18360,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-579570",
@@ -11332,7 +18374,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-535133",
@@ -11346,7 +18388,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-431379",
@@ -11360,7 +18402,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-791963",
@@ -11374,7 +18416,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-775255",
@@ -11388,7 +18430,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-739089",
@@ -11402,7 +18444,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-578632",
@@ -11416,7 +18458,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-515231",
@@ -11430,7 +18472,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-232618",
@@ -11444,7 +18486,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-158306",
@@ -11458,21 +18500,21 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-158299",
     "timestamp": "2026-11-02T23:29:18.299Z",
     "type": "SALIDA",
     "productId": "LV-1301",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430130",
     "quantity": 1,
     "prevStock": 6,
     "newStock": 5,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-094539",
@@ -11485,7 +18527,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -11500,7 +18542,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-918468",
@@ -11514,7 +18556,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-855937",
@@ -11528,7 +18570,7 @@ const INITIAL_KARDEX = [
     "newStock": 7,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-689688",
@@ -11542,7 +18584,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-617381",
@@ -11556,7 +18598,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-521863",
@@ -11570,7 +18612,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-166732",
@@ -11584,20 +18626,20 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-076130",
     "timestamp": "2026-11-02T22:54:36.130Z",
     "type": "ENTRADA",
     "productId": "LV-1211",
-    "productName": "Pegante negro de pestañas",
+    "productName": "Pegante negro de pestaas",
     "barcode": "770168839890",
     "quantity": 1,
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -11605,13 +18647,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-02T22:54:35.907Z",
     "type": "ENTRADA",
     "productId": "LV-1211",
-    "productName": "Pegante negro de pestañas",
+    "productName": "Pegante negro de pestaas",
     "barcode": "770168839890",
     "quantity": 1,
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -11626,7 +18668,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-581328",
@@ -11640,7 +18682,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-576239",
@@ -11653,7 +18695,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -11668,7 +18710,7 @@ const INITIAL_KARDEX = [
     "newStock": 12,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-508043",
@@ -11682,21 +18724,21 @@ const INITIAL_KARDEX = [
     "newStock": 11,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-346099",
     "timestamp": "2026-11-02T22:25:46.099Z",
     "type": "ENTRADA",
     "productId": "LV-1474",
-    "productName": "Beauty blender pequeña con cortes",
+    "productName": "Beauty blender pequea con cortes",
     "barcode": "6972547656184",
     "quantity": 11,
     "prevStock": 0,
     "newStock": 11,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-237748",
@@ -11710,7 +18752,7 @@ const INITIAL_KARDEX = [
     "newStock": 12,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-108591",
@@ -11724,7 +18766,7 @@ const INITIAL_KARDEX = [
     "newStock": 11,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-964331",
@@ -11738,7 +18780,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-910683",
@@ -11752,7 +18794,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-784304",
@@ -11766,7 +18808,7 @@ const INITIAL_KARDEX = [
     "newStock": 12,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-301323",
@@ -11780,7 +18822,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-635414",
@@ -11794,7 +18836,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-554704",
@@ -11808,7 +18850,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-505571",
@@ -11822,7 +18864,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-445029",
@@ -11836,7 +18878,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-359019",
@@ -11850,7 +18892,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-222629",
@@ -11864,7 +18906,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-150698",
@@ -11878,7 +18920,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-072071",
@@ -11892,7 +18934,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-005183",
@@ -11906,7 +18948,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-924035",
@@ -11920,7 +18962,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-783809",
@@ -11933,7 +18975,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -11947,7 +18989,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -11961,7 +19003,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -11975,7 +19017,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -11989,7 +19031,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -12004,7 +19046,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-674320",
@@ -12018,7 +19060,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-734762",
@@ -12031,7 +19073,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -12045,7 +19087,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -12053,14 +19095,14 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-02T20:59:08.962Z",
     "type": "SALIDA",
     "productId": "LV-1292",
-    "productName": "Pestañina Eternal lash",
+    "productName": "Pestaina Eternal lash",
     "barcode": "7707559889874",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-937774",
@@ -12074,7 +19116,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-749878",
@@ -12088,7 +19130,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-507892",
@@ -12102,7 +19144,7 @@ const INITIAL_KARDEX = [
     "newStock": 48,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-324697",
@@ -12115,7 +19157,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -12129,7 +19171,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -12144,7 +19186,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-294121",
@@ -12158,7 +19200,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-294115",
@@ -12172,7 +19214,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-294106",
@@ -12186,7 +19228,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-294101",
@@ -12200,7 +19242,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-294090",
@@ -12214,7 +19256,7 @@ const INITIAL_KARDEX = [
     "newStock": 7,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-294083",
@@ -12228,7 +19270,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-294071",
@@ -12242,7 +19284,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-549982",
@@ -12256,7 +19298,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-770427",
@@ -12269,7 +19311,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -12283,7 +19325,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -12298,7 +19340,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-585609",
@@ -12312,7 +19354,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-546711",
@@ -12326,7 +19368,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-490656",
@@ -12340,7 +19382,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-490653",
@@ -12354,21 +19396,21 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-490648",
     "timestamp": "2026-11-02T19:41:30.648Z",
     "type": "SALIDA",
     "productId": "LV-1301",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430130",
     "quantity": 1,
     "prevStock": 7,
     "newStock": 6,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-490644",
@@ -12382,7 +19424,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-490638",
@@ -12396,7 +19438,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-584579",
@@ -12410,7 +19452,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-297492",
@@ -12424,7 +19466,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-235319",
@@ -12438,7 +19480,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-081549",
@@ -12452,7 +19494,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-117284",
@@ -12466,7 +19508,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-009014",
@@ -12480,7 +19522,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-961426",
@@ -12494,7 +19536,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-890412",
@@ -12508,7 +19550,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-743892",
@@ -12522,7 +19564,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-681520",
@@ -12536,7 +19578,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-621191",
@@ -12550,7 +19592,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-548981",
@@ -12564,7 +19606,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-361258",
@@ -12578,7 +19620,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-204800",
@@ -12592,7 +19634,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-152924",
@@ -12606,7 +19648,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-903724",
@@ -12620,7 +19662,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-890680",
@@ -12634,35 +19676,35 @@ const INITIAL_KARDEX = [
     "newStock": 6,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-890673",
     "timestamp": "2026-11-02T18:41:30.673Z",
     "type": "SALIDA",
     "productId": "LV-1298",
-    "productName": "Pestañina microfibra",
+    "productName": "Pestaina microfibra",
     "barcode": "7501734430352",
     "quantity": 1,
     "prevStock": 15,
     "newStock": 14,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-890664",
     "timestamp": "2026-11-02T18:41:30.664Z",
     "type": "SALIDA",
     "productId": "LV-1301",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430130",
     "quantity": 1,
     "prevStock": 8,
     "newStock": 7,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-890658",
@@ -12676,7 +19718,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-815004",
@@ -12690,7 +19732,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-768784",
@@ -12704,7 +19746,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-743659",
@@ -12718,7 +19760,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-743652",
@@ -12732,7 +19774,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-743637",
@@ -12746,7 +19788,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-454504",
@@ -12760,7 +19802,7 @@ const INITIAL_KARDEX = [
     "newStock": 7,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-454498",
@@ -12774,21 +19816,21 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-454490",
     "timestamp": "2026-11-02T00:47:34.490Z",
     "type": "SALIDA",
     "productId": "LV-1290",
-    "productName": "Pestañina self love",
+    "productName": "Pestaina self love",
     "barcode": "7708133635382",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-454482",
@@ -12802,7 +19844,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-235787",
@@ -12816,7 +19858,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-200567",
@@ -12830,7 +19872,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-164778",
@@ -12844,7 +19886,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-790981",
@@ -12858,7 +19900,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-593349",
@@ -12872,7 +19914,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-043059",
@@ -12885,7 +19927,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -12899,7 +19941,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -12914,7 +19956,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-837880",
@@ -12928,7 +19970,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-543184",
@@ -12942,7 +19984,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-084550",
@@ -12955,7 +19997,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -12969,7 +20011,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -12984,7 +20026,7 @@ const INITIAL_KARDEX = [
     "newStock": 8,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-525272",
@@ -12998,7 +20040,7 @@ const INITIAL_KARDEX = [
     "newStock": 8,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-415834",
@@ -13012,7 +20054,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-415825",
@@ -13026,7 +20068,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-415820",
@@ -13040,21 +20082,21 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-415810",
     "timestamp": "2026-11-01T23:56:55.810Z",
     "type": "SALIDA",
     "productId": "LV-1150",
-    "productName": "Fijador en aerosol pequeño",
+    "productName": "Fijador en aerosol pequeo",
     "barcode": "7120250620001",
     "quantity": 1,
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-870826",
@@ -13068,21 +20110,21 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-672806",
     "timestamp": "2026-11-01T22:54:32.806Z",
     "type": "ENTRADA",
     "productId": "LV-1425",
-    "productName": "Lip serum tiramisú",
+    "productName": "Lip serum tiramis",
     "barcode": "677144890400",
     "quantity": 5,
     "prevStock": 0,
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-566972",
@@ -13096,7 +20138,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-380032",
@@ -13110,7 +20152,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-210097",
@@ -13124,7 +20166,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-156717",
@@ -13138,7 +20180,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-085600",
@@ -13152,7 +20194,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-025699",
@@ -13166,7 +20208,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-975910",
@@ -13180,7 +20222,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-439072",
@@ -13194,7 +20236,7 @@ const INITIAL_KARDEX = [
     "newStock": 7,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-291927",
@@ -13208,7 +20250,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-249768",
@@ -13222,7 +20264,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-210738",
@@ -13236,7 +20278,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-172910",
@@ -13250,7 +20292,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-056910",
@@ -13264,7 +20306,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-000151",
@@ -13278,7 +20320,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-965662",
@@ -13292,7 +20334,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-728624",
@@ -13306,7 +20348,7 @@ const INITIAL_KARDEX = [
     "newStock": 8,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-668278",
@@ -13320,7 +20362,7 @@ const INITIAL_KARDEX = [
     "newStock": 6,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-439942",
@@ -13334,7 +20376,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-386483",
@@ -13348,7 +20390,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-330707",
@@ -13362,7 +20404,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-228138",
@@ -13376,7 +20418,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-183084",
@@ -13390,7 +20432,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-529547",
@@ -13404,21 +20446,21 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-499545",
     "timestamp": "2026-11-01T21:44:59.545Z",
     "type": "SALIDA",
     "productId": "LV-1299",
-    "productName": "Pestañina maxi volumen",
+    "productName": "Pestaina maxi volumen",
     "barcode": "7501734430338",
     "quantity": 1,
     "prevStock": 8,
     "newStock": 7,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-499537",
@@ -13432,21 +20474,21 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-499531",
     "timestamp": "2026-11-01T21:44:59.531Z",
     "type": "SALIDA",
     "productId": "LV-1100",
-    "productName": "Exfoliante Piña colada",
+    "productName": "Exfoliante Pia colada",
     "barcode": "677144266496",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-114843",
@@ -13460,7 +20502,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-114807",
@@ -13474,7 +20516,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-072562",
@@ -13488,7 +20530,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-551332",
@@ -13502,7 +20544,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-479171",
@@ -13516,7 +20558,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-398715",
@@ -13530,7 +20572,7 @@ const INITIAL_KARDEX = [
     "newStock": 12,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-357641",
@@ -13544,21 +20586,21 @@ const INITIAL_KARDEX = [
     "newStock": 12,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-158958",
     "timestamp": "2026-11-01T01:55:58.958Z",
     "type": "ENTRADA",
     "productId": "LV-1398",
-    "productName": "Keratina x120ml pequeña",
+    "productName": "Keratina x120ml pequea",
     "barcode": "770770301200",
     "quantity": 2,
     "prevStock": 0,
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-076187",
@@ -13571,7 +20613,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13586,7 +20628,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-951219",
@@ -13600,7 +20642,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-920442",
@@ -13614,7 +20656,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-748725",
@@ -13627,7 +20669,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13641,7 +20683,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13655,7 +20697,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13669,7 +20711,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13683,7 +20725,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13697,7 +20739,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13712,20 +20754,20 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-606342",
     "timestamp": "2026-11-01T01:46:46.342Z",
     "type": "ENTRADA",
     "productId": "LV-1301",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430130",
     "quantity": 1,
     "prevStock": 7,
     "newStock": 8,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13733,13 +20775,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-01T01:46:42.046Z",
     "type": "ENTRADA",
     "productId": "LV-1301",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430130",
     "quantity": 1,
     "prevStock": 6,
     "newStock": 7,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13747,13 +20789,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-01T01:46:41.867Z",
     "type": "ENTRADA",
     "productId": "LV-1301",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430130",
     "quantity": 1,
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13767,7 +20809,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13781,7 +20823,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13796,7 +20838,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-369911",
@@ -13810,7 +20852,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-326655",
@@ -13824,7 +20866,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-154687",
@@ -13838,7 +20880,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-110096",
@@ -13851,7 +20893,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13859,13 +20901,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-11-01T01:38:29.152Z",
     "type": "ENTRADA",
     "productId": "LV-1059",
-    "productName": "Splash dorado pequeño",
+    "productName": "Splash dorado pequeo",
     "barcode": "7709507915567",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13879,7 +20921,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13893,7 +20935,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13907,7 +20949,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13921,7 +20963,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13935,7 +20977,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13949,7 +20991,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -13964,7 +21006,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-198946",
@@ -13978,7 +21020,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-180598",
@@ -13992,7 +21034,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-885101",
@@ -14006,7 +21048,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-885091",
@@ -14020,7 +21062,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-839920",
@@ -14034,7 +21076,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-023463",
@@ -14048,7 +21090,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-023459",
@@ -14062,7 +21104,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-023455",
@@ -14076,7 +21118,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-023450",
@@ -14090,21 +21132,21 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-387385",
     "timestamp": "2026-10-31T21:16:27.385Z",
     "type": "SALIDA",
     "productId": "LV-1319",
-    "productName": "Corrector pequeño tono 04",
+    "productName": "Corrector pequeo tono 04",
     "barcode": "770879283532",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-387380",
@@ -14118,7 +21160,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-763722",
@@ -14131,7 +21173,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14145,7 +21187,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14159,7 +21201,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14173,7 +21215,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14187,7 +21229,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14201,7 +21243,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14215,7 +21257,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14229,7 +21271,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14243,7 +21285,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14257,7 +21299,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14271,7 +21313,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14285,7 +21327,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14299,7 +21341,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14313,7 +21355,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14327,7 +21369,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14341,7 +21383,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14355,7 +21397,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14370,7 +21412,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-425035",
@@ -14383,7 +21425,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14397,7 +21439,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14411,7 +21453,7 @@ const INITIAL_KARDEX = [
     "prevStock": 8,
     "newStock": 9,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14425,7 +21467,7 @@ const INITIAL_KARDEX = [
     "prevStock": 7,
     "newStock": 8,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14439,7 +21481,7 @@ const INITIAL_KARDEX = [
     "prevStock": 6,
     "newStock": 7,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14453,7 +21495,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14467,7 +21509,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14481,7 +21523,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14495,7 +21537,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14509,7 +21551,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14524,7 +21566,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-141747",
@@ -14538,7 +21580,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-042746",
@@ -14551,7 +21593,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14565,7 +21607,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14579,7 +21621,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14593,7 +21635,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14601,13 +21643,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T20:52:20.107Z",
     "type": "ENTRADA",
     "productId": "LV-1318",
-    "productName": "Corrector pequeño tono 03",
+    "productName": "Corrector pequeo tono 03",
     "barcode": "770359657356",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14615,13 +21657,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T20:52:19.852Z",
     "type": "ENTRADA",
     "productId": "LV-1318",
-    "productName": "Corrector pequeño tono 03",
+    "productName": "Corrector pequeo tono 03",
     "barcode": "770359657356",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14629,13 +21671,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T20:52:13.544Z",
     "type": "ENTRADA",
     "productId": "LV-1316",
-    "productName": "Corrector pequeño tono 01",
+    "productName": "Corrector pequeo tono 01",
     "barcode": "770703520378",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14643,13 +21685,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T20:52:10.776Z",
     "type": "ENTRADA",
     "productId": "LV-1315",
-    "productName": "Corrector pequeño tono 00",
+    "productName": "Corrector pequeo tono 00",
     "barcode": "770814264638",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14663,7 +21705,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14677,7 +21719,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14691,7 +21733,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14705,7 +21747,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14719,7 +21761,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14733,7 +21775,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14747,7 +21789,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14762,7 +21804,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-713104",
@@ -14776,7 +21818,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-684861",
@@ -14790,7 +21832,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-658414",
@@ -14804,7 +21846,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-630214",
@@ -14818,7 +21860,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-571217",
@@ -14832,7 +21874,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-544320",
@@ -14846,7 +21888,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-449980",
@@ -14860,7 +21902,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-393968",
@@ -14873,7 +21915,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14887,7 +21929,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -14902,7 +21944,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-150807",
@@ -14916,7 +21958,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-106691",
@@ -14930,7 +21972,7 @@ const INITIAL_KARDEX = [
     "newStock": 8,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-066676",
@@ -14943,7 +21985,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14957,7 +21999,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14971,7 +22013,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -14986,7 +22028,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-945750",
@@ -15000,7 +22042,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-875528",
@@ -15014,7 +22056,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-832001",
@@ -15027,7 +22069,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -15042,7 +22084,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-714059",
@@ -15056,7 +22098,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-678213",
@@ -15070,7 +22112,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-648376",
@@ -15084,7 +22126,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-546486",
@@ -15098,7 +22140,7 @@ const INITIAL_KARDEX = [
     "newStock": 8,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-053990",
@@ -15112,7 +22154,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-002558",
@@ -15126,7 +22168,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-939134",
@@ -15140,7 +22182,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-835999",
@@ -15153,7 +22195,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -15168,7 +22210,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-493812",
@@ -15181,7 +22223,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -15195,7 +22237,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -15210,7 +22252,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-402024",
@@ -15224,7 +22266,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-300785",
@@ -15238,7 +22280,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-265144",
@@ -15252,7 +22294,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-222983",
@@ -15266,7 +22308,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-169002",
@@ -15280,7 +22322,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-616568",
@@ -15294,7 +22336,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-826983",
@@ -15308,7 +22350,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-248835",
@@ -15322,7 +22364,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-031101",
@@ -15336,7 +22378,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-995289",
@@ -15350,7 +22392,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-970072",
@@ -15364,7 +22406,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-918304",
@@ -15378,7 +22420,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-872971",
@@ -15392,7 +22434,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-789323",
@@ -15406,7 +22448,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-729387",
@@ -15420,7 +22462,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-664598",
@@ -15434,7 +22476,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-399791",
@@ -15448,7 +22490,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-655483",
@@ -15462,7 +22504,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-617704",
@@ -15476,7 +22518,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-562958",
@@ -15490,7 +22532,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-514796",
@@ -15504,7 +22546,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-334698",
@@ -15518,7 +22560,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-251563",
@@ -15532,21 +22574,21 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-121339",
     "timestamp": "2026-10-31T18:58:41.339Z",
     "type": "SALIDA",
     "productId": "LV-1248",
-    "productName": "Pegante de pestañas transparente",
+    "productName": "Pegante de pestaas transparente",
     "barcode": "7707375605283",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-090118",
@@ -15560,7 +22602,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-953319",
@@ -15574,7 +22616,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-895041",
@@ -15588,7 +22630,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-644230",
@@ -15602,7 +22644,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-599075",
@@ -15616,7 +22658,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-447707",
@@ -15630,7 +22672,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-415288",
@@ -15644,7 +22686,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-371355",
@@ -15658,7 +22700,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-125727",
@@ -15672,7 +22714,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-832411",
@@ -15686,7 +22728,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-764788",
@@ -15700,7 +22742,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-661681",
@@ -15714,7 +22756,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-611177",
@@ -15728,7 +22770,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-425854",
@@ -15742,7 +22784,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-363300",
@@ -15756,7 +22798,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-323573",
@@ -15770,7 +22812,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-213973",
@@ -15784,7 +22826,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-183479",
@@ -15798,7 +22840,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-137839",
@@ -15812,7 +22854,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-989319",
@@ -15826,7 +22868,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-970409",
@@ -15840,7 +22882,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-924235",
@@ -15854,7 +22896,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-896503",
@@ -15867,7 +22909,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -15882,7 +22924,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-865250",
@@ -15896,77 +22938,77 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-547309",
     "timestamp": "2026-10-31T18:15:47.309Z",
     "type": "ENTRADA",
     "productId": "LV-1319",
-    "productName": "Corrector pequeño tono 04",
+    "productName": "Corrector pequeo tono 04",
     "barcode": "770879283532",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-527614",
     "timestamp": "2026-10-31T18:15:27.614Z",
     "type": "ENTRADA",
     "productId": "LV-1318",
-    "productName": "Corrector pequeño tono 03",
+    "productName": "Corrector pequeo tono 03",
     "barcode": "770359657356",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-489787",
     "timestamp": "2026-10-31T18:14:49.787Z",
     "type": "ENTRADA",
     "productId": "LV-1317",
-    "productName": "Corrector pequeño tono 01",
+    "productName": "Corrector pequeo tono 01",
     "barcode": "770388117416",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-469200",
     "timestamp": "2026-10-31T18:14:29.200Z",
     "type": "ENTRADA",
     "productId": "LV-1316",
-    "productName": "Corrector pequeño tono 01",
+    "productName": "Corrector pequeo tono 01",
     "barcode": "770703520378",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-427945",
     "timestamp": "2026-10-31T18:13:47.945Z",
     "type": "ENTRADA",
     "productId": "LV-1315",
-    "productName": "Corrector pequeño tono 00",
+    "productName": "Corrector pequeo tono 00",
     "barcode": "770814264638",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-993481",
@@ -15980,7 +23022,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-959298",
@@ -15994,7 +23036,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-885268",
@@ -16008,7 +23050,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-747819",
@@ -16022,7 +23064,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-544434",
@@ -16036,7 +23078,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-475243",
@@ -16050,7 +23092,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-423622",
@@ -16064,7 +23106,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-314775",
@@ -16078,7 +23120,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-266897",
@@ -16092,7 +23134,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-974537",
@@ -16106,7 +23148,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-878160",
@@ -16120,7 +23162,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-822694",
@@ -16134,7 +23176,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-831656",
@@ -16148,21 +23190,21 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-605233",
     "timestamp": "2026-10-31T16:20:05.233Z",
     "type": "SALIDA",
     "productId": "LV-1150",
-    "productName": "Fijador en aerosol pequeño",
+    "productName": "Fijador en aerosol pequeo",
     "barcode": "7120250620001",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-592117",
@@ -16176,21 +23218,21 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-592113",
     "timestamp": "2026-10-31T16:19:52.113Z",
     "type": "SALIDA",
     "productId": "LV-1150",
-    "productName": "Fijador en aerosol pequeño",
+    "productName": "Fijador en aerosol pequeo",
     "barcode": "7120250620001",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-513536",
@@ -16204,34 +23246,34 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-370413",
     "timestamp": "2026-10-31T15:59:30.413Z",
     "type": "SALIDA",
     "productId": "LV-1298",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430352",
     "quantity": 1,
     "prevStock": 3,
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-448584",
     "timestamp": "2026-10-31T01:17:28.584Z",
     "type": "SALIDA",
     "productId": "LV-1300",
-    "productName": "Pestañina maxi volumen borgoña",
+    "productName": "Pestaina maxi volumen borgoa",
     "barcode": "7501734430567",
     "quantity": 1,
     "prevStock": 6,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -16239,13 +23281,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:25.397Z",
     "type": "ENTRADA",
     "productId": "LV-1300",
-    "productName": "Pestañina maxi volumen borgoña",
+    "productName": "Pestaina maxi volumen borgoa",
     "barcode": "7501734430567",
     "quantity": 1,
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16253,13 +23295,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:24.540Z",
     "type": "ENTRADA",
     "productId": "LV-1300",
-    "productName": "Pestañina maxi volumen borgoña",
+    "productName": "Pestaina maxi volumen borgoa",
     "barcode": "7501734430567",
     "quantity": 1,
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16267,13 +23309,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:23.692Z",
     "type": "ENTRADA",
     "productId": "LV-1300",
-    "productName": "Pestañina maxi volumen borgoña",
+    "productName": "Pestaina maxi volumen borgoa",
     "barcode": "7501734430567",
     "quantity": 1,
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16281,13 +23323,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:22.819Z",
     "type": "ENTRADA",
     "productId": "LV-1300",
-    "productName": "Pestañina maxi volumen borgoña",
+    "productName": "Pestaina maxi volumen borgoa",
     "barcode": "7501734430567",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16295,13 +23337,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:21.969Z",
     "type": "ENTRADA",
     "productId": "LV-1300",
-    "productName": "Pestañina maxi volumen borgoña",
+    "productName": "Pestaina maxi volumen borgoa",
     "barcode": "7501734430567",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16309,13 +23351,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:09.790Z",
     "type": "ENTRADA",
     "productId": "LV-1299",
-    "productName": "Pestañina maxi volumen",
+    "productName": "Pestaina maxi volumen",
     "barcode": "7501734430338",
     "quantity": 1,
     "prevStock": 7,
     "newStock": 8,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16323,13 +23365,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:08.975Z",
     "type": "ENTRADA",
     "productId": "LV-1299",
-    "productName": "Pestañina maxi volumen",
+    "productName": "Pestaina maxi volumen",
     "barcode": "7501734430338",
     "quantity": 1,
     "prevStock": 6,
     "newStock": 7,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16337,13 +23379,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:08.227Z",
     "type": "ENTRADA",
     "productId": "LV-1299",
-    "productName": "Pestañina maxi volumen",
+    "productName": "Pestaina maxi volumen",
     "barcode": "7501734430338",
     "quantity": 1,
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16351,13 +23393,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:07.427Z",
     "type": "ENTRADA",
     "productId": "LV-1299",
-    "productName": "Pestañina maxi volumen",
+    "productName": "Pestaina maxi volumen",
     "barcode": "7501734430338",
     "quantity": 1,
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16365,13 +23407,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:06.687Z",
     "type": "ENTRADA",
     "productId": "LV-1299",
-    "productName": "Pestañina maxi volumen",
+    "productName": "Pestaina maxi volumen",
     "barcode": "7501734430338",
     "quantity": 1,
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16379,13 +23421,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:05.840Z",
     "type": "ENTRADA",
     "productId": "LV-1299",
-    "productName": "Pestañina maxi volumen",
+    "productName": "Pestaina maxi volumen",
     "barcode": "7501734430338",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16393,13 +23435,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:17:04.996Z",
     "type": "ENTRADA",
     "productId": "LV-1299",
-    "productName": "Pestañina maxi volumen",
+    "productName": "Pestaina maxi volumen",
     "barcode": "7501734430338",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16407,13 +23449,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:58.920Z",
     "type": "ENTRADA",
     "productId": "LV-1298",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430352",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16421,13 +23463,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:58.138Z",
     "type": "ENTRADA",
     "productId": "LV-1298",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430352",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16435,13 +23477,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:46.555Z",
     "type": "ENTRADA",
     "productId": "LV-1297",
-    "productName": "Pestañina maxi volumen silicon",
+    "productName": "Pestaina maxi volumen silicon",
     "barcode": "7501734430147",
     "quantity": 1,
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16449,13 +23491,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:45.680Z",
     "type": "ENTRADA",
     "productId": "LV-1297",
-    "productName": "Pestañina maxi volumen silicon",
+    "productName": "Pestaina maxi volumen silicon",
     "barcode": "7501734430147",
     "quantity": 1,
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16463,13 +23505,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:44.885Z",
     "type": "ENTRADA",
     "productId": "LV-1297",
-    "productName": "Pestañina maxi volumen silicon",
+    "productName": "Pestaina maxi volumen silicon",
     "barcode": "7501734430147",
     "quantity": 1,
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16477,13 +23519,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:44.146Z",
     "type": "ENTRADA",
     "productId": "LV-1297",
-    "productName": "Pestañina maxi volumen silicon",
+    "productName": "Pestaina maxi volumen silicon",
     "barcode": "7501734430147",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16491,13 +23533,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:43.360Z",
     "type": "ENTRADA",
     "productId": "LV-1297",
-    "productName": "Pestañina maxi volumen silicon",
+    "productName": "Pestaina maxi volumen silicon",
     "barcode": "7501734430147",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16505,13 +23547,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:36.005Z",
     "type": "ENTRADA",
     "productId": "LV-1296",
-    "productName": "Pestañina profesional silicon cafe",
+    "productName": "Pestaina profesional silicon cafe",
     "barcode": "7501734430116",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16519,13 +23561,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:35.226Z",
     "type": "ENTRADA",
     "productId": "LV-1296",
-    "productName": "Pestañina profesional silicon cafe",
+    "productName": "Pestaina profesional silicon cafe",
     "barcode": "7501734430116",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16533,13 +23575,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:27.416Z",
     "type": "ENTRADA",
     "productId": "LV-1295",
-    "productName": "Pestañina profesional",
+    "productName": "Pestaina profesional",
     "barcode": "7501734430789",
     "quantity": 1,
     "prevStock": 8,
     "newStock": 9,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16547,13 +23589,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:26.420Z",
     "type": "ENTRADA",
     "productId": "LV-1295",
-    "productName": "Pestañina profesional",
+    "productName": "Pestaina profesional",
     "barcode": "7501734430789",
     "quantity": 1,
     "prevStock": 7,
     "newStock": 8,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16561,13 +23603,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:22.913Z",
     "type": "ENTRADA",
     "productId": "LV-1295",
-    "productName": "Pestañina profesional",
+    "productName": "Pestaina profesional",
     "barcode": "7501734430789",
     "quantity": 1,
     "prevStock": 6,
     "newStock": 7,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16575,13 +23617,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:22.086Z",
     "type": "ENTRADA",
     "productId": "LV-1295",
-    "productName": "Pestañina profesional",
+    "productName": "Pestaina profesional",
     "barcode": "7501734430789",
     "quantity": 1,
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16589,13 +23631,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:17.458Z",
     "type": "ENTRADA",
     "productId": "LV-1295",
-    "productName": "Pestañina profesional",
+    "productName": "Pestaina profesional",
     "barcode": "7501734430789",
     "quantity": 1,
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16603,13 +23645,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:16.516Z",
     "type": "ENTRADA",
     "productId": "LV-1295",
-    "productName": "Pestañina profesional",
+    "productName": "Pestaina profesional",
     "barcode": "7501734430789",
     "quantity": 1,
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16617,13 +23659,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:12.078Z",
     "type": "ENTRADA",
     "productId": "LV-1295",
-    "productName": "Pestañina profesional",
+    "productName": "Pestaina profesional",
     "barcode": "7501734430789",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16631,13 +23673,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:16:11.300Z",
     "type": "ENTRADA",
     "productId": "LV-1295",
-    "productName": "Pestañina profesional",
+    "productName": "Pestaina profesional",
     "barcode": "7501734430789",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -16645,168 +23687,168 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-31T01:13:50.909Z",
     "type": "ENTRADA",
     "productId": "LV-1301",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430130",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-197022",
     "timestamp": "2026-10-31T01:13:17.022Z",
     "type": "ENTRADA",
     "productId": "LV-1300",
-    "productName": "Pestañina maxi volumen borgoña",
+    "productName": "Pestaina maxi volumen borgoa",
     "barcode": "7501734430567",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-162706",
     "timestamp": "2026-10-31T01:12:42.706Z",
     "type": "ENTRADA",
     "productId": "LV-1299",
-    "productName": "Pestañina maci volumen",
+    "productName": "Pestaina maci volumen",
     "barcode": "7501734430338",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-131895",
     "timestamp": "2026-10-31T01:12:11.895Z",
     "type": "ENTRADA",
     "productId": "LV-1298",
-    "productName": "Pestañina profesional silicon",
+    "productName": "Pestaina profesional silicon",
     "barcode": "7501734430352",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-104119",
     "timestamp": "2026-10-31T01:11:44.119Z",
     "type": "ENTRADA",
     "productId": "LV-1297",
-    "productName": "Pestañina maxi volumen silicon",
+    "productName": "Pestaina maxi volumen silicon",
     "barcode": "7501734430147",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-069901",
     "timestamp": "2026-10-31T01:11:09.901Z",
     "type": "ENTRADA",
     "productId": "LV-1296",
-    "productName": "Pestañina profesional silicon cafe",
+    "productName": "Pestaina profesional silicon cafe",
     "barcode": "7501734430116",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-038569",
     "timestamp": "2026-10-31T01:10:38.569Z",
     "type": "ENTRADA",
     "productId": "LV-1295",
-    "productName": "Pestañina profesional",
+    "productName": "Pestaina profesional",
     "barcode": "7501734430789",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-992129",
     "timestamp": "2026-10-31T01:09:52.129Z",
     "type": "ENTRADA",
     "productId": "LV-1294",
-    "productName": "Pestañina super look",
+    "productName": "Pestaina super look",
     "barcode": "7709094542115",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-938380",
     "timestamp": "2026-10-31T01:08:58.380Z",
     "type": "ENTRADA",
     "productId": "LV-1293",
-    "productName": "Pestañina flash lash",
+    "productName": "Pestaina flash lash",
     "barcode": "7707559885418",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-903055",
     "timestamp": "2026-10-31T01:08:23.055Z",
     "type": "ENTRADA",
     "productId": "LV-1292",
-    "productName": "Pestañina Eternal lash",
+    "productName": "Pestaina Eternal lash",
     "barcode": "7707559889874",
     "quantity": 2,
     "prevStock": 0,
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-838560",
     "timestamp": "2026-10-31T01:07:18.560Z",
     "type": "ENTRADA",
     "productId": "LV-1291",
-    "productName": "Pestañina brow paradise",
+    "productName": "Pestaina brow paradise",
     "barcode": "7707559886408",
     "quantity": 5,
     "prevStock": 0,
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-777619",
     "timestamp": "2026-10-31T01:06:17.619Z",
     "type": "ENTRADA",
     "productId": "LV-1290",
-    "productName": "Pestañina self love",
+    "productName": "Pestaina self love",
     "barcode": "7708133635382",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-505152",
@@ -16820,7 +23862,7 @@ const INITIAL_KARDEX = [
     "newStock": 6,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-455967",
@@ -16834,7 +23876,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-397264",
@@ -16848,49 +23890,49 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-833210",
     "timestamp": "2026-10-31T00:33:53.210Z",
     "type": "SALIDA",
     "productId": "LV-1210",
-    "productName": "Libro de 360 pestañas 10d",
+    "productName": "Libro de 360 pestaas 10d",
     "barcode": "226322916332",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo Ref: 1234 | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo Ref: 1234 | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-708757",
     "timestamp": "2026-10-31T00:31:48.757Z",
     "type": "SALIDA",
     "productId": "LV-1211",
-    "productName": "Pegante negro de pestañas",
+    "productName": "Pegante negro de pestaas",
     "barcode": "770168839890",
     "quantity": 1,
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo Ref: 1234 | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo Ref: 1234 | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-675312",
     "timestamp": "2026-10-31T00:31:15.312Z",
     "type": "SALIDA",
     "productId": "LV-1150",
-    "productName": "Fijador en aerosol pequeño",
+    "productName": "Fijador en aerosol pequeo",
     "barcode": "7120250620001",
     "quantity": 1,
     "prevStock": 3,
     "newStock": 2,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo Ref: 1234 | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo Ref: 1234 | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-643791",
@@ -16904,7 +23946,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-456831",
@@ -16918,7 +23960,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-456824",
@@ -16932,7 +23974,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-456820",
@@ -16946,7 +23988,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-456812",
@@ -16960,7 +24002,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-456806",
@@ -16974,7 +24016,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Transferencia Ref: 1234 | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-596135",
@@ -16988,7 +24030,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-560887",
@@ -17002,7 +24044,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-520801",
@@ -17016,7 +24058,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-463711",
@@ -17030,7 +24072,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-418683",
@@ -17044,7 +24086,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-195464",
@@ -17057,7 +24099,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -17072,7 +24114,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-022704",
@@ -17086,7 +24128,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-845286",
@@ -17100,7 +24142,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-796910",
@@ -17114,7 +24156,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-745985",
@@ -17128,7 +24170,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-705815",
@@ -17142,7 +24184,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-660031",
@@ -17156,7 +24198,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-550736",
@@ -17170,7 +24212,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-489261",
@@ -17184,7 +24226,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-318790",
@@ -17198,7 +24240,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-201609",
@@ -17212,7 +24254,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-149566",
@@ -17226,7 +24268,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-028546",
@@ -17240,7 +24282,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-731185",
@@ -17254,7 +24296,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-698921",
@@ -17268,7 +24310,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-652178",
@@ -17282,7 +24324,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-613288",
@@ -17296,7 +24338,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-502898",
@@ -17310,7 +24352,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-433575",
@@ -17324,7 +24366,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-290762",
@@ -17338,7 +24380,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-212403",
@@ -17352,7 +24394,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-168333",
@@ -17366,7 +24408,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-986051",
@@ -17380,7 +24422,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-940032",
@@ -17394,21 +24436,21 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-707195",
     "timestamp": "2026-10-30T22:01:47.195Z",
     "type": "SALIDA",
     "productId": "LV-1206",
-    "productName": "Pestañas de tira",
+    "productName": "Pestaas de tira",
     "barcode": "7701136558443",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-104498",
@@ -17422,7 +24464,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-850228",
@@ -17436,7 +24478,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-790948",
@@ -17450,7 +24492,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-706686",
@@ -17464,7 +24506,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-666809",
@@ -17478,7 +24520,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-562191",
@@ -17492,7 +24534,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-283177",
@@ -17506,7 +24548,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-070100",
@@ -17520,7 +24562,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-864320",
@@ -17534,7 +24576,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-704884",
@@ -17548,21 +24590,21 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-985842",
     "timestamp": "2026-10-30T20:43:05.842Z",
     "type": "ENTRADA",
     "productId": "LV-1248",
-    "productName": "Pegante de pestañas transparente",
+    "productName": "Pegante de pestaas transparente",
     "barcode": "7707375605283",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-761865",
@@ -17576,7 +24618,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-761862",
@@ -17590,7 +24632,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-761858",
@@ -17604,7 +24646,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-670014",
@@ -17618,7 +24660,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-587359",
@@ -17632,7 +24674,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-532305",
@@ -17646,7 +24688,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-150154",
@@ -17660,7 +24702,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-049044",
@@ -17674,7 +24716,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-995636",
@@ -17688,7 +24730,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-929423",
@@ -17702,7 +24744,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-871932",
@@ -17716,7 +24758,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-626066",
@@ -17730,7 +24772,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-586446",
@@ -17744,7 +24786,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-527864",
@@ -17758,7 +24800,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-437268",
@@ -17772,7 +24814,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-282470",
@@ -17786,7 +24828,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-179272",
@@ -17800,7 +24842,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-084783",
@@ -17814,7 +24856,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-370482",
@@ -17828,7 +24870,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-287828",
@@ -17842,7 +24884,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-224004",
@@ -17856,7 +24898,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-110911",
@@ -17870,7 +24912,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-972724",
@@ -17884,7 +24926,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-939263",
@@ -17898,7 +24940,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-792535",
@@ -17912,7 +24954,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-689122",
@@ -17926,7 +24968,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-768831",
@@ -17940,7 +24982,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-725524",
@@ -17954,7 +24996,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-633027",
@@ -17968,21 +25010,21 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-563179",
     "timestamp": "2026-10-30T18:06:03.179Z",
     "type": "ENTRADA",
     "productId": "LV-1221",
-    "productName": "Serum de pestañas",
+    "productName": "Serum de pestaas",
     "barcode": "6901783700382",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-506922",
@@ -17996,7 +25038,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-376899",
@@ -18010,7 +25052,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-350297",
@@ -18024,7 +25066,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-313781",
@@ -18038,7 +25080,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-164853",
@@ -18052,7 +25094,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-048622",
@@ -18066,7 +25108,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-950560",
@@ -18079,7 +25121,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -18093,7 +25135,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -18107,7 +25149,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -18121,7 +25163,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -18136,7 +25178,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-890706",
@@ -18150,7 +25192,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-831094",
@@ -18164,119 +25206,119 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-717742",
     "timestamp": "2026-10-30T17:51:57.742Z",
     "type": "ENTRADA",
     "productId": "LV-1211",
-    "productName": "Pegante negro de pestañas",
+    "productName": "Pegante negro de pestaas",
     "barcode": "770168839890",
     "quantity": 4,
     "prevStock": 0,
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-626308",
     "timestamp": "2026-10-30T17:50:26.308Z",
     "type": "ENTRADA",
     "productId": "LV-1210",
-    "productName": "Libro de 360 pestañas 10d",
+    "productName": "Libro de 360 pestaas 10d",
     "barcode": "226322916332",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-414234",
     "timestamp": "2026-10-30T17:46:54.234Z",
     "type": "ENTRADA",
     "productId": "LV-1209",
-    "productName": "Pestañas punto a punto 20d",
+    "productName": "Pestaas punto a punto 20d",
     "barcode": "275949320677",
     "quantity": 8,
     "prevStock": 0,
     "newStock": 8,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-363955",
     "timestamp": "2026-10-30T17:46:03.955Z",
     "type": "ENTRADA",
     "productId": "LV-1208",
-    "productName": "Pestañas punto a punto 10d",
+    "productName": "Pestaas punto a punto 10d",
     "barcode": "25949320682",
     "quantity": 10,
     "prevStock": 0,
     "newStock": 10,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-176774",
     "timestamp": "2026-10-30T17:42:56.774Z",
     "type": "ENTRADA",
     "productId": "LV-1207",
-    "productName": "Pestañas de tira",
+    "productName": "Pestaas de tira",
     "barcode": "6968902212157",
     "quantity": 2,
     "prevStock": 0,
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-118836",
     "timestamp": "2026-10-30T17:41:58.836Z",
     "type": "ENTRADA",
     "productId": "LV-1206",
-    "productName": "Pestañas de tira cafes",
+    "productName": "Pestaas de tira cafes",
     "barcode": "7701136558443",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-777700",
     "timestamp": "2026-10-30T17:36:17.700Z",
     "type": "SALIDA",
     "productId": "LV-1110",
-    "productName": "Mantequilla x250ml piña colada",
+    "productName": "Mantequilla x250ml pia colada",
     "barcode": "677144266298",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 1,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-777696",
     "timestamp": "2026-10-30T17:36:17.696Z",
     "type": "SALIDA",
     "productId": "LV-1098",
-    "productName": "Splash nuevo x200ml Piña colada",
+    "productName": "Splash nuevo x200ml Pia colada",
     "barcode": "677144266274",
     "quantity": 1,
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-134722",
@@ -18290,7 +25332,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-004058",
@@ -18304,7 +25346,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-862760",
@@ -18318,7 +25360,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-048394",
@@ -18331,7 +25373,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18346,7 +25388,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-757885",
@@ -18360,7 +25402,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-641636",
@@ -18374,7 +25416,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-231504",
@@ -18387,7 +25429,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18401,7 +25443,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18415,7 +25457,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18429,7 +25471,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18443,7 +25485,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18457,7 +25499,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18471,7 +25513,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18485,7 +25527,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18500,7 +25542,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-110026",
@@ -18514,7 +25556,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-047251",
@@ -18528,7 +25570,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-971987",
@@ -18542,7 +25584,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-772947",
@@ -18555,7 +25597,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -18569,7 +25611,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -18583,7 +25625,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -18597,7 +25639,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -18612,7 +25654,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-486018",
@@ -18626,7 +25668,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-413411",
@@ -18640,7 +25682,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-351083",
@@ -18654,7 +25696,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-599629",
@@ -18668,7 +25710,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-522318",
@@ -18682,7 +25724,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-460616",
@@ -18696,7 +25738,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-422374",
@@ -18710,7 +25752,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-374156",
@@ -18724,7 +25766,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-332177",
@@ -18738,7 +25780,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-290675",
@@ -18752,20 +25794,20 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-533162",
     "timestamp": "2026-10-30T00:52:13.162Z",
     "type": "ENTRADA",
     "productId": "LV-1184",
-    "productName": "Serum de arroz pequeño",
+    "productName": "Serum de arroz pequeo",
     "barcode": "6901783700672",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18773,13 +25815,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-30T00:52:12.577Z",
     "type": "ENTRADA",
     "productId": "LV-1184",
-    "productName": "Serum de arroz pequeño",
+    "productName": "Serum de arroz pequeo",
     "barcode": "6901783700672",
     "quantity": 1,
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18793,7 +25835,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18807,7 +25849,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18821,7 +25863,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18835,7 +25877,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18843,14 +25885,14 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-30T00:51:26.014Z",
     "type": "ENTRADA",
     "productId": "LV-1184",
-    "productName": "Serum de arroz pequeño",
+    "productName": "Serum de arroz pequeo",
     "barcode": "6901783700672",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-411730",
@@ -18864,7 +25906,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-369789",
@@ -18878,7 +25920,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-325660",
@@ -18892,7 +25934,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-112408",
@@ -18906,7 +25948,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-038595",
@@ -18920,7 +25962,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-990130",
@@ -18934,7 +25976,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-907506",
@@ -18947,7 +25989,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18961,7 +26003,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18975,7 +26017,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -18989,7 +26031,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -19003,7 +26045,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -19017,7 +26059,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -19031,7 +26073,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -19046,7 +26088,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-784812",
@@ -19060,7 +26102,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-742521",
@@ -19074,7 +26116,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-683250",
@@ -19088,7 +26130,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-503078",
@@ -19102,7 +26144,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-361962",
@@ -19116,7 +26158,7 @@ const INITIAL_KARDEX = [
     "newStock": 6,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-286715",
@@ -19130,7 +26172,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-055278",
@@ -19144,7 +26186,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-087278",
@@ -19158,7 +26200,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-014543",
@@ -19172,7 +26214,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-950226",
@@ -19186,7 +26228,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-887955",
@@ -19200,7 +26242,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-818552",
@@ -19214,20 +26256,20 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-634989",
     "timestamp": "2026-10-29T23:47:14.989Z",
     "type": "ENTRADA",
     "productId": "LV-1163",
-    "productName": "Mascarilla mini nueva x50g piña colada",
+    "productName": "Mascarilla mini nueva x50g pia colada",
     "barcode": "677144266595",
     "quantity": 1,
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -19241,7 +26283,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19249,13 +26291,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-29T23:45:11.936Z",
     "type": "SALIDA",
     "productId": "LV-1150",
-    "productName": "Fijador en aerosol pequeño",
+    "productName": "Fijador en aerosol pequeo",
     "barcode": "7120250620001",
     "quantity": 1,
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19263,13 +26305,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-29T23:45:10.726Z",
     "type": "SALIDA",
     "productId": "LV-1150",
-    "productName": "Fijador en aerosol pequeño",
+    "productName": "Fijador en aerosol pequeo",
     "barcode": "7120250620001",
     "quantity": 1,
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19277,13 +26319,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-29T23:45:09.920Z",
     "type": "SALIDA",
     "productId": "LV-1150",
-    "productName": "Fijador en aerosol pequeño",
+    "productName": "Fijador en aerosol pequeo",
     "barcode": "7120250620001",
     "quantity": 1,
     "prevStock": 6,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19297,7 +26339,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19311,7 +26353,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19325,7 +26367,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19339,7 +26381,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19353,7 +26395,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19367,7 +26409,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19381,7 +26423,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19395,7 +26437,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19409,7 +26451,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19423,7 +26465,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19437,7 +26479,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19451,7 +26493,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19465,7 +26507,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19479,7 +26521,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19493,7 +26535,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19507,7 +26549,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19521,7 +26563,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19535,7 +26577,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19549,7 +26591,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19563,7 +26605,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19577,7 +26619,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19591,7 +26633,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19605,7 +26647,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19619,7 +26661,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19633,7 +26675,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19647,7 +26689,7 @@ const INITIAL_KARDEX = [
     "prevStock": 7,
     "newStock": 8,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -19661,7 +26703,7 @@ const INITIAL_KARDEX = [
     "prevStock": 6,
     "newStock": 7,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -19675,7 +26717,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -19689,7 +26731,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -19703,7 +26745,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19717,7 +26759,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19731,7 +26773,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19745,7 +26787,7 @@ const INITIAL_KARDEX = [
     "prevStock": 3,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19759,7 +26801,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19773,7 +26815,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19787,7 +26829,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -19801,7 +26843,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -19815,7 +26857,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -19829,7 +26871,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -19843,7 +26885,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Punto Físico",
+    "reason": "Venta Punto Fsico",
     "notes": ""
   },
   {
@@ -19857,7 +26899,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Venta Punto Físico",
+    "reason": "Venta Punto Fsico",
     "notes": ""
   },
   {
@@ -19872,7 +26914,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-669604",
@@ -19886,21 +26928,21 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-601523",
     "timestamp": "2026-10-24T20:43:21.523Z",
     "type": "ENTRADA",
     "productId": "LV-1163",
-    "productName": "Mascarilla mini nueva x50g piña colada",
+    "productName": "Mascarilla mini nueva x50g pia colada",
     "barcode": "677144266595",
     "quantity": 2,
     "prevStock": 0,
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-340022",
@@ -19914,7 +26956,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-279359",
@@ -19928,7 +26970,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-175290",
@@ -19942,7 +26984,7 @@ const INITIAL_KARDEX = [
     "newStock": 0,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcáá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-076500",
@@ -19956,7 +26998,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-008939",
@@ -19970,7 +27012,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-914653",
@@ -19984,7 +27026,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-802224",
@@ -19998,7 +27040,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-616420",
@@ -20012,7 +27054,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-580599",
@@ -20026,7 +27068,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-540504",
@@ -20040,7 +27082,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-497718",
@@ -20054,7 +27096,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-453882",
@@ -20068,7 +27110,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-407127",
@@ -20082,21 +27124,21 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-247565",
     "timestamp": "2026-10-24T20:20:47.565Z",
     "type": "ENTRADA",
     "productId": "LV-1150",
-    "productName": "Fijador en aerosol pequeño",
+    "productName": "Fijador en aerosol pequeo",
     "barcode": "7120250620001",
     "quantity": 6,
     "prevStock": 0,
     "newStock": 6,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-192171",
@@ -20110,7 +27152,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-027749",
@@ -20124,7 +27166,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-992883",
@@ -20138,7 +27180,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-908965",
@@ -20152,7 +27194,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-848321",
@@ -20166,7 +27208,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-756880",
@@ -20180,7 +27222,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-928747",
@@ -20194,7 +27236,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-770185",
@@ -20208,7 +27250,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-627575",
@@ -20222,7 +27264,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-318311",
@@ -20236,7 +27278,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-246567",
@@ -20250,7 +27292,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-094117",
@@ -20264,7 +27306,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-023738",
@@ -20278,7 +27320,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-958659",
@@ -20292,7 +27334,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-730729",
@@ -20306,7 +27348,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-296589",
@@ -20320,7 +27362,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-137697",
@@ -20334,7 +27376,7 @@ const INITIAL_KARDEX = [
     "newStock": 6,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-922161",
@@ -20348,21 +27390,21 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-861617",
     "timestamp": "2026-10-24T19:07:41.617Z",
     "type": "ENTRADA",
     "productId": "LV-1131",
-    "productName": "Agua micelar con aácido hialuronico",
+    "productName": "Agua micelar con acido hialuronico",
     "barcode": "7707894732149",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-711186",
@@ -20376,7 +27418,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-655974",
@@ -20390,7 +27432,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-488866",
@@ -20404,7 +27446,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-249354",
@@ -20418,7 +27460,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-055832",
@@ -20432,7 +27474,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-796945",
@@ -20446,7 +27488,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-689684",
@@ -20460,7 +27502,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-643075",
@@ -20474,7 +27516,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-389156",
@@ -20488,7 +27530,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-061144",
@@ -20502,7 +27544,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-011255",
@@ -20516,7 +27558,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-874765",
@@ -20530,7 +27572,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-811450",
@@ -20544,7 +27586,7 @@ const INITIAL_KARDEX = [
     "newStock": 6,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-731760",
@@ -20558,7 +27600,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-631918",
@@ -20572,7 +27614,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-561584",
@@ -20586,7 +27628,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-594735",
@@ -20600,21 +27642,21 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-532441",
     "timestamp": "2026-10-24T17:22:12.441Z",
     "type": "ENTRADA",
     "productId": "LV-1113",
-    "productName": "Crema corporal piña colada 200ml",
+    "productName": "Crema corporal pia colada 200ml",
     "barcode": "677144890431",
     "quantity": 3,
     "prevStock": 0,
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-447899",
@@ -20628,7 +27670,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-348720",
@@ -20642,21 +27684,21 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-865027",
     "timestamp": "2026-10-24T17:11:05.027Z",
     "type": "ENTRADA",
     "productId": "LV-1110",
-    "productName": "Mantequilla x250ml piña colada",
+    "productName": "Mantequilla x250ml pia colada",
     "barcode": "677144266298",
     "quantity": 2,
     "prevStock": 0,
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-761735",
@@ -20670,7 +27712,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-709366",
@@ -20684,7 +27726,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-582443",
@@ -20698,7 +27740,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-526056",
@@ -20712,7 +27754,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-472403",
@@ -20726,7 +27768,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-425007",
@@ -20740,7 +27782,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-675593",
@@ -20754,7 +27796,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-467865",
@@ -20768,7 +27810,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-359303",
@@ -20782,21 +27824,21 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-156266",
     "timestamp": "2026-10-24T16:42:36.266Z",
     "type": "ENTRADA",
     "productId": "LV-1100",
-    "productName": "Exfoliante Piña colada",
+    "productName": "Exfoliante Pia colada",
     "barcode": "677144266496",
     "quantity": 1,
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-946698",
@@ -20810,21 +27852,21 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-893723",
     "timestamp": "2026-10-24T16:38:13.723Z",
     "type": "ENTRADA",
     "productId": "LV-1098",
-    "productName": "Splash nuevo x200ml Piña colada",
+    "productName": "Splash nuevo x200ml Pia colada",
     "barcode": "677144266274",
     "quantity": 4,
     "prevStock": 0,
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-813067",
@@ -20838,7 +27880,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-735022",
@@ -20852,7 +27894,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-676709",
@@ -20866,7 +27908,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-604039",
@@ -20880,7 +27922,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-423785",
@@ -20894,7 +27936,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-345900",
@@ -20908,7 +27950,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-277329",
@@ -20922,7 +27964,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-200610",
@@ -20936,7 +27978,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-526473",
@@ -20950,7 +27992,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-418028",
@@ -20964,7 +28006,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-160939",
@@ -20978,7 +28020,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-036357",
@@ -20992,7 +28034,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-925142",
@@ -21006,7 +28048,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-477894",
@@ -21020,21 +28062,21 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-321559",
     "timestamp": "2026-10-23T20:45:21.559Z",
     "type": "ENTRADA",
     "productId": "LV-1083",
-    "productName": "Splash Corporal Piña Colada x 100 ml",
+    "productName": "Splash Corporal Pia Colada x 100 ml",
     "barcode": "677144702192",
     "quantity": 2,
     "prevStock": 0,
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-134220",
@@ -21048,7 +28090,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-777358",
@@ -21062,7 +28104,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-483060",
@@ -21076,7 +28118,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-274274",
@@ -21090,7 +28132,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-915413",
@@ -21104,7 +28146,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-779318",
@@ -21118,7 +28160,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-243208",
@@ -21132,7 +28174,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-895296",
@@ -21146,7 +28188,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-685270",
@@ -21160,7 +28202,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-461580",
@@ -21174,7 +28216,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-259303",
@@ -21188,7 +28230,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-098737",
@@ -21202,7 +28244,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Nequi | Canal: Punto Físico (Calarcáá)"
+    "notes": "Pago: Nequi | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-061069",
@@ -21215,7 +28257,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -21229,7 +28271,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 1,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -21243,7 +28285,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Punto Físico",
+    "reason": "Venta Punto Fsico",
     "notes": ""
   },
   {
@@ -21258,7 +28300,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-705318",
@@ -21272,7 +28314,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-567347",
@@ -21286,7 +28328,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-521332",
@@ -21300,7 +28342,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-446797",
@@ -21314,7 +28356,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-326929",
@@ -21328,7 +28370,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-288372",
@@ -21342,7 +28384,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-155947",
@@ -21356,7 +28398,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-090499",
@@ -21370,7 +28412,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-968156",
@@ -21384,7 +28426,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-894471",
@@ -21398,7 +28440,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-651043",
@@ -21412,21 +28454,21 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-607978",
     "timestamp": "2026-10-23T18:03:27.978Z",
     "type": "ENTRADA",
     "productId": "LV-1059",
-    "productName": "Splash dorado pequeño",
+    "productName": "Splash dorado pequeo",
     "barcode": "7709507915567",
     "quantity": 2,
     "prevStock": 0,
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-458449",
@@ -21440,7 +28482,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-252463",
@@ -21454,7 +28496,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-193758",
@@ -21468,7 +28510,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-078329",
@@ -21481,7 +28523,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Venta Punto Físico",
+    "reason": "Venta Punto Fsico",
     "notes": ""
   },
   {
@@ -21496,7 +28538,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-909079",
@@ -21510,7 +28552,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-870290",
@@ -21524,7 +28566,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-798766",
@@ -21538,7 +28580,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-726899",
@@ -21552,7 +28594,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-436530",
@@ -21566,7 +28608,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-185447",
@@ -21580,7 +28622,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-119187",
@@ -21594,7 +28636,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-050450",
@@ -21608,7 +28650,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-965078",
@@ -21622,7 +28664,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-908883",
@@ -21636,7 +28678,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-161485",
@@ -21650,7 +28692,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-048306",
@@ -21664,7 +28706,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-976436",
@@ -21678,7 +28720,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-829457",
@@ -21692,7 +28734,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-484151",
@@ -21706,7 +28748,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-335327",
@@ -21720,7 +28762,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-289649",
@@ -21734,7 +28776,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-256991",
@@ -21748,7 +28790,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-168170",
@@ -21762,7 +28804,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-039936",
@@ -21776,7 +28818,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-813882",
@@ -21790,7 +28832,7 @@ const INITIAL_KARDEX = [
     "newStock": 6,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-707180",
@@ -21804,7 +28846,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-555178",
@@ -21817,7 +28859,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 4,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -21831,7 +28873,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -21846,7 +28888,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-367979",
@@ -21860,7 +28902,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-442173",
@@ -21873,7 +28915,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -21888,7 +28930,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-733901",
@@ -21902,7 +28944,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-627394",
@@ -21916,7 +28958,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-524623",
@@ -21930,7 +28972,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-349086",
@@ -21943,7 +28985,7 @@ const INITIAL_KARDEX = [
     "prevStock": 5,
     "newStock": 6,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -21957,7 +28999,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -21972,7 +29014,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-182557",
@@ -21986,7 +29028,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcáá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-111970",
@@ -22000,7 +29042,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-975902",
@@ -22014,7 +29056,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-761182",
@@ -22028,7 +29070,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-675086",
@@ -22042,7 +29084,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-594839",
@@ -22056,7 +29098,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-526426",
@@ -22070,7 +29112,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-768106",
@@ -22084,7 +29126,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-713247",
@@ -22098,7 +29140,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-632950",
@@ -22112,7 +29154,7 @@ const INITIAL_KARDEX = [
     "newStock": 3,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-563796",
@@ -22126,7 +29168,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-478563",
@@ -22140,7 +29182,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-291641",
@@ -22154,7 +29196,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-159875",
@@ -22168,7 +29210,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-056794",
@@ -22182,7 +29224,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-993214",
@@ -22196,7 +29238,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-928331",
@@ -22209,7 +29251,7 @@ const INITIAL_KARDEX = [
     "prevStock": 2,
     "newStock": 3,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -22224,7 +29266,7 @@ const INITIAL_KARDEX = [
     "newStock": 2,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-836913",
@@ -22238,7 +29280,7 @@ const INITIAL_KARDEX = [
     "newStock": 5,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-758176",
@@ -22252,7 +29294,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-724258",
@@ -22265,7 +29307,7 @@ const INITIAL_KARDEX = [
     "prevStock": 1,
     "newStock": 2,
     "user": "Laura",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": ""
   },
   {
@@ -22280,7 +29322,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-482030",
@@ -22294,7 +29336,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-180997",
@@ -22308,7 +29350,7 @@ const INITIAL_KARDEX = [
     "newStock": 1,
     "user": "Laura",
     "reason": "Inventario Inicial",
-    "notes": "Alta de nuevo producto en catálogo"
+    "notes": "Alta de nuevo producto en catlogo"
   },
   {
     "id": "K-021039",
@@ -22363,7 +29405,7 @@ const INITIAL_KARDEX = [
     "prevStock": 4,
     "newStock": 5,
     "user": "Laura",
-    "reason": "Ajuste Rápido Entrada",
+    "reason": "Ajuste Rpido Entrada",
     "notes": ""
   },
   {
@@ -22378,7 +29420,7 @@ const INITIAL_KARDEX = [
     "newStock": 4,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-002 (Clienta #2)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcáá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-133361",
@@ -22405,7 +29447,7 @@ const INITIAL_KARDEX = [
     "prevStock": 0,
     "newStock": 0,
     "user": "Laura",
-    "reason": "Venta Rápida Catálogo",
+    "reason": "Venta Rpida Catlogo",
     "notes": ""
   },
   {
@@ -22413,27 +29455,27 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-21T20:26:04.214Z",
     "type": "SALIDA",
     "productId": "LV-1001",
-    "productName": "Tinta Labial Velvet Larga Duración",
+    "productName": "Tinta Labial Velvet Larga Duracin",
     "barcode": "770123456001",
     "quantity": 1,
     "prevStock": 9,
     "newStock": 8,
     "user": "Laura",
     "reason": "Venta Cuenta #CTA-001 (Cliente Mostrador)",
-    "notes": "Pago: Efectivo | Canal: Punto Físico (Calarcáá)"
+    "notes": "Pago: Efectivo | Canal: Punto Fsico (Calarc)"
   },
   {
     "id": "K-132552",
     "timestamp": "2026-10-21T19:32:12.552Z",
     "type": "SALIDA",
     "productId": "LV-1001",
-    "productName": "Tinta Labial Velvet Larga Duración",
+    "productName": "Tinta Labial Velvet Larga Duracin",
     "barcode": "770123456001",
     "quantity": 1,
     "prevStock": 10,
     "newStock": 9,
     "user": "Laura",
-    "reason": "Venta Punto Físico",
+    "reason": "Venta Punto Fsico",
     "notes": ""
   },
   {
@@ -22441,13 +29483,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-21T19:30:40.126Z",
     "type": "SALIDA",
     "productId": "LV-1001",
-    "productName": "Tinta Labial Velvet Larga Duración",
+    "productName": "Tinta Labial Velvet Larga Duracin",
     "barcode": "770123456001",
     "quantity": 1,
     "prevStock": 11,
     "newStock": 10,
     "user": "Laura",
-    "reason": "Venta Punto Físico",
+    "reason": "Venta Punto Fsico",
     "notes": ""
   },
   {
@@ -22455,13 +29497,13 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-21T19:30:31.597Z",
     "type": "SALIDA",
     "productId": "LV-1001",
-    "productName": "Tinta Labial Velvet Larga Duración",
+    "productName": "Tinta Labial Velvet Larga Duracin",
     "barcode": "770123456001",
     "quantity": 1,
     "prevStock": 12,
     "newStock": 11,
     "user": "Laura",
-    "reason": "Venta Punto Físico",
+    "reason": "Venta Punto Fsico",
     "notes": ""
   },
   {
@@ -22469,39 +29511,3284 @@ const INITIAL_KARDEX = [
     "timestamp": "2026-10-20T23:26:24.689Z",
     "type": "SALIDA",
     "productId": "LV-1002",
-    "productName": "Gel Hidratante Facial con Áácido Hialurónico",
+    "productName": "Gel Hidratante Facial con cido Hialurnico",
     "barcode": "770123456002",
     "quantity": 2,
     "prevStock": 10,
     "newStock": 8,
     "user": "Laura",
-    "reason": "Venta Punto Físico",
-    "notes": "Venta asesorada en boutique Calarcáá"
+    "reason": "Venta Punto Fsico",
+    "notes": "Venta asesorada en boutique Calarc"
   },
   {
     "id": "K-001",
     "timestamp": "2026-10-20T20:26:24.689Z",
     "type": "ENTRADA",
     "productId": "LV-1002",
-    "productName": "Gel Hidratante Facial con Áácido Hialurónico",
+    "productName": "Gel Hidratante Facial con cido Hialurnico",
     "barcode": "770123456002",
     "quantity": 10,
     "prevStock": 0,
     "newStock": 10,
     "user": "Amanda",
-    "reason": "Recepción Proveedor",
+    "reason": "Recepcin Proveedor",
     "notes": "Pedido mayorista Girly"
   }
 ];
 
 const INITIAL_SALES = [
   {
+    "id": "TKT-732283",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-12T01:08:52.283Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1619",
+        "name": "Polvo suelto mineral tono banana",
+        "brand": "Raquel",
+        "category": "Maquillaje",
+        "barcode": "7707195329994",
+        "price": 28000,
+        "cost": 16200,
+        "quantity": 1,
+        "stockAvailable": 20
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 28000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 28000,
+    "cashReceived": 28000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-907132",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-12T00:55:07.132Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1295",
+        "name": "Pestaina profesional",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430789",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 9
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 20000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 20000,
+    "cashReceived": 20000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-612922",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-12T00:16:52.922Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1047",
+        "name": "Shampoo control grasa",
+        "brand": "La Pocin",
+        "category": "Capilar",
+        "barcode": "7708162555200",
+        "price": 40000,
+        "cost": 30305,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 40000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 40000,
+    "cashReceived": 40000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-856914",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-12T00:04:16.914Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1184",
+        "name": "Serum de arroz pequeo",
+        "brand": "Bioaqua",
+        "category": "Skincare",
+        "barcode": "6901783700672",
+        "price": 16000,
+        "cost": 4500,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1183",
+        "name": "Contorno de ojos de arroz",
+        "brand": "Bioaqua",
+        "category": "Skincare",
+        "barcode": "6942349737398",
+        "price": 12000,
+        "cost": 2500,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1563",
+        "name": "Crema facial de arroz",
+        "brand": "Bioaqua",
+        "category": "Skincare",
+        "barcode": "6976068956303",
+        "price": 14000,
+        "cost": 4800,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1562",
+        "name": "Jabon de arroz",
+        "brand": "Bioaqua",
+        "category": "Maquillaje",
+        "barcode": "6942349741005",
+        "price": 14000,
+        "cost": 3400,
+        "quantity": 1,
+        "stockAvailable": 6
+      },
+      {
+        "productId": "LV-1182",
+        "name": "Tonico de arroz",
+        "brand": "Bioaqua",
+        "category": "Skincare",
+        "barcode": "6942349741029",
+        "price": 16000,
+        "cost": 5000,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 5,
+    "subtotal": 72000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 72000,
+    "cashReceived": 72000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-681375",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-12T00:01:21.375Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1528",
+        "name": "Corrector 1st scene tono 05 beige",
+        "brand": "Atenea",
+        "category": "Maquillaje",
+        "barcode": "7707375600110",
+        "price": 45000,
+        "cost": 25700,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1618",
+        "name": "Polvo suelto mineral tono translucido",
+        "brand": "Raquel",
+        "category": "Maquillaje",
+        "barcode": "7707195326740",
+        "price": 28000,
+        "cost": 16200,
+        "quantity": 1,
+        "stockAvailable": 20
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 73000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 73000,
+    "cashReceived": 100000,
+    "cashChange": 27000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-203653",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T23:53:23.653Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1203",
+        "name": "Kit maquillaje bear obsession",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "610985562648",
+        "price": 46000,
+        "cost": 27000,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 46000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 46000,
+    "cashReceived": 46000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-083927",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T23:51:23.927Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1261",
+        "name": "Base x30ml tono 03 cream",
+        "brand": "Atenea",
+        "category": "Maquillaje",
+        "barcode": "736372666888",
+        "price": 48000,
+        "cost": 28000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1243",
+        "name": "Polvo 4 tonos grande",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524610",
+        "price": 40000,
+        "cost": 24900,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1403",
+        "name": "Tinta scarlet tono 1",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "770642945331",
+        "price": 15000,
+        "cost": 6000,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 103000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 103000,
+    "cashReceived": 103000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-823894",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T23:30:23.894Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1212",
+        "name": "Polvo compacto banana",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7709094542191",
+        "price": 14000,
+        "cost": 7000,
+        "quantity": 1,
+        "stockAvailable": 4
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 14000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 14000,
+    "cashReceived": 14000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-856336",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T22:57:36.336Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1133",
+        "name": "Primer bloom poros invisibles",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6924372684252",
+        "price": 21000,
+        "cost": 10165,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1172",
+        "name": "Gel hidratante con aloe vera",
+        "brand": "Girly",
+        "category": "Skincare",
+        "barcode": "7708453335610",
+        "price": 34000,
+        "cost": 21090,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1472",
+        "name": "Borla triangular doble",
+        "brand": "Beauty tool",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "6972656451069",
+        "price": 6000,
+        "cost": 2375,
+        "quantity": 1,
+        "stockAvailable": 11
+      },
+      {
+        "productId": "LV-1612",
+        "name": "Lip gloss bloom esplendor tono 02 cherry",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6972630571158",
+        "price": 18000,
+        "cost": 9250,
+        "quantity": 1,
+        "stockAvailable": 6
+      }
+    ],
+    "totalUnits": 4,
+    "subtotal": 79000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 79000,
+    "cashReceived": 79000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-432891",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T22:50:32.891Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1318",
+        "name": "Corrector pequeo tono 03",
+        "brand": "Majikal",
+        "category": "Maquillaje",
+        "barcode": "770359657356",
+        "price": 35000,
+        "cost": 23400,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1368",
+        "name": "Corrector mini tono 03",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482516530",
+        "price": 14000,
+        "cost": 7900,
+        "quantity": 1,
+        "stockAvailable": 7
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 49000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 49000,
+    "cashReceived": 49000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-085677",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T22:11:25.677Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1402",
+        "name": "Kit de rosas y acido hialuronico en caja",
+        "brand": "Bioaqua",
+        "category": "Maquillaje",
+        "barcode": "6942349742620",
+        "price": 65000,
+        "cost": 30400,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 65000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 65000,
+    "cashReceived": 65000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-034171",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T22:10:34.171Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1566",
+        "name": "Crema hidratante de rosas y acido hialuronico",
+        "brand": "Bioaqua",
+        "category": "Skincare",
+        "barcode": "6942349742613",
+        "price": 14000,
+        "cost": 3800,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1602",
+        "name": "Corrector mediano tono 03",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525488",
+        "price": 23500,
+        "cost": 13100,
+        "quantity": 1,
+        "stockAvailable": 23
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 37500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 37500,
+    "cashReceived": 37500,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-962437",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T22:09:22.437Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1554",
+        "name": "Rubor x3 pretty blush",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "677144701997",
+        "price": 30000,
+        "cost": 16000,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 30000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 30000,
+    "cashReceived": 30000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-651654",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-11T19:17:31.654Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1408",
+        "name": "Tinta cafe bear Kiss",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "677144890158",
+        "price": 17500,
+        "cost": 8500,
+        "quantity": 1,
+        "stockAvailable": 6
+      },
+      {
+        "productId": "LV-1409",
+        "name": "Tinta cafe cocoa kiss",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "677144890448",
+        "price": 17000,
+        "cost": 7000,
+        "quantity": 1,
+        "stockAvailable": 8
+      },
+      {
+        "productId": "LV-1491",
+        "name": "Brocha de cejas",
+        "brand": "Sagui",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "6961120205383",
+        "price": 10000,
+        "cost": 3800,
+        "quantity": 1,
+        "stockAvailable": 7
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 44500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 44500,
+    "cashReceived": 44500,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-628481",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T16:30:28.481Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1288",
+        "name": "Gel de cejas bloom lamination",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6973327787371",
+        "price": 18000,
+        "cost": 8200,
+        "quantity": 3,
+        "stockAvailable": 46
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 54000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 54000,
+    "cashReceived": 54000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-936718",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-11T16:02:16.718Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1518",
+        "name": "Encrespador de puntos",
+        "brand": "Ruby face",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "6972547654524",
+        "price": 11000,
+        "cost": 4751,
+        "quantity": 1,
+        "stockAvailable": 8
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 11000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 11000,
+    "cashReceived": 11000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-437014",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T15:53:57.014Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1300",
+        "name": "Pestaina maxi volumen borgoa",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430567",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 9
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 20000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 20000,
+    "cashReceived": 20000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-424589",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T15:53:44.589Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1514",
+        "name": "Lima para uas",
+        "brand": "Lima",
+        "category": "Maquillaje",
+        "barcode": "286773848347",
+        "price": 2000,
+        "cost": 373,
+        "quantity": 1,
+        "stockAvailable": 22
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 2000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 2000,
+    "cashReceived": 2000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-413830",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T15:53:33.830Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1172",
+        "name": "Gel hidratante con aloe vera",
+        "brand": "Girly",
+        "category": "Skincare",
+        "barcode": "7708453335610",
+        "price": 34000,
+        "cost": 21090,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 34000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 34000,
+    "cashReceived": 34000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-388640",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-11T15:53:08.640Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1560",
+        "name": "Colageno de ojeras en cajita durazno",
+        "brand": "Bioaqua",
+        "category": "Skincare",
+        "barcode": "6973098894865",
+        "price": 16000,
+        "cost": 4800,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1604",
+        "name": "Colageno de ojeras en cajita",
+        "brand": "Bioaqua",
+        "category": "Maquillaje",
+        "barcode": "6973098893462",
+        "price": 16000,
+        "cost": 5000,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 32000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 32000,
+    "cashReceived": 32000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-521147",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T01:12:01.147Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1477",
+        "name": "Kit de cejas doble tono 03 dark",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "770989794989",
+        "price": 22000,
+        "cost": 11700,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1491",
+        "name": "Brocha de cejas",
+        "brand": "Sagui",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "6961120205383",
+        "price": 10000,
+        "cost": 3800,
+        "quantity": 1,
+        "stockAvailable": 8
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 32000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 32000,
+    "cashReceived": 32000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-373557",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T01:09:33.557Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1201",
+        "name": "Desenredante termoprotector rosado",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7708075180759",
+        "price": 34000,
+        "cost": 24795,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1257",
+        "name": "Base semi - matte tono 2",
+        "brand": "Alissha",
+        "category": "Maquillaje",
+        "barcode": "6924372681107",
+        "price": 26000,
+        "cost": 12800,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1544",
+        "name": "Libro de 640 pestaas punto a punto 30d, 40d y 50d",
+        "brand": "Pestaas",
+        "category": "Maquillaje",
+        "barcode": "293456844252",
+        "price": 35000,
+        "cost": 15000,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1575",
+        "name": "Calendario de adviento",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "770417360337",
+        "price": 200000,
+        "cost": 160000,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 4,
+    "subtotal": 295000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 295000,
+    "cashReceived": 295000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-981613",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T00:29:41.613Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1202",
+        "name": "Desenredante termoprotector morado",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7708075180339",
+        "price": 36000,
+        "cost": 28500,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1053",
+        "name": "Perfume mini martina",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7709225678423",
+        "price": 12900,
+        "cost": 7505,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 48900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 48900,
+    "cashReceived": 50000,
+    "cashChange": 1100,
+    "notes": ""
+  },
+  {
+    "id": "TKT-700179",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-11T00:08:20.179Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1297",
+        "name": "Pestaina maxi volumen silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430147",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 13
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 20000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 20000,
+    "cashReceived": 20000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-656435",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-10T23:50:56.435Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1211",
+        "name": "Pegante negro de pestaas",
+        "brand": "Salon pro",
+        "category": "Maquillaje",
+        "barcode": "770168839890",
+        "price": 8500,
+        "cost": 3000,
+        "quantity": 1,
+        "stockAvailable": 5
+      },
+      {
+        "productId": "LV-1545",
+        "name": "Libro de 640 pestaas punto a punto",
+        "brand": "Pestaas",
+        "category": "Maquillaje",
+        "barcode": "23456844182",
+        "price": 35000,
+        "cost": 15000,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 43500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 43500,
+    "cashReceived": 43500,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-090045",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-10T23:08:10.045Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1138",
+        "name": "Primer pop",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7709311675480",
+        "price": 15000,
+        "cost": 5000,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 15000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 15000,
+    "cashReceived": 15000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-875903",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-10T23:04:35.903Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1204",
+        "name": "Cosmetiquera lilo",
+        "brand": "Anik",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "7707559887597",
+        "price": 24000,
+        "cost": 13500,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1554",
+        "name": "Rubor x3 pretty blush",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "677144701997",
+        "price": 27000,
+        "cost": 16000,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1547",
+        "name": "Bloom fix mini",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6957574850552",
+        "price": 29900,
+        "cost": 16900,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1289",
+        "name": "gel de cejas",
+        "brand": "Melu",
+        "category": "Maquillaje",
+        "barcode": "6932159607745",
+        "price": 21000,
+        "cost": 11800,
+        "quantity": 1,
+        "stockAvailable": 18
+      },
+      {
+        "productId": "LV-1426",
+        "name": "Lip oil XL mimosa",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6972630571493",
+        "price": 26000,
+        "cost": 13300,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 5,
+    "subtotal": 127900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 127900,
+    "cashReceived": 127900,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-909098",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-10T21:41:49.098Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1324",
+        "name": "Corrector XL tono 04",
+        "brand": "Majikal",
+        "category": "Maquillaje",
+        "barcode": "770545771432",
+        "price": 48000,
+        "cost": 28800,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1243",
+        "name": "Polvo 4 tonos grande",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524610",
+        "price": 40000,
+        "cost": 24900,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1488",
+        "name": "Brocha de corrector mini",
+        "brand": "Trendy",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "7709178308750",
+        "price": 11000,
+        "cost": 5000,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1456",
+        "name": "Beauty blender",
+        "brand": "Anik",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "7707559883292",
+        "price": 7000,
+        "cost": 3817,
+        "quantity": 1,
+        "stockAvailable": 45
+      },
+      {
+        "productId": "LV-1551",
+        "name": "Pads de algodon",
+        "brand": "Purpure",
+        "category": "Skincare",
+        "barcode": "764451296480",
+        "price": 9900,
+        "cost": 5600,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1550",
+        "name": "Agua micelar con niacinamida",
+        "brand": "Purpure",
+        "category": "Skincare",
+        "barcode": "788115817187",
+        "price": 23900,
+        "cost": 14000,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 6,
+    "subtotal": 139800,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 139800,
+    "cashReceived": 139800,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-265566",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-10T19:34:25.566Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1183",
+        "name": "Contorno de ojos de arroz",
+        "brand": "Bioaqua",
+        "category": "Skincare",
+        "barcode": "6942349737398",
+        "price": 12000,
+        "cost": 2500,
+        "quantity": 1,
+        "stockAvailable": 4
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 12000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 12000,
+    "cashReceived": 12000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-373091",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-10T01:49:33.091Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1602",
+        "name": "Corrector mediano tono 03",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525488",
+        "price": 23500,
+        "cost": 13100,
+        "quantity": 1,
+        "stockAvailable": 12
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 23500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 23500,
+    "cashReceived": 23500,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-588815",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-10T00:46:28.815Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1542",
+        "name": "kit de cejas doble tono 02 medium",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "770873326599",
+        "price": 22000,
+        "cost": 11700,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 22000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 22000,
+    "cashReceived": 22000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-786122",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-09T23:59:46.122Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1390",
+        "name": "Polvo suelto soft powder x10g",
+        "brand": "Montoc",
+        "category": "Maquillaje",
+        "barcode": "736372977403",
+        "price": 37000,
+        "cost": 20900,
+        "quantity": 1,
+        "stockAvailable": 4
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 37000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 37000,
+    "cashReceived": 37000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-719210",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-09T23:58:39.210Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1456",
+        "name": "Beauty blender",
+        "brand": "Anik",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "7707559883292",
+        "price": 7000,
+        "cost": 3817,
+        "quantity": 1,
+        "stockAvailable": 46
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 7000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 7000,
+    "cashReceived": 7000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-590648",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-09T23:56:30.648Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1314",
+        "name": "Corrector XL tono 02",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525389",
+        "price": 37000,
+        "cost": 21000,
+        "quantity": 1,
+        "stockAvailable": 11
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 37000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 37000,
+    "cashReceived": 40000,
+    "cashChange": 3000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-729552",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-09T23:08:49.552Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1375",
+        "name": "Corrector XL tono 03",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525396",
+        "price": 37000,
+        "cost": 21500,
+        "quantity": 1,
+        "stockAvailable": 12
+      },
+      {
+        "productId": "LV-1304",
+        "name": "Contorno en barra tono 02 bloom define",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524566",
+        "price": 30000,
+        "cost": 16340,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 67000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 67000,
+    "cashReceived": 67000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-945586",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-09T22:55:45.586Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1039",
+        "name": "Perfume capilar golden toffe",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "7709268279694",
+        "price": 40000,
+        "cost": 25650,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1288",
+        "name": "Bloom lamination",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6973327787371",
+        "price": 18000,
+        "cost": 8200,
+        "quantity": 1,
+        "stockAvailable": 47
+      },
+      {
+        "productId": "LV-1476",
+        "name": "Borla triangular",
+        "brand": "Bloomshell",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "6988268481073",
+        "price": 5000,
+        "cost": 2300,
+        "quantity": 1,
+        "stockAvailable": 12
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 63000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 63000,
+    "cashReceived": 63000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-516325",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-09T22:48:36.325Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1020",
+        "name": "Shampoo de cebolla y jengibre",
+        "brand": "Ol",
+        "category": "Capilar",
+        "barcode": "7709997426468",
+        "price": 38900,
+        "cost": 22800,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 38900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 38900,
+    "cashReceived": 38900,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-861363",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-09T22:37:41.363Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1422",
+        "name": "Brillo aura mocca tono 03",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7709911354495",
+        "price": 20000,
+        "cost": 10000,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 20000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 20000,
+    "cashReceived": 20000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-812277",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-09T22:36:52.277Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1477",
+        "name": "Kit de cejas doble tono 03 dark",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "770989794989",
+        "price": 25000,
+        "cost": 13600,
+        "quantity": 1,
+        "stockAvailable": 6
+      },
+      {
+        "productId": "LV-1456",
+        "name": "Beauty blender",
+        "brand": "Anik",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "7707559883292",
+        "price": 7000,
+        "cost": 3817,
+        "quantity": 1,
+        "stockAvailable": 47
+      },
+      {
+        "productId": "LV-1216",
+        "name": "Polvo base",
+        "brand": "Piel canela",
+        "category": "Maquillaje",
+        "barcode": "770358036422",
+        "price": 34900,
+        "cost": 24900,
+        "quantity": 1,
+        "stockAvailable": 16
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 66900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 66900,
+    "cashReceived": 66900,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-652891",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-09T01:10:52.891Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1007",
+        "name": "Perfume capilar candy",
+        "brand": "Lluvia de Estrellas",
+        "category": "Capilar",
+        "barcode": "0634240138126",
+        "price": 41000,
+        "cost": 23845,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 41000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 41000,
+    "cashReceived": 41000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-256119",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-09T00:47:36.119Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1068",
+        "name": "Acondicionador linea profesional",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7709225678416",
+        "price": 72999,
+        "cost": 49875,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1069",
+        "name": "Shampoo linea profesional",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7709225678492",
+        "price": 70000,
+        "cost": 47880,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1112",
+        "name": "Splash nuevo x215ml Sweet cherry",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "677144890585",
+        "price": 29000,
+        "cost": 17000,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1286",
+        "name": "Frezee babes",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559882608",
+        "price": 22000,
+        "cost": 12500,
+        "quantity": 1,
+        "stockAvailable": 4
+      }
+    ],
+    "totalUnits": 4,
+    "subtotal": 193999,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 193999,
+    "cashReceived": 193999,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-149959",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-09T00:45:49.959Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1555",
+        "name": "Splash x250ml Sweet lychee",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "7708970723495",
+        "price": 29000,
+        "cost": 17000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1161",
+        "name": "Mantequilla mini x50g Sweet Lychee",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "7708970723426",
+        "price": 12500,
+        "cost": 7000,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 41500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 41500,
+    "cashReceived": 41500,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-632099",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-09T00:03:52.099Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1314",
+        "name": "Corrector XL tono 02",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525389",
+        "price": 37000,
+        "cost": 21000,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 37000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 37000,
+    "cashReceived": 37000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-983567",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-08T23:53:03.567Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1296",
+        "name": "Pestaina profesional silicon cafe",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430116",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 20000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 20000,
+    "cashReceived": 20000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-406050",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-08T23:26:46.050Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1145",
+        "name": "Fijador de maquillaje",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "7707375604187",
+        "price": 18000,
+        "cost": 9500,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1535",
+        "name": "Corrector bonita tono 03 honey",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559882493",
+        "price": 23500,
+        "cost": 12700,
+        "quantity": 1,
+        "stockAvailable": 6
+      },
+      {
+        "productId": "LV-1303",
+        "name": "Contorno chocolate en barra",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7709540026602",
+        "price": 17000,
+        "cost": 9000,
+        "quantity": 1,
+        "stockAvailable": 6
+      },
+      {
+        "productId": "LV-1591",
+        "name": "Delineador liquido en plumon",
+        "brand": "Elaya",
+        "category": "Maquillaje",
+        "barcode": "7708080149055",
+        "price": 17000,
+        "cost": 8250,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1595",
+        "name": "Delineador en lapiz tono tabaco",
+        "brand": "Samy",
+        "category": "Maquillaje",
+        "barcode": "7703378004207",
+        "price": 5000,
+        "cost": 2565,
+        "quantity": 1,
+        "stockAvailable": 4
+      }
+    ],
+    "totalUnits": 5,
+    "subtotal": 80500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 80500,
+    "cashReceived": 80500,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-257567",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-08T23:24:17.567Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1288",
+        "name": "Bloom lamination",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6973327787371",
+        "price": 18000,
+        "cost": 8200,
+        "quantity": 1,
+        "stockAvailable": 48
+      },
+      {
+        "productId": "LV-1286",
+        "name": "Frezee babes",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559882608",
+        "price": 22000,
+        "cost": 12500,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 40000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 40000,
+    "cashReceived": 40000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-241037",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-08T23:24:01.037Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1288",
+        "name": "Bloom lamination",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6973327787371",
+        "price": 18000,
+        "cost": 8200,
+        "quantity": 1,
+        "stockAvailable": 49
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 18000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 18000,
+    "cashReceived": 50000,
+    "cashChange": 32000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-048070",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-08T00:34:08.070Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1598",
+        "name": "Delineador en lapiz tono negro",
+        "brand": "Samy",
+        "category": "Maquillaje",
+        "barcode": "7703378004191",
+        "price": 5000,
+        "cost": 2565,
+        "quantity": 2,
+        "stockAvailable": 6
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 10000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 10000,
+    "cashReceived": 10000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-105538",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-07T23:45:05.538Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Nequi",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1544",
+        "name": "Libro de 640 pestaas punto a punto 30d, 40d y 50d",
+        "brand": "Pestaas",
+        "category": "Maquillaje",
+        "barcode": "293456844252",
+        "price": 35000,
+        "cost": 15000,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 35000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 35000,
+    "cashReceived": 35000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-088232",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T23:44:48.232Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1040",
+        "name": "Keratina mediana",
+        "brand": "Origen Botnico",
+        "category": "Capilar",
+        "barcode": "770770202507",
+        "price": 63000,
+        "cost": 43130,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1398",
+        "name": "Keratina x120ml pequea",
+        "brand": "Origen Botnico",
+        "category": "Maquillaje",
+        "barcode": "770770301200",
+        "price": 37000,
+        "cost": 25175,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 100000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 100000,
+    "cashReceived": 100000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-678449",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T22:47:58.449Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1553",
+        "name": "Tinta serum candy",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "793969699766",
+        "price": 10000,
+        "cost": 5000,
+        "quantity": 1,
+        "stockAvailable": 4
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 10000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 10000,
+    "cashReceived": 10000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-416174",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T22:43:36.174Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1039",
+        "name": "Perfume capilar golden toffe",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "7709268279694",
+        "price": 40000,
+        "cost": 25650,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1034",
+        "name": "Mini miel capilar",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "793969805600",
+        "price": 31000,
+        "cost": 19095,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1084",
+        "name": "Splash Corporal birthday x 100 ml",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "610985562976",
+        "price": 19000,
+        "cost": 11000,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1085",
+        "name": "Splash Corporal de maracuya x 100 ml",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144890097",
+        "price": 19000,
+        "cost": 11000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1082",
+        "name": "Body Splash Sweet Candy",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "7708931071412",
+        "price": 18000,
+        "cost": 10000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1286",
+        "name": "Frezee babes",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559882608",
+        "price": 22000,
+        "cost": 12500,
+        "quantity": 1,
+        "stockAvailable": 6
+      }
+    ],
+    "totalUnits": 6,
+    "subtotal": 149000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 149000,
+    "cashReceived": 150000,
+    "cashChange": 1000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-949427",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T22:02:29.427Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1098",
+        "name": "Splash nuevo x200ml Pia colada",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144266274",
+        "price": 29000,
+        "cost": 17000,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1103",
+        "name": "Mantequilla nueva x250ml Sweet cherry",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144890608",
+        "price": 30000,
+        "cost": 17500,
+        "quantity": 1,
+        "stockAvailable": 4
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 59000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 59000,
+    "cashReceived": 59000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-914984",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T22:01:54.984Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1544",
+        "name": "Libro de 640 pestaas punto a punto 30d, 40d y 50d",
+        "brand": "Pestaas",
+        "category": "Maquillaje",
+        "barcode": "293456844252",
+        "price": 35000,
+        "cost": 15000,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1389",
+        "name": "Perfume capilar tropical crush",
+        "brand": "Click Hair",
+        "category": "Maquillaje",
+        "barcode": "7709268279601",
+        "price": 40000,
+        "cost": 25650,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1066",
+        "name": "Perfume mini citrico",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "793969805525",
+        "price": 17900,
+        "cost": 10418,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 92900,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 92900,
+    "cashReceived": 100000,
+    "cashChange": 7100,
+    "notes": ""
+  },
+  {
+    "id": "TKT-764750",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T21:59:24.750Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1042",
+        "name": "Shampoo de leche y proteinas",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "7709360339302",
+        "price": 53000,
+        "cost": 33820,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1043",
+        "name": "Acondicionador de leche y proteinas",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "7709360339395",
+        "price": 53000,
+        "cost": 33820,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 106000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 106000,
+    "cashReceived": 106000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-729616",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T21:58:49.616Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1557",
+        "name": "Kit corporal x3 pia colada",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "793969700134",
+        "price": 44000,
+        "cost": 28000,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1556",
+        "name": "Shimmer corporal en llavero",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "610985566509",
+        "price": 12000,
+        "cost": 7000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1288",
+        "name": "Bloom lamination",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6973327787371",
+        "price": 18000,
+        "cost": 8200,
+        "quantity": 1,
+        "stockAvailable": 50
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 74000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 74000,
+    "cashReceived": 100000,
+    "cashChange": 26000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-788500",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T21:43:08.500Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1580",
+        "name": "Kit de labios mascarilla + lip balm de fresa",
+        "brand": "Bioaqua",
+        "category": "Maquillaje",
+        "barcode": "6976623804971",
+        "price": 11000,
+        "cost": 4800,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 11000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 11000,
+    "cashReceived": 11000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-950232",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T21:29:10.232Z",
+    "customerName": "Nora elena agudelo castao",
+    "customerPhone": "3178175935",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1575",
+        "name": "Calendario de adviento",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "770417360337",
+        "price": 200000,
+        "cost": 160000,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 200000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 200000,
+    "cashReceived": 200000,
+    "cashChange": 0,
+    "notes": "Llamar apenas llegue"
+  },
+  {
+    "id": "TKT-823837",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T21:27:03.837Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1058",
+        "name": "Bloom porta cosmeticos",
+        "brand": "Bloomshell",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "770427842930",
+        "price": 20000,
+        "cost": 10000,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 20000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 20000,
+    "cashReceived": 100000,
+    "cashChange": 80000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-388633",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T21:19:48.633Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1043",
+        "name": "Acondicionador de leche y proteinas",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "7709360339395",
+        "price": 53000,
+        "cost": 33820,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1042",
+        "name": "Shampoo de leche y proteinas",
+        "brand": "Click Hair",
+        "category": "Capilar",
+        "barcode": "7709360339302",
+        "price": 53000,
+        "cost": 33820,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 106000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 106000,
+    "cashReceived": 106000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-736313",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T20:52:16.313Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1359",
+        "name": "Rubor bonita tono 03 selena",
+        "brand": "Anik",
+        "category": "Maquillaje",
+        "barcode": "7707559886118",
+        "price": 20000,
+        "cost": 12000,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 20000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 20000,
+    "cashReceived": 20000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-722074",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T20:52:02.074Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1506",
+        "name": "Parches de estrellas",
+        "brand": "Acne patch",
+        "category": "Skincare",
+        "barcode": "20250702006",
+        "price": 8000,
+        "cost": 3300,
+        "quantity": 1,
+        "stockAvailable": 4
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 8000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 8000,
+    "cashReceived": 10000,
+    "cashChange": 2000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-707392",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T20:51:47.392Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1059",
+        "name": "Splash dorado pequeo",
+        "brand": "Glow Shine",
+        "category": "Corporal",
+        "barcode": "7709507915567",
+        "price": 26000,
+        "cost": 15250,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1060",
+        "name": "Mantequilla corporal mini dorada",
+        "brand": "Glow Shine",
+        "category": "Corporal",
+        "barcode": "7709507915529",
+        "price": 26000,
+        "cost": 15250,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 2,
+    "subtotal": 52000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 52000,
+    "cashReceived": 52000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-680054",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T20:51:20.054Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1492",
+        "name": "Brocha para base p103",
+        "brand": "Trendy",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "7709181860931",
+        "price": 21000,
+        "cost": 12000,
+        "quantity": 1,
+        "stockAvailable": 5
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 21000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 21000,
+    "cashReceived": 21000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-641883",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-07T20:50:41.883Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1374",
+        "name": "Corrector XL tono 01",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525372",
+        "price": 37000,
+        "cost": 21500,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 37000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 37000,
+    "cashReceived": 40000,
+    "cashChange": 3000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-410338",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-07T00:13:30.338Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1431",
+        "name": "Lip gloss candy love",
+        "brand": "Purpure",
+        "category": "Maquillaje",
+        "barcode": "764451296213",
+        "price": 16000,
+        "cost": 8000,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 16000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 16000,
+    "cashReceived": 16000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-441335",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-06T23:57:21.335Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1202",
+        "name": "Desenredante termoprotector morado",
+        "brand": "Milagros",
+        "category": "Capilar",
+        "barcode": "7708075180339",
+        "price": 36000,
+        "cost": 28500,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 36000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 36000,
+    "cashReceived": 50000,
+    "cashChange": 14000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-421021",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-06T23:57:01.021Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Transferencia",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1104",
+        "name": "Mantequilla birthday  cake x250ml",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144890219",
+        "price": 28000,
+        "cost": 16500,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1094",
+        "name": "Splash nuevo x200ml birthday cake",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144890233",
+        "price": 29000,
+        "cost": 17000,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1417",
+        "name": "shiny lip oil",
+        "brand": "Majikal",
+        "category": "Maquillaje",
+        "barcode": "770817250787",
+        "price": 26000,
+        "cost": 14750,
+        "quantity": 1,
+        "stockAvailable": 7
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 83000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 83000,
+    "cashReceived": 83000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-936884",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-06T22:42:16.884Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1301",
+        "name": "Pestaina profesional silicon",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430130",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 20000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 20000,
+    "cashReceived": 20000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-583395",
+    "accountId": "CTA-002",
+    "timestamp": "2026-11-06T21:46:23.395Z",
+    "customerName": "Clienta #2",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1374",
+        "name": "Corrector XL tono 01",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525372",
+        "price": 37000,
+        "cost": 21500,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1474",
+        "name": "Beauty blender pequea con cortes",
+        "brand": "Ruby face",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "6972547656184",
+        "price": 5000,
+        "cost": 2400,
+        "quantity": 1,
+        "stockAvailable": 10
+      },
+      {
+        "productId": "LV-1418",
+        "name": "Brillo aura tono 01",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7709311675497",
+        "price": 20000,
+        "cost": 10000,
+        "quantity": 1,
+        "stockAvailable": 3
+      }
+    ],
+    "totalUnits": 3,
+    "subtotal": 62000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 62000,
+    "cashReceived": 65000,
+    "cashChange": 3000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-560032",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-06T21:46:00.032Z",
+    "customerName": "amanda",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1128",
+        "name": "Contorno de ojos",
+        "brand": "Dream On",
+        "category": "Skincare",
+        "barcode": "7709411597897",
+        "price": 29000,
+        "cost": 16815,
+        "quantity": 1,
+        "stockAvailable": 1
+      },
+      {
+        "productId": "LV-1448",
+        "name": "Lip balm bloom gelee",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6924372689516",
+        "price": 18000,
+        "cost": 9300,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1421",
+        "name": "Brillo aura mocca tono 02",
+        "brand": "Trendy",
+        "category": "Maquillaje",
+        "barcode": "7709911354419",
+        "price": 20000,
+        "cost": 10000,
+        "quantity": 1,
+        "stockAvailable": 2
+      },
+      {
+        "productId": "LV-1525",
+        "name": "Translucent mate mini malla tono 03 natural",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482525587",
+        "price": 32000,
+        "cost": 16200,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1060",
+        "name": "Mantequilla corporal mini dorada",
+        "brand": "Glow Shine",
+        "category": "Corporal",
+        "barcode": "7709507915529",
+        "price": 26000,
+        "cost": 15250,
+        "quantity": 1,
+        "stockAvailable": 6
+      },
+      {
+        "productId": "LV-1008",
+        "name": "Perfume capilar grande",
+        "brand": "Lluvia de Estrellas",
+        "category": "Capilar",
+        "barcode": "634240138126",
+        "price": 41000,
+        "cost": 23845,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 6,
+    "subtotal": 166000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 166000,
+    "cashReceived": 180000,
+    "cashChange": 14000,
+    "notes": ""
+  },
+  {
+    "id": "TKT-017103",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-06T20:46:57.103Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Colaborador",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1298",
+        "name": "Pestaina microfibra",
+        "brand": "Prosa",
+        "category": "Maquillaje",
+        "barcode": "7501734430352",
+        "price": 20000,
+        "cost": 10800,
+        "quantity": 1,
+        "stockAvailable": 12
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 20000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 20000,
+    "cashReceived": 20000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-058880",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-06T19:57:38.880Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1544",
+        "name": "Libro de 640 pestaas punto a punto 30d, 40d y 50d",
+        "brand": "Pestaas",
+        "category": "Maquillaje",
+        "barcode": "293456844252",
+        "price": 35000,
+        "cost": 15000,
+        "quantity": 1,
+        "stockAvailable": 4
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 35000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 35000,
+    "cashReceived": 35000,
+    "cashChange": 0,
+    "notes": ""
+  },
+  {
+    "id": "TKT-700099",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-06T18:28:20.100Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1388",
+        "name": "Corrector liquido tono 02",
+        "brand": "Lula",
+        "category": "Maquillaje",
+        "barcode": "736372668639",
+        "price": 18000,
+        "cost": 9500,
+        "quantity": 1,
+        "stockAvailable": 3
+      },
+      {
+        "productId": "LV-1209",
+        "name": "Pestaas punto a punto 20d",
+        "brand": "Sackvis",
+        "category": "Maquillaje",
+        "barcode": "275949320677",
+        "price": 8500,
+        "cost": 2150,
+        "quantity": 1,
+        "stockAvailable": 6
+      },
+      {
+        "productId": "LV-1217",
+        "name": "Polvo base tono 01",
+        "brand": "Bloomshell",
+        "category": "Maquillaje",
+        "barcode": "6974482524467",
+        "price": 33000,
+        "cost": 16900,
+        "quantity": 1,
+        "stockAvailable": 4
+      },
+      {
+        "productId": "LV-1457",
+        "name": "Beauty blender XL",
+        "brand": "Bloomshell",
+        "category": "Accesorios de Maquillaje",
+        "barcode": "6926594000292",
+        "price": 12000,
+        "cost": 6000,
+        "quantity": 1,
+        "stockAvailable": 1
+      }
+    ],
+    "totalUnits": 4,
+    "subtotal": 71500,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 71500,
+    "cashReceived": 100000,
+    "cashChange": 28500,
+    "notes": ""
+  },
+  {
+    "id": "TKT-010675",
+    "accountId": "CTA-001",
+    "timestamp": "2026-11-06T18:16:50.675Z",
+    "customerName": "Cliente Mostrador",
+    "customerPhone": "",
+    "channel": "Punto Fsico (Calarc)",
+    "user": "Laura",
+    "paymentMethod": "Efectivo",
+    "paymentReference": "",
+    "items": [
+      {
+        "productId": "LV-1115",
+        "name": "Kit corporal x4 Rose lychee",
+        "brand": "Purpure",
+        "category": "Corporal",
+        "barcode": "677144889749",
+        "price": 55000,
+        "cost": 34000,
+        "quantity": 1,
+        "stockAvailable": 2
+      }
+    ],
+    "totalUnits": 1,
+    "subtotal": 55000,
+    "discountType": "cop",
+    "discountValue": 0,
+    "discountAmount": 0,
+    "grandTotal": 55000,
+    "cashReceived": 100000,
+    "cashChange": 45000,
+    "notes": ""
+  },
+  {
     "id": "TKT-588624",
     "accountId": "CTA-001",
     "timestamp": "2026-11-06T00:39:48.624Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -22567,7 +32854,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-06T00:21:09.057Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Nequi",
     "paymentReference": "",
@@ -22600,7 +32887,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-06T00:12:25.951Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Transferencia",
     "paymentReference": "",
@@ -22633,7 +32920,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-06T00:07:59.266Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -22662,8 +32949,8 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1544",
-        "name": "Libro de 640 pestañas punto a punto 30d, 40d y 50d",
-        "brand": "Pestañas",
+        "name": "Libro de 640 pestaas punto a punto 30d, 40d y 50d",
+        "brand": "Pestaas",
         "category": "Maquillaje",
         "barcode": "293456844252",
         "price": 35000,
@@ -22688,7 +32975,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T23:48:33.035Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "3148711572",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Nequi",
     "paymentReference": "",
@@ -22754,7 +33041,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T23:08:06.982Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -22787,14 +33074,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T23:07:38.044Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1301",
-        "name": "Pestañina profesional silicon",
+        "name": "Pestaina profesional silicon",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430130",
@@ -22842,7 +33129,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T23:06:00.387Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -22875,14 +33162,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T23:05:43.335Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1474",
-        "name": "Beauty blender pequeña con cortes",
+        "name": "Beauty blender pequea con cortes",
         "brand": "Ruby face",
         "category": "Accesorios de Maquillaje",
         "barcode": "6972547656184",
@@ -22908,7 +33195,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T22:59:16.393Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Transferencia",
     "paymentReference": "",
@@ -23069,7 +33356,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1298",
-        "name": "Pestañina microfibra",
+        "name": "Pestaina microfibra",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430352",
@@ -23095,7 +33382,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T22:05:32.167Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23128,7 +33415,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T21:43:41.919Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Nequi",
     "paymentReference": "",
@@ -23146,7 +33433,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1298",
-        "name": "Pestañina microfibra",
+        "name": "Pestaina microfibra",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430352",
@@ -23172,7 +33459,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T21:34:30.448Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23205,7 +33492,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T21:27:45.748Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Nequi",
     "paymentReference": "",
@@ -23238,7 +33525,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T20:35:30.590Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23271,14 +33558,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T20:11:10.914Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Nequi",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1297",
-        "name": "Pestañina maxi volumen silicon",
+        "name": "Pestaina maxi volumen silicon",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430147",
@@ -23315,7 +33602,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T19:57:57.268Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23359,7 +33646,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T18:03:03.547Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23403,7 +33690,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-05T17:35:30.219Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23436,7 +33723,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-04T23:25:04.262Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23469,14 +33756,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-04T22:31:52.229Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1209",
-        "name": "Pestañas punto a punto 20d",
+        "name": "Pestaas punto a punto 20d",
         "brand": "Sackvis",
         "category": "Maquillaje",
         "barcode": "275949320677",
@@ -23502,7 +33789,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-04T22:31:02.521Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23520,7 +33807,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1209",
-        "name": "Pestañas punto a punto 20d",
+        "name": "Pestaas punto a punto 20d",
         "brand": "Sackvis",
         "category": "Maquillaje",
         "barcode": "275949320677",
@@ -23546,7 +33833,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-04T21:42:54.262Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23601,14 +33888,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-04T20:55:05.468Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1150",
-        "name": "Fijador en aerosol pequeño",
+        "name": "Fijador en aerosol pequeo",
         "brand": "Sagui",
         "category": "Maquillaje",
         "barcode": "7120250620001",
@@ -23645,7 +33932,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-04T20:05:29.802Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23678,7 +33965,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-04T19:47:23.829Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23711,14 +33998,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-04T18:59:57.640Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1297",
-        "name": "Pestañina maxi volumen silicon",
+        "name": "Pestaina maxi volumen silicon",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430147",
@@ -23729,7 +34016,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1301",
-        "name": "Pestañina profesional silicon",
+        "name": "Pestaina profesional silicon",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430130",
@@ -23766,15 +34053,15 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-04T18:54:54.273Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1398",
-        "name": "Keratina x120ml pequeña",
-        "brand": "Origen Botánico",
+        "name": "Keratina x120ml pequea",
+        "brand": "Origen Botnico",
         "category": "Maquillaje",
         "barcode": "770770301200",
         "price": 37000,
@@ -23784,7 +34071,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1297",
-        "name": "Pestañina maxi volumen silicon",
+        "name": "Pestaina maxi volumen silicon",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430147",
@@ -23810,7 +34097,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-04T18:19:22.541Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23854,7 +34141,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-03T23:13:08.516Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23887,7 +34174,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-03T23:01:45.314Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23916,7 +34203,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1297",
-        "name": "Pestañina maxi volumen silicon",
+        "name": "Pestaina maxi volumen silicon",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430147",
@@ -23942,7 +34229,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-03T22:16:07.999Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -23986,7 +34273,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-03T22:09:09.090Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24048,7 +34335,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1297",
-        "name": "Pestañina maxi volumen silicon",
+        "name": "Pestaina maxi volumen silicon",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430147",
@@ -24085,7 +34372,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-03T18:30:01.016Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24114,7 +34401,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1316",
-        "name": "Corrector pequeño tono 01",
+        "name": "Corrector pequeo tono 01",
         "brand": "Majikal",
         "category": "Maquillaje",
         "barcode": "770703520378",
@@ -24140,7 +34427,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-03T17:05:23.588Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24206,7 +34493,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-03T17:00:47.675Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24214,7 +34501,7 @@ const INITIAL_SALES = [
       {
         "productId": "LV-1011",
         "name": "Shampoo jalea real",
-        "brand": "Origen Botánico",
+        "brand": "Origen Botnico",
         "category": "Capilar",
         "barcode": "7708946977105",
         "price": 38000,
@@ -24239,7 +34526,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T23:39:51.971Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24272,14 +34559,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T23:29:18.311Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Transferencia",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1301",
-        "name": "Pestañina profesional silicon",
+        "name": "Pestaina profesional silicon",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430130",
@@ -24316,7 +34603,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T22:46:21.339Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24360,7 +34647,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T22:08:21.328Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24393,7 +34680,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T21:52:39.024Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24426,14 +34713,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T20:59:08.969Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1292",
-        "name": "Pestañina Eternal lash",
+        "name": "Pestaina Eternal lash",
         "brand": "Anik",
         "category": "Maquillaje",
         "barcode": "7707559889874",
@@ -24459,7 +34746,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T20:52:29.887Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24492,7 +34779,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T20:44:54.137Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24602,7 +34889,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T19:41:30.663Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24631,7 +34918,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1301",
-        "name": "Pestañina profesional silicon",
+        "name": "Pestaina profesional silicon",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430130",
@@ -24679,7 +34966,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T18:41:43.729Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24687,7 +34974,7 @@ const INITIAL_SALES = [
       {
         "productId": "LV-1011",
         "name": "Shampoo jalea real",
-        "brand": "Origen Botánico",
+        "brand": "Origen Botnico",
         "category": "Capilar",
         "barcode": "7708946977105",
         "price": 38000,
@@ -24712,7 +34999,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T18:41:30.685Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24730,7 +35017,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1301",
-        "name": "Pestañina profesional silicon",
+        "name": "Pestaina profesional silicon",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430130",
@@ -24741,7 +35028,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1298",
-        "name": "Pestañina microfibra",
+        "name": "Pestaina microfibra",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430352",
@@ -24778,7 +35065,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T18:40:15.013Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24811,7 +35098,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T18:39:28.788Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24844,7 +35131,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T18:39:03.667Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24899,7 +35186,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-02T00:47:34.512Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -24917,7 +35204,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1290",
-        "name": "Pestañina self love",
+        "name": "Pestaina self love",
         "brand": "Dolce bella",
         "category": "Maquillaje",
         "barcode": "7708133635382",
@@ -24965,14 +35252,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-01T23:56:55.839Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1150",
-        "name": "Fijador en aerosol pequeño",
+        "name": "Fijador en aerosol pequeo",
         "brand": "Sagui",
         "category": "Maquillaje",
         "barcode": "7120250620001",
@@ -25031,7 +35318,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-01T21:45:29.552Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25064,14 +35351,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-01T21:44:59.549Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1100",
-        "name": "Exfoliante Piña colada",
+        "name": "Exfoliante Pia colada",
         "brand": "Purpure",
         "category": "Corporal",
         "barcode": "677144266496",
@@ -25093,7 +35380,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1299",
-        "name": "Pestañina maxi volumen",
+        "name": "Pestaina maxi volumen",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430338",
@@ -25119,7 +35406,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-01T21:38:34.849Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25163,7 +35450,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-01T21:37:52.676Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25196,7 +35483,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-01T00:33:18.959Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25240,7 +35527,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-11-01T00:28:05.109Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25284,7 +35571,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T22:30:39.926Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25292,7 +35579,7 @@ const INITIAL_SALES = [
       {
         "productId": "LV-1015",
         "name": "Mantequilla perfumada",
-        "brand": "Origen Botánico",
+        "brand": "Origen Botnico",
         "category": "Corporal",
         "barcode": "770710192400",
         "price": 30000,
@@ -25317,7 +35604,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T21:43:43.467Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Transferencia",
     "paymentReference": "",
@@ -25336,7 +35623,7 @@ const INITIAL_SALES = [
       {
         "productId": "LV-1011",
         "name": "Shampoo jalea real",
-        "brand": "Origen Botánico",
+        "brand": "Origen Botnico",
         "category": "Capilar",
         "barcode": "7708946977105",
         "price": 38000,
@@ -25347,7 +35634,7 @@ const INITIAL_SALES = [
       {
         "productId": "LV-1010",
         "name": "Tratamiento jalea real",
-        "brand": "Origen Botánico",
+        "brand": "Origen Botnico",
         "category": "Capilar",
         "barcode": "7709374293881",
         "price": 37900,
@@ -25383,7 +35670,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T21:16:27.391Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25401,7 +35688,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1319",
-        "name": "Corrector pequeño tono 04",
+        "name": "Corrector pequeo tono 04",
         "brand": "Majikal",
         "category": "Maquillaje",
         "barcode": "770879283532",
@@ -25427,7 +35714,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T20:36:16.574Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25460,7 +35747,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T19:56:56.574Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25493,7 +35780,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T19:43:46.990Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25501,7 +35788,7 @@ const INITIAL_SALES = [
       {
         "productId": "LV-1017",
         "name": "Termoprotector mini",
-        "brand": "Origen Botánico",
+        "brand": "Origen Botnico",
         "category": "Capilar",
         "barcode": "7700791501535",
         "price": 20000,
@@ -25526,7 +35813,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T19:24:24.604Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25559,7 +35846,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T19:19:59.795Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25592,14 +35879,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T18:58:41.342Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1248",
-        "name": "Pegante de pestañas transparente",
+        "name": "Pegante de pestaas transparente",
         "brand": "Lula",
         "category": "Maquillaje",
         "barcode": "7707375605283",
@@ -25625,14 +35912,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T16:20:05.236Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1150",
-        "name": "Fijador en aerosol pequeño",
+        "name": "Fijador en aerosol pequeo",
         "brand": "Sagui",
         "category": "Maquillaje",
         "barcode": "7120250620001",
@@ -25658,14 +35945,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T16:19:52.123Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1150",
-        "name": "Fijador en aerosol pequeño",
+        "name": "Fijador en aerosol pequeo",
         "brand": "Sagui",
         "category": "Maquillaje",
         "barcode": "7120250620001",
@@ -25702,7 +35989,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T16:18:33.541Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -25735,14 +36022,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T15:59:30.422Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1298",
-        "name": "Pestañina profesional silicon",
+        "name": "Pestaina profesional silicon",
         "brand": "Prosa",
         "category": "Maquillaje",
         "barcode": "7501734430352",
@@ -25768,14 +36055,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T00:33:53.214Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "1234",
     "items": [
       {
         "productId": "LV-1210",
-        "name": "Libro de 360 pestañas 10d",
+        "name": "Libro de 360 pestaas 10d",
         "brand": "cmayome",
         "category": "Maquillaje",
         "barcode": "226322916332",
@@ -25801,14 +36088,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T00:31:48.760Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "1234",
     "items": [
       {
         "productId": "LV-1211",
-        "name": "Pegante negro de pestañas",
+        "name": "Pegante negro de pestaas",
         "brand": "Salon pro",
         "category": "Maquillaje",
         "barcode": "770168839890",
@@ -25834,14 +36121,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T00:31:15.316Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "1234",
     "items": [
       {
         "productId": "LV-1150",
-        "name": "Fijador en aerosol pequeño",
+        "name": "Fijador en aerosol pequeo",
         "brand": "Sagui",
         "category": "Maquillaje",
         "barcode": "7120250620001",
@@ -25867,7 +36154,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-31T00:27:36.838Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Transferencia",
     "paymentReference": "1234",
@@ -25875,7 +36162,7 @@ const INITIAL_SALES = [
       {
         "productId": "LV-1013",
         "name": "Shampoo cebolla y argan",
-        "brand": "Origen Botánico",
+        "brand": "Origen Botnico",
         "category": "Capilar",
         "barcode": "770700724000",
         "price": 36000,
@@ -25919,7 +36206,7 @@ const INITIAL_SALES = [
       {
         "productId": "LV-1010",
         "name": "Tratamiento jalea real",
-        "brand": "Origen Botánico",
+        "brand": "Origen Botnico",
         "category": "Capilar",
         "barcode": "7709374293881",
         "price": 37900,
@@ -25944,14 +36231,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-30T22:01:47.201Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1206",
-        "name": "Pestañas de tira",
+        "name": "Pestaas de tira",
         "brand": "Sara marin",
         "category": "Maquillaje",
         "barcode": "7701136558443",
@@ -25977,7 +36264,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-30T21:04:43.182Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -26010,7 +36297,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-30T20:55:04.887Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -26043,7 +36330,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-30T20:39:21.867Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -26098,14 +36385,14 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-30T17:36:17.703Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
     "items": [
       {
         "productId": "LV-1098",
-        "name": "Splash nuevo x200ml Piña colada",
+        "name": "Splash nuevo x200ml Pia colada",
         "brand": "Purpure",
         "category": "Corporal",
         "barcode": "677144266274",
@@ -26116,7 +36403,7 @@ const INITIAL_SALES = [
       },
       {
         "productId": "LV-1110",
-        "name": "Mantequilla x250ml piña colada",
+        "name": "Mantequilla x250ml pia colada",
         "brand": "Purpure",
         "category": "Corporal",
         "barcode": "677144266298",
@@ -26142,7 +36429,7 @@ const INITIAL_SALES = [
     "timestamp": "2026-10-30T00:27:35.280Z",
     "customerName": "Cliente Mostrador",
     "customerPhone": "",
-    "channel": "Punto Físico (Calarcá)",
+    "channel": "Punto Fsico (Calarc)",
     "user": "Laura",
     "paymentMethod": "Efectivo",
     "paymentReference": "",
@@ -26150,7 +36437,7 @@ const INITIAL_SALES = [
       {
         "productId": "LV-1009",
         "name": "Tratamiento plex",
-        "brand": "Origen Botánico",
+        "brand": "Origen Botnico",
         "category": "Capilar",
         "barcode": "770472104000",
         "price": 34900,
@@ -26170,137 +36457,6 @@ const INITIAL_SALES = [
     "notes": ""
   }
 ];
-
-// ============================================================================
-// 2. SISTEMA DE AUDIO BOUTIQUE (WEB AUDIO API - SIN DEPENDENCIAS EXTERNAS)
-// ============================================================================
-class BoutiqueAudio {
-  constructor() {
-    this.ctx = null;
-    this.enabled = true;
-  }
-
-  init() {
-    if (!this.ctx) {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (AudioCtx) this.ctx = new AudioCtx();
-    }
-  }
-
-  playSuccess() {
-    if (!this.enabled) return;
-    this.init();
-    if (!this.ctx) return;
-    try {
-      const now = this.ctx.currentTime;
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = "sine";
-      // Chime celestial suave: tono ascendente 880Hz -> 1320Hz
-      osc.frequency.setValueAtTime(880, now);
-      osc.frequency.exponentialRampToValueAtTime(1320, now + 0.12);
-
-      gain.gain.setValueAtTime(0.15, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
-
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start(now);
-      osc.stop(now + 0.25);
-    } catch (e) {
-      console.warn("Audio feedback error:", e);
-    }
-  }
-
-  playError() {
-    if (!this.enabled) return;
-    this.init();
-    if (!this.ctx) return;
-    try {
-      const now = this.ctx.currentTime;
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = "triangle";
-      osc.frequency.setValueAtTime(320, now);
-      osc.frequency.setValueAtTime(240, now + 0.1);
-
-      gain.gain.setValueAtTime(0.2, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
-
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start(now);
-      osc.stop(now + 0.35);
-    } catch (e) {
-      console.warn("Audio feedback error:", e);
-    }
-  }
-
-  playCashChime() {
-    if (!this.enabled) return;
-    this.init();
-    if (!this.ctx) return;
-    try {
-      const now = this.ctx.currentTime;
-      const notes = [523.25, 659.25, 783.99, 1046.50]; // Acorde C mayor ascendente
-      notes.forEach((freq, idx) => {
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        const noteStart = now + (idx * 0.075);
-        osc.type = "sine";
-        osc.frequency.setValueAtTime(freq, noteStart);
-        gain.gain.setValueAtTime(0.18, noteStart);
-        gain.gain.exponentialRampToValueAtTime(0.001, noteStart + 0.4);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start(noteStart);
-        osc.stop(noteStart + 0.4);
-      });
-    } catch (e) {
-      console.warn("Audio feedback error:", e);
-    }
-  }
-
-  toggle() {
-    this.enabled = !this.enabled;
-    return this.enabled;
-  }
-}
-
-// ============================================================================
-// 3. ESTADO GLOBAL DE LA APLICACIÓN
-// ============================================================================
-const state = {
-  products: [],
-  kardex: [],
-  activeMode: "salida", // 'salida' | 'entrada' | 'consulta'
-  activeUser: "Laura",
-  activeTab: "tab-pos-accounts", // Pestaña inicial: Cuentas & Salidas
-  recentScans: [],
-  audio: new BoutiqueAudio(),
-  printBatch: [],
-  cameraScannerInstance: null,
-
-  // Sistema de Cuentas de Clientes (POS)
-  accounts: [],
-  activeAccountId: null,
-  salesHistory: [],
-  activePOSView: "active", // 'active' | 'history' | 'monthly'
-
-  // Control de Fechas en Historial de Salidas
-  historyDateMode: "today", // 'today' | 'yesterday' | 'all' | 'custom'
-  historyCustomDate: getLocalDateKey(new Date()),
-
-  // Control de Historial Mensual
-  monthlySelectedMonth: getLocalMonthKey(new Date()), // 'YYYY-MM'
-  monthlySearch: "",
-  monthlyFilterMethod: "ALL",
-  monthlyFilterDay: "ALL",
-
-  // Control de Acceso y Roles
-  currentUser: null
-};
-window.state = state;
 
 // ============================================================================
 // SISTEMA DE CONTROL DE ACCESO, ROLES & LOGIN (LUNA VIVA)
