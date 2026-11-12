@@ -36774,10 +36774,12 @@ async function fetchCloudSync(silent = false) {
     if (resProd.ok) {
       const remoteProd = await resProd.json();
       if (Array.isArray(remoteProd) && remoteProd.length > 0) {
+        const orderMap = new Map();
+        INITIAL_PRODUCTS.forEach((p, idx) => orderMap.set(p.id, idx));
         state.products = remoteProd.sort((a, b) => {
-          const numA = parseInt((a.id || "").replace(/\D/g, ""), 10) || 0;
-          const numB = parseInt((b.id || "").replace(/\D/g, ""), 10) || 0;
-          return numA - numB;
+          const idxA = orderMap.has(a.id) ? orderMap.get(a.id) : 999999;
+          const idxB = orderMap.has(b.id) ? orderMap.get(b.id) : 999999;
+          return idxA - idxB;
         });
         try { localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(state.products)); } catch (e) {}
       }
@@ -36890,79 +36892,46 @@ function removeAccents(str) {
 }
 
 function loadState() {
-  const CURRENT_DATA_VERSION = "2026-11-12_LV_V4_RECONCILED";
-  const storedVer = localStorage.getItem("LV_DATA_VERSION");
-  if (storedVer !== CURRENT_DATA_VERSION) {
+  const BACKUP_STAMP = "2026-11-12_LV_V5_EXACT_STOCKS";
+  const currentStamp = localStorage.getItem("LV_DATA_STAMP");
+
+  if (currentStamp !== BACKUP_STAMP) {
+    console.log("🌸 Aplicando sincronización estricta con el Respaldo Oficial Luna Viva...");
     try {
       localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(INITIAL_PRODUCTS));
       localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(INITIAL_KARDEX));
-      localStorage.setItem("LV_DATA_VERSION", CURRENT_DATA_VERSION);
+      localStorage.setItem("LV_DATA_STAMP", BACKUP_STAMP);
+      localStorage.removeItem("LV_OFFLINE_SYNC_QUEUE");
     } catch (e) {}
   }
 
-  // 1. Carga Inteligente de Productos (619 referencias consolidadas)
+  // Carga Limpia de Productos Oficiales (619 referencias)
   const storedProd = localStorage.getItem(STORAGE_KEY_PRODUCTS);
-  let localProducts = null;
   if (storedProd) {
     try {
-      const parsed = JSON.parse(storedProd);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        localProducts = parsed;
-      }
+      state.products = JSON.parse(storedProd);
     } catch (e) {
-      console.warn("Error leyendo productos de localStorage:", e);
+      state.products = INITIAL_PRODUCTS.map(p => ({ ...p }));
     }
+  } else {
+    state.products = INITIAL_PRODUCTS.map(p => ({ ...p }));
   }
 
-  const productMap = new Map();
-  INITIAL_PRODUCTS.forEach(p => productMap.set(p.id, { ...p }));
-  if (localProducts) {
-    localProducts.forEach(lp => {
-      if (productMap.has(lp.id)) {
-        const cur = productMap.get(lp.id);
-        productMap.set(lp.id, { ...cur, ...lp });
-      } else {
-        productMap.set(lp.id, { ...lp });
-      }
-    });
-  }
-
-  state.products = Array.from(productMap.values()).sort((a, b) => {
-    const numA = parseInt((a.id || "").replace(/\D/g, ""), 10) || 0;
-    const numB = parseInt((b.id || "").replace(/\D/g, ""), 10) || 0;
-    return numA - numB;
-  });
-
-  saveProducts(false);
-
-  // 2. Carga Inteligente de Kardex (1534 movimientos consolidados)
+  // Carga Limpia de Kardex Oficial (1534 movimientos)
   const storedKardex = localStorage.getItem(STORAGE_KEY_KARDEX);
-  let localKardex = null;
   if (storedKardex) {
     try {
-      const parsedK = JSON.parse(storedKardex);
-      if (Array.isArray(parsedK) && parsedK.length > 0) {
-        localKardex = parsedK;
-      }
-    } catch (e) {}
+      state.kardex = JSON.parse(storedKardex);
+    } catch (e) {
+      state.kardex = INITIAL_KARDEX.map(k => ({ ...k }));
+    }
+  } else {
+    state.kardex = INITIAL_KARDEX.map(k => ({ ...k }));
   }
 
-  const kardexMap = new Map();
-  INITIAL_KARDEX.forEach(k => kardexMap.set(k.id, { ...k }));
-  if (localKardex) {
-    localKardex.forEach(lk => kardexMap.set(lk.id, { ...lk }));
-  }
-
-  state.kardex = Array.from(kardexMap.values()).sort((a, b) => {
-    return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
-  });
-
+  saveProducts(false);
   saveKardex(false);
-
-  // 3. Cuentas y Ventas
   loadAccountsState();
-
-  // 4. Sincronización en segundo plano con archivos del disco
   syncFromDiskIfAvailable();
 }
 window.loadState = loadState;
