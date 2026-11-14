@@ -37044,7 +37044,7 @@ async function processOfflineQueue() {
     for (const item of queue) {
       try {
         const payload = Array.isArray(item.data) ? item.data : [item.data];
-        const res = await fetch(`${SUPABASE_CONFIG.url}/${item.entity}`, {
+        const res = await fetch(`${SUPABASE_CONFIG.url}/${item.entity}?on_conflict=id`, {
           method: "POST",
           headers: {
             "apikey": SUPABASE_CONFIG.key,
@@ -37075,12 +37075,13 @@ function syncDirectToSupabase(entity, data) {
   }
   try {
     const payload = Array.isArray(data) ? data : [data];
+    const url = `${SUPABASE_CONFIG.url}/${entity}?on_conflict=id`;
     const chunkSize = 100;
     
     if (payload.length > chunkSize) {
       for (let i = 0; i < payload.length; i += chunkSize) {
         const chunk = payload.slice(i, i + chunkSize);
-        fetch(`${SUPABASE_CONFIG.url}/${entity}`, {
+        fetch(url, {
           method: "POST",
           headers: {
             "apikey": SUPABASE_CONFIG.key,
@@ -37089,12 +37090,14 @@ function syncDirectToSupabase(entity, data) {
             "Prefer": "resolution=merge-duplicates,return=minimal"
           },
           body: JSON.stringify(chunk)
+        }).then(res => {
+          if (!res.ok) queueOfflineSync(entity, chunk);
         }).catch(() => {
           queueOfflineSync(entity, chunk);
         });
       }
     } else {
-      fetch(`${SUPABASE_CONFIG.url}/${entity}`, {
+      fetch(url, {
         method: "POST",
         headers: {
           "apikey": SUPABASE_CONFIG.key,
@@ -37123,6 +37126,19 @@ function syncDirectToSupabase(entity, data) {
   }
 }
 
+function deleteDirectFromSupabase(entity, id) {
+  try {
+    fetch(`${SUPABASE_CONFIG.url}/${entity}?id=eq.${id}`, {
+      method: "DELETE",
+      headers: {
+        "apikey": SUPABASE_CONFIG.key,
+        "Authorization": `Bearer ${SUPABASE_CONFIG.key}`
+      }
+    }).catch(() => {});
+  } catch (e) {}
+}
+window.deleteDirectFromSupabase = deleteDirectFromSupabase;
+
 let isSyncingCloud = false;
 
 async function fetchCloudSync(silent = false) {
@@ -37142,14 +37158,28 @@ async function fetchCloudSync(silent = false) {
       "Authorization": `Bearer ${SUPABASE_CONFIG.key}`
     };
 
-    // 1. Obtener productos de la nube
+    // 1. Obtener productos de la nube con UNIÓN SEGURA (NUNCA borrar productos creados localmente)
     const resProd = await fetch(`${SUPABASE_CONFIG.url}/products?select=*&limit=2000`, { headers });
     if (resProd.ok) {
       const remoteProd = await resProd.json();
       if (Array.isArray(remoteProd) && remoteProd.length > 0) {
+        const prodMap = new Map();
+        remoteProd.forEach(p => {
+          if (p && p.id) prodMap.set(p.id, p);
+        });
+
+        // UNIÓN SEGURA: Preservar productos locales que aún no existan en la nube
+        (state.products || []).forEach(localP => {
+          if (localP && localP.id && !prodMap.has(localP.id)) {
+            prodMap.set(localP.id, localP);
+            // Reintentar subir a la nube de inmediato
+            syncDirectToSupabase("products", localP);
+          }
+        });
+
         const orderMap = new Map();
         INITIAL_PRODUCTS.forEach((p, idx) => orderMap.set(p.id, idx));
-        state.products = remoteProd.sort((a, b) => {
+        state.products = Array.from(prodMap.values()).sort((a, b) => {
           const idxA = orderMap.has(a.id) ? orderMap.get(a.id) : 999999;
           const idxB = orderMap.has(b.id) ? orderMap.get(b.id) : 999999;
           return idxA - idxB;
@@ -37987,6 +38017,7 @@ function renderCatalogTable() {
       }
       if (!confirm(`¿Eliminar ${checked.length} productos seleccionados del catálogo de Luna Viva?\nEsta acción no se puede deshacer.`)) return;
       const idsToDelete = Array.from(checked).map(cb => cb.dataset.id);
+      idsToDelete.forEach(id => deleteDirectFromSupabase("products", id));
       state.products = state.products.filter(p => !idsToDelete.includes(p.id));
       saveProducts();
       populateBrandFilters();
@@ -38009,7 +38040,7 @@ window.quickAdjustStock = function (productId, delta) {
   const reason = delta > 0 ? "Ajuste Rápido Entrada" : "Venta Rápida Catálogo";
 
   recordKardexMovement(type, p, Math.abs(delta), prevStock, newStock, reason);
-  saveProducts();
+  saveProducts(true, p);
   renderCatalogTable();
   renderKardexTable();
   updateBadgesAndKPIs();
@@ -38026,6 +38057,7 @@ window.deleteProduct = function (productId) {
   const p = state.products.find(item => item.id === productId);
   if (!p) return;
   if (confirm(`¿Estás segura de eliminar "${p.name}" del catálogo de Luna Viva?\nEsta acción no se puede deshacer.`)) {
+    deleteDirectFromSupabase("products", productId);
     state.products = state.products.filter(item => item.id !== productId);
     saveProducts();
     populateBrandFilters();
@@ -38441,6 +38473,7 @@ function initProductModal() {
       if (idx !== -1) {
         state.products[idx] = { ...state.products[idx], barcode, name, category, brand, cost, price, stock, minStock, location, notes };
         showToast(`Producto actualizado: ${name}`, "success");
+        saveProducts(true, state.products[idx]);
       }
     } else {
       // Crear nuevo producto con ID garantizado único
@@ -38449,8 +38482,13 @@ function initProductModal() {
         return match ? Math.max(max, parseInt(match[1], 10)) : max;
       }, 1000);
 
+      let nextIdNum = maxIdNum + 1;
+      while (state.products.some(p => p.id === `LV-${nextIdNum}`)) {
+        nextIdNum++;
+      }
+
       const newProduct = {
-        id: `LV-${maxIdNum + 1}`,
+        id: `LV-${nextIdNum}`,
         barcode,
         name,
         category,
@@ -38465,9 +38503,8 @@ function initProductModal() {
       state.products.unshift(newProduct);
       recordKardexMovement("ENTRADA", newProduct, stock, 0, stock, "Inventario Inicial", "Alta de nuevo producto en catálogo");
       showToast(`✨ Nuevo producto guardado con éxito: ${name}`, "success");
+      saveProducts(true, newProduct);
     }
-
-    saveProducts();
     populateBrandFilters();
 
     // Resetear filtros del catálogo para mostrar el nuevo producto inmediatamente
