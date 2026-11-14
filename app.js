@@ -36805,7 +36805,7 @@ function loginUser(username, pin) {
     };
     try {
       localStorage.setItem(AUTH_CONFIG.STORAGE_KEY_SESSION, JSON.stringify(session));
-    } catch (e) {}
+    } catch (e) { }
 
     closeLoginModal();
     applyUserRolePermissions(user.name, user.role, true);
@@ -36949,7 +36949,7 @@ function initAuthSystem() {
   try {
     const stored = localStorage.getItem(AUTH_CONFIG.STORAGE_KEY_SESSION);
     if (stored) activeSession = JSON.parse(stored);
-  } catch (e) {}
+  } catch (e) { }
 
   if (activeSession && activeSession.name && activeSession.role && AUTH_CONFIG.USERS[activeSession.name]) {
     applyUserRolePermissions(activeSession.name, activeSession.role, false);
@@ -37030,7 +37030,7 @@ function queueOfflineSync(entity, data) {
     q.push({ entity, data, time: Date.now() });
     localStorage.setItem("LV_OFFLINE_SYNC_QUEUE", JSON.stringify(q));
     console.log(`[Offline Queue] 📦 Guardado en cola local para subir a la nube: ${entity}`);
-  } catch (e) {}
+  } catch (e) { }
 }
 
 async function processOfflineQueue() {
@@ -37065,7 +37065,7 @@ async function processOfflineQueue() {
     } else {
       localStorage.setItem("LV_OFFLINE_SYNC_QUEUE", JSON.stringify(remaining));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function syncDirectToSupabase(entity, data) {
@@ -37077,7 +37077,7 @@ function syncDirectToSupabase(entity, data) {
     const payload = Array.isArray(data) ? data : [data];
     const url = `${SUPABASE_CONFIG.url}/${entity}?on_conflict=id`;
     const chunkSize = 100;
-    
+
     if (payload.length > chunkSize) {
       for (let i = 0; i < payload.length; i += chunkSize) {
         const chunk = payload.slice(i, i + chunkSize);
@@ -37134,8 +37134,8 @@ function deleteDirectFromSupabase(entity, id) {
         "apikey": SUPABASE_CONFIG.key,
         "Authorization": `Bearer ${SUPABASE_CONFIG.key}`
       }
-    }).catch(() => {});
-  } catch (e) {}
+    }).catch(() => { });
+  } catch (e) { }
 }
 window.deleteDirectFromSupabase = deleteDirectFromSupabase;
 
@@ -37184,7 +37184,7 @@ async function fetchCloudSync(silent = false) {
           const idxB = orderMap.has(b.id) ? orderMap.get(b.id) : 999999;
           return idxA - idxB;
         });
-        try { localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(state.products)); } catch (e) {}
+        try { localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(state.products)); } catch (e) { }
       }
     }
 
@@ -37198,7 +37198,7 @@ async function fetchCloudSync(silent = false) {
           recentK.forEach(k => { if (k && k.id) kMap.set(k.id, k); });
           (state.kardex || []).forEach(k => { if (k && k.id && !kMap.has(k.id)) kMap.set(k.id, k); });
           state.kardex = Array.from(kMap.values()).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-          try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) {}
+          try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) { }
         }
       }
     } else {
@@ -37215,7 +37215,7 @@ async function fetchCloudSync(silent = false) {
       }
       if (allKardex.length > 0) {
         state.kardex = allKardex;
-        try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) {}
+        try { localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex)); } catch (e) { }
       }
     }
 
@@ -37237,7 +37237,7 @@ async function fetchCloudSync(silent = false) {
         state.salesHistory = Array.from(salesMap.values()).sort((a, b) => {
           return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
         });
-        try { localStorage.setItem(STORAGE_KEY_SALES, JSON.stringify(state.salesHistory)); } catch (e) {}
+        try { localStorage.setItem(STORAGE_KEY_SALES, JSON.stringify(state.salesHistory)); } catch (e) { }
       }
     }
 
@@ -37247,16 +37247,16 @@ async function fetchCloudSync(silent = false) {
       const remoteAcc = await resAcc.json();
       if (Array.isArray(remoteAcc) && remoteAcc.length > 0) {
         state.accounts = remoteAcc;
-        try { localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(state.accounts)); } catch (e) {}
+        try { localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(state.accounts)); } catch (e) { }
       }
     }
 
     // 5. En localhost, guardar también a disco local
     if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
-      fetch("/api/save-products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.products) }).catch(() => {});
-      fetch("/api/save-kardex", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.kardex) }).catch(() => {});
-      fetch("/api/save-sales", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.salesHistory) }).catch(() => {});
-      fetch("/api/save-accounts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.accounts) }).catch(() => {});
+      fetch("/api/save-products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.products) }).catch(() => { });
+      fetch("/api/save-kardex", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.kardex) }).catch(() => { });
+      fetch("/api/save-sales", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.salesHistory) }).catch(() => { });
+      fetch("/api/save-accounts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(state.accounts) }).catch(() => { });
     }
 
     // Refrescar ÚNICAMENTE la vista activa para máximo rendimiento (cero lag al hacer clic)
@@ -37323,8 +37323,8 @@ function saveToServer(entity, data) {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)
-        }).catch(() => {});
-      } catch (e) {}
+        }).catch(() => { });
+      } catch (e) { }
     }
   }
 }
@@ -37361,7 +37361,7 @@ function loadState() {
       localStorage.setItem(STORAGE_KEY_ACTIVE_ACCOUNT, "CTA-001");
       localStorage.setItem("LV_DATA_STAMP", BACKUP_STAMP);
       localStorage.removeItem("LV_OFFLINE_SYNC_QUEUE");
-    } catch (e) {}
+    } catch (e) { }
   }
 
   // Carga Limpia de Productos Oficiales (619 referencias)
@@ -37417,7 +37417,7 @@ async function syncFromDiskIfAvailable() {
             updateBadgesAndKPIs();
           }
         }
-      }).catch(() => {});
+      }).catch(() => { });
 
     // Sync sales
     fetch(`${base}/sales.json`, { cache: "no-store" })
@@ -37435,8 +37435,8 @@ async function syncFromDiskIfAvailable() {
             if (state.activePOSView === "monthly") renderMonthlyHistoryView();
           }
         }
-      }).catch(() => {});
-  } catch (e) {}
+      }).catch(() => { });
+  } catch (e) { }
 }
 
 function saveProducts(syncServer = true, changedProduct = null) {
@@ -37649,6 +37649,10 @@ function processScannedBarcode(rawBarcode) {
   saveProducts();
   renderScannedProductCard(product, state.activeMode, qty, prevStock, newStock, reason);
   addRecentScan(product, state.activeMode, qty);
+  initProductImages();
+  initPhotoEditorModal();
+  initPhotosManagerEvents();
+  updatePhotosBadge();
   renderCatalogTable();
   renderKardexTable();
 
@@ -37684,7 +37688,7 @@ function recordKardexMovement(type, product, qty, prevStock, newStock, reason, n
   state.kardex.unshift(movement);
   try {
     localStorage.setItem(STORAGE_KEY_KARDEX, JSON.stringify(state.kardex));
-  } catch (e) {}
+  } catch (e) { }
 
   // Enviar movimiento individual a Supabase instantáneamente
   syncDirectToSupabase("kardex", movement);
@@ -37694,7 +37698,7 @@ function recordKardexMovement(type, product, qty, prevStock, newStock, reason, n
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(state.kardex)
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 
@@ -37896,8 +37900,14 @@ function renderCatalogTable() {
           stockLabel = `Bajo (${p.stock})`;
         }
 
+        const prodImg = getProductImage(p.id);
         return `
           <tr><td><input type="checkbox" class="row-checkbox" data-id="${p.id}"></td>
+            <td style="text-align: center; width: 44px; padding: 4px;">
+              <div class="table-prod-thumb-wrapper" onclick="openPhotoModal('${p.id}')" title="Clic para ver o cambiar foto">
+                <img src="${prodImg}" alt="${p.name}" class="table-prod-thumb" onerror="this.src='/img/Logo luna.png'">
+              </div>
+            </td>
             <td><span class="barcode-badge-mono">${p.barcode}</span></td>
             <td>
               <div class="prod-title-group">
@@ -37918,6 +37928,7 @@ function renderCatalogTable() {
                 <button class="btn-action-icon" title="Salida rápida (-1)" onclick="quickAdjustStock('${p.id}', -1)"><i data-lucide="minus"></i></button>
                 <button class="btn-action-icon" title="Entrada rápida (+1)" onclick="quickAdjustStock('${p.id}', 1)"><i data-lucide="plus"></i></button>
                 <button class="btn-action-icon" title="Generar Etiqueta" onclick="prepareStickerPrint('${p.id}')"><i data-lucide="printer"></i></button>
+                <button class="btn-action-icon" title="Editar Foto" onclick="openPhotoModal('${p.id}')"><i data-lucide="camera"></i></button>
                 <button class="btn-action-icon" title="Editar producto" onclick="editProduct('${p.id}')"><i data-lucide="edit-2"></i></button>
                 <button class="btn-action-icon danger" title="Eliminar del catálogo" onclick="deleteProduct('${p.id}')"><i data-lucide="trash-2"></i></button>
               </div>
@@ -38041,6 +38052,10 @@ window.quickAdjustStock = function (productId, delta) {
 
   recordKardexMovement(type, p, Math.abs(delta), prevStock, newStock, reason);
   saveProducts(true, p);
+  initProductImages();
+  initPhotoEditorModal();
+  initPhotosManagerEvents();
+  updatePhotosBadge();
   renderCatalogTable();
   renderKardexTable();
   updateBadgesAndKPIs();
@@ -38393,6 +38408,410 @@ function updateBadgesAndKPIs() {
 // ============================================================================
 // 13. MODAL DE CREAR / EDITAR PRODUCTO
 // ============================================================================
+
+// ============================================================================
+// GESTOR DE FOTOS DEL CATÁLOGO & PRODUCTOS (LUNA VIVA)
+// ============================================================================
+let PRODUCT_IMAGES = {};
+
+function initProductImages() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('lv_product_images') || '{}');
+    PRODUCT_IMAGES = { ...(window.INITIAL_PRODUCT_IMAGES || {}), ...saved };
+  } catch (e) {
+    PRODUCT_IMAGES = { ...(window.INITIAL_PRODUCT_IMAGES || {}) };
+  }
+}
+
+function getProductImage(productId) {
+  if (!productId) return '/img/Logo luna.png';
+  if (PRODUCT_IMAGES && PRODUCT_IMAGES[productId]) {
+    return PRODUCT_IMAGES[productId];
+  }
+  const prod = state.products.find(p => p.id === productId);
+  if (prod && prod.image) return prod.image;
+  return '/img/Logo luna.png';
+}
+window.getProductImage = getProductImage;
+
+function setProductImage(productId, imageUrl) {
+  if (!productId) return;
+  PRODUCT_IMAGES[productId] = imageUrl;
+  try {
+    localStorage.setItem('lv_product_images', JSON.stringify(PRODUCT_IMAGES));
+  } catch (e) {}
+
+  const prod = state.products.find(p => p.id === productId);
+  if (prod) {
+    prod.image = imageUrl;
+  }
+  updatePhotosBadge();
+}
+window.setProductImage = setProductImage;
+
+function hasRealPhoto(productId) {
+  const img = getProductImage(productId);
+  return Boolean(img && !img.includes('Logo luna.png') && !img.includes('Logo%20luna.png'));
+}
+window.hasRealPhoto = hasRealPhoto;
+
+function updatePhotosBadge() {
+  const badge = document.getElementById('badge-photos-count');
+  if (!badge) return;
+  const countWith = state.products.filter(p => hasRealPhoto(p.id)).length;
+  badge.textContent = `${countWith}`;
+}
+
+function compressAndReadImage(file, maxWidth = 800, quality = 0.82) {
+  return new Promise((resolve, reject) => {
+    if (!file || !file.type.startsWith('image/')) {
+      return reject(new Error('El archivo seleccionado no es una imagen válida.'));
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+        if (width > maxWidth) {
+          height = Math.round((height * maxWidth) / width);
+          width = maxWidth;
+        }
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        const dataUrl = canvas.toDataURL('image/jpeg', quality);
+        resolve(dataUrl);
+      };
+      img.onerror = () => reject(new Error('No se pudo decodificar la imagen.'));
+      img.src = e.target.result;
+    };
+    reader.onerror = () => reject(new Error('Error al leer el archivo.'));
+    reader.readAsDataURL(file);
+  });
+}
+
+let currentPhotoEditingId = null;
+let currentPhotoTempData = null;
+
+function openPhotoModal(productId) {
+  const prod = state.products.find(p => p.id === productId);
+  if (!prod) return;
+
+  currentPhotoEditingId = productId;
+  const currentImg = getProductImage(productId);
+  currentPhotoTempData = currentImg;
+
+  const modal = document.getElementById("modal-photo-editor");
+  if (!modal) return;
+
+  document.getElementById("modal-photo-prod-name").textContent = prod.name;
+  document.getElementById("modal-photo-prod-info").textContent = `${prod.brand || 'Luna Viva'} · Código: ${prod.barcode || prod.id} · Ref: ${prod.id}`;
+  document.getElementById("photo-editor-prod-id").value = prod.id;
+
+  const previewImg = document.getElementById("photo-editor-img-preview");
+  previewImg.src = currentImg;
+
+  const badge = document.getElementById("photo-preview-badge");
+  const isReal = hasRealPhoto(productId);
+  badge.textContent = isReal ? "✓ Foto Oficial Asignada" : "⚠️ Sin Foto";
+  badge.className = "photo-preview-badge " + (isReal ? "has-photo" : "no-photo");
+
+  document.getElementById("photo-url-input").value = isReal ? currentImg : "";
+
+  modal.style.display = "flex";
+  if (window.lucide) lucide.createIcons();
+}
+window.openPhotoModal = openPhotoModal;
+
+function initPhotoEditorModal() {
+  const modal = document.getElementById("modal-photo-editor");
+  const btnClose = document.getElementById("btn-close-modal-photo");
+  const btnCancel = document.getElementById("btn-cancel-modal-photo");
+  const dropzone = document.getElementById("photo-dropzone");
+  const fileInput = document.getElementById("photo-file-input");
+  const urlInput = document.getElementById("photo-url-input");
+  const btnApplyUrl = document.getElementById("btn-apply-photo-url");
+  const btnRemove = document.getElementById("btn-remove-photo");
+  const btnSave = document.getElementById("btn-save-photo");
+
+  
+  // Controles de foto dentro del modal de producto
+  const btnFormUpload = document.getElementById("btn-form-upload-photo");
+  const formFileInput = document.getElementById("prod-form-file-input");
+  const btnFormClear = document.getElementById("btn-form-clear-photo");
+  const formPhotoUrl = document.getElementById("prod-image-url");
+  const formPhotoPreview = document.getElementById("prod-photo-preview");
+
+  btnFormUpload?.addEventListener("click", () => formFileInput?.click());
+  formFileInput?.addEventListener("change", async (e) => {
+    if (e.target.files && e.target.files[0]) {
+      try {
+        showToast("Procesando foto del producto...", "info");
+        const dataUrl = await compressAndReadImage(e.target.files[0]);
+        if (formPhotoPreview) formPhotoPreview.src = dataUrl;
+        if (formPhotoUrl) formPhotoUrl.value = dataUrl;
+        showToast("Foto lista para guardar con el producto.", "success");
+      } catch (err) {
+        showToast(err.message, "danger");
+      }
+    }
+  });
+
+  formPhotoUrl?.addEventListener("input", () => {
+    const u = formPhotoUrl.value.trim();
+    if (formPhotoPreview) formPhotoPreview.src = u || "/img/Logo luna.png";
+  });
+
+  btnFormClear?.addEventListener("click", () => {
+    if (formPhotoPreview) formPhotoPreview.src = "/img/Logo luna.png";
+    if (formPhotoUrl) formPhotoUrl.value = "";
+  });
+
+  const closeModal = () => {
+    if (modal) modal.style.display = "none";
+  };
+
+  btnClose?.addEventListener("click", closeModal);
+  btnCancel?.addEventListener("click", closeModal);
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  dropzone?.addEventListener("click", () => fileInput?.click());
+
+  dropzone?.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropzone.classList.add("dragover");
+  });
+  dropzone?.addEventListener("dragleave", () => dropzone.classList.remove("dragover"));
+  dropzone?.addEventListener("drop", async (e) => {
+    e.preventDefault();
+    dropzone.classList.remove("dragover");
+    const files = e.dataTransfer.files;
+    if (files && files[0]) {
+      handleSelectedPhoto(files[0]);
+    }
+  });
+
+  fileInput?.addEventListener("change", (e) => {
+    if (e.target.files && e.target.files[0]) {
+      handleSelectedPhoto(e.target.files[0]);
+    }
+  });
+
+  async function handleSelectedPhoto(file) {
+    try {
+      showToast("Comprimiendo y procesando imagen...", "info");
+      const dataUrl = await compressAndReadImage(file);
+      currentPhotoTempData = dataUrl;
+      const previewImg = document.getElementById("photo-editor-img-preview");
+      if (previewImg) previewImg.src = dataUrl;
+      const badge = document.getElementById("photo-preview-badge");
+      if (badge) {
+        badge.textContent = "✓ Nueva foto lista (sin guardar)";
+        badge.className = "photo-preview-badge has-photo";
+      }
+      showToast("Imagen lista. Haz clic en 'Guardar Foto'.", "success");
+    } catch (err) {
+      showToast(err.message, "danger");
+    }
+  }
+
+  btnApplyUrl?.addEventListener("click", () => {
+    const url = urlInput?.value.trim();
+    if (!url) return;
+    currentPhotoTempData = url;
+    const previewImg = document.getElementById("photo-editor-img-preview");
+    if (previewImg) previewImg.src = url;
+    const badge = document.getElementById("photo-preview-badge");
+    if (badge) {
+      badge.textContent = "✓ URL lista (sin guardar)";
+      badge.className = "photo-preview-badge has-photo";
+    }
+  });
+
+  btnRemove?.addEventListener("click", () => {
+    currentPhotoTempData = "/img/Logo luna.png";
+    const previewImg = document.getElementById("photo-editor-img-preview");
+    if (previewImg) previewImg.src = "/img/Logo luna.png";
+    if (urlInput) urlInput.value = "";
+    const badge = document.getElementById("photo-preview-badge");
+    if (badge) {
+      badge.textContent = "⚠️ Sin foto";
+      badge.className = "photo-preview-badge no-photo";
+    }
+    showToast("Foto eliminada de la vista previa. Haz clic en Guardar.", "info");
+  });
+
+  btnSave?.addEventListener("click", () => {
+    if (!currentPhotoEditingId) return;
+    const finalImg = currentPhotoTempData || urlInput?.value.trim() || "/img/Logo luna.png";
+    setProductImage(currentPhotoEditingId, finalImg);
+    const prod = state.products.find(p => p.id === currentPhotoEditingId);
+    showToast(`Foto guardada para: ${prod ? prod.name : currentPhotoEditingId}`, "success");
+    closeModal();
+    renderCatalogTable();
+    renderPhotosManager();
+  });
+}
+
+let photosDisplayLimit = 60;
+
+function renderPhotosManager() {
+  const container = document.getElementById("photos-grid");
+  if (!container) return;
+
+  const searchVal = (document.getElementById("photos-search-input")?.value || "").trim().toLowerCase();
+  const brandVal = document.getElementById("photos-filter-brand")?.value || "ALL";
+  const statusVal = document.getElementById("photos-filter-status")?.value || "ALL";
+
+  // Actualizar marcas en el select si está vacío
+  const brandSelect = document.getElementById("photos-filter-brand");
+  if (brandSelect && brandSelect.options.length <= 1) {
+    const brands = [...new Set(state.products.map(p => p.brand).filter(Boolean))].sort();
+    brands.forEach(b => {
+      const opt = document.createElement("option");
+      opt.value = b;
+      opt.textContent = b;
+      brandSelect.appendChild(opt);
+    });
+  }
+
+  // Filtrado
+  const filtered = state.products.filter(p => {
+    const normName = (p.name || "").toLowerCase();
+    const normBrand = (p.brand || "").toLowerCase();
+    const normBarcode = (p.barcode || "").toLowerCase();
+
+    const matchesSearch = !searchVal || normName.includes(searchVal) || normBrand.includes(searchVal) || normBarcode.includes(searchVal);
+    const matchesBrand = brandVal === "ALL" || p.brand === brandVal;
+
+    const isReal = hasRealPhoto(p.id);
+    let matchesStatus = true;
+    if (statusVal === "WITH") matchesStatus = isReal;
+    else if (statusVal === "WITHOUT") matchesStatus = !isReal;
+
+    return matchesSearch && matchesBrand && matchesStatus;
+  });
+
+  // KPIs
+  const total = state.products.length;
+  const withCount = state.products.filter(p => hasRealPhoto(p.id)).length;
+  const withoutCount = total - withCount;
+
+  const totalEl = document.getElementById("photos-kpi-total");
+  const withEl = document.getElementById("photos-kpi-with");
+  const withoutEl = document.getElementById("photos-kpi-without");
+  if (totalEl) totalEl.textContent = total;
+  if (withEl) withEl.textContent = withCount;
+  if (withoutEl) withoutEl.textContent = withoutCount;
+
+  // Render cards
+  const toDisplay = filtered.slice(0, photosDisplayLimit);
+  if (toDisplay.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 48px 16px; background: white; border-radius: 12px; border: 1px solid #ebd9df;">
+        <i data-lucide="image-off" style="width: 48px; height: 48px; color: var(--rose-primary); margin-bottom: 12px;"></i>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--rose-deep); margin: 0 0 6px;">No se encontraron productos</h3>
+        <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Prueba ajustando los filtros de búsqueda o marca.</p>
+      </div>
+    `;
+  } else {
+    container.innerHTML = toDisplay.map(p => {
+      const img = getProductImage(p.id);
+      const isReal = hasRealPhoto(p.id);
+      return `
+        <div class="photo-prod-card" data-id="${p.id}">
+          <div class="photo-prod-img-box" onclick="openPhotoModal('${p.id}')" title="Clic para editar foto">
+            <img src="${img}" alt="${p.name}" onerror="this.src='/img/Logo luna.png'">
+            <span class="photo-prod-badge-status ${isReal ? 'has-img' : 'no-img'}">
+              ${isReal ? '✓ Con Foto' : '⚠️ Sin Foto'}
+            </span>
+          </div>
+          <div class="photo-prod-card-body">
+            <div style="display: flex; gap: 4px; margin-bottom: 4px;">
+              <span class="badge-tag" style="font-size: 10px; padding: 2px 6px;">${p.brand || 'Luna Viva'}</span>
+              <span class="badge-tag" style="font-size: 10px; padding: 2px 6px; background: #f3f4f6; color: #4b5563;">${p.category || 'General'}</span>
+            </div>
+            <div class="photo-prod-card-title" title="${p.name}">${p.name}</div>
+            <div class="photo-prod-card-meta">
+              <span>Ref: ${p.id}</span>
+              <span style="font-weight: 600; color: var(--rose-deep);">${formatCOP(p.price)}</span>
+            </div>
+            <div class="photo-prod-card-actions">
+              <button type="button" class="btn btn-secondary-sm" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 4px;" onclick="openPhotoModal('${p.id}')">
+                <i data-lucide="camera" style="width: 14px; height: 14px;"></i> Cambiar Foto
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Load more button
+  const loadMoreBtn = document.getElementById("photos-load-more-container");
+  if (loadMoreBtn) {
+    loadMoreBtn.style.display = filtered.length > photosDisplayLimit ? "block" : "none";
+  }
+
+  if (window.lucide) lucide.createIcons();
+}
+window.renderPhotosManager = renderPhotosManager;
+
+function initPhotosManagerEvents() {
+  document.getElementById("photos-search-input")?.addEventListener("input", () => {
+    photosDisplayLimit = 60;
+    renderPhotosManager();
+  });
+  document.getElementById("photos-filter-brand")?.addEventListener("change", () => {
+    photosDisplayLimit = 60;
+    renderPhotosManager();
+  });
+  document.getElementById("photos-filter-status")?.addEventListener("change", () => {
+    photosDisplayLimit = 60;
+    renderPhotosManager();
+  });
+
+  // KPI card click filters
+  document.getElementById("kpi-photos-with-card")?.addEventListener("click", () => {
+    const sel = document.getElementById("photos-filter-status");
+    if (sel) {
+      sel.value = "WITH";
+      photosDisplayLimit = 60;
+      renderPhotosManager();
+    }
+  });
+  document.getElementById("kpi-photos-without-card")?.addEventListener("click", () => {
+    const sel = document.getElementById("photos-filter-status");
+    if (sel) {
+      sel.value = "WITHOUT";
+      photosDisplayLimit = 60;
+      renderPhotosManager();
+    }
+  });
+
+  document.getElementById("btn-photos-load-more")?.addEventListener("click", () => {
+    photosDisplayLimit += 60;
+    renderPhotosManager();
+  });
+
+  // Exportar JSON
+  document.getElementById("btn-export-photos-json")?.addEventListener("click", () => {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(PRODUCT_IMAGES, null, 2));
+    const downloadAnchor = document.createElement("a");
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", "productImages.json");
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+    showToast("Archivo productImages.json descargado con éxito.", "success");
+  });
+}
+
 function initProductModal() {
   const modal = document.getElementById("modal-product");
   const form = document.getElementById("form-product");
@@ -38474,6 +38893,8 @@ function initProductModal() {
         state.products[idx] = { ...state.products[idx], barcode, name, category, brand, cost, price, stock, minStock, location, notes };
         showToast(`Producto actualizado: ${name}`, "success");
         saveProducts(true, state.products[idx]);
+        const photoVal = document.getElementById("prod-image-url")?.value.trim();
+        if (photoVal) setProductImage(id, photoVal);
       }
     } else {
       // Crear nuevo producto con ID garantizado único
@@ -38534,6 +38955,11 @@ function openProductModal(product = null) {
   if (product) {
     title.textContent = `Editar Producto: ${product.name}`;
     document.getElementById("prod-id").value = product.id;
+    const prodPhoto = getProductImage(product.id);
+    const formPhotoPreview = document.getElementById("prod-photo-preview");
+    if (formPhotoPreview) formPhotoPreview.src = prodPhoto;
+    const formPhotoUrl = document.getElementById("prod-image-url");
+    if (formPhotoUrl) formPhotoUrl.value = hasRealPhoto(product.id) ? prodPhoto : "";
     document.getElementById("prod-barcode").value = product.barcode;
     document.getElementById("prod-name").value = product.name;
     document.getElementById("prod-category").value = product.category;
@@ -38547,6 +38973,10 @@ function openProductModal(product = null) {
   } else {
     title.textContent = "Nuevo Producto en Catálogo";
     document.getElementById("form-product").reset();
+    const formPhotoPreview = document.getElementById("prod-photo-preview");
+    if (formPhotoPreview) formPhotoPreview.src = "/img/Logo luna.png";
+    const formPhotoUrl = document.getElementById("prod-image-url");
+    if (formPhotoUrl) formPhotoUrl.value = "";
     document.getElementById("prod-id").value = "";
     document.getElementById("prod-stock").value = "5";
     document.getElementById("prod-min-stock").value = "2";
@@ -38924,7 +39354,7 @@ function loadAccountsState() {
     try {
       const parsedS = JSON.parse(storedSales);
       if (Array.isArray(parsedS)) localSales = parsedS;
-    } catch (e) {}
+    } catch (e) { }
   }
 
   // Fusión con INITIAL_SALES
@@ -38951,15 +39381,15 @@ function deleteAccountFromCloud(accountId) {
         "apikey": SUPABASE_CONFIG.key,
         "Authorization": `Bearer ${SUPABASE_CONFIG.key}`
       }
-    }).catch(() => {});
-  } catch (e) {}
+    }).catch(() => { });
+  } catch (e) { }
 }
 
 function saveAccountsState(syncServer = true) {
   try {
     localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(state.accounts));
     localStorage.setItem(STORAGE_KEY_ACTIVE_ACCOUNT, state.activeAccountId);
-  } catch (e) {}
+  } catch (e) { }
   updateOpenAccountsBadge();
   if (syncServer) {
     saveToServer("accounts", state.accounts);
@@ -39659,6 +40089,10 @@ function confirmCheckoutAndExit() {
   state.activeAccountId = state.accounts[0].id;
   saveAccountsState();
   renderPOS();
+  initProductImages();
+  initPhotoEditorModal();
+  initPhotosManagerEvents();
+  updatePhotosBadge();
   renderCatalogTable();
   renderKardexTable();
   renderSalesHistoryView();
@@ -40101,7 +40535,7 @@ function renderMonthlyDetailTable(monthSalesInput = null) {
   if (window.lucide) lucide.createIcons();
 }
 
-window.viewSpecificDayHistory = function(dateKey) {
+window.viewSpecificDayHistory = function (dateKey) {
   state.activePOSView = "history";
   state.historyDateMode = "custom";
   state.historyCustomDate = dateKey;
@@ -40286,8 +40720,8 @@ function printMonthlyReport() {
         </thead>
         <tbody>
           ${monthSales.map(s => {
-            const d = new Date(s.timestamp);
-            return `
+    const d = new Date(s.timestamp);
+    return `
               <tr>
                 <td><strong>${s.id}</strong></td>
                 <td>${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
@@ -40298,7 +40732,7 @@ function printMonthlyReport() {
                 <td>${s.user}</td>
               </tr>
             `;
-          }).join('')}
+  }).join('')}
         </tbody>
       </table>
     </body>
@@ -40685,6 +41119,7 @@ function switchTab(tabId) {
     "tab-pos-accounts": "Cuentas de Clientes & Sistema de Salidas",
     "tab-scanner": "Pistola / Escáner de Código de Barras",
     "tab-catalog": "Catálogo de Productos & Control de Stock",
+    "tab-photos": "📸 Gestor de Fotos & Catálogo Visual",
     "tab-kardex": "Kardex / Historial de Movimientos",
     "tab-barcode-generator": "Impresión de Etiquetas con Código de Barras",
     "tab-analytics": "Métricas, Resumen Financiero & Alertas"
@@ -40776,6 +41211,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initCameraScanner();
   populateBrandFilters();
   renderPOS();
+  initProductImages();
+  initPhotoEditorModal();
+  initPhotosManagerEvents();
+  updatePhotosBadge();
   renderCatalogTable();
   renderKardexTable();
   renderRecentScansList();
