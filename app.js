@@ -38430,6 +38430,8 @@ function resolveCatalogImageUrl(urlOrPath) {
 window.resolveCatalogImageUrl = resolveCatalogImageUrl;
 
 let PRODUCT_IMAGES = {};
+let PRODUCT_GALLERIES = {};
+window.photosCardIndices = {};
 
 function initProductImages() {
   try {
@@ -38437,6 +38439,13 @@ function initProductImages() {
     PRODUCT_IMAGES = { ...(window.INITIAL_PRODUCT_IMAGES || {}), ...saved };
   } catch (e) {
     PRODUCT_IMAGES = { ...(window.INITIAL_PRODUCT_IMAGES || {}) };
+  }
+
+  try {
+    const savedGalleries = JSON.parse(localStorage.getItem('lv_product_galleries') || '{}');
+    PRODUCT_GALLERIES = { ...(window.INITIAL_PRODUCT_GALLERIES || {}), ...savedGalleries };
+  } catch (e) {
+    PRODUCT_GALLERIES = { ...(window.INITIAL_PRODUCT_GALLERIES || {}) };
   }
 }
 
@@ -38453,6 +38462,27 @@ function getProductImage(productId) {
 }
 window.getProductImage = getProductImage;
 
+function getProductGallery(productId) {
+  if (!productId) return [DEFAULT_LOGO_FALLBACK];
+  let list = [];
+  if (PRODUCT_GALLERIES && Array.isArray(PRODUCT_GALLERIES[productId]) && PRODUCT_GALLERIES[productId].length > 0) {
+    list = [...PRODUCT_GALLERIES[productId]];
+  } else {
+    const prod = state.products.find(p => p.id === productId);
+    if (prod && Array.isArray(prod.images) && prod.images.length > 0) {
+      list = [...prod.images];
+    }
+  }
+
+  const main = getProductImage(productId);
+  if (main && !list.includes(main) && !list.some(x => resolveCatalogImageUrl(x) === main)) {
+    list.unshift(main);
+  }
+  if (list.length === 0) list = [main || DEFAULT_LOGO_FALLBACK];
+  return list.map(resolveCatalogImageUrl);
+}
+window.getProductGallery = getProductGallery;
+
 function setProductImage(productId, imageUrl) {
   if (!productId) return;
   PRODUCT_IMAGES[productId] = imageUrl;
@@ -38467,6 +38497,23 @@ function setProductImage(productId, imageUrl) {
   updatePhotosBadge();
 }
 window.setProductImage = setProductImage;
+
+function setProductGallery(productId, gallery) {
+  if (!productId || !Array.isArray(gallery)) return;
+  PRODUCT_GALLERIES[productId] = gallery;
+  try {
+    localStorage.setItem('lv_product_galleries', JSON.stringify(PRODUCT_GALLERIES));
+  } catch (e) {}
+
+  if (gallery.length > 0) {
+    setProductImage(productId, gallery[0]);
+  }
+  const prod = state.products.find(p => p.id === productId);
+  if (prod) {
+    prod.images = gallery;
+  }
+}
+window.setProductGallery = setProductGallery;
 
 function hasRealPhoto(productId) {
   let raw = (PRODUCT_IMAGES && PRODUCT_IMAGES[productId]) || "";
@@ -38518,16 +38565,56 @@ function compressAndReadImage(file, maxWidth = 800, quality = 0.82) {
   });
 }
 
+// Variables temporales para el modal de fotos
 let currentPhotoEditingId = null;
-let currentPhotoTempData = null;
+let currentPhotoTempGallery = [];
+let currentPhotoSelectedIdx = 0;
+
+function renderModalGalleryStrip() {
+  const strip = document.getElementById("modal-gallery-strip");
+  const countEl = document.getElementById("modal-gallery-count");
+  if (!strip) return;
+
+  if (countEl) countEl.textContent = currentPhotoTempGallery.length;
+
+  strip.innerHTML = currentPhotoTempGallery.map((url, idx) => {
+    const isActive = idx === currentPhotoSelectedIdx;
+    return `
+      <div class="modal-photo-thumb-item ${isActive ? 'active' : ''}" onclick="selectModalThumb(${idx})" title="Foto ${idx + 1} ${idx === 0 ? '(Principal)' : ''}">
+        <img src="${url}" onerror="this.src='https://catalogo-luna-viva.vercel.app/img/Logo%20luna%20sin%20fondo.png'">
+        ${idx === 0 ? '<span style="position:absolute; bottom:0; left:0; right:0; background:rgba(217,83,127,0.85); color:white; font-size:9px; text-align:center; font-weight:bold;">★</span>' : ''}
+      </div>
+    `;
+  }).join('');
+
+  const previewImg = document.getElementById("photo-editor-img-preview");
+  if (previewImg && currentPhotoTempGallery[currentPhotoSelectedIdx]) {
+    previewImg.src = currentPhotoTempGallery[currentPhotoSelectedIdx];
+  }
+
+  const badge = document.getElementById("photo-preview-badge");
+  if (badge) {
+    const isReal = currentPhotoTempGallery.length > 0 && !currentPhotoTempGallery[0].includes("Logo%20luna");
+    badge.textContent = isReal ? `✓ ${currentPhotoTempGallery.length} foto(s) en galería` : "⚠️ Sin Foto";
+    badge.className = "photo-preview-badge " + (isReal ? "has-photo" : "no-photo");
+  }
+}
+window.renderModalGalleryStrip = renderModalGalleryStrip;
+
+function selectModalThumb(idx) {
+  if (idx < 0 || idx >= currentPhotoTempGallery.length) return;
+  currentPhotoSelectedIdx = idx;
+  renderModalGalleryStrip();
+}
+window.selectModalThumb = selectModalThumb;
 
 function openPhotoModal(productId) {
   const prod = state.products.find(p => p.id === productId);
   if (!prod) return;
 
   currentPhotoEditingId = productId;
-  const currentImg = getProductImage(productId);
-  currentPhotoTempData = currentImg;
+  currentPhotoTempGallery = getProductGallery(productId).slice();
+  currentPhotoSelectedIdx = 0;
 
   const modal = document.getElementById("modal-photo-editor");
   if (!modal) return;
@@ -38536,20 +38623,35 @@ function openPhotoModal(productId) {
   document.getElementById("modal-photo-prod-info").textContent = `${prod.brand || 'Luna Viva'} · Código: ${prod.barcode || prod.id} · Ref: ${prod.id}`;
   document.getElementById("photo-editor-prod-id").value = prod.id;
 
-  const previewImg = document.getElementById("photo-editor-img-preview");
-  previewImg.src = currentImg;
+  renderModalGalleryStrip();
 
-  const badge = document.getElementById("photo-preview-badge");
-  const isReal = hasRealPhoto(productId);
-  badge.textContent = isReal ? "✓ Foto Oficial Asignada" : "⚠️ Sin Foto";
-  badge.className = "photo-preview-badge " + (isReal ? "has-photo" : "no-photo");
-
-  document.getElementById("photo-url-input").value = isReal ? currentImg : "";
+  const urlInput = document.getElementById("photo-url-input");
+  if (urlInput) urlInput.value = "";
 
   modal.style.display = "flex";
   if (window.lucide) lucide.createIcons();
 }
 window.openPhotoModal = openPhotoModal;
+
+function cycleCardPhoto(event, productId, delta) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  const gallery = getProductGallery(productId);
+  if (!gallery || gallery.length <= 1) return;
+
+  let curr = window.photosCardIndices[productId] || 0;
+  curr = (curr + delta + gallery.length) % gallery.length;
+  window.photosCardIndices[productId] = curr;
+
+  const imgEl = document.getElementById(`photo-card-img-${productId}`);
+  if (imgEl) imgEl.src = gallery[curr];
+
+  const counterEl = document.getElementById(`photo-card-counter-${productId}`);
+  if (counterEl) counterEl.textContent = `📷 ${curr + 1}/${gallery.length}`;
+}
+window.cycleCardPhoto = cycleCardPhoto;
 
 function initPhotoEditorModal() {
   const modal = document.getElementById("modal-photo-editor");
@@ -38561,8 +38663,9 @@ function initPhotoEditorModal() {
   const btnApplyUrl = document.getElementById("btn-apply-photo-url");
   const btnRemove = document.getElementById("btn-remove-photo");
   const btnSave = document.getElementById("btn-save-photo");
+  const btnSetPrimary = document.getElementById("btn-set-primary-photo");
+  const btnRemoveSelected = document.getElementById("btn-remove-selected-thumb");
 
-  
   // Controles de foto dentro del modal de producto
   const btnFormUpload = document.getElementById("btn-form-upload-photo");
   const formFileInput = document.getElementById("prod-form-file-input");
@@ -38616,14 +38719,18 @@ function initPhotoEditorModal() {
     e.preventDefault();
     dropzone.classList.remove("dragover");
     const files = e.dataTransfer.files;
-    if (files && files[0]) {
-      handleSelectedPhoto(files[0]);
+    if (files && files.length > 0) {
+      for (let i = 0; i < files.length; i++) {
+        await handleSelectedPhoto(files[i]);
+      }
     }
   });
 
-  fileInput?.addEventListener("change", (e) => {
-    if (e.target.files && e.target.files[0]) {
-      handleSelectedPhoto(e.target.files[0]);
+  fileInput?.addEventListener("change", async (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      for (let i = 0; i < e.target.files.length; i++) {
+        await handleSelectedPhoto(e.target.files[i]);
+      }
     }
   });
 
@@ -38631,15 +38738,15 @@ function initPhotoEditorModal() {
     try {
       showToast("Comprimiendo y procesando imagen...", "info");
       const dataUrl = await compressAndReadImage(file);
-      currentPhotoTempData = dataUrl;
-      const previewImg = document.getElementById("photo-editor-img-preview");
-      if (previewImg) previewImg.src = dataUrl;
-      const badge = document.getElementById("photo-preview-badge");
-      if (badge) {
-        badge.textContent = "✓ Nueva foto lista (sin guardar)";
-        badge.className = "photo-preview-badge has-photo";
+      // Si la galería sólo tenía el logo por defecto, reemplazarlo
+      if (currentPhotoTempGallery.length === 1 && currentPhotoTempGallery[0].includes("Logo%20luna")) {
+        currentPhotoTempGallery = [dataUrl];
+      } else {
+        currentPhotoTempGallery.push(dataUrl);
       }
-      showToast("Imagen lista. Haz clic en 'Guardar Foto'.", "success");
+      currentPhotoSelectedIdx = currentPhotoTempGallery.length - 1;
+      renderModalGalleryStrip();
+      showToast("Foto agregada a la galería. Haz clic en 'Guardar Foto'.", "success");
     } catch (err) {
       showToast(err.message, "danger");
     }
@@ -38648,35 +38755,50 @@ function initPhotoEditorModal() {
   btnApplyUrl?.addEventListener("click", () => {
     const url = urlInput?.value.trim();
     if (!url) return;
-    currentPhotoTempData = url;
-    const previewImg = document.getElementById("photo-editor-img-preview");
-    if (previewImg) previewImg.src = url;
-    const badge = document.getElementById("photo-preview-badge");
-    if (badge) {
-      badge.textContent = "✓ URL lista (sin guardar)";
-      badge.className = "photo-preview-badge has-photo";
+    const resolved = resolveCatalogImageUrl(url);
+    if (currentPhotoTempGallery.length === 1 && currentPhotoTempGallery[0].includes("Logo%20luna")) {
+      currentPhotoTempGallery = [resolved];
+    } else {
+      currentPhotoTempGallery.push(resolved);
     }
+    currentPhotoSelectedIdx = currentPhotoTempGallery.length - 1;
+    renderModalGalleryStrip();
+    if (urlInput) urlInput.value = "";
+    showToast("URL agregada a la galería del producto.", "success");
+  });
+
+  btnSetPrimary?.addEventListener("click", () => {
+    if (currentPhotoTempGallery.length <= 1 || currentPhotoSelectedIdx === 0) return;
+    const item = currentPhotoTempGallery.splice(currentPhotoSelectedIdx, 1)[0];
+    currentPhotoTempGallery.unshift(item);
+    currentPhotoSelectedIdx = 0;
+    renderModalGalleryStrip();
+    showToast("Esta foto es ahora la foto principal del producto.", "info");
+  });
+
+  btnRemoveSelected?.addEventListener("click", () => {
+    if (currentPhotoTempGallery.length === 0) return;
+    currentPhotoTempGallery.splice(currentPhotoSelectedIdx, 1);
+    if (currentPhotoTempGallery.length === 0) {
+      currentPhotoTempGallery = [DEFAULT_LOGO_FALLBACK];
+    }
+    currentPhotoSelectedIdx = Math.max(0, currentPhotoSelectedIdx - 1);
+    renderModalGalleryStrip();
+    showToast("Foto quitada de la galería.", "info");
   });
 
   btnRemove?.addEventListener("click", () => {
-    currentPhotoTempData = DEFAULT_LOGO_FALLBACK;
-    const previewImg = document.getElementById("photo-editor-img-preview");
-    if (previewImg) previewImg.src = DEFAULT_LOGO_FALLBACK;
-    if (urlInput) urlInput.value = "";
-    const badge = document.getElementById("photo-preview-badge");
-    if (badge) {
-      badge.textContent = "⚠️ Sin foto";
-      badge.className = "photo-preview-badge no-photo";
-    }
-    showToast("Foto eliminada de la vista previa. Haz clic en Guardar.", "info");
+    currentPhotoTempGallery = [DEFAULT_LOGO_FALLBACK];
+    currentPhotoSelectedIdx = 0;
+    renderModalGalleryStrip();
+    showToast("Se han quitado todas las fotos. Haz clic en Guardar.", "info");
   });
 
   btnSave?.addEventListener("click", () => {
     if (!currentPhotoEditingId) return;
-    const finalImg = currentPhotoTempData || urlInput?.value.trim() || "/img/Logo luna.png";
-    setProductImage(currentPhotoEditingId, finalImg);
+    setProductGallery(currentPhotoEditingId, currentPhotoTempGallery);
     const prod = state.products.find(p => p.id === currentPhotoEditingId);
-    showToast(`Foto guardada para: ${prod ? prod.name : currentPhotoEditingId}`, "success");
+    showToast(`Galería guardada (${currentPhotoTempGallery.length} fotos) para: ${prod ? prod.name : currentPhotoEditingId}`, "success");
     closeModal();
     renderCatalogTable();
     renderPhotosManager();
@@ -38746,15 +38868,24 @@ function renderPhotosManager() {
     `;
   } else {
     container.innerHTML = toDisplay.map(p => {
-      const img = getProductImage(p.id);
+      const gallery = getProductGallery(p.id);
+      const cardIdx = window.photosCardIndices[p.id] || 0;
+      const activeImg = gallery[cardIdx] || gallery[0] || DEFAULT_LOGO_FALLBACK;
       const isReal = hasRealPhoto(p.id);
+      const hasMultiple = gallery.length > 1;
+
       return `
         <div class="photo-prod-card" data-id="${p.id}">
-          <div class="photo-prod-img-box" onclick="openPhotoModal('${p.id}')" title="Clic para editar foto">
-            <img src="${img}" alt="${p.name}" onerror="this.src='https://catalogo-luna-viva.vercel.app/img/Logo%20luna%20sin%20fondo.png'">
+          <div class="photo-prod-img-box">
+            <img id="photo-card-img-${p.id}" src="${activeImg}" alt="${p.name}" onclick="openPhotoModal('${p.id}')" title="Clic para ver o cambiar foto" onerror="this.src='https://catalogo-luna-viva.vercel.app/img/Logo%20luna%20sin%20fondo.png'">
             <span class="photo-prod-badge-status ${isReal ? 'has-img' : 'no-img'}">
               ${isReal ? '✓ Con Foto' : '⚠️ Sin Foto'}
             </span>
+            ${hasMultiple ? `
+              <button type="button" class="photo-card-arrow photo-card-prev" onclick="cycleCardPhoto(event, '${p.id}', -1)" title="Foto anterior">‹</button>
+              <button type="button" class="photo-card-arrow photo-card-next" onclick="cycleCardPhoto(event, '${p.id}', 1)" title="Foto siguiente">›</button>
+              <span class="photo-card-counter" id="photo-card-counter-${p.id}">📷 ${cardIdx + 1}/${gallery.length}</span>
+            ` : ''}
           </div>
           <div class="photo-prod-card-body">
             <div style="display: flex; gap: 4px; margin-bottom: 4px;">
@@ -38768,7 +38899,7 @@ function renderPhotosManager() {
             </div>
             <div class="photo-prod-card-actions">
               <button type="button" class="btn btn-secondary-sm" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 4px;" onclick="openPhotoModal('${p.id}')">
-                <i data-lucide="camera" style="width: 14px; height: 14px;"></i> Cambiar Foto
+                <i data-lucide="camera" style="width: 14px; height: 14px;"></i> ${hasMultiple ? `Fotos (${gallery.length})` : 'Cambiar Foto'}
               </button>
             </div>
           </div>

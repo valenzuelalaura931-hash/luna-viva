@@ -619,3 +619,2431 @@ window.INITIAL_PRODUCT_IMAGES = {
   "LV-1616": "/catalogo-img/Bloomshell/labios/bloomshell - tinta de labios en gelatina - bloom gelei tono berry.webp",
   "LV-1617": "/catalogo-img/Bloomshell/labios/bloomshell - tinta de labios en gelatina - bloom gelei tono berry.webp"
 };
+
+window.INITIAL_PRODUCT_GALLERIES = {
+  "LV-1619": [
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Scarlett banana.webp",
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Scarlett banana1.webp"
+  ],
+  "LV-1618": [
+    "/catalogo-img/Girly/polvos/girly - polvo suelto - tono 2 translucido.webp"
+  ],
+  "LV-1001": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1002": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1003": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1004": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1005": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1006": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1007": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1008": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1009": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1010": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1011": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1012": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1013": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1014": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1015": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1016": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1017": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1018": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1019": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1020": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1021": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1022": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1023": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1024": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1025": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1026": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1027": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1028": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1029": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1030": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1031": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1032": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1033": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1034": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1035": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1036": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1037": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1038": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1039": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1040": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1041": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1042": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1043": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1044": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1045": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1046": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1047": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1048": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1049": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1050": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1051": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1052": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1053": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1054": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1055": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1056": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1057": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1058": [
+    "/catalogo-img/Bloomshell/bloomshell-bloomportacosmeticos.webp"
+  ],
+  "LV-1059": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1060": [
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini - coconut1.webp"
+  ],
+  "LV-1061": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - birthday cake.webp"
+  ],
+  "LV-1062": [
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande - Birthday cake.webp",
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande - Birthday cake1.webp"
+  ],
+  "LV-1063": [
+    "/catalogo-img/atenea/atenea - Paleta de sombras - art deco.webp",
+    "/catalogo-img/atenea/atenea - Paleta de sombras - art deco1.webp"
+  ],
+  "LV-1064": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1065": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1066": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1067": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1068": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1069": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1070": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1071": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1072": [
+    "/catalogo-img/Girly/girly - gel hidratante aloe vera.webp",
+    "/catalogo-img/Girly/girly - gel hidratante aloe vera1.webp"
+  ],
+  "LV-1073": [
+    "/catalogo-img/Purpure/Skincare/Purpure- Agua micelar con niacinamida - x220ml.webp"
+  ],
+  "LV-1074": [
+    "/catalogo-img/Trendy/desmaquillantes/trendy - Desmaquillante bifasico - bob esponja.webp",
+    "/catalogo-img/Trendy/desmaquillantes/trendy - Desmaquillante bifasico - bob esponja1.webp"
+  ],
+  "LV-1075": [
+    "/catalogo-img/Trendy/desmaquillantes/trendy - Desmaquillante bifasico - bob esponja.webp",
+    "/catalogo-img/Trendy/desmaquillantes/trendy - Desmaquillante bifasico - bob esponja1.webp"
+  ],
+  "LV-1076": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - tonico facial - rosas y acido hialuronico.webp"
+  ],
+  "LV-1077": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - crema facial - rosas y acido hialuronico.webp",
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - crema facial - rosas y acido hialuronico1.webp"
+  ],
+  "LV-1078": [
+    "/catalogo-img/Purpure/Skincare/Purpure- Tonico de hamamelis - x250ml.webp"
+  ],
+  "LV-1079": [
+    "/catalogo-img/Purpure/Skincare/Purpure- Agua micelar con niacinamida - x220ml.webp"
+  ],
+  "LV-1080": [
+    "/img/papelitos bloomshell.webp"
+  ],
+  "LV-1081": [
+    "/catalogo-img/Purpure/Skincare/Purpure- Agua micelar con niacinamida - x220ml.webp"
+  ],
+  "LV-1082": [
+    "/catalogo-img/Purpure/Splash/purpure - llavero en splash - candy bum.webp"
+  ],
+  "LV-1083": [
+    "/catalogo-img/Purpure/Splash/purpure - splash mini nuevo- piña colada.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash mini nuevo- piña colada1.webp"
+  ],
+  "LV-1084": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - birthday cake.webp"
+  ],
+  "LV-1085": [
+    "/catalogo-img/Purpure/Splash/purpure - splash mini nuevo- maracuyazo.webp"
+  ],
+  "LV-1086": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande nuevo- bubble gum.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash grande nuevo- bubble gum1.webp"
+  ],
+  "LV-1087": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande nuevo- caramel.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash grande nuevo- caramel1.webp"
+  ],
+  "LV-1088": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - watermelon 1.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - watermelon.webp"
+  ],
+  "LV-1089": [
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure -mantequilla mini nueva - strawberry.webp",
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure -mantequilla mini nueva - strawberry1.webp"
+  ],
+  "LV-1090": [
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini - vainilla chill.webp",
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini - vainilla chill1.webp"
+  ],
+  "LV-1091": [
+    "/catalogo-img/Purpure/Splash/purpure - llavero en splash - candy bum.webp"
+  ],
+  "LV-1092": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - birthday cake.webp"
+  ],
+  "LV-1093": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - sexy champagne.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - sexy champagne1.webp"
+  ],
+  "LV-1094": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - birthday cake.webp"
+  ],
+  "LV-1095": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande nuevo- bubble gum.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash grande nuevo- bubble gum1.webp"
+  ],
+  "LV-1096": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - watermelon 1.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - watermelon.webp"
+  ],
+  "LV-1097": [
+    "/catalogo-img/Purpure/Splash/purpure - splash mini nuevo- maracuyazo.webp"
+  ],
+  "LV-1098": [
+    "/catalogo-img/Purpure/Splash/purpure - splash mini nuevo- piña colada.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash mini nuevo- piña colada1.webp"
+  ],
+  "LV-1099": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande nuevo - girl boss1.webp"
+  ],
+  "LV-1100": [
+    "/catalogo-img/Purpure/mantequilla grande/purpure -Exfoliante grande - piña colada.webp",
+    "/catalogo-img/Purpure/mantequilla grande/purpure -Exfoliante grande - piña colada1.webp"
+  ],
+  "LV-1101": [
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande nueva - maracuyazo.webp",
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande nueva - maracuyazo1.webp"
+  ],
+  "LV-1102": [
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande nueva - maracuyazo.webp",
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande nueva - maracuyazo1.webp"
+  ],
+  "LV-1103": [
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera sweet cherry.webp",
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera sweet cherry1.webp"
+  ],
+  "LV-1104": [
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande - Birthday cake.webp",
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande - Birthday cake1.webp"
+  ],
+  "LV-1105": [
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande - honey glow.webp",
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande - honey glow1.webp"
+  ],
+  "LV-1106": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - girl boss.webp"
+  ],
+  "LV-1107": [
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande - candy bum.webp",
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande - candy bum1.webp"
+  ],
+  "LV-1108": [
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera sweet cherry.webp",
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera sweet cherry1.webp"
+  ],
+  "LV-1109": [
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure -mantequilla mini nueva - watermelon.webp",
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure -mantequilla mini nueva - watermelon1.webp"
+  ],
+  "LV-1110": [
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande nueva - piña colada1.webp"
+  ],
+  "LV-1111": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande nuevo - candy bum.webp"
+  ],
+  "LV-1112": [
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera sweet cherry.webp",
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera sweet cherry1.webp"
+  ],
+  "LV-1113": [
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera piña colada.webp",
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera piña colada1.webp"
+  ],
+  "LV-1114": [
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera candy.webp",
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera candy1.webp"
+  ],
+  "LV-1115": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1116": [
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera chocolate vibes.webp",
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera chocolate vibes1.webp"
+  ],
+  "LV-1117": [
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera sweet cherry.webp",
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera sweet cherry1.webp"
+  ],
+  "LV-1118": [
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera maracuyazo.webp",
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera maracuyazo1.webp"
+  ],
+  "LV-1119": [
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera candy.webp",
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera candy1.webp"
+  ],
+  "LV-1120": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1121": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1122": [
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande - Birthday cake.webp",
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande - Birthday cake1.webp"
+  ],
+  "LV-1123": [
+    "/catalogo-img/Bloomshell/skin care/bloomshell-serum-bloombalance.webp"
+  ],
+  "LV-1124": [
+    "/catalogo-img/Bloomshell/primer/bloomshell - primer en crema- bloomcream pinky.webp",
+    "/catalogo-img/Bloomshell/primer/bloomshell - primer en crema- bloomcream pinky1.webp"
+  ],
+  "LV-1125": [
+    "/catalogo-img/Bloomshell/primer/bloomshell - primer en crema- bloomcream pinky.webp",
+    "/catalogo-img/Bloomshell/primer/bloomshell - primer en crema- bloomcream pinky1.webp"
+  ],
+  "LV-1126": [
+    "/catalogo-img/Bloomshell/bloomshell-iluminador en crema-bloom cosmic.webp"
+  ],
+  "LV-1127": [
+    "/catalogo-img/Purpure/Skincare/Purpure- Agua de rosas - x120ml.webp",
+    "/catalogo-img/Purpure/Skincare/Purpure- Agua de rosas - x250.webp"
+  ],
+  "LV-1128": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - Contorno de ojos - Arroz.webp"
+  ],
+  "LV-1129": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - tonico facial - rosas y acido hialuronico.webp"
+  ],
+  "LV-1130": [
+    "/catalogo-img/Purpure/Skincare/Purpure- Agua de rosas - x120ml.webp",
+    "/catalogo-img/Purpure/Skincare/Purpure- Agua de rosas - x250.webp"
+  ],
+  "LV-1131": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - Contorno de ojos - rosas y acido hialuronico1.webp"
+  ],
+  "LV-1132": [
+    "/catalogo-img/Trendy/desmaquillantes/trendy - Desmaquillante bifasico - bob esponja.webp",
+    "/catalogo-img/Trendy/desmaquillantes/trendy - Desmaquillante bifasico - bob esponja1.webp"
+  ],
+  "LV-1133": [
+    "/catalogo-img/Bloomshell/primer/bloomshell - primer en gel- bloom poros invisibles.webp"
+  ],
+  "LV-1134": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1135": [
+    "/catalogo-img/Purpure/maquillaje/purpure - primer - pore filter.webp",
+    "/catalogo-img/Purpure/maquillaje/purpure - primer - pore filter1.webp"
+  ],
+  "LV-1136": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1137": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1138": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1139": [
+    "/catalogo-img/Bloomshell/primer/bloomshell - primer en crema- bloomcream purple.webp",
+    "/catalogo-img/Bloomshell/primer/bloomshell - primer en crema- bloomcream purple1.webp"
+  ],
+  "LV-1140": [
+    "/catalogo-img/Bloomshell/fijadores/bloomshell-fijador de maquillaje en aerosol - grande.webp"
+  ],
+  "LV-1141": [
+    "/catalogo-img/Purpure/maquillaje/purpure - primer - pore filter.webp",
+    "/catalogo-img/Purpure/maquillaje/purpure - primer - pore filter1.webp"
+  ],
+  "LV-1142": [
+    "/catalogo-img/montoc/fijador/montoc - fijador grande - dixy fix.webp"
+  ],
+  "LV-1143": [
+    "/catalogo-img/montoc/fijador/montoc - fijador grande - dixy fix.webp"
+  ],
+  "LV-1144": [
+    "/catalogo-img/Bloomshell/fijadores/bloomshell-fijador de maquillaje en aerosol - grande.webp"
+  ],
+  "LV-1145": [
+    "/catalogo-img/Bloomshell/fijadores/bloomshell-fijador de maquillaje en aerosol - grande.webp"
+  ],
+  "LV-1146": [
+    "/catalogo-img/Trendy/fijadores/trendy-fijador de maquillaje - toy-story.webp",
+    "/catalogo-img/Trendy/fijadores/trendy-fijador de maquillaje - toy-story1.webp"
+  ],
+  "LV-1147": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1148": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1149": [
+    "/catalogo-img/Bloomshell/fijadores/bloomshell-fijador de maquillaje en aerosol - grande.webp"
+  ],
+  "LV-1150": [
+    "/catalogo-img/Bloomshell/fijadores/bloomshell-fijador de maquillaje en aerosol - grande.webp"
+  ],
+  "LV-1151": [
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - birthday cake.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - birthday cake1.webp"
+  ],
+  "LV-1152": [
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - birthday cake.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - birthday cake1.webp"
+  ],
+  "LV-1153": [
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - pistacho.webp"
+  ],
+  "LV-1154": [
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - girl boss.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - girl boss1.webp"
+  ],
+  "LV-1155": [
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - candy bum.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - candy.webp"
+  ],
+  "LV-1156": [
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - coconut.webp"
+  ],
+  "LV-1157": [
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini - maracuyazo.webp",
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini - maracuyazo1.webp"
+  ],
+  "LV-1158": [
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini - pistacho.webp",
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini - pistacho1.webp"
+  ],
+  "LV-1159": [
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - girl boss.webp",
+    "/catalogo-img/Purpure/Splash/purpure - splash mini - girl boss1.webp"
+  ],
+  "LV-1160": [
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini - vainilla chill.webp",
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini - vainilla chill1.webp"
+  ],
+  "LV-1161": [
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini - coconut1.webp"
+  ],
+  "LV-1162": [
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure -mantequilla mini - birthday cake.webp"
+  ],
+  "LV-1163": [
+    "/catalogo-img/Purpure/mantequilla grande/purpure -mantequilla grande nueva - piña colada1.webp"
+  ],
+  "LV-1164": [
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini nueva - candy bum.webp",
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini nueva - candy bum1.webp"
+  ],
+  "LV-1165": [
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini nueva - candy bum.webp",
+    "/catalogo-img/Purpure/mantequilla pequeña/purpure - -mantequilla mini nueva - candy bum1.webp"
+  ],
+  "LV-1166": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1167": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1168": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1169": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1170": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1171": [
+    "/img/papelitos bloomshell.webp"
+  ],
+  "LV-1172": [
+    "/catalogo-img/Girly/girly - gel hidratante aloe vera.webp",
+    "/catalogo-img/Girly/girly - gel hidratante aloe vera1.webp"
+  ],
+  "LV-1173": [
+    "/catalogo-img/Bioaqua/centella asiatica/bioaqua - contorno de ojos - centella asiatica.webp"
+  ],
+  "LV-1174": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - Kit en caja - Arroz.webp",
+    "/catalogo-img/Bioaqua/arroz/bioaqua - Kit en caja - Arroz1.webp"
+  ],
+  "LV-1175": [
+    "/catalogo-img/Bioaqua/centella asiatica/bioaqua - serum hidratante - centella asiatica.webp"
+  ],
+  "LV-1176": [
+    "/catalogo-img/Bioaqua/centella asiatica/bioaqua - crema hidratante - centella asiatica.webp"
+  ],
+  "LV-1177": [
+    "/catalogo-img/Bioaqua/centella asiatica/bioaqua - tonico de centella asiatica.webp"
+  ],
+  "LV-1178": [
+    "/catalogo-img/Bioaqua/Vitamina c/bioaqua - crema hidratante facial - Vitamina c.webp",
+    "/catalogo-img/Bioaqua/Vitamina c/bioaqua - crema hidratante facial - Vitamina c1.webp"
+  ],
+  "LV-1179": [
+    "/catalogo-img/Bioaqua/Vitamina c/bioaqua - tonico facial - Vitamina c.webp"
+  ],
+  "LV-1180": [
+    "/catalogo-img/Bioaqua/Vitamina c/bioaqua - Limpiador facial - Vitamina c.webp",
+    "/catalogo-img/Bioaqua/Vitamina c/bioaqua - Limpiador facial - Vitamina c1.webp"
+  ],
+  "LV-1181": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - Contorno de ojos - Arroz.webp"
+  ],
+  "LV-1182": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - tonico facial - Arroz.webp"
+  ],
+  "LV-1183": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - Contorno de ojos - Arroz.webp"
+  ],
+  "LV-1184": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - serum facial - Arroz.webp",
+    "/catalogo-img/Bioaqua/arroz/bioaqua - serum facial - Arroz1.webp"
+  ],
+  "LV-1185": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - Contorno de ojos - rosas y acido hialuronico1.webp"
+  ],
+  "LV-1186": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - serum facial - rosas y acido hialuronico.webp"
+  ],
+  "LV-1187": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - Contorno de ojos - rosas y acido hialuronico1.webp"
+  ],
+  "LV-1188": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - crema facial - rosas y acido hialuronico.webp",
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - crema facial - rosas y acido hialuronico1.webp"
+  ],
+  "LV-1189": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - tonico facial - rosas y acido hialuronico.webp"
+  ],
+  "LV-1190": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1191": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - crema facial - Arroz.webp"
+  ],
+  "LV-1192": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1193": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1194": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1195": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1196": [
+    "/catalogo-img/Bioaqua/centella asiatica/bioaqua - limpiador facial - centella asiatica.webp"
+  ],
+  "LV-1197": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - crema facial - rosas y acido hialuronico.webp",
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - crema facial - rosas y acido hialuronico1.webp"
+  ],
+  "LV-1198": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - crema facial - Arroz.webp"
+  ],
+  "LV-1199": [
+    "/catalogo-img/Bioaqua/Vitamina c/bioaqua - crema hidratante facial - Vitamina c.webp",
+    "/catalogo-img/Bioaqua/Vitamina c/bioaqua - crema hidratante facial - Vitamina c1.webp"
+  ],
+  "LV-1200": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1201": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1202": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1203": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1204": [
+    "/catalogo-img/anik/accesorios/cosmetiquera lilo morada.webp",
+    "/catalogo-img/anik/accesorios/cosmetiquera lilo rosada.webp"
+  ],
+  "LV-1205": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1206": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1207": [
+    "/catalogo-img/Bloomshell/encrespadores/bloomshell-encrespador de pestañas - bloom amore curl.webp"
+  ],
+  "LV-1208": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1209": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1210": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1211": [
+    "/catalogo-img/Trendy/accesorios/trendy - pegante de pestañas - 2 en1 -1.webp",
+    "/catalogo-img/Trendy/accesorios/trendy - pegante de pestañas - 2 en1.webp"
+  ],
+  "LV-1212": [
+    "/catalogo-img/Trendy/polvos/trendy - polvo compacto - jack banana.webp",
+    "/catalogo-img/Trendy/polvos/trendy - polvo compacto - jack banana1.webp"
+  ],
+  "LV-1213": [
+    "/catalogo-img/Purpure/maquillaje/purpure - rubor en polvo - candy love tono 03.webp"
+  ],
+  "LV-1214": [
+    "/catalogo-img/Purpure/maquillaje/purpure - rubor en polvo - candy love tono 03.webp"
+  ],
+  "LV-1215": [
+    "/catalogo-img/Trendy/polvos/trendy - polvo compacto - jack banana.webp",
+    "/catalogo-img/Trendy/polvos/trendy - polvo compacto - jack banana1.webp"
+  ],
+  "LV-1216": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1217": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1218": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1219": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1220": [
+    "/catalogo-img/Purpure/Splash/purpure - llavero en splash - candy bum.webp"
+  ],
+  "LV-1221": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - serum facial - Arroz.webp",
+    "/catalogo-img/Bioaqua/arroz/bioaqua - serum facial - Arroz1.webp"
+  ],
+  "LV-1222": [
+    "/catalogo-img/Bloomshell/lapices/bloomshell- delineador de ojos en plumon- blooming nour negro.webp"
+  ],
+  "LV-1223": [
+    "/catalogo-img/Bloomshell/encrespadores/bloomshell-encrespador de pestañas - bloom black curl.webp"
+  ],
+  "LV-1224": [
+    "/catalogo-img/Bloomshell/lapices/bloomshell- lapiz de ojos- bloom beige.webp",
+    "/catalogo-img/Bloomshell/lapices/bloomshell- lapiz de ojos- bloom beige1.webp"
+  ],
+  "LV-1225": [
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Carlota translucido.webp",
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Carlota translucido1.webp"
+  ],
+  "LV-1226": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - polvo 2 en 1 - traslucent matte grande tono purple.webp"
+  ],
+  "LV-1227": [
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Scarlett banana.webp",
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Scarlett banana1.webp"
+  ],
+  "LV-1228": [
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Carlota translucido.webp",
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Carlota translucido1.webp"
+  ],
+  "LV-1229": [
+    "/catalogo-img/montoc/polvos/montoc - polvo suelto - x10 gramos banana.webp",
+    "/catalogo-img/montoc/polvos/montoc - polvo suelto - x10 gramos banana1.webp"
+  ],
+  "LV-1230": [
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene traslucido.webp",
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene traslucido1.webp"
+  ],
+  "LV-1231": [
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene rosado.webp",
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene rosado1.webp"
+  ],
+  "LV-1232": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - polvo 2 en 1 - traslucent matte mini tono traslucido.webp"
+  ],
+  "LV-1233": [
+    "/catalogo-img/anik/polvos/Polvo Suelto bonita.webp",
+    "/catalogo-img/anik/polvos/polvo suelto traslucido.webp",
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Carlota translucido1.webp",
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Carlota translucido.webp"
+  ],
+  "LV-1234": [
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene rosado.webp",
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene rosado1.webp"
+  ],
+  "LV-1235": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1236": [
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene traslucido.webp",
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene traslucido1.webp"
+  ],
+  "LV-1237": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell- polvo suelto 4 tonos- bloom filter mini.webp"
+  ],
+  "LV-1238": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - polvo suelto - traslucent matte big tono natural.webp"
+  ],
+  "LV-1239": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - polvo suelto - traslucent matte big tono natural.webp"
+  ],
+  "LV-1240": [
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene traslucido.webp",
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene traslucido1.webp"
+  ],
+  "LV-1241": [
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Scarlett banana.webp",
+    "/catalogo-img/anik/polvos/anik - Polvo suelto - Scarlett banana1.webp"
+  ],
+  "LV-1242": [
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene traslucido.webp",
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene traslucido1.webp"
+  ],
+  "LV-1243": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - polvo 2 en 1 - traslucent matte grande tono natural.webp"
+  ],
+  "LV-1244": [
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene traslucido.webp",
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene traslucido1.webp"
+  ],
+  "LV-1245": [
+    "/catalogo-img/Purpure/maquillaje/Purpure- papelitos de arroz - clean skin 1.webp",
+    "/catalogo-img/Purpure/maquillaje/Purpure- papelitos de arroz - clean skin.webp"
+  ],
+  "LV-1246": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - papelitos con polvo - bloom powder paper tono1.webp",
+    "/catalogo-img/Bloomshell/polvos/bloomshell - papelitos con polvo - bloom powder paper tono2.webp"
+  ],
+  "LV-1247": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1248": [
+    "/catalogo-img/Trendy/accesorios/trendy - pegante de pestañas - 2 en1 -1.webp",
+    "/catalogo-img/Trendy/accesorios/trendy - pegante de pestañas - 2 en1.webp"
+  ],
+  "LV-1249": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - papelitos con polvo - bloom powder paper tono1.webp",
+    "/catalogo-img/Bloomshell/polvos/bloomshell - papelitos con polvo - bloom powder paper tono2.webp"
+  ],
+  "LV-1250": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base en barra - bloom full cover tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base en barra - bloom full cover tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base en barra - bloom full cover tono 5.webp"
+  ],
+  "LV-1251": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1252": [
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1.webp",
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1-1.webp",
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1-2.webp",
+    "/catalogo-img/anik/base/base 2 en 1 tonos.webp",
+    "/catalogo-img/anik/base/Base bonita.webp"
+  ],
+  "LV-1253": [
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1.webp",
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1-1.webp",
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1-2.webp",
+    "/catalogo-img/anik/base/base 2 en 1 tonos.webp",
+    "/catalogo-img/anik/base/Base bonita.webp"
+  ],
+  "LV-1254": [
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1.webp",
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1-1.webp",
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1-2.webp",
+    "/catalogo-img/anik/base/base 2 en 1 tonos.webp",
+    "/catalogo-img/anik/base/Base bonita.webp"
+  ],
+  "LV-1255": [
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1.webp",
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1-1.webp",
+    "/catalogo-img/anik/base/anik - base liquida 2 en 1-2.webp",
+    "/catalogo-img/anik/base/base 2 en 1 tonos.webp",
+    "/catalogo-img/anik/base/Base bonita.webp"
+  ],
+  "LV-1256": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1257": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1258": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1259": [
+    "/catalogo-img/atenea/base/atenea - base liquida -1st scene  x30ml 1.webp",
+    "/catalogo-img/atenea/base/atenea - base liquida -1st scene  x30ml 2.webp",
+    "/catalogo-img/atenea/base/atenea - base liquida -1st scene  x30ml.webp"
+  ],
+  "LV-1260": [
+    "/catalogo-img/atenea/base/atenea - base liquida -1st scene  x30ml 1.webp",
+    "/catalogo-img/atenea/base/atenea - base liquida -1st scene  x30ml 2.webp",
+    "/catalogo-img/atenea/base/atenea - base liquida -1st scene  x30ml.webp"
+  ],
+  "LV-1261": [
+    "/catalogo-img/atenea/base/atenea - base liquida -1st scene  x30ml 1.webp",
+    "/catalogo-img/atenea/base/atenea - base liquida -1st scene  x30ml 2.webp",
+    "/catalogo-img/atenea/base/atenea - base liquida -1st scene  x30ml.webp"
+  ],
+  "LV-1262": [
+    "/catalogo-img/montoc/base/montoc - basetinta - glow filter.webp",
+    "/catalogo-img/montoc/base/montoc - basetinta - glow filter1.webp"
+  ],
+  "LV-1263": [
+    "/catalogo-img/montoc/base/montoc - basetinta - glow filter.webp",
+    "/catalogo-img/montoc/base/montoc - basetinta - glow filter1.webp"
+  ],
+  "LV-1264": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1265": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1266": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1267": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1268": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1269": [
+    "/catalogo-img/Trendy/accesorios/trendy_brocha_kabuki_rubor_p215.webp",
+    "/catalogo-img/Trendy/accesorios/trendy_brocha_kabuki_rubor_p215_1.webp"
+  ],
+  "LV-1270": [
+    "/catalogo-img/Trendy/rubores/trendy - Rubor e iluminador en barra - retro stick.webp",
+    "/catalogo-img/Trendy/rubores/trendy - Rubor e iluminador en barra - retro stick1.webp"
+  ],
+  "LV-1271": [
+    "/catalogo-img/Trendy/rubores/Trendy - Rubor liquido - happy.webp",
+    "/catalogo-img/Trendy/rubores/Trendy - Rubor liquido - happy1.webp"
+  ],
+  "LV-1272": [
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush tono matic.webp",
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush.webp"
+  ],
+  "LV-1273": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell - rubor liquido - Bloom floral liquid tono2.webp"
+  ],
+  "LV-1274": [
+    "/catalogo-img/anik/rubores/Rubor liquido bonita.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido1.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido2.webp"
+  ],
+  "LV-1275": [
+    "/catalogo-img/anik/rubores/Rubor liquido bonita.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido1.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido2.webp"
+  ],
+  "LV-1276": [
+    "/catalogo-img/anik/rubores/Rubor liquido bonita.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido1.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido2.webp"
+  ],
+  "LV-1277": [
+    "/catalogo-img/anik/rubores/Rubor liquido bonita.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido1.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido2.webp"
+  ],
+  "LV-1278": [
+    "/catalogo-img/anik/rubores/Rubor liquido bonita.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido1.webp",
+    "/catalogo-img/anik/rubores/anik - rubor liquido2.webp"
+  ],
+  "LV-1279": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell - rubor liquido - Bloom floral liquid tono2.webp"
+  ],
+  "LV-1280": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell - rubor liquido - Bloom floral liquid tono2.webp"
+  ],
+  "LV-1281": [
+    "/catalogo-img/anik/rubores/flushy blushy tonos.webp",
+    "/catalogo-img/anik/rubores/flushy blushy.webp"
+  ],
+  "LV-1282": [
+    "/catalogo-img/anik/rubores/flushy blushy tonos.webp",
+    "/catalogo-img/anik/rubores/flushy blushy.webp"
+  ],
+  "LV-1283": [
+    "/catalogo-img/anik/rubores/flushy blushy tonos.webp",
+    "/catalogo-img/anik/rubores/flushy blushy.webp"
+  ],
+  "LV-1284": [
+    "/catalogo-img/anik/rubores/flushy blushy tonos.webp",
+    "/catalogo-img/anik/rubores/flushy blushy.webp"
+  ],
+  "LV-1285": [
+    "/catalogo-img/anik/rubores/flushy blushy tonos.webp",
+    "/catalogo-img/anik/rubores/flushy blushy.webp"
+  ],
+  "LV-1286": [
+    "/catalogo-img/anik/cejas/freeze babes gel de ceja.webp",
+    "/catalogo-img/anik/cejas/freeze babes gel de cejas.webp"
+  ],
+  "LV-1287": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1288": [
+    "/catalogo-img/Bloomshell/gel de cejas/bloomshell-laminadordecejas-pequeño.webp"
+  ],
+  "LV-1289": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1290": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1291": [
+    "/catalogo-img/anik/pestañinas/anik - pestañina brow paradise.webp",
+    "/catalogo-img/anik/pestañinas/anik - pestañina brow paradise1.webp",
+    "/catalogo-img/anik/pestañinas/anik - pestañina brow paradise2.webp"
+  ],
+  "LV-1292": [
+    "/catalogo-img/anik/pestañinas/anik - pestañina eternal lash.webp",
+    "/catalogo-img/anik/pestañinas/anik - pestañina eternal lash1.webp"
+  ],
+  "LV-1293": [
+    "/catalogo-img/anik/pestañinas/anik - pestañina flash lash.webp",
+    "/catalogo-img/anik/pestañinas/anik - pestañina flash lash1.webp",
+    "/catalogo-img/anik/pestañinas/anik - pestañina flash lash2.webp"
+  ],
+  "LV-1294": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1295": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1296": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1297": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1298": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1299": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1300": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1301": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1302": [
+    "/catalogo-img/Trendy/Contornos/trendy-contorno en barra-chocolate.webp",
+    "/catalogo-img/Trendy/Contornos/trendy-contorno en barra-chocolate1.webp"
+  ],
+  "LV-1303": [
+    "/catalogo-img/Trendy/Contornos/trendy-contorno en barra-chocolate.webp",
+    "/catalogo-img/Trendy/Contornos/trendy-contorno en barra-chocolate1.webp"
+  ],
+  "LV-1304": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base en barra - bloom full cover tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base en barra - bloom full cover tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base en barra - bloom full cover tono 5.webp"
+  ],
+  "LV-1305": [
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene1.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene2.webp"
+  ],
+  "LV-1306": [
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene1.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene2.webp"
+  ],
+  "LV-1307": [
+    "/catalogo-img/anik/corrector/corrector liquido.webp",
+    "/catalogo-img/anik/corrector/corrector liquido tonos.webp",
+    "/catalogo-img/anik/corrector/Corrector bonita.webp"
+  ],
+  "LV-1308": [
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene1.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene2.webp"
+  ],
+  "LV-1309": [
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene1.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene2.webp"
+  ],
+  "LV-1310": [
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene1.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene2.webp"
+  ],
+  "LV-1311": [
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene1.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene2.webp"
+  ],
+  "LV-1312": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1313": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1314": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1315": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1316": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1317": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1318": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1319": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1320": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1321": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1322": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1323": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1324": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1325": [
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime.webp",
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime1.webp",
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime2.webp"
+  ],
+  "LV-1326": [
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime.webp",
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime1.webp",
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime2.webp"
+  ],
+  "LV-1327": [
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime.webp",
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime1.webp",
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime2.webp"
+  ],
+  "LV-1328": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - papelitos con polvo - bloom powder paper tono1.webp",
+    "/catalogo-img/Bloomshell/polvos/bloomshell - papelitos con polvo - bloom powder paper tono2.webp"
+  ],
+  "LV-1329": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - papelitos con polvo - bloom powder paper tono1.webp",
+    "/catalogo-img/Bloomshell/polvos/bloomshell - papelitos con polvo - bloom powder paper tono2.webp"
+  ],
+  "LV-1330": [
+    "/catalogo-img/montoc/polvos/montoc - polvo suelto - x10 gramos banana.webp",
+    "/catalogo-img/montoc/polvos/montoc - polvo suelto - x10 gramos banana1.webp"
+  ],
+  "LV-1331": [
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime.webp",
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime1.webp",
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime2.webp"
+  ],
+  "LV-1332": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1333": [
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush tono matic.webp",
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush.webp"
+  ],
+  "LV-1334": [
+    "/catalogo-img/Bloomshell/bloomshell-iluminador en crema-bloom cosmic.webp"
+  ],
+  "LV-1335": [
+    "/catalogo-img/atenea/atenea - Paleta de sombras - art deco.webp",
+    "/catalogo-img/atenea/atenea - Paleta de sombras - art deco1.webp"
+  ],
+  "LV-1336": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1337": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1338": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1339": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1340": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1341": [
+    "/catalogo-img/Trendy/polvos/trendy - polvo suelto translucido - flour bakery.webp",
+    "/catalogo-img/Trendy/polvos/trendy - polvo suelto translucido - flour bakery1.webp"
+  ],
+  "LV-1342": [
+    "/catalogo-img/Purpure/maquillaje/purpure - rubor en polvo - candy love tono 03.webp"
+  ],
+  "LV-1343": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1344": [
+    "/catalogo-img/montoc/sombras/montoc - paleta de sombras - tono  iris.webp",
+    "/catalogo-img/montoc/sombras/montoc - paleta de sombras - tono  iris1.webp"
+  ],
+  "LV-1345": [
+    "/catalogo-img/Trendy/sombras/trendy - paleta de sombras - Terra.webp",
+    "/catalogo-img/Trendy/sombras/trendy - paleta de sombras - Terra1.webp",
+    "/catalogo-img/Trendy/sombras/trendy - paleta de sombras - Terra2.webp"
+  ],
+  "LV-1346": [
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush tono matic.webp",
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush.webp"
+  ],
+  "LV-1347": [
+    "/catalogo-img/Trendy/rubores/Trendy - Rubor x3 compacto - primavera.webp",
+    "/catalogo-img/Trendy/rubores/Trendy - Rubor x3 compacto - primavera1.webp"
+  ],
+  "LV-1348": [
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush tono matic.webp",
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush.webp"
+  ],
+  "LV-1349": [
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush tono matic.webp",
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush.webp"
+  ],
+  "LV-1350": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base en barra - bloom full cover tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base en barra - bloom full cover tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base en barra - bloom full cover tono 5.webp"
+  ],
+  "LV-1351": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse tonos.webp",
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse.webp"
+  ],
+  "LV-1352": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse tonos.webp",
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse.webp"
+  ],
+  "LV-1353": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse tonos.webp",
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse.webp"
+  ],
+  "LV-1354": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse tonos.webp",
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse.webp"
+  ],
+  "LV-1355": [
+    "/catalogo-img/atenea/rubores/atenea - rubor duo - allure.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor duo - allure1.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor duo - allure2.webp"
+  ],
+  "LV-1356": [
+    "/catalogo-img/atenea/rubores/atenea - rubor duo - allure.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor duo - allure1.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor duo - allure2.webp"
+  ],
+  "LV-1357": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse tonos.webp",
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse.webp"
+  ],
+  "LV-1358": [
+    "/catalogo-img/anik/rubores/Rubor en Polvo bonita.webp",
+    "/catalogo-img/anik/rubores/rubor bonita.webp",
+    "/catalogo-img/anik/rubores/rubor bonita tonos.webp"
+  ],
+  "LV-1359": [
+    "/catalogo-img/anik/rubores/Rubor en Polvo bonita.webp",
+    "/catalogo-img/anik/rubores/rubor bonita.webp",
+    "/catalogo-img/anik/rubores/rubor bonita tonos.webp"
+  ],
+  "LV-1360": [
+    "/catalogo-img/anik/rubores/Rubor en Polvo bonita.webp",
+    "/catalogo-img/anik/rubores/rubor bonita.webp",
+    "/catalogo-img/anik/rubores/rubor bonita tonos.webp"
+  ],
+  "LV-1361": [
+    "/catalogo-img/anik/rubores/Rubor en Polvo bonita.webp",
+    "/catalogo-img/anik/rubores/rubor bonita.webp",
+    "/catalogo-img/anik/rubores/rubor bonita tonos.webp"
+  ],
+  "LV-1362": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell - rubor liquido - Bloom floral liquid tono2.webp"
+  ],
+  "LV-1363": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1364": [
+    "/catalogo-img/anik/rubores/rubor mineralizado.webp",
+    "/catalogo-img/anik/rubores/anik - rubor en polvo.webp",
+    "/catalogo-img/anik/rubores/anik - rubor en polvo1.webp"
+  ],
+  "LV-1365": [
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime1.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime2.webp"
+  ],
+  "LV-1366": [
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime1.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime2.webp"
+  ],
+  "LV-1367": [
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime1.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime2.webp"
+  ],
+  "LV-1368": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1369": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1370": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1371": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1372": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1373": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1374": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1375": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1376": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1377": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1378": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1379": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1380": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1381": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1382": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1383": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1384": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1385": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1386": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - Llavero gloss y espejo - bloom me.webp",
+    "/catalogo-img/Bloomshell/labios/bloomshell - Llavero gloss y espejo - bloom me1.webp"
+  ],
+  "LV-1387": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - Llavero gloss y espejo - bloom me.webp",
+    "/catalogo-img/Bloomshell/labios/bloomshell - Llavero gloss y espejo - bloom me1.webp"
+  ],
+  "LV-1388": [
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene1.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene2.webp"
+  ],
+  "LV-1389": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1390": [
+    "/catalogo-img/montoc/polvos/montoc - polvo suelto - x10 gramos banana.webp",
+    "/catalogo-img/montoc/polvos/montoc - polvo suelto - x10 gramos banana1.webp"
+  ],
+  "LV-1391": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1392": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1393": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1394": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1395": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1396": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1397": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- base cushion - bloomcushion tono 5.webp"
+  ],
+  "LV-1398": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1399": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1400": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1401": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - Kit en caja - Arroz.webp",
+    "/catalogo-img/Bioaqua/arroz/bioaqua - Kit en caja - Arroz1.webp"
+  ],
+  "LV-1402": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - kit en caja - rosas y acido hialuronico.webp"
+  ],
+  "LV-1403": [
+    "/catalogo-img/Purpure/labios/purpure - tinta - scarlett tint.webp",
+    "/catalogo-img/Purpure/labios/purpure - tinta - scarlett tint1.webp"
+  ],
+  "LV-1404": [
+    "/catalogo-img/Purpure/Splash/purpure - splash grande - girl boss.webp"
+  ],
+  "LV-1405": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1406": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - Llavero gloss y tinta - duo bloom bow.webp"
+  ],
+  "LV-1407": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip gloss - bloom kiss tono rosa.webp"
+  ],
+  "LV-1408": [
+    "/catalogo-img/Purpure/purpure - liner - cafe.webp"
+  ],
+  "LV-1409": [
+    "/catalogo-img/Purpure/purpure - liner - cafe.webp"
+  ],
+  "LV-1410": [
+    "/catalogo-img/Trendy/Labios/trendy - labial doble - toy story.webp",
+    "/catalogo-img/Trendy/Labios/trendy - labial doble - toy story1.webp"
+  ],
+  "LV-1411": [
+    "/catalogo-img/Trendy/Labios/trendy - labial doble - toy story.webp",
+    "/catalogo-img/Trendy/Labios/trendy - labial doble - toy story1.webp"
+  ],
+  "LV-1412": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - tinta de labios en gelatina - bloom gelei tono berry.webp"
+  ],
+  "LV-1413": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1414": [
+    "/catalogo-img/atenea/atenea - lip oil tinted.webp",
+    "/catalogo-img/atenea/atenea - lip oil tinted1.webp",
+    "/catalogo-img/atenea/atenea - lip oil tinted2.webp"
+  ],
+  "LV-1415": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip gloss glossy - Bloom baby tono 02 cherry.webp",
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip gloss glossy - Bloom baby tono 01.webp"
+  ],
+  "LV-1416": [
+    "/catalogo-img/Purpure/maquillaje/purpure - rubor en polvo - candy love tono 03.webp"
+  ],
+  "LV-1417": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1418": [
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry.webp",
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry1.webp"
+  ],
+  "LV-1419": [
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry.webp",
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry1.webp"
+  ],
+  "LV-1420": [
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry.webp",
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry1.webp"
+  ],
+  "LV-1421": [
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry.webp",
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry1.webp"
+  ],
+  "LV-1422": [
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry.webp",
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry1.webp"
+  ],
+  "LV-1423": [
+    "/catalogo-img/Trendy/Labios/trendy - labial doble - toy story.webp",
+    "/catalogo-img/Trendy/Labios/trendy - labial doble - toy story1.webp"
+  ],
+  "LV-1424": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1425": [
+    "/catalogo-img/Purpure/labios/purpure - serum tinta - cherry tint.webp",
+    "/catalogo-img/Purpure/labios/purpure - serum tinta - cherry tint1.webp"
+  ],
+  "LV-1426": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip oil - bloom mimosa.webp"
+  ],
+  "LV-1427": [
+    "/catalogo-img/Purpure/purpure - liner - cafe.webp"
+  ],
+  "LV-1428": [
+    "/catalogo-img/Purpure/purpure - liner - cafe.webp"
+  ],
+  "LV-1429": [
+    "/catalogo-img/montoc/labios/montoc - Lip gloss - juicy lips tono 206.webp",
+    "/catalogo-img/montoc/labios/montoc - Lip gloss - juicy lips tono 207.webp",
+    "/catalogo-img/montoc/labios/montoc - Lip gloss - juicy lips tono 208.webp",
+    "/catalogo-img/montoc/labios/montoc - Lip gloss - juicy lips.webp",
+    "/catalogo-img/montoc/labios/montoc - Lip gloss - juicy lips1.webp"
+  ],
+  "LV-1430": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1431": [
+    "/catalogo-img/Purpure/labios/purpure - lip gloss - candy love.webp",
+    "/catalogo-img/Purpure/labios/purpure - lip gloss - candy love1.webp"
+  ],
+  "LV-1432": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip gloss glossy - Bloom baby tono 02 cherry.webp",
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip gloss glossy - Bloom baby tono 01.webp"
+  ],
+  "LV-1433": [
+    "/catalogo-img/Trendy/Labios/trendy - Trio de gloss - Bloom to shine.webp",
+    "/catalogo-img/Trendy/Labios/trendy - Trio de gloss - Bloom to shine1.webp"
+  ],
+  "LV-1434": [
+    "/catalogo-img/Girly/labios/girly - lip balm - wine.webp",
+    "/catalogo-img/Girly/labios/girly - lip balm - wine1.webp",
+    "/catalogo-img/Girly/labios/girly - lip balm.webp"
+  ],
+  "LV-1435": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - tinta serum de labios - hydra tint tono 01.webp",
+    "/catalogo-img/Bloomshell/labios/bloomshell - tinta serum de labios - hydra tint tono 02.webp",
+    "/catalogo-img/Bloomshell/labios/bloomshell - tinta serum de labios - hydra tint tono 03.webp",
+    "/catalogo-img/Bloomshell/labios/bloomshell - tinta serum de labios - hydra tint tono 04.webp"
+  ],
+  "LV-1436": [
+    "/catalogo-img/Purpure/labios/purpure - butter balm - tono 4.webp",
+    "/catalogo-img/Purpure/labios/purpure - butter balm.webp"
+  ],
+  "LV-1437": [
+    "/catalogo-img/Trendy/Labios/trendy - voluminizador - smoothie lips.webp",
+    "/catalogo-img/Trendy/Labios/trendy - voluminizador - smoothie lips1.webp"
+  ],
+  "LV-1438": [
+    "/catalogo-img/Trendy/Labios/trendy - voluminizador - smoothie lips.webp",
+    "/catalogo-img/Trendy/Labios/trendy - voluminizador - smoothie lips1.webp"
+  ],
+  "LV-1439": [
+    "/catalogo-img/Purpure/labios/purpure - lip balm magico - candy bum.webp",
+    "/catalogo-img/Purpure/labios/purpure - lip balm magico - candy bum1.webp"
+  ],
+  "LV-1440": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1441": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1442": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1443": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1444": [
+    "/catalogo-img/Purpure/labios/purpure - lip gloss - candy love.webp",
+    "/catalogo-img/Purpure/labios/purpure - lip gloss - candy love1.webp"
+  ],
+  "LV-1445": [
+    "/catalogo-img/anik/labios/LipGloss Bonita.webp",
+    "/catalogo-img/anik/labios/anik - lip gloss.webp",
+    "/catalogo-img/anik/labios/anik - lip gloss1.webp",
+    "/catalogo-img/anik/labios/anik - lip gloss2.webp"
+  ],
+  "LV-1446": [
+    "/catalogo-img/anik/labios/LipGloss Bonita.webp",
+    "/catalogo-img/anik/labios/anik - lip gloss.webp",
+    "/catalogo-img/anik/labios/anik - lip gloss1.webp",
+    "/catalogo-img/anik/labios/anik - lip gloss2.webp"
+  ],
+  "LV-1447": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - gloss brillante - bloom lip party tono rosa.webp"
+  ],
+  "LV-1448": [
+    "/catalogo-img/Bloomshell/bloomshell-bloomportacosmeticos.webp"
+  ],
+  "LV-1449": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1450": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1451": [
+    "/catalogo-img/anik/labios/anik - lip balm.webp",
+    "/catalogo-img/anik/labios/anik - lip balm1.webp",
+    "/catalogo-img/anik/labios/anik - lip balm2.webp"
+  ],
+  "LV-1452": [
+    "/catalogo-img/anik/labios/anik - lip balm.webp",
+    "/catalogo-img/anik/labios/anik - lip balm1.webp",
+    "/catalogo-img/anik/labios/anik - lip balm2.webp"
+  ],
+  "LV-1453": [
+    "/catalogo-img/anik/labios/anik - lip balm.webp",
+    "/catalogo-img/anik/labios/anik - lip balm1.webp",
+    "/catalogo-img/anik/labios/anik - lip balm2.webp"
+  ],
+  "LV-1454": [
+    "/catalogo-img/Trendy/iluminadores/trendy - iluminador liquido - brilla.webp"
+  ],
+  "LV-1455": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1456": [
+    "/catalogo-img/anik/accesorios/beauty blender.webp",
+    "/catalogo-img/anik/accesorios/Beauty Blender bonita.webp"
+  ],
+  "LV-1457": [
+    "/catalogo-img/Purpure/accesorios/Purpure- Beauty blender- Magic.webp"
+  ],
+  "LV-1458": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1459": [
+    "/catalogo-img/Trendy/Labios/trendy - voluminizador - smoothie lips.webp",
+    "/catalogo-img/Trendy/Labios/trendy - voluminizador - smoothie lips1.webp"
+  ],
+  "LV-1460": [
+    "/catalogo-img/Trendy/Labios/Trendy - Tinta gloss - gloss tint corazon.webp",
+    "/catalogo-img/Trendy/Labios/Trendy - Tinta gloss - gloss tint corazon1.webp"
+  ],
+  "LV-1461": [
+    "/catalogo-img/atenea/atenea - Paleta de sombras - art deco.webp",
+    "/catalogo-img/atenea/atenea - Paleta de sombras - art deco1.webp"
+  ],
+  "LV-1462": [
+    "/catalogo-img/anik/labios/anik - delineador de labios.webp",
+    "/catalogo-img/anik/labios/anik - delineador de labios1.webp",
+    "/catalogo-img/anik/labios/anik - delineador de labios2.webp"
+  ],
+  "LV-1463": [
+    "/catalogo-img/anik/labios/anik - delineador de labios.webp",
+    "/catalogo-img/anik/labios/anik - delineador de labios1.webp",
+    "/catalogo-img/anik/labios/anik - delineador de labios2.webp"
+  ],
+  "LV-1464": [
+    "/catalogo-img/anik/labios/anik - delineador de labios.webp",
+    "/catalogo-img/anik/labios/anik - delineador de labios1.webp",
+    "/catalogo-img/anik/labios/anik - delineador de labios2.webp"
+  ],
+  "LV-1465": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1466": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse tonos.webp",
+    "/catalogo-img/Bloomshell/Rubores/bloomshell- rubor en crema - bloom crush amuse.webp"
+  ],
+  "LV-1467": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1468": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1469": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1470": [
+    "/catalogo-img/montoc/accesorios/montoc - borla de corazon.webp",
+    "/catalogo-img/montoc/accesorios/montoc - borla de corazon1.webp"
+  ],
+  "LV-1471": [
+    "/catalogo-img/montoc/accesorios/montoc - borla de corazon.webp",
+    "/catalogo-img/montoc/accesorios/montoc - borla de corazon1.webp"
+  ],
+  "LV-1472": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1473": [
+    "/catalogo-img/Purpure/accesorios/Purpure- Beauty blender- Magic.webp"
+  ],
+  "LV-1474": [
+    "/catalogo-img/Purpure/accesorios/Purpure- Beauty blender- Magic.webp"
+  ],
+  "LV-1475": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1476": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1477": [
+    "/catalogo-img/anik/cejas/Kit de Cejas bonita.webp",
+    "/catalogo-img/anik/cejas/kit de cejas.webp",
+    "/catalogo-img/anik/cejas/kit de cejas tonos.webp"
+  ],
+  "LV-1478": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip gloss magico - Bloom meow.webp"
+  ],
+  "LV-1479": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - gloss brillante - bloom lip party tono rosa.webp"
+  ],
+  "LV-1480": [
+    "/catalogo-img/Trendy/iluminadores/trendy - polvo de hadas - dorado.webp",
+    "/catalogo-img/Trendy/iluminadores/trendy - polvo de hadas - dorado1.webp"
+  ],
+  "LV-1481": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1482": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1483": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1484": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - papelitos con polvo - bloom powder paper tono1.webp",
+    "/catalogo-img/Bloomshell/polvos/bloomshell - papelitos con polvo - bloom powder paper tono2.webp"
+  ],
+  "LV-1485": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1486": [
+    "/catalogo-img/anik/accesorios/mini iconik.webp",
+    "/catalogo-img/anik/accesorios/mini iconik 1.webp"
+  ],
+  "LV-1487": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1488": [
+    "/catalogo-img/Trendy/accesorios/trendy_brocha_individual_corrector_mini_p210.webp",
+    "/catalogo-img/Trendy/accesorios/trendy_brocha_individual_corrector_mini_p210_1.webp"
+  ],
+  "LV-1489": [
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush tono matic.webp",
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush.webp"
+  ],
+  "LV-1490": [
+    "/catalogo-img/Trendy/Labios/Trendy - Tinta gloss - gloss tint corazon.webp",
+    "/catalogo-img/Trendy/Labios/Trendy - Tinta gloss - gloss tint corazon1.webp"
+  ],
+  "LV-1491": [
+    "/catalogo-img/Trendy/accesorios/trendy_brochas_laminadoras_cejas_rosada_blanca_.webp",
+    "/catalogo-img/Trendy/accesorios/trendy_brochas_laminadoras_cejas_rosada_blanca_1.webp"
+  ],
+  "LV-1492": [
+    "/catalogo-img/Trendy/accesorios/trendy_brocha_individual_base_p103.webp",
+    "/catalogo-img/Trendy/accesorios/trendy_brocha_individual_base_p1031.webp"
+  ],
+  "LV-1493": [
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry.webp",
+    "/catalogo-img/Trendy/Labios/trendy - Brillo de labios - happy berry1.webp"
+  ],
+  "LV-1494": [
+    "/catalogo-img/Trendy/accesorios/trendy - Kit de brochas ojos - x6 1.webp",
+    "/catalogo-img/Trendy/accesorios/trendy - Kit de brochas ojos - x6 2.webp",
+    "/catalogo-img/Trendy/accesorios/trendy - Kit de brochas ojos - x6.webp"
+  ],
+  "LV-1495": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - polvo 2 en 1 - traslucent matte mini tono natural.webp"
+  ],
+  "LV-1496": [
+    "/catalogo-img/Trendy/accesorios/trendy - Kit de brochas piel mini - animal print 1.webp",
+    "/catalogo-img/Trendy/accesorios/trendy - Kit de brochas piel mini - animal print.webp"
+  ],
+  "LV-1497": [
+    "/catalogo-img/Purpure/accesorios/Purpure- Brocha Doble - base corrector.webp"
+  ],
+  "LV-1498": [
+    "/catalogo-img/Purpure/accesorios/Purpure- Brocha Doble - polvo e iluminador.webp"
+  ],
+  "LV-1499": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1500": [
+    "/catalogo-img/Purpure/accesorios/Purpure- Brocha Doble - polvo e iluminador.webp"
+  ],
+  "LV-1501": [
+    "/catalogo-img/Trendy/Labios/trendy - Trio de gloss - Bloom to shine.webp",
+    "/catalogo-img/Trendy/Labios/trendy - Trio de gloss - Bloom to shine1.webp"
+  ],
+  "LV-1502": [
+    "/catalogo-img/Bloomshell/bloomshell-pañitos desmaquillantes-bloomremover.webp"
+  ],
+  "LV-1503": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip gloss cafe - bloom capuchic.webp"
+  ],
+  "LV-1504": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1505": [
+    "/catalogo-img/Bloomshell/bloomshell-pañitos desmaquillantes-bloomremover.webp"
+  ],
+  "LV-1506": [
+    "/img/papelitos bloomshell.webp"
+  ],
+  "LV-1507": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - Contorno de ojos - rosas y acido hialuronico1.webp"
+  ],
+  "LV-1508": [
+    "/catalogo-img/Bioaqua/Vitamina c/bioaqua - Contorno de ojos - Vitamina c.webp",
+    "/catalogo-img/Bioaqua/Vitamina c/bioaqua - Contorno de ojos - Vitamina c1.webp"
+  ],
+  "LV-1509": [
+    "/img/papelitos bloomshell.webp"
+  ],
+  "LV-1510": [
+    "/img/papelitos bloomshell.webp"
+  ],
+  "LV-1511": [
+    "/catalogo-img/Girly/girly - gel hidratante aloe vera.webp",
+    "/catalogo-img/Girly/girly - gel hidratante aloe vera1.webp"
+  ],
+  "LV-1512": [
+    "/img/papelitos bloomshell.webp"
+  ],
+  "LV-1513": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell- repuesto base cushion - bloomcushion tono 2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell- repuesto base cushion - bloomcushion tono 3.webp"
+  ],
+  "LV-1514": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1515": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1516": [
+    "/catalogo-img/anik/accesorios/encrespador negro 1.webp",
+    "/catalogo-img/anik/accesorios/encrespador negro.webp"
+  ],
+  "LV-1517": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1518": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1519": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell - rubor liquido - Bloom floral liquid tono2.webp"
+  ],
+  "LV-1520": [
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime1.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime2.webp"
+  ],
+  "LV-1521": [
+    "/catalogo-img/Trendy/Labios/Trendy - Tinta gloss - gloss tint corazon.webp",
+    "/catalogo-img/Trendy/Labios/Trendy - Tinta gloss - gloss tint corazon1.webp"
+  ],
+  "LV-1522": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1523": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1524": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1525": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell - polvo 2 en 1 - traslucent matte mini tono natural.webp"
+  ],
+  "LV-1526": [
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene1.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene2.webp"
+  ],
+  "LV-1527": [
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene1.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene2.webp"
+  ],
+  "LV-1528": [
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene1.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene2.webp"
+  ],
+  "LV-1529": [
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene1.webp",
+    "/catalogo-img/atenea/atenea - Corrector liquido 1st scene2.webp"
+  ],
+  "LV-1530": [
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene banana.webp",
+    "/catalogo-img/atenea/polvos/atenea - Polvo suelto - 1st scene banana1.webp"
+  ],
+  "LV-1531": [
+    "/catalogo-img/anik/corrector/Corrector bonita.webp",
+    "/catalogo-img/anik/corrector/corrector liquido tonos.webp",
+    "/catalogo-img/anik/corrector/corrector liquido.webp"
+  ],
+  "LV-1532": [
+    "/catalogo-img/anik/corrector/Corrector bonita.webp",
+    "/catalogo-img/anik/corrector/corrector liquido tonos.webp",
+    "/catalogo-img/anik/corrector/corrector liquido.webp"
+  ],
+  "LV-1533": [
+    "/catalogo-img/anik/corrector/Corrector bonita.webp",
+    "/catalogo-img/anik/corrector/corrector liquido tonos.webp",
+    "/catalogo-img/anik/corrector/corrector liquido.webp"
+  ],
+  "LV-1534": [
+    "/catalogo-img/anik/corrector/Corrector bonita.webp",
+    "/catalogo-img/anik/corrector/corrector liquido tonos.webp",
+    "/catalogo-img/anik/corrector/corrector liquido.webp"
+  ],
+  "LV-1535": [
+    "/catalogo-img/anik/corrector/Corrector bonita.webp",
+    "/catalogo-img/anik/corrector/corrector liquido tonos.webp",
+    "/catalogo-img/anik/corrector/corrector liquido.webp"
+  ],
+  "LV-1536": [
+    "/catalogo-img/anik/corrector/Corrector bonita.webp",
+    "/catalogo-img/anik/corrector/corrector liquido tonos.webp",
+    "/catalogo-img/anik/corrector/corrector liquido.webp"
+  ],
+  "LV-1537": [
+    "/catalogo-img/Trendy/sombras/trendy - paleta de sombras - puppy.webp",
+    "/catalogo-img/Trendy/sombras/trendy - paleta de sombras - puppy1.webp"
+  ],
+  "LV-1538": [
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime1.webp",
+    "/catalogo-img/atenea/rubores/atenea - rubor compacto - sublime2.webp"
+  ],
+  "LV-1539": [
+    "/catalogo-img/Bloomshell/Rubores/bloomshell - rubor liquido - Bloom floral liquid tono2.webp"
+  ],
+  "LV-1540": [
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime.webp",
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime1.webp",
+    "/catalogo-img/atenea/iluminadores/atenea - iluminador compacto - sublime2.webp"
+  ],
+  "LV-1541": [
+    "/catalogo-img/anik/rubores/Rubor en Polvo bonita.webp",
+    "/catalogo-img/anik/rubores/rubor bonita.webp",
+    "/catalogo-img/anik/rubores/rubor bonita tonos.webp"
+  ],
+  "LV-1542": [
+    "/catalogo-img/anik/cejas/Kit de Cejas bonita.webp",
+    "/catalogo-img/anik/cejas/kit de cejas.webp",
+    "/catalogo-img/anik/cejas/kit de cejas tonos.webp"
+  ],
+  "LV-1543": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - Contorno de ojos - rosas y acido hialuronico1.webp"
+  ],
+  "LV-1544": [
+    "/catalogo-img/Bloomshell/encrespadores/bloomshell-encrespador de pestañas - bloom amore curl.webp"
+  ],
+  "LV-1545": [
+    "/catalogo-img/Bloomshell/encrespadores/bloomshell-encrespador de pestañas - bloom amore curl.webp"
+  ],
+  "LV-1546": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - Contorno de ojos - Arroz.webp"
+  ],
+  "LV-1547": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1548": [
+    "/catalogo-img/Bloomshell/bloomshell-bloomportacosmeticos.webp"
+  ],
+  "LV-1549": [
+    "/catalogo-img/Bloomshell/polvos/bloomshell- polvo suelto 4 tonos- bloom filter Big.webp"
+  ],
+  "LV-1550": [
+    "/catalogo-img/Purpure/Skincare/Purpure- Agua micelar con niacinamida - x220ml.webp"
+  ],
+  "LV-1551": [
+    "/img/papelitos bloomshell.webp"
+  ],
+  "LV-1552": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1553": [
+    "/catalogo-img/Purpure/labios/purpure - serum tinta - cherry tint.webp",
+    "/catalogo-img/Purpure/labios/purpure - serum tinta - cherry tint1.webp"
+  ],
+  "LV-1554": [
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush tono matic.webp",
+    "/catalogo-img/montoc/montoc - rubor compacto - pocket blush.webp"
+  ],
+  "LV-1555": [
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera sweet cherry.webp",
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera sweet cherry1.webp"
+  ],
+  "LV-1556": [
+    "/catalogo-img/Purpure/Splash/purpure - llavero en splash - candy bum.webp"
+  ],
+  "LV-1557": [
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera piña colada.webp",
+    "/catalogo-img/Purpure/kits/Purpure- cartuchera piña colada1.webp"
+  ],
+  "LV-1558": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - tinta de labios - Scarlett tint.webp"
+  ],
+  "LV-1559": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - tinta de labios - Scarlett tint.webp"
+  ],
+  "LV-1560": [
+    "/img/papelitos bloomshell.webp"
+  ],
+  "LV-1561": [
+    "/catalogo-img/Bioaqua/Vitamina c/bioaqua - serum facial - Vitamina c.webp",
+    "/catalogo-img/Bioaqua/Vitamina c/bioaqua - serum facial - Vitamina c1.webp"
+  ],
+  "LV-1562": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - Contorno de ojos - Arroz.webp"
+  ],
+  "LV-1563": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - crema facial - Arroz.webp"
+  ],
+  "LV-1564": [
+    "/catalogo-img/Bioaqua/centella asiatica/bioaqua - crema hidratante - centella asiatica.webp"
+  ],
+  "LV-1565": [
+    "/catalogo-img/Bioaqua/centella asiatica/bioaqua - crema hidratante - centella asiatica.webp"
+  ],
+  "LV-1566": [
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - crema facial - rosas y acido hialuronico.webp",
+    "/catalogo-img/Bioaqua/Rosas y acido hialuronico/bioaqua - crema facial - rosas y acido hialuronico1.webp"
+  ],
+  "LV-1567": [
+    "/catalogo-img/Bioaqua/centella asiatica/bioaqua - limpiador facial - centella asiatica.webp"
+  ],
+  "LV-1568": [
+    "/catalogo-img/Purpure/accesorios/Purpure- Beauty blender- Magic.webp"
+  ],
+  "LV-1569": [
+    "/catalogo-img/Purpure/accesorios/Purpure- Brocha Doble - base corrector.webp"
+  ],
+  "LV-1570": [
+    "/catalogo-img/Purpure/accesorios/Purpure- Beauty blender- Magic.webp"
+  ],
+  "LV-1571": [
+    "/catalogo-img/Purpure/accesorios/Purpure- Beauty blender- Magic.webp"
+  ],
+  "LV-1572": [
+    "/img/papelitos bloomshell.webp"
+  ],
+  "LV-1573": [
+    "/catalogo-img/Purpure/accesorios/Purpure- Brocha Doble - polvo e iluminador.webp"
+  ],
+  "LV-1574": [
+    "/catalogo-img/Trendy/accesorios/trendy_brocha_individual_contorno_p106-1.webp",
+    "/catalogo-img/Trendy/accesorios/trendy_brocha_individual_contorno_p106.webp"
+  ],
+  "LV-1575": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1576": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1577": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1578": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1579": [
+    "/catalogo-img/Bioaqua/arroz/bioaqua - crema facial - Arroz.webp"
+  ],
+  "LV-1580": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1581": [
+    "/img/papelitos bloomshell.webp"
+  ],
+  "LV-1582": [
+    "/catalogo-img/Trendy/accesorios/trendy - Kit de brochas piel - oro rosa.webp",
+    "/catalogo-img/Trendy/accesorios/trendy - Kit de brochas piel - oro rosa1.webp"
+  ],
+  "LV-1583": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1584": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1585": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1586": [
+    "/img/lluvia de estrellas chocolate shampoo.webp"
+  ],
+  "LV-1587": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1588": [
+    "/img/banner candy bum.webp"
+  ],
+  "LV-1589": [
+    "/img/beauty blender.webp"
+  ],
+  "LV-1590": [
+    "/catalogo-img/Bloomshell/lapices/bloomshell- delineador de ojos en plumon- blooming nour negro.webp"
+  ],
+  "LV-1591": [
+    "/catalogo-img/Bloomshell/lapices/bloomshell- delineador de ojos en plumon- blooming nour negro.webp"
+  ],
+  "LV-1592": [
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story1.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story2.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story3.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story4.webp"
+  ],
+  "LV-1593": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - gloss brillante - bloom lip party tono rosa.webp"
+  ],
+  "LV-1594": [
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story1.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story2.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story3.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story4.webp"
+  ],
+  "LV-1595": [
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story1.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story2.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story3.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story4.webp"
+  ],
+  "LV-1596": [
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story1.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story2.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story3.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story4.webp"
+  ],
+  "LV-1597": [
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story1.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story2.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story3.webp",
+    "/catalogo-img/Trendy/delineadores/trendy - delineador y lapiz - toy story4.webp"
+  ],
+  "LV-1598": [
+    "/catalogo-img/Bloomshell/lapices/bloomshell- delineador de ojos en plumon- blooming nour negro.webp"
+  ],
+  "LV-1599": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1600": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1601": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1602": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1603": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1604": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1605": [
+    "/catalogo-img/atenea/atenea - Paleta de sombras - art deco.webp",
+    "/catalogo-img/atenea/atenea - Paleta de sombras - art deco1.webp"
+  ],
+  "LV-1606": [
+    "/img/BloomCapuchicBloomshell_1.webp"
+  ],
+  "LV-1607": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1608": [
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2,5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono2.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono3.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono4.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono5.webp",
+    "/catalogo-img/Bloomshell/Bases/bloomshell-baseliquida-my foundation tono6.webp"
+  ],
+  "LV-1609": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip oil serum - bloom rehab.webp"
+  ],
+  "LV-1610": [
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono0,5.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono1.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono2.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono3.webp",
+    "/catalogo-img/Bloomshell/Correctores mini/bloomshell-correctormini-tono4.webp"
+  ],
+  "LV-1611": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip gloss - bloom esplendor tono petal.webp"
+  ],
+  "LV-1612": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip gloss - bloom esplendor tono petal.webp"
+  ],
+  "LV-1613": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - lip gloss - bloom esplendor tono petal.webp"
+  ],
+  "LV-1614": [
+    "/catalogo-img/Bloomshell/skin care/bloomshell-crema-bloomrepair.webp"
+  ],
+  "LV-1615": [
+    "/catalogo-img/Bloomshell/gel de cejas/bloomshell-laminadordecejas-pequeño.webp"
+  ],
+  "LV-1616": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - tinta de labios en gelatina - bloom gelei tono berry.webp"
+  ],
+  "LV-1617": [
+    "/catalogo-img/Bloomshell/labios/bloomshell - tinta de labios en gelatina - bloom gelei tono berry.webp"
+  ]
+};
