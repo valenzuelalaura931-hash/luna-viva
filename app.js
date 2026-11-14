@@ -37905,7 +37905,7 @@ function renderCatalogTable() {
           <tr><td><input type="checkbox" class="row-checkbox" data-id="${p.id}"></td>
             <td style="text-align: center; width: 44px; padding: 4px;">
               <div class="table-prod-thumb-wrapper" onclick="openPhotoModal('${p.id}')" title="Clic para ver o cambiar foto">
-                <img src="${prodImg}" alt="${p.name}" class="table-prod-thumb" onerror="this.src='/img/Logo luna.png'">
+                <img src="${prodImg}" alt="${p.name}" class="table-prod-thumb" onerror="this.src='https://catalogo-luna-viva.vercel.app/img/Logo%20luna%20sin%20fondo.png'">
               </div>
             </td>
             <td><span class="barcode-badge-mono">${p.barcode}</span></td>
@@ -38412,6 +38412,23 @@ function updateBadgesAndKPIs() {
 // ============================================================================
 // GESTOR DE FOTOS DEL CATÁLOGO & PRODUCTOS (LUNA VIVA)
 // ============================================================================
+const CATALOG_ASSETS_ORIGIN = "https://catalogo-luna-viva.vercel.app";
+const DEFAULT_LOGO_FALLBACK = "https://catalogo-luna-viva.vercel.app/img/Logo%20luna%20sin%20fondo.png";
+window.CATALOG_ASSETS_ORIGIN = CATALOG_ASSETS_ORIGIN;
+window.DEFAULT_LOGO_FALLBACK = DEFAULT_LOGO_FALLBACK;
+
+function resolveCatalogImageUrl(urlOrPath) {
+  if (!urlOrPath) return DEFAULT_LOGO_FALLBACK;
+  const trimmed = String(urlOrPath).trim();
+  if (!trimmed) return DEFAULT_LOGO_FALLBACK;
+  if (trimmed.startsWith("data:") || trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+    return trimmed;
+  }
+  const cleanPath = trimmed.startsWith("/") ? trimmed : "/" + trimmed;
+  return `${CATALOG_ASSETS_ORIGIN}${encodeURI(cleanPath)}`;
+}
+window.resolveCatalogImageUrl = resolveCatalogImageUrl;
+
 let PRODUCT_IMAGES = {};
 
 function initProductImages() {
@@ -38424,13 +38441,15 @@ function initProductImages() {
 }
 
 function getProductImage(productId) {
-  if (!productId) return '/img/Logo luna.png';
+  if (!productId) return DEFAULT_LOGO_FALLBACK;
+  let raw = "";
   if (PRODUCT_IMAGES && PRODUCT_IMAGES[productId]) {
-    return PRODUCT_IMAGES[productId];
+    raw = PRODUCT_IMAGES[productId];
+  } else {
+    const prod = state.products.find(p => p.id === productId);
+    if (prod && prod.image) raw = prod.image;
   }
-  const prod = state.products.find(p => p.id === productId);
-  if (prod && prod.image) return prod.image;
-  return '/img/Logo luna.png';
+  return resolveCatalogImageUrl(raw);
 }
 window.getProductImage = getProductImage;
 
@@ -38450,8 +38469,14 @@ function setProductImage(productId, imageUrl) {
 window.setProductImage = setProductImage;
 
 function hasRealPhoto(productId) {
-  const img = getProductImage(productId);
-  return Boolean(img && !img.includes('Logo luna.png') && !img.includes('Logo%20luna.png'));
+  let raw = (PRODUCT_IMAGES && PRODUCT_IMAGES[productId]) || "";
+  if (!raw) {
+    const prod = state.products.find(p => p.id === productId);
+    if (prod && prod.image) raw = prod.image;
+  }
+  if (!raw) return false;
+  const lower = raw.toLowerCase();
+  return !lower.includes("logo luna") && !lower.includes("logo%20luna");
 }
 window.hasRealPhoto = hasRealPhoto;
 
@@ -38562,11 +38587,11 @@ function initPhotoEditorModal() {
 
   formPhotoUrl?.addEventListener("input", () => {
     const u = formPhotoUrl.value.trim();
-    if (formPhotoPreview) formPhotoPreview.src = u || "/img/Logo luna.png";
+    if (formPhotoPreview) formPhotoPreview.src = resolveCatalogImageUrl(u);
   });
 
   btnFormClear?.addEventListener("click", () => {
-    if (formPhotoPreview) formPhotoPreview.src = "/img/Logo luna.png";
+    if (formPhotoPreview) formPhotoPreview.src = DEFAULT_LOGO_FALLBACK;
     if (formPhotoUrl) formPhotoUrl.value = "";
   });
 
@@ -38634,9 +38659,9 @@ function initPhotoEditorModal() {
   });
 
   btnRemove?.addEventListener("click", () => {
-    currentPhotoTempData = "/img/Logo luna.png";
+    currentPhotoTempData = DEFAULT_LOGO_FALLBACK;
     const previewImg = document.getElementById("photo-editor-img-preview");
-    if (previewImg) previewImg.src = "/img/Logo luna.png";
+    if (previewImg) previewImg.src = DEFAULT_LOGO_FALLBACK;
     if (urlInput) urlInput.value = "";
     const badge = document.getElementById("photo-preview-badge");
     if (badge) {
@@ -38726,7 +38751,7 @@ function renderPhotosManager() {
       return `
         <div class="photo-prod-card" data-id="${p.id}">
           <div class="photo-prod-img-box" onclick="openPhotoModal('${p.id}')" title="Clic para editar foto">
-            <img src="${img}" alt="${p.name}" onerror="this.src='/img/Logo luna.png'">
+            <img src="${img}" alt="${p.name}" onerror="this.src='https://catalogo-luna-viva.vercel.app/img/Logo%20luna%20sin%20fondo.png'">
             <span class="photo-prod-badge-status ${isReal ? 'has-img' : 'no-img'}">
               ${isReal ? '✓ Con Foto' : '⚠️ Sin Foto'}
             </span>
@@ -38974,7 +38999,7 @@ function openProductModal(product = null) {
     title.textContent = "Nuevo Producto en Catálogo";
     document.getElementById("form-product").reset();
     const formPhotoPreview = document.getElementById("prod-photo-preview");
-    if (formPhotoPreview) formPhotoPreview.src = "/img/Logo luna.png";
+    if (formPhotoPreview) formPhotoPreview.src = DEFAULT_LOGO_FALLBACK;
     const formPhotoUrl = document.getElementById("prod-image-url");
     if (formPhotoUrl) formPhotoUrl.value = "";
     document.getElementById("prod-id").value = "";
