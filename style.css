@@ -4963,24 +4963,26 @@ body.role-colaborador .user-session-avatar {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--rose-deep);
-  border: 1px solid rgba(217, 83, 127, 0.25);
-  font-size: 18px;
+  background: #E5E7EB;
+  color: #1F2937;
+  border: none;
+  font-size: 15px;
   font-weight: bold;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
   transition: all 0.2s ease;
+  opacity: 0.9;
   z-index: 4;
 }
 .photo-card-arrow:hover {
-  background: var(--rose-primary);
-  color: white;
-  transform: translateY(-50%) scale(1.1);
+  background: #D1D5DB;
+  color: #111827;
+  opacity: 1;
+  transform: translateY(-50%) scale(1.08);
 }
 .photo-card-prev { left: 6px; }
 .photo-card-next { right: 6px; }
