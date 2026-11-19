@@ -40684,11 +40684,112 @@ function renderMonthlyHistoryView() {
     }
   }
 
-  // 5. Tabla Detallada de Salidas del Mes
+  // 5. Tabla de Productos Vendidos en el Mes (Consolidado)
+  renderMonthlyProductsTable(monthSales);
+
+  // 6. Tabla Detallada de Salidas del Mes
   renderMonthlyDetailTable(monthSales);
 
   if (window.lucide) lucide.createIcons();
 }
+
+function renderMonthlyProductsTable(monthSalesInput = null) {
+  const tbody = document.getElementById("pos-monthly-products-tbody");
+  if (!tbody) return;
+
+  const currentMonthKey = state.monthlySelectedMonth || getLocalMonthKey(new Date());
+  const monthSales = monthSalesInput || state.salesHistory.filter(s => getLocalMonthKey(s.timestamp) === currentMonthKey);
+
+  const searchVal = (document.getElementById("pos-monthly-product-search")?.value || "").trim().toLowerCase();
+
+  const productStats = {};
+  let grandUnits = 0;
+  let grandCOP = 0;
+
+  monthSales.forEach(s => {
+    (s.items || []).forEach(it => {
+      const key = it.productId || (it.name + "__" + (it.brand || ""));
+      const qty = Number(it.quantity) || 1;
+      const price = Number(it.price) || 0;
+      const subtotal = price * qty;
+
+      if (!productStats[key]) {
+        productStats[key] = {
+          productId: it.productId || "",
+          name: it.name || "Producto sin nombre",
+          brand: it.brand || "-",
+          category: it.category || "Maquillaje",
+          image: it.image || "",
+          quantity: 0,
+          totalCOP: 0
+        };
+      }
+      productStats[key].quantity += qty;
+      productStats[key].totalCOP += subtotal;
+      grandUnits += qty;
+      grandCOP += subtotal;
+    });
+  });
+
+  let productList = Object.values(productStats);
+
+  if (searchVal) {
+    productList = productList.filter(p =>
+      (p.name || "").toLowerCase().includes(searchVal) ||
+      (p.brand || "").toLowerCase().includes(searchVal) ||
+      (p.category || "").toLowerCase().includes(searchVal)
+    );
+  }
+
+  productList.sort((a, b) => b.quantity - a.quantity);
+
+  const badgeEl = document.getElementById("pos-monthly-products-badge");
+  if (badgeEl) {
+    badgeEl.textContent = `${productList.length} refs (${grandUnits} piezas)`;
+  }
+
+  if (productList.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:2rem; color:var(--text-muted);">No se registraron productos vendidos en este mes.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = productList.map(p => {
+    let imgUrl = DEFAULT_LOGO_FALLBACK;
+    if (typeof getProductImage === "function" && p.productId) {
+      imgUrl = getProductImage(p.productId);
+    } else if (p.image) {
+      imgUrl = p.image;
+    }
+    const pct = grandUnits > 0 ? Math.round((p.quantity / grandUnits) * 100) : 0;
+
+    return `
+      <tr>
+        <td style="text-align: center;">
+          <img src="${imgUrl}" alt="${p.name}" class="sale-item-thumb" onerror="this.src=DEFAULT_LOGO_FALLBACK">
+        </td>
+        <td>
+          <div style="font-weight: 600; color: var(--text-main); font-size: 0.88rem;">${p.name}</div>
+          <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;">
+            Marca: <b>${p.brand}</b>
+          </div>
+        </td>
+        <td><span class="badge-tag">${p.category}</span></td>
+        <td style="text-align: center;">
+          <span style="background: #fdf2f4; color: var(--rose-deep); font-weight: 800; padding: 4px 10px; border-radius: 8px; font-size: 0.88rem;">
+            ${p.quantity} unid.
+          </span>
+          <small style="display:block; color:var(--text-muted); font-size:0.72rem; margin-top:2px;">${pct}% del mes</small>
+        </td>
+        <td style="text-align: right;">
+          <strong style="color: var(--rose-deep); font-size: 0.95rem;">${formatCOP(p.totalCOP)}</strong>
+        </td>
+      </tr>
+    `;
+  }).join("");
+
+  if (window.lucide) lucide.createIcons();
+}
+window.renderMonthlyProductsTable = renderMonthlyProductsTable;
 
 function renderMonthlyDetailTable(monthSalesInput = null) {
   const tbody = document.getElementById("pos-monthly-table-body");
@@ -41013,16 +41114,18 @@ function exportSalesCSV() {
     return;
   }
 
-  const headers = ["ID_Ticket", "Fecha_Hora_Local", "Cliente", "Telefono", "Total_Piezas", "Subtotal", "Descuento", "Total_Pagado", "Metodo_Pago", "Atendido_Por", "Canal"];
+  const headers = ["ID_Ticket", "Fecha_Hora_Local", "Cliente", "Telefono", "Total_Piezas", "Productos_Vendidos", "Subtotal", "Descuento", "Total_Pagado", "Metodo_Pago", "Atendido_Por", "Canal"];
   const rows = toExport.map(s => {
     const d = new Date(s.timestamp);
     const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+    const itemsText = (s.items || []).map(i => `${i.quantity}x ${i.name} (${i.brand || '-'})`).join("; ");
     return [
       s.id,
       `"${dateFormatted}"`,
       `"${(s.customerName || '').replace(/"/g, '""')}"`,
       `"${s.customerPhone || ''}"`,
       s.totalUnits,
+      `"${itemsText.replace(/"/g, '""')}"`,
       s.subtotal,
       s.discountAmount,
       s.grandTotal,
@@ -41053,9 +41156,10 @@ function exportMonthlySalesCSV() {
     return;
   }
 
-  const headers = ["ID_Ticket", "Fecha_Local", "Hora_Local", "Cliente", "Telefono", "Total_Piezas", "Subtotal", "Descuento", "Total_Pagado", "Metodo_Pago", "Atendido_Por", "Canal"];
+  const headers = ["ID_Ticket", "Fecha_Local", "Hora_Local", "Cliente", "Telefono", "Total_Piezas", "Productos_Vendidos", "Subtotal", "Descuento", "Total_Pagado", "Metodo_Pago", "Atendido_Por", "Canal"];
   const rows = monthSales.map(s => {
     const d = new Date(s.timestamp);
+    const itemsText = (s.items || []).map(i => `${i.quantity}x ${i.name} (${i.brand || '-'})`).join("; ");
     return [
       s.id,
       `"${d.toLocaleDateString('es-CO')}"`,
@@ -41063,6 +41167,7 @@ function exportMonthlySalesCSV() {
       `"${(s.customerName || '').replace(/"/g, '""')}"`,
       `"${s.customerPhone || ''}"`,
       s.totalUnits,
+      `"${itemsText.replace(/"/g, '""')}"`,
       s.subtotal,
       s.discountAmount,
       s.grandTotal,
@@ -41083,6 +41188,59 @@ function exportMonthlySalesCSV() {
   showToast(`Historial de ${getMonthNameEs(currentMonthKey)} exportado a CSV`, "success");
 }
 
+function exportMonthlyProductsCSV() {
+  const currentMonthKey = state.monthlySelectedMonth || getLocalMonthKey(new Date());
+  const monthSales = state.salesHistory.filter(s => getLocalMonthKey(s.timestamp) === currentMonthKey);
+
+  if (monthSales.length === 0) {
+    showToast(`No hay salidas registradas en ${getMonthNameEs(currentMonthKey)} para exportar`, "warning");
+    return;
+  }
+
+  const productStats = {};
+  monthSales.forEach(s => {
+    (s.items || []).forEach(it => {
+      const key = it.productId || (it.name + "__" + (it.brand || ""));
+      const qty = Number(it.quantity) || 1;
+      const price = Number(it.price) || 0;
+      const subtotal = price * qty;
+
+      if (!productStats[key]) {
+        productStats[key] = {
+          name: it.name || "Producto sin nombre",
+          brand: it.brand || "-",
+          category: it.category || "Maquillaje",
+          quantity: 0,
+          totalCOP: 0
+        };
+      }
+      productStats[key].quantity += qty;
+      productStats[key].totalCOP += subtotal;
+    });
+  });
+
+  const sortedProducts = Object.values(productStats).sort((a, b) => b.quantity - a.quantity);
+  const headers = ["Ranking", "Producto", "Marca", "Categoria", "Unidades_Vendidas", "Total_Recaudado_COP"];
+  const rows = sortedProducts.map((p, idx) => [
+    idx + 1,
+    `"${(p.name || '').replace(/"/g, '""')}"`,
+    `"${(p.brand || '').replace(/"/g, '""')}"`,
+    `"${(p.category || '').replace(/"/g, '""')}"`,
+    p.quantity,
+    p.totalCOP
+  ]);
+
+  const csvContent = "\uFEFF" + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Luna_Viva_Productos_Vendidos_Mes_${currentMonthKey}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast(`Productos de ${getMonthNameEs(currentMonthKey)} exportados a CSV`, "success");
+}
+
 function printMonthlyReport() {
   const currentMonthKey = state.monthlySelectedMonth || getLocalMonthKey(new Date());
   const monthSales = state.salesHistory.filter(s => getLocalMonthKey(s.timestamp) === currentMonthKey);
@@ -41090,6 +41248,31 @@ function printMonthlyReport() {
   const totalCOP = monthSales.reduce((acc, s) => acc + (Number(s.grandTotal) || 0), 0);
   const totalUnits = monthSales.reduce((acc, s) => acc + (Number(s.totalUnits) || 0), 0);
   const avgTicket = monthSales.length > 0 ? Math.round(totalCOP / monthSales.length) : 0;
+
+  // Consolidar todos los productos vendidos en el mes
+  const productStats = {};
+  monthSales.forEach(s => {
+    (s.items || []).forEach(it => {
+      const key = it.productId || (it.name + "__" + (it.brand || ""));
+      const qty = Number(it.quantity) || 1;
+      const price = Number(it.price) || 0;
+      const subtotal = price * qty;
+
+      if (!productStats[key]) {
+        productStats[key] = {
+          name: it.name || "Producto sin nombre",
+          brand: it.brand || "-",
+          category: it.category || "Maquillaje",
+          quantity: 0,
+          totalCOP: 0
+        };
+      }
+      productStats[key].quantity += qty;
+      productStats[key].totalCOP += subtotal;
+    });
+  });
+
+  const sortedProducts = Object.values(productStats).sort((a, b) => b.quantity - a.quantity);
 
   const printWindow = window.open("", "_blank");
   if (!printWindow) {
@@ -41110,8 +41293,8 @@ function printMonthlyReport() {
         .kpi-card { flex: 1; border: 1px solid #E8D6DE; border-radius: 8px; padding: 1rem; background: #FAF4F7; }
         .kpi-label { font-size: 0.8rem; color: #665; text-transform: uppercase; }
         .kpi-val { font-size: 1.4rem; font-weight: bold; color: #8A3B58; margin-top: 0.3rem; }
-        table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.85rem; }
-        th, td { border: 1px solid #E8D6DE; padding: 0.6rem 0.8rem; text-align: left; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.85rem; }
+        th, td { border: 1px solid #E8D6DE; padding: 0.6rem 0.8rem; text-align: left; vertical-align: top; }
         th { background: #FAF4F7; color: #8A3B58; }
         .text-right { text-align: right; }
         @media print { body { padding: 0; } }
@@ -41141,34 +41324,82 @@ function printMonthlyReport() {
         </div>
       </div>
 
-      <h3>Detalle de Cuentas / Tickets</h3>
+      <!-- Resumen Consolidado de Productos Vendidos -->
+      <h3 style="margin-top:2rem; color:#8A3B58; border-bottom: 2px solid #E8D6DE; padding-bottom: 0.4rem;">
+        📦 Resumen de Productos Vendidos en el Mes (${sortedProducts.length} referencias diferentes)
+      </h3>
       <table>
         <thead>
           <tr>
-            <th>Ticket</th>
-            <th>Fecha & Hora</th>
-            <th>Clienta</th>
-            <th>Productos</th>
-            <th>Total Pagado</th>
-            <th>Método</th>
-            <th>Atendido por</th>
+            <th style="width:35px; text-align:center;">#</th>
+            <th>Producto & Marca</th>
+            <th>Categoría</th>
+            <th style="text-align:center; width:110px;">Cant. Vendida</th>
+            <th style="text-align:right; width:130px;">Total Generado</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${sortedProducts.map((p, idx) => `
+            <tr>
+              <td style="text-align:center; color:#888;">${idx + 1}</td>
+              <td><strong>${p.name}</strong> <small style="color:#666;">(${p.brand})</small></td>
+              <td>${p.category}</td>
+              <td style="text-align:center;"><strong style="color:#8A3B58; font-size:0.95rem;">${p.quantity}</strong> unid.</td>
+              <td class="text-right"><strong>${formatCOP(p.totalCOP)}</strong></td>
+            </tr>
+          `).join('')}
+        </tbody>
+        <tfoot>
+          <tr style="background:#FAF4F7; font-weight:bold;">
+            <td colspan="3" style="text-align:right;">TOTAL PRODUCTOS DESPACHADOS:</td>
+            <td style="text-align:center; color:#8A3B58; font-size:1.05rem;">${totalUnits} unid.</td>
+            <td class="text-right" style="color:#8A3B58; font-size:1.05rem;">${formatCOP(totalCOP)}</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <!-- Detalle de Cuentas / Tickets con Productos que salieron en cada una -->
+      <h3 style="margin-top:2.5rem; color:#8A3B58; border-bottom: 2px solid #E8D6DE; padding-bottom: 0.4rem;">
+        🧾 Detalle de Cuentas / Tickets & Productos Vendidos
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:90px;">Ticket</th>
+            <th style="width:130px;">Fecha & Hora</th>
+            <th style="width:140px;">Clienta</th>
+            <th>Productos Vendidos</th>
+            <th style="width:110px;" class="text-right">Total Pagado</th>
+            <th style="width:100px;">Método</th>
+            <th style="width:90px;">Atendido por</th>
           </tr>
         </thead>
         <tbody>
           ${monthSales.map(s => {
-    const d = new Date(s.timestamp);
-    return `
+            const d = new Date(s.timestamp);
+            const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+            const itemsListHTML = (s.items && s.items.length > 0)
+              ? s.items.map(it => `
+                  <div style="margin-bottom:3px; padding-bottom:2px; border-bottom:1px dotted #E8D6DE;">
+                    <strong style="color:#8A3B58;">${it.quantity}x</strong> ${it.name}
+                    <span style="color:#666; font-size:0.75rem;">(${it.brand || '-'})</span>
+                    <span style="color:#888; font-size:0.78rem;"> · ${formatCOP((it.price || 0) * (it.quantity || 1))}</span>
+                  </div>
+                `).join('')
+              : `<span>${s.totalUnits} unid.</span>`;
+
+            return `
               <tr>
                 <td><strong>${s.id}</strong></td>
-                <td>${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
-                <td>${s.customerName}</td>
-                <td>${s.totalUnits} unid.</td>
+                <td><small>${dateFormatted}</small></td>
+                <td><strong>${s.customerName || 'Cliente Mostrador'}</strong></td>
+                <td>${itemsListHTML}</td>
                 <td class="text-right"><strong>${formatCOP(s.grandTotal)}</strong></td>
-                <td>${s.paymentMethod}</td>
-                <td>${s.user}</td>
+                <td><span style="background:#FAF4F7; padding:2px 6px; border-radius:4px; font-size:0.8rem;">${s.paymentMethod}</span></td>
+                <td><small>${s.user}</small></td>
               </tr>
             `;
-  }).join('')}
+          }).join('')}
         </tbody>
       </table>
     </body>
@@ -41576,7 +41807,9 @@ function initUIEvents() {
   document.getElementById("pos-monthly-search")?.addEventListener("input", () => renderMonthlyDetailTable());
   document.getElementById("pos-monthly-filter-method")?.addEventListener("change", () => renderMonthlyDetailTable());
   document.getElementById("pos-monthly-filter-day")?.addEventListener("change", () => renderMonthlyDetailTable());
+  document.getElementById("pos-monthly-product-search")?.addEventListener("input", () => renderMonthlyProductsTable());
   document.getElementById("btn-export-monthly-csv")?.addEventListener("click", exportMonthlySalesCSV);
+  document.getElementById("btn-export-monthly-products-csv")?.addEventListener("click", exportMonthlyProductsCSV);
   document.getElementById("btn-print-monthly-report")?.addEventListener("click", printMonthlyReport);
 
   // Link en escáner directo a POS

@@ -13,7 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="icon" type="image/png" href="public/img/Logo%20luna%20sin%20fondo.png">
-  <link rel="stylesheet" href="style.css?v=20261119_sales_edit">
+  <link rel="stylesheet" href="style.css?v=20261119_monthly_products_v2">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- JsBarcode para generación de códigos de barra imprimibles -->
@@ -537,6 +537,42 @@
                   </thead>
                   <tbody id="pos-monthly-days-tbody">
                     <!-- Filas agrupadas día a día -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Resumen Consolidado de Productos Vendidos en el Mes -->
+            <div class="pos-monthly-detail-card" style="margin-bottom: 2rem;">
+              <div class="monthly-detail-header">
+                <div class="detail-title-group">
+                  <h3><i data-lucide="package-check"></i> Productos Vendidos en el Mes (Consolidado)</h3>
+                  <span class="badge" id="pos-monthly-products-badge">0 referencias</span>
+                </div>
+                <div class="monthly-toolbar-actions">
+                  <div class="search-box">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="pos-monthly-product-search" placeholder="Buscar por producto, marca o categoría...">
+                  </div>
+                  <button type="button" id="btn-export-monthly-products-csv" class="btn btn-secondary-sm" title="Descargar productos vendidos del mes en Excel / CSV">
+                    <i data-lucide="file-spreadsheet"></i> Exportar Productos Mes (CSV)
+                  </button>
+                </div>
+              </div>
+
+              <div class="table-responsive-container">
+                <table class="luna-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 52px; text-align: center;">Foto</th>
+                      <th>Producto & Marca</th>
+                      <th>Categoría</th>
+                      <th style="text-align: center; width: 130px;">Unidades Vendidas</th>
+                      <th style="text-align: right; width: 140px;">Total Recaudado</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pos-monthly-products-tbody">
+                    <!-- Filas renderizadas dinámicamente -->
                   </tbody>
                 </table>
               </div>
@@ -2024,7 +2060,7 @@
 
   <!-- SCRIPT PRINCIPAL -->
   <script src="product-images.js?v=20261114_multi_v5"></script>
-  <script src="app.js?v=20261119_sales_edit"></script>
+  <script src="app.js?v=20261119_monthly_products_v2"></script>
 </body>
 
 </html>
