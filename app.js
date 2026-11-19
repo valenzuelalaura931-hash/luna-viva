@@ -38619,6 +38619,10 @@ function openPhotoModal(productId) {
   const modal = document.getElementById("modal-photo-editor");
   if (!modal) return;
 
+  if (window.history && window.history.pushState) {
+    window.history.pushState({ modalId: 'modal-photo-editor' }, '');
+  }
+
   document.getElementById("modal-photo-prod-name").textContent = prod.name;
   document.getElementById("modal-photo-prod-info").textContent = `${prod.brand || 'Luna Viva'} · Código: ${prod.barcode || prod.id} · Ref: ${prod.id}`;
   document.getElementById("photo-editor-prod-id").value = prod.id;
@@ -39084,22 +39088,31 @@ function initProductModal() {
     }
     populateBrandFilters();
 
-    // Resetear filtros del catálogo para mostrar el nuevo producto inmediatamente
-    const searchInput = document.getElementById("catalog-search-input");
-    if (searchInput) searchInput.value = "";
-    const filterCat = document.getElementById("filter-category");
-    if (filterCat) filterCat.value = "ALL";
-    const filterBr = document.getElementById("filter-brand");
-    if (filterBr) filterBr.value = "ALL";
-    const filterSt = document.getElementById("filter-stock");
-    if (filterSt) filterSt.value = "ALL";
+    // Solo resetear si es un producto NUEVO (para verlo de inmediato al tope)
+    // Si se está editando un producto existente, PRESERVAR búsqueda y marcas activas
+    if (!id) {
+      const searchInput = document.getElementById("catalog-search-input");
+      if (searchInput) searchInput.value = "";
+      try { sessionStorage.removeItem("lv_catalog_search"); } catch (e) {}
+      const filterCat = document.getElementById("filter-category");
+      if (filterCat) filterCat.value = "ALL";
+      try { sessionStorage.removeItem("lv_catalog_category"); } catch (e) {}
+      const filterBr = document.getElementById("filter-brand");
+      if (filterBr) filterBr.value = "ALL";
+      try { sessionStorage.removeItem("lv_catalog_brand"); } catch (e) {}
+      const filterSt = document.getElementById("filter-stock");
+      if (filterSt) filterSt.value = "ALL";
+      try { sessionStorage.removeItem("lv_catalog_stock"); } catch (e) {}
+    } else {
+      restoreCatalogFilters();
+    }
 
     renderCatalogTable();
     renderKardexTable();
     renderPOS();
     initBarcodeGeneratorTab();
     closeModal();
-    switchTab("tab-catalog");
+    switchTab("tab-catalog", false);
   });
 }
 
@@ -39107,6 +39120,10 @@ function openProductModal(product = null) {
   const modal = document.getElementById("modal-product");
   const title = document.getElementById("modal-product-title");
   if (!modal) return;
+
+  if (window.history && window.history.pushState) {
+    window.history.pushState({ modalId: 'modal-product' }, '');
+  }
 
   if (product) {
     title.textContent = `Editar Producto: ${product.name}`;
@@ -40336,19 +40353,26 @@ function sendTicketWhatsApp(sale) {
     finalPhone = "57" + rawPhone;
   }
 
+  // Si no tiene teléfono configurado, abrir modal de edición para ingresarlo fácilmente
+  if (!rawPhone || rawPhone.length < 7) {
+    showToast("Ingresa el número de WhatsApp para enviarle el comprobante", "info");
+    openEditSaleModal(sale.id);
+    return;
+  }
+
   const d = new Date(sale.timestamp);
   const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
 
-  const itemsText = sale.items.map(it => `• ${it.quantity}x ${it.name} (${it.brand}) - ${formatCOP(it.price * it.quantity)}`).join("\n");
+  const itemsText = (sale.items || []).map(it => `• ${it.quantity}x ${it.name} (${it.brand}) - ${formatCOP(it.price * it.quantity)}`).join("\n");
 
   const messageText = `🌸 *LUNA VIVA - Boutique de Belleza* 🌸
 📍 Calarcá, Quindío · Colombia
 
-¡Hola ${sale.customerName}! ✨ Gracias por tu compra en Luna Viva:
+¡Hola ${sale.customerName || 'Clienta'}! ✨ Gracias por tu compra en Luna Viva:
 
 🧾 *Ticket:* ${sale.id}
 📅 *Fecha:* ${dateFormatted}
-👩‍💼 *Atendido por:* ${sale.user}
+👩‍💼 *Atendido por:* ${sale.user || 'Laura'}
 
 🛍️ *Productos:*
 ${itemsText}
@@ -40356,15 +40380,12 @@ ${itemsText}
 ───────────────────
 *Subtotal:* ${formatCOP(sale.subtotal)}
 ${sale.discountAmount > 0 ? `*Descuento especial:* -${formatCOP(sale.discountAmount)}\n` : ''}✨ *TOTAL PAGADO:* ${formatCOP(sale.grandTotal)}
-💳 *Método de Pago:* ${sale.paymentMethod}
+💳 *Método de Pago:* ${sale.paymentMethod || 'Efectivo'}
 
 ¡Haz brillar tu belleza y tu resplandor único! 💕✨
 Instagram: @lunaviva.co`;
 
-  const waUrl = finalPhone.length >= 10
-    ? `https://api.whatsapp.com/send?phone=${finalPhone}&text=${encodeURIComponent(messageText)}`
-    : `https://api.whatsapp.com/send?text=${encodeURIComponent(messageText)}`;
-
+  const waUrl = `https://api.whatsapp.com/send?phone=${finalPhone}&text=${encodeURIComponent(messageText)}`;
   window.open(waUrl, "_blank");
 }
 
@@ -40374,6 +40395,63 @@ function printTicketReceipt() {
   setTimeout(() => {
     document.body.classList.remove("printing-receipt");
   }, 1000);
+}
+
+// ----------------------------------------------------------------------------
+// RENDERIZADOR DE FILA DE SALIDA / VENTA PARA TABLAS DE HISTORIAL
+// ----------------------------------------------------------------------------
+function renderSaleRowHTML(s) {
+  const d = new Date(s.timestamp);
+  const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+  const itemsPreview = (s.items && Array.isArray(s.items))
+    ? s.items.map(i => `${i.quantity}x ${i.name}`).join(", ")
+    : "-";
+  const cleanPhone = s.customerPhone ? s.customerPhone.replace(/\D/g, '') : '';
+
+  return `
+    <tr>
+      <td>
+        <strong class="barcode-badge-mono" style="cursor:pointer;" title="Clic para ver productos de la compra" onclick="viewSaleDetail('${s.id}')">
+          ${s.id}
+        </strong>
+      </td>
+      <td><small>${dateFormatted}</small></td>
+      <td><strong>${s.customerName || 'Cliente Mostrador'}</strong></td>
+      <td>
+        ${s.customerPhone ? `
+          <div style="display:inline-flex; align-items:center; gap:4px;">
+            <a href="https://wa.me/57${cleanPhone}" target="_blank" class="btn-phone-quick has-phone" title="Abrir chat en WhatsApp">
+              <i data-lucide="message-circle" style="width:13px;height:13px;"></i> ${s.customerPhone}
+            </a>
+            <button type="button" class="btn-action-icon" style="width:24px;height:24px;padding:2px;" title="Editar o cambiar teléfono" onclick="openEditSaleModal('${s.id}')">
+              <i data-lucide="pencil" style="width:12px;height:12px;"></i>
+            </button>
+          </div>
+        ` : `
+          <button type="button" class="btn-phone-quick no-phone" onclick="openEditSaleModal('${s.id}')" title="Agregar número de teléfono / WhatsApp">
+            <i data-lucide="plus" style="width:12px;height:12px;"></i> Teléfono
+          </button>
+        `}
+      </td>
+      <td>
+        <button type="button" class="btn-products-preview" onclick="viewSaleDetail('${s.id}')" title="Clic para ver desglose de productos vendidos">
+          <i data-lucide="package" style="width:14px;height:14px;color:var(--rose-deep);flex-shrink:0;"></i>
+          <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:200px;">
+            ${s.totalUnits} prods <span style="font-weight:normal; color:var(--text-muted); font-size:0.75rem;">(${itemsPreview})</span>
+          </span>
+        </button>
+      </td>
+      <td><strong style="color:var(--rose-deep);">${formatCOP(s.grandTotal || 0)}</strong></td>
+      <td><span class="badge-tag">${s.paymentMethod || 'Efectivo'}</span></td>
+      <td><small>${s.user || 'Laura'}</small></td>
+      <td class="text-right" style="white-space:nowrap;">
+        <button type="button" class="btn-action-icon" title="Ver productos de esta salida" onclick="viewSaleDetail('${s.id}')"><i data-lucide="eye"></i></button>
+        <button type="button" class="btn-action-icon" title="Editar venta (teléfono, clienta, pago)" onclick="openEditSaleModal('${s.id}')"><i data-lucide="pencil"></i></button>
+        <button type="button" class="btn-action-icon" title="Ver e imprimir comprobante" onclick="reprintTicket('${s.id}')"><i data-lucide="printer"></i></button>
+        <button type="button" class="btn-action-icon" title="Enviar por WhatsApp" onclick="resendWhatsApp('${s.id}')"><i data-lucide="message-circle"></i></button>
+      </td>
+    </tr>
+  `;
 }
 
 // ----------------------------------------------------------------------------
@@ -40471,28 +40549,7 @@ function renderSalesHistoryView() {
     return;
   }
 
-  tbody.innerHTML = filtered.map(s => {
-    const d = new Date(s.timestamp);
-    const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
-    const itemsPreview = (s.items || []).map(i => `${i.quantity}x ${i.name}`).join(", ");
-
-    return `
-      <tr>
-        <td><strong class="barcode-badge-mono">${s.id}</strong></td>
-        <td><small>${dateFormatted}</small></td>
-        <td><strong>${s.customerName}</strong></td>
-        <td>${s.customerPhone ? `<a href="https://wa.me/57${s.customerPhone.replace(/\D/g, '')}" target="_blank" style="color:var(--success); font-weight:600;"><i data-lucide="message-circle" style="width:13px;height:13px;display:inline;"></i> ${s.customerPhone}</a>` : '<span class="text-muted">-</span>'}</td>
-        <td><span title="${itemsPreview}" style="max-width:200px; display:inline-block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${s.totalUnits} prods (${itemsPreview})</span></td>
-        <td><strong style="color:var(--rose-deep);">${formatCOP(s.grandTotal)}</strong></td>
-        <td><span class="badge-tag">${s.paymentMethod}</span></td>
-        <td><small>${s.user}</small></td>
-        <td class="text-right">
-          <button class="btn-action-icon" title="Ver e imprimir comprobante" onclick="reprintTicket('${s.id}')"><i data-lucide="printer"></i></button>
-          <button class="btn-action-icon" title="Enviar por WhatsApp" onclick="resendWhatsApp('${s.id}')"><i data-lucide="message-circle"></i></button>
-        </td>
-      </tr>
-    `;
-  }).join("");
+  tbody.innerHTML = filtered.map(s => renderSaleRowHTML(s)).join("");
 
   if (window.lucide) lucide.createIcons();
 }
@@ -40665,28 +40722,7 @@ function renderMonthlyDetailTable(monthSalesInput = null) {
     return;
   }
 
-  tbody.innerHTML = filtered.map(s => {
-    const d = new Date(s.timestamp);
-    const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
-    const itemsPreview = (s.items || []).map(i => `${i.quantity}x ${i.name}`).join(", ");
-
-    return `
-      <tr>
-        <td><strong class="barcode-badge-mono">${s.id}</strong></td>
-        <td><small>${dateFormatted}</small></td>
-        <td><strong>${s.customerName}</strong></td>
-        <td>${s.customerPhone ? `<a href="https://wa.me/57${s.customerPhone.replace(/\D/g, '')}" target="_blank" style="color:var(--success); font-weight:600;"><i data-lucide="message-circle" style="width:13px;height:13px;display:inline;"></i> ${s.customerPhone}</a>` : '<span class="text-muted">-</span>'}</td>
-        <td><span title="${itemsPreview}" style="max-width:200px; display:inline-block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${s.totalUnits} prods (${itemsPreview})</span></td>
-        <td><strong style="color:var(--rose-deep);">${formatCOP(s.grandTotal)}</strong></td>
-        <td><span class="badge-tag">${s.paymentMethod}</span></td>
-        <td><small>${s.user}</small></td>
-        <td class="text-right">
-          <button class="btn-action-icon" title="Ver e imprimir comprobante" onclick="reprintTicket('${s.id}')"><i data-lucide="printer"></i></button>
-          <button class="btn-action-icon" title="Enviar por WhatsApp" onclick="resendWhatsApp('${s.id}')"><i data-lucide="message-circle"></i></button>
-        </td>
-      </tr>
-    `;
-  }).join("");
+  tbody.innerHTML = filtered.map(s => renderSaleRowHTML(s)).join("");
 
   if (window.lucide) lucide.createIcons();
 }
@@ -40723,6 +40759,250 @@ window.resendWhatsApp = function (ticketId) {
   const sale = state.salesHistory.find(s => s.id === ticketId);
   if (sale) sendTicketWhatsApp(sale);
 };
+
+// ----------------------------------------------------------------------------
+// MODAL: VER DETALLE DE PRODUCTOS POR VENTA
+// ----------------------------------------------------------------------------
+window.viewSaleDetail = function (ticketId) {
+  const sale = state.salesHistory.find(s => s.id === ticketId);
+  if (!sale) {
+    showToast("No se encontró la venta " + ticketId, "error");
+    return;
+  }
+
+  const modal = document.getElementById("modal-sale-detail");
+  if (!modal) return;
+
+  const d = new Date(sale.timestamp);
+  const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+
+  document.getElementById("sale-detail-title").textContent = `Detalle de Salida · ${sale.id}`;
+  document.getElementById("sale-detail-subtitle").textContent = `${dateFormatted} · ${sale.totalUnits || 0} piezas · Atendido por ${sale.user || 'Laura'}`;
+  document.getElementById("sale-detail-id").textContent = sale.id;
+  document.getElementById("sale-detail-date").textContent = dateFormatted;
+  document.getElementById("sale-detail-customer").textContent = sale.customerName || "Cliente Mostrador";
+
+  const phoneWrapper = document.getElementById("sale-detail-phone-wrapper");
+  if (phoneWrapper) {
+    if (sale.customerPhone) {
+      const cleanPhone = sale.customerPhone.replace(/\D/g, '');
+      phoneWrapper.innerHTML = `
+        <a href="https://wa.me/57${cleanPhone}" target="_blank" class="btn-phone-quick has-phone" title="Abrir chat en WhatsApp">
+          <i data-lucide="message-circle" style="width:13px;height:13px;"></i> ${sale.customerPhone}
+        </a>
+        <button type="button" class="btn-action-icon" style="width:24px;height:24px;padding:2px;" title="Editar o cambiar teléfono" onclick="openEditSaleModal('${sale.id}')">
+          <i data-lucide="pencil" style="width:12px;height:12px;"></i>
+        </button>
+      `;
+    } else {
+      phoneWrapper.innerHTML = `
+        <button type="button" class="btn-phone-quick no-phone" onclick="openEditSaleModal('${sale.id}')" title="Agregar número de teléfono / WhatsApp">
+          <i data-lucide="plus" style="width:12px;height:12px;"></i> + Agregar Teléfono
+        </button>
+      `;
+    }
+  }
+
+  const payRefText = sale.paymentReference ? ` (Ref: ${sale.paymentReference})` : "";
+  document.getElementById("sale-detail-payment").textContent = `${sale.paymentMethod || 'Efectivo'}${payRefText}`;
+  document.getElementById("sale-detail-user-channel").textContent = `${sale.user || 'Laura'} · ${sale.channel || 'Punto Físico (Calarcá)'}`;
+
+  // Tabla de items
+  const itemsCountEl = document.getElementById("sale-detail-items-count");
+  if (itemsCountEl) itemsCountEl.textContent = `${sale.items?.length || 0} refs (${sale.totalUnits || 0} un.)`;
+
+  const tbody = document.getElementById("sale-detail-items-tbody");
+  if (tbody) {
+    if (!sale.items || sale.items.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:1.5rem; color:var(--text-muted);">No se registraron productos para este comprobante.</td></tr>`;
+    } else {
+      tbody.innerHTML = sale.items.map(it => {
+        let imgUrl = DEFAULT_LOGO_FALLBACK;
+        if (typeof getProductImage === "function" && it.productId) {
+          imgUrl = getProductImage(it.productId);
+        } else if (it.image) {
+          imgUrl = it.image;
+        }
+        const subtotalItem = (it.price || 0) * (it.quantity || 1);
+        return `
+          <tr>
+            <td style="text-align: center;">
+              <img src="${imgUrl}" alt="${it.name || ''}" class="sale-item-thumb" onerror="this.src=DEFAULT_LOGO_FALLBACK">
+            </td>
+            <td>
+              <div style="font-weight: 600; color: var(--text-main); font-size: 0.88rem;">${it.name}</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); display:flex; gap:8px; margin-top:2px;">
+                <span>Marca: <b>${it.brand || '-'}</b></span>
+                ${it.category ? `<span>Cat: <b>${it.category}</b></span>` : ''}
+                ${it.barcode ? `<span>Cód: <code>${it.barcode}</code></span>` : ''}
+              </div>
+            </td>
+            <td style="text-align: center;">
+              <span style="background: #fdf2f4; color: var(--rose-deep); font-weight: 700; padding: 3px 8px; border-radius: 6px; font-size: 0.82rem;">
+                ${it.quantity} un.
+              </span>
+            </td>
+            <td style="text-align: right; color: var(--text-secondary); font-size: 0.85rem;">
+              ${formatCOP(it.price || 0)}
+            </td>
+            <td style="text-align: right; font-weight: 700; color: var(--rose-deep); font-size: 0.9rem;">
+              ${formatCOP(subtotalItem)}
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+  }
+
+  // Totales
+  document.getElementById("sale-detail-subtotal").textContent = formatCOP(sale.subtotal || 0);
+  const discountRow = document.getElementById("sale-detail-discount-row");
+  if (discountRow) {
+    if (sale.discountAmount > 0) {
+      discountRow.style.display = "flex";
+      document.getElementById("sale-detail-discount").textContent = `-${formatCOP(sale.discountAmount)}`;
+    } else {
+      discountRow.style.display = "none";
+    }
+  }
+  document.getElementById("sale-detail-grand-total").textContent = formatCOP(sale.grandTotal || 0);
+
+  const cashRow = document.getElementById("sale-detail-cash-row");
+  if (cashRow) {
+    if (sale.paymentMethod === "Efectivo" && sale.cashReceived > 0) {
+      cashRow.style.display = "flex";
+      document.getElementById("sale-detail-cash-received").textContent = formatCOP(sale.cashReceived);
+      document.getElementById("sale-detail-cash-change").textContent = formatCOP(sale.cashChange);
+    } else {
+      cashRow.style.display = "none";
+    }
+  }
+
+  const notesRow = document.getElementById("sale-detail-notes-row");
+  const notesText = document.getElementById("sale-detail-notes-text");
+  if (notesRow && notesText) {
+    if (sale.notes && sale.notes.trim()) {
+      notesRow.style.display = "block";
+      notesText.textContent = sale.notes;
+    } else {
+      notesRow.style.display = "none";
+    }
+  }
+
+  // Acciones
+  const btnEdit = document.getElementById("btn-sale-detail-edit");
+  if (btnEdit) {
+    btnEdit.onclick = () => {
+      openEditSaleModal(sale.id);
+    };
+  }
+  const btnTicket = document.getElementById("btn-sale-detail-ticket");
+  if (btnTicket) {
+    btnTicket.onclick = () => {
+      modal.style.display = "none";
+      reprintTicket(sale.id);
+    };
+  }
+  const btnWa = document.getElementById("btn-sale-detail-whatsapp");
+  if (btnWa) {
+    btnWa.onclick = () => {
+      sendTicketWhatsApp(sale);
+    };
+  }
+
+  modal.style.display = "flex";
+  if (window.lucide) lucide.createIcons();
+};
+
+// ----------------------------------------------------------------------------
+// MODAL: EDITAR DATOS DE LA VENTA (TELÉFONO, CLIENTA, PAGO, NOTAS)
+// ----------------------------------------------------------------------------
+window.openEditSaleModal = function (ticketId) {
+  const sale = state.salesHistory.find(s => s.id === ticketId);
+  if (!sale) {
+    showToast("No se encontró la venta " + ticketId, "error");
+    return;
+  }
+
+  const modal = document.getElementById("modal-edit-sale");
+  if (!modal) return;
+
+  const d = new Date(sale.timestamp);
+  const dateFormatted = `${d.toLocaleDateString('es-CO')} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+
+  document.getElementById("edit-sale-id").value = sale.id;
+  document.getElementById("edit-sale-subtitle").textContent = `Ticket ${sale.id} · ${dateFormatted} · Total: ${formatCOP(sale.grandTotal || 0)}`;
+  document.getElementById("edit-sale-phone").value = sale.customerPhone || "";
+  document.getElementById("edit-sale-customer").value = sale.customerName || "Cliente Mostrador";
+  document.getElementById("edit-sale-method").value = sale.paymentMethod || "Efectivo";
+  document.getElementById("edit-sale-reference").value = sale.paymentReference || "";
+  document.getElementById("edit-sale-channel").value = sale.channel || "Punto Físico (Calarcá)";
+  document.getElementById("edit-sale-notes").value = sale.notes || "";
+
+  modal.style.display = "flex";
+  if (window.lucide) lucide.createIcons();
+
+  // Enfocar directamente en el teléfono para que Laura o el usuario pueda escribir de inmediato
+  setTimeout(() => {
+    const phoneInput = document.getElementById("edit-sale-phone");
+    if (phoneInput) {
+      phoneInput.focus();
+      phoneInput.select();
+    }
+  }, 100);
+};
+
+function saveEditedSale(e) {
+  if (e) e.preventDefault();
+
+  const ticketId = document.getElementById("edit-sale-id")?.value;
+  if (!ticketId) return;
+
+  const sale = state.salesHistory.find(s => s.id === ticketId);
+  if (!sale) {
+    showToast("Error: Venta no encontrada", "error");
+    return;
+  }
+
+  const newPhone = (document.getElementById("edit-sale-phone")?.value || "").trim();
+  const newCustomer = (document.getElementById("edit-sale-customer")?.value || "").trim() || "Cliente Mostrador";
+  const newMethod = document.getElementById("edit-sale-method")?.value || "Efectivo";
+  const newReference = (document.getElementById("edit-sale-reference")?.value || "").trim();
+  const newChannel = document.getElementById("edit-sale-channel")?.value || "Punto Físico (Calarcá)";
+  const newNotes = (document.getElementById("edit-sale-notes")?.value || "").trim();
+
+  sale.customerPhone = newPhone;
+  sale.customerName = newCustomer;
+  sale.paymentMethod = newMethod;
+  sale.paymentReference = newReference;
+  sale.channel = newChannel;
+  sale.notes = newNotes;
+
+  // Persistir en LocalStorage y Backend
+  saveSalesHistory(true);
+
+  // Sincronizar directo con Supabase
+  if (typeof syncDirectToSupabase === "function") {
+    syncDirectToSupabase("sales", sale);
+  }
+
+  // Cerrar modal de edición
+  const modalEdit = document.getElementById("modal-edit-sale");
+  if (modalEdit) modalEdit.style.display = "none";
+
+  // Si el modal de detalle de venta estaba abierto, actualizarlo con los nuevos datos
+  const modalDetail = document.getElementById("modal-sale-detail");
+  if (modalDetail && modalDetail.style.display === "flex") {
+    viewSaleDetail(sale.id);
+  }
+
+  // Refrescar las tablas
+  renderSalesHistoryView();
+  renderMonthlyDetailTable();
+
+  showToast(`¡Venta ${sale.id} actualizada con éxito!`, "success");
+}
+window.saveEditedSale = saveEditedSale;
 
 function exportSalesCSV() {
   const targetDateKey = state.historyDateMode === "today" ? getLocalDateKey(new Date()) : (state.historyDateMode === "yesterday" ? getLocalDateKey(Date.now() - 86400000) : (state.historyDateMode === "custom" ? state.historyCustomDate : null));
@@ -40948,20 +41228,32 @@ function initUIEvents() {
     qtyInput.value = current + 1;
   });
 
-  // Filtros del catálogo
-  document.getElementById("catalog-search-input")?.addEventListener("input", () => {
+  // Filtros del catálogo con persistencia (recuerda búsqueda, marca, categoría y stock al volver atrás)
+  document.getElementById("catalog-search-input")?.addEventListener("input", (e) => {
+    const val = e.target.value;
     const clearBtn = document.getElementById("btn-clear-search");
-    if (clearBtn) clearBtn.style.display = document.getElementById("catalog-search-input").value ? "flex" : "none";
+    if (clearBtn) clearBtn.style.display = val ? "flex" : "none";
+    try { sessionStorage.setItem("lv_catalog_search", val); } catch (err) {}
     renderCatalogTable();
   });
   document.getElementById("btn-clear-search")?.addEventListener("click", () => {
     document.getElementById("catalog-search-input").value = "";
     document.getElementById("btn-clear-search").style.display = "none";
+    try { sessionStorage.removeItem("lv_catalog_search"); } catch (err) {}
     renderCatalogTable();
   });
-  document.getElementById("filter-category")?.addEventListener("change", renderCatalogTable);
-  document.getElementById("filter-brand")?.addEventListener("change", renderCatalogTable);
-  document.getElementById("filter-stock")?.addEventListener("change", renderCatalogTable);
+  document.getElementById("filter-category")?.addEventListener("change", (e) => {
+    try { sessionStorage.setItem("lv_catalog_category", e.target.value); } catch (err) {}
+    renderCatalogTable();
+  });
+  document.getElementById("filter-brand")?.addEventListener("change", (e) => {
+    try { sessionStorage.setItem("lv_catalog_brand", e.target.value); } catch (err) {}
+    renderCatalogTable();
+  });
+  document.getElementById("filter-stock")?.addEventListener("change", (e) => {
+    try { sessionStorage.setItem("lv_catalog_stock", e.target.value); } catch (err) {}
+    renderCatalogTable();
+  });
 
   // Toggle vista tabla vs cuadrícula
   const btnViewTable = document.getElementById("btn-view-table");
@@ -41188,6 +41480,39 @@ function initUIEvents() {
     document.getElementById("modal-pos-ticket").style.display = "none";
     createNewAccount();
   });
+  document.getElementById("btn-ticket-edit-sale")?.addEventListener("click", () => {
+    if (currentPrintedSale) {
+      document.getElementById("modal-pos-ticket").style.display = "none";
+      openEditSaleModal(currentPrintedSale.id);
+    }
+  });
+
+  // Eventos Modal Detalle de Venta (Productos)
+  document.getElementById("btn-close-modal-sale-detail")?.addEventListener("click", () => {
+    document.getElementById("modal-sale-detail").style.display = "none";
+  });
+  document.getElementById("btn-sale-detail-close")?.addEventListener("click", () => {
+    document.getElementById("modal-sale-detail").style.display = "none";
+  });
+  document.getElementById("modal-sale-detail")?.addEventListener("click", (e) => {
+    if (e.target.id === "modal-sale-detail") {
+      document.getElementById("modal-sale-detail").style.display = "none";
+    }
+  });
+
+  // Eventos Modal Editar Venta (Teléfono, Clienta, Pago, Notas)
+  document.getElementById("btn-close-modal-edit-sale")?.addEventListener("click", () => {
+    document.getElementById("modal-edit-sale").style.display = "none";
+  });
+  document.getElementById("btn-cancel-modal-edit-sale")?.addEventListener("click", () => {
+    document.getElementById("modal-edit-sale").style.display = "none";
+  });
+  document.getElementById("modal-edit-sale")?.addEventListener("click", (e) => {
+    if (e.target.id === "modal-edit-sale") {
+      document.getElementById("modal-edit-sale").style.display = "none";
+    }
+  });
+  document.getElementById("form-edit-sale")?.addEventListener("submit", saveEditedSale);
 
   // Presets de Fecha en Historial del Día
   document.getElementById("btn-date-today")?.addEventListener("click", () => {
@@ -41261,8 +41586,13 @@ function initUIEvents() {
   });
 }
 
-function switchTab(tabId) {
+function switchTab(tabId, pushHistory = true) {
   state.activeTab = tabId;
+  if (pushHistory && window.history && window.history.pushState) {
+    if (window.location.hash !== '#' + tabId) {
+      window.history.pushState({ tab: tabId }, '', '#' + tabId);
+    }
+  }
   document.querySelectorAll(".nav-item").forEach(item => {
     item.classList.toggle("active", item.getAttribute("data-tab") === tabId);
   });
@@ -41289,7 +41619,10 @@ function switchTab(tabId) {
     if (state.activePOSView === "history") renderSalesHistoryView();
     setTimeout(() => document.getElementById("pos-barcode-search-input")?.focus(), 150);
   }
-  if (tabId === "tab-catalog") renderCatalogTable();
+  if (tabId === "tab-catalog") {
+    restoreCatalogFilters();
+    renderCatalogTable();
+  }
   if (tabId === "tab-kardex") renderKardexTable();
   if (tabId === "tab-barcode-generator") initBarcodeGeneratorTab();
   if (tabId === "tab-analytics") updateBadgesAndKPIs();
@@ -41337,19 +41670,52 @@ function updateModePills() {
   }
 }
 
+function restoreCatalogFilters() {
+  try {
+    const searchInput = document.getElementById("catalog-search-input");
+    const clearBtn = document.getElementById("btn-clear-search");
+    const filterCat = document.getElementById("filter-category");
+    const filterBr = document.getElementById("filter-brand");
+    const filterSt = document.getElementById("filter-stock");
+
+    const savedSearch = sessionStorage.getItem("lv_catalog_search");
+    if (savedSearch !== null && searchInput) {
+      searchInput.value = savedSearch;
+      if (clearBtn) clearBtn.style.display = savedSearch ? "flex" : "none";
+    }
+
+    const savedCat = sessionStorage.getItem("lv_catalog_category");
+    if (savedCat !== null && filterCat) {
+      filterCat.value = savedCat;
+    }
+
+    const savedStock = sessionStorage.getItem("lv_catalog_stock");
+    if (savedStock !== null && filterSt) {
+      filterSt.value = savedStock;
+    }
+
+    const savedBrand = sessionStorage.getItem("lv_catalog_brand");
+    if (savedBrand !== null && filterBr) {
+      filterBr.value = savedBrand;
+    }
+  } catch (e) {}
+}
+
 function populateBrandFilters() {
   const brandSelect = document.getElementById("filter-brand");
   if (!brandSelect) return;
 
-  const currentVal = brandSelect.value;
+  let savedBrand = null;
+  try { savedBrand = sessionStorage.getItem("lv_catalog_brand"); } catch (e) {}
+  const targetVal = (savedBrand !== null && savedBrand !== undefined) ? savedBrand : (brandSelect.value || "ALL");
   const brands = Array.from(new Set(state.products.map(p => (p.brand || "").trim()).filter(Boolean)))
     .sort((a, b) => a.localeCompare(b, 'es'));
 
   brandSelect.innerHTML = `<option value="ALL">Todas las Marcas (${brands.length})</option>` +
     brands.map(b => `<option value="${b}">${b}</option>`).join("");
 
-  if (currentVal && (currentVal === "ALL" || brands.includes(currentVal))) {
-    brandSelect.value = currentVal;
+  if (targetVal && (targetVal === "ALL" || brands.includes(targetVal))) {
+    brandSelect.value = targetVal;
   }
 }
 
@@ -41366,6 +41732,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initImportExportModule();
   initCameraScanner();
   populateBrandFilters();
+  restoreCatalogFilters();
   renderPOS();
   initProductImages();
   initPhotoEditorModal();
@@ -41380,6 +41747,31 @@ document.addEventListener("DOMContentLoaded", () => {
   updateOpenAccountsBadge();
 
   if (window.lucide) lucide.createIcons();
+
+  // Historial del navegador: soportar botón "Atrás" sin reiniciar filtros
+  if (window.history && window.history.replaceState) {
+    const initialTab = window.location.hash ? window.location.hash.replace("#", "") : (state.activeTab || "tab-pos-accounts");
+    window.history.replaceState({ tab: initialTab }, "", window.location.hash || ("#" + initialTab));
+  }
+
+  window.addEventListener("popstate", (e) => {
+    // 1. Si algún modal está visible al dar Atrás, cerrarlo manteniendo el catálogo y sus filtros
+    const openModals = Array.from(document.querySelectorAll(".modal")).filter(m => m && m.style.display && m.style.display !== "none");
+    if (openModals.length > 0) {
+      openModals.forEach(m => m.style.display = "none");
+      if (state.activeTab === "tab-catalog") {
+        restoreCatalogFilters();
+        renderCatalogTable();
+      }
+      return;
+    }
+
+    // 2. Si no había modal, regresar a la pestaña previa
+    const targetTab = e.state?.tab || (window.location.hash ? window.location.hash.replace("#", "") : "tab-catalog");
+    if (targetTab && document.getElementById(targetTab)) {
+      switchTab(targetTab, false);
+    }
+  });
 
   // Sincronización en tiempo real con Supabase
   fetchCloudSync(false);
@@ -41399,5 +41791,5 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("🌸 Luna Viva Inventory System & Cuentas de Clientes Inicializado con éxito.");
 });
 
-
+window.restoreCatalogFilters = restoreCatalogFilters;
 window.renderCatalogTable = renderCatalogTable;
