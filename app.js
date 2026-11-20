@@ -38493,6 +38493,16 @@ function setProductImage(productId, imageUrl) {
   const prod = state.products.find(p => p.id === productId);
   if (prod) {
     prod.image = imageUrl;
+    // Sincronizar también con Supabase notes para que el catálogo web se actualice y no pierda la foto
+    let meta = {};
+    if (prod.notes && prod.notes.trim().startsWith('{')) {
+      try { meta = JSON.parse(prod.notes); } catch (e) {}
+    }
+    meta.mainImage = imageUrl;
+    if (!meta.images || !Array.isArray(meta.images)) meta.images = [];
+    if (!meta.images.includes(imageUrl)) meta.images.unshift(imageUrl);
+    prod.notes = JSON.stringify(meta);
+    syncDirectToSupabase("products", prod);
   }
   updatePhotosBadge();
 }
@@ -39050,11 +39060,52 @@ function initProductModal() {
       // Editar producto existente
       const idx = state.products.findIndex(p => p.id === id);
       if (idx !== -1) {
-        state.products[idx] = { ...state.products[idx], barcode, name, category, brand, cost, price, stock, minStock, location, notes };
+        const prevProduct = state.products[idx];
+        let preservedNotes = notes;
+
+        // Preservar metadatos JSON de fotos y catálogo web si existían
+        if (prevProduct.notes && prevProduct.notes.trim().startsWith('{')) {
+          try {
+            const meta = JSON.parse(prevProduct.notes);
+            if (notes && !notes.startsWith('{')) {
+              meta.userNote = notes;
+            } else if (!notes) {
+              delete meta.userNote;
+            }
+            preservedNotes = JSON.stringify(meta);
+          } catch (e) {
+            preservedNotes = prevProduct.notes;
+          }
+        }
+
+        const photoVal = document.getElementById("prod-image-url")?.value.trim();
+        if (photoVal) {
+          setProductImage(id, photoVal);
+          try {
+            let meta = {};
+            if (preservedNotes.startsWith('{')) meta = JSON.parse(preservedNotes);
+            meta.mainImage = photoVal;
+            if (!meta.images || !Array.isArray(meta.images)) meta.images = [];
+            if (!meta.images.includes(photoVal)) meta.images.unshift(photoVal);
+            preservedNotes = JSON.stringify(meta);
+          } catch (e) {}
+        }
+
+        state.products[idx] = {
+          ...prevProduct,
+          barcode,
+          name,
+          category,
+          brand,
+          cost,
+          price,
+          stock,
+          minStock,
+          location,
+          notes: preservedNotes
+        };
         showToast(`Producto actualizado: ${name}`, "success");
         saveProducts(true, state.products[idx]);
-        const photoVal = document.getElementById("prod-image-url")?.value.trim();
-        if (photoVal) setProductImage(id, photoVal);
       }
     } else {
       // Crear nuevo producto con ID garantizado único
@@ -39142,7 +39193,14 @@ function openProductModal(product = null) {
     document.getElementById("prod-stock").value = product.stock;
     document.getElementById("prod-min-stock").value = product.minStock;
     document.getElementById("prod-location").value = product.location || "";
-    document.getElementById("prod-notes").value = product.notes || "";
+    let displayNote = product.notes || "";
+    if (displayNote.trim().startsWith('{')) {
+      try {
+        const meta = JSON.parse(displayNote);
+        displayNote = meta.userNote || "";
+      } catch (e) {}
+    }
+    document.getElementById("prod-notes").value = displayNote;
   } else {
     title.textContent = "Nuevo Producto en Catálogo";
     document.getElementById("form-product").reset();
